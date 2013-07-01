@@ -1,0 +1,410 @@
+%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Template for the papers to the case studies of Data Analytics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt, titlepage, headsepline, listof = totoc, bibliography = totoc, numbers = noenddot]{scrartcl}
+\usepackage[left = 3cm, right = 2cm, top = 2.2cm, bottom = 3.5cm]{geometry} % spaces on the sides of the paper
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{scrpage2}
+\frenchspacing
+
+\usepackage{bbm}
+\usepackage[labelfont=bf, font=footnotesize, tableposition=top]{caption}
+\DeclareCaptionType[fileext=los,placement={!ht}]{listing}
+%\usepackage{mdframed}
+\usepackage{boxedminipage}
+%\usepackage{chngcntr}
+%\def \lstWidth {0.9}
+
+\usepackage{float}
+
+\newcommand{\eg}{e.\,g. }
+\newcommand{\ie}{i.\,e. }
+
+%% path, where the figures are stored
+\graphicspath{{./images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% design of the head of the report pages
+
+\clearscrheadings                   	% clears all predefined formats voreingestellte Formatierungen
+\pagestyle{scrheadings}			% use this style only on the actual text
+\ohead{FirstName LastName}		% writes your name on each side in the upper right corner
+\automark{section}                  
+\ihead{\headmark}				% automatically writtes the section name in the upper left corner
+\cfoot{\pagemark}				% page number on the bottom (center)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% cover sheet
+
+\title{\hrulefill \\ \vspace*{1cm} Case Studies\\\vspace*{0.5cm}
+ "Data Analytics" \\ \vspace*{1cm}\hrulefill\vspace*{1.5cm}}
+\subtitle{Topic\\\vspace*{1.5cm} Summer Term 2013\vspace*{1.5cm}}
+\author{FirstName LastName}
+%\institute{e-mail}
+
+\usepackage{Sweave}
+\begin{document}
+\input{report-concordance}
+\thispagestyle{empty}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% table of contents
+
+\thispagestyle{empty}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% the document itself
+
+\newpage
+\setcounter{page}{1}
+\section{Introduction}
+
+\subsection{Normality as a requirement for statistical methods}
+
+\subsection{The glass data sample}
+
+\subsection{Aim and structure}
+
+\newpage
+\section{Preliminaries}
+
+\subsection{Test methods for normality}
+
+\subsubsection{Q-Q-plot}
+
+\subsubsection{Shapiro-Wilk test}
+
+\subsubsection{Pearson's chi-squared test}\label{sec:chisq-theoretical}
+Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to a given theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{report-chisqSampleHist}
+\caption{Exemplary histrograms of a data sample, expected densities for a normal distribution with parameters estimated from the sample and a combined histogram of these both histograms.}
+\label{fig:chisqSampleHist}
+\end{figure}
+If the histograms of the sample data and the expected densities are plotted together (see figure \ref{fig:chisqSampleHist}), the area of density that is not overlapped by both histograms can be understood as a kind of indicator for the likelihood that the sample is drawn from a population which is distributed according to the hypothetical distribution: The more area is not overlapping, the less likely it is that the sample is drawn from a population with the assumed distribution. However, the test statistic of the chi-squared test is calculated differently, namely by the sum of the squared differences between observed frequencies $O_k$ and expected frequencies $E_k$ divided by the expected frequencies for each class $k$ of the overall $K$ classes. Thus, the test statistic is calculated by
+\[\chi^2 = \sum_{k=1}^{K}\frac{(O_k - E_k)^2}{E_k}\]
+Larger differences of observed and expected values indicate a lower compliance to the assumed distribution. However, the addends are not weighted (neither by the size of a class nor by the frequencies within a class nor by any other means). Therefore, the class bounds should be chosen equidistant or in such a way that the classes contain preferably the same number of observations or according to similar reasonable rationales. The test statistic is approximately $\chi^2$-distributed with $K-1$ degrees of freedom -- the larger the sample size, the better the approximation. A sample size that is too small can be a reason for the approximation being insufficient. Moreover, for each parameter of the hypothetical distribution which is estimated from the data sample, one degree of freedom is lost; the number of estimated parameters is denoted by $p$. The test statistic is determined under the null hypothesis that the sample is distributed according to the assumed distribution and the chi-squared test is defined as
+%\[\phantom{\quad \textrm{with}\ F=\chi^2_{K-1-p}} \delta(Y) = \mathbbm{1}_{\{\chi^2\, >\, F^{-1}(1-\alpha)\}} \quad \mbox{with}\ F=\chi^2_{K-1-p}\]
+\[
+  \phantom{\quad\mbox{with}\ F=\chi^2_{K-1-p}}
+  \delta(Y) =
+   \left\{ 
+    \begin{array}{cll}
+%\vspace{12pt}
+                 1 & \mbox{if} \ \chi^2 > F^{-1}(1-\alpha)\\
+                 0 & \mbox{otherwise}
+    \end{array} 
+   \right.
+   \quad\mbox{with}\ F=\chi^2_{K-1-p}
+\]
+for a given significance level $\alpha$ where $Y$ is a multinomial distributed random variable denoting the counts of observations in each class with $Y_k = |\{i : X_i \in C_k\}|$.
+
+As a common requirement for a sufficient approximation, the minimum number of observations in each class should not fall below five. Hence, marginal or even inner classes have to be unified in some cases in order to achieve a sufficient class size. The following R-function is used here for this purpose.
+\begin{Schunk}
+\begin{Sinput}
+> # Calculates bounds of bins (classes) of a data sample.
+> # The initial bounds are given by initial_breaks,
+> # k denotes the minimum class size.
+> makebins = function(data, initial_breaks, k) {
++   h = hist(data, breaks=initial_breaks, plot=FALSE)
++   
++   br = h$breaks
++   changed = TRUE
++   
++   while(changed) {
++     h = hist(data, breaks=br, plot=FALSE)
++     br = h$breaks
++     changed=FALSE
++     
++     for(i in 1:length(h$counts)) {
++       if(h$counts[i] < k) {
++         if(i > 1 && i < length(h$counts)) {
++           if(h$counts[i-1] < h$counts[i+1]) {
++             br = br[-i]
++             changed = TRUE
++             break
++           }
++           else {
++             br = br[-(i+1)]
++             changed = TRUE
++             break
++           }
++         }
++         # index on first class
++         else if(i == 1) {
++           br = br[-2]
++           changed = TRUE
++           break
++         }
++         # index on last class
++         else {
++           br = br[-(length(h$counts))]
++           changed = TRUE
++           break
++         }
++       }
++     }
++   }
++   return(br)
++ }
+\end{Sinput}
+\end{Schunk}
+Further functions are needed for calculating the expected frequencies, the test statistic and the result of the test (since the mean and the standard deviation are estimated from the sample, two degrees of freedom are additionally lost):
+\begin{Schunk}
+\begin{Sinput}
+> # Calculates the expected probabilities of a normal distribution
+> # with the given parameters mean and sd
+> # for the given bin (class) bounds
+> probabilities.exp = function(bins, mean, sd) {
++   result = rep(0, length(bins)-1)
++   
++   result[1] = pnorm(q=bins[2], mean=mean, sd=sd)
++   
++   for(i in 2:(length(bins)-1)) {
++     result[i] <- pnorm(q=bins[i+1], mean=mean, sd=sd)
++       - pnorm(q=bins[i], mean=mean, sd=sd)
++   }
++   
++   result[length(bins)-1] = pnorm(q=bins[length(bins)-1],
++     mean=mean, sd=sd, lower.tail=FALSE)
++   
++   return(result)
++ }
+> # Returns the chi squared test statistics
+> # for the given actual and expected values.
+> teststat.chi = function(actual, expected) {
++   sum((actual - expected)^2 / expected)
++ }
+> # Performs a chi squared goodness of fit test on the given data
+> # for the assumption of a normal distribution.
+> # Returns true if the null hypothesis (sample drawn from a
+> # normal distributed population) is rejected, false otherwise.
+> # The parameters are estimated from the sample.
+> # The initial bounds for the classes are given by initial_breaks,
+> # min denotes the minimum class size.
+> # The significance level is determined by sig.
+> chisq.test.norm = function(data, initial_breaks, min, sig) {
++   bins = makebins(data, initial_breaks, min)
++   hist = hist(data, breaks=bins, plot=FALSE)
++   expected_probabilities = probabilities.exp(bins, mean(data), sd(data))
++   expected_frequencies = expected_probabilities * length(data)
++   teststat = teststat.chi(hist$counts, expected_frequencies)
++   
++   # length(bin) - 1 classes, 2 estimated parameters (mean, sd)
++   df=length(bins)-4
++   critical_value = ifelse(df < 1, NA, qchisq(p=1-sig, df=df))
++   
++   print(teststat > critical_value)
++   
++   return(list(hist = hist,
++               expected_probabilities = expected_probabilities,
++               expected_frequencies = expected_frequencies,
++               teststat = teststat,
++               critical_value = critical_value,
++               p_value =
++                 ifelse(df < 1, NA, 1 - pchisq(q=teststat, df=df)),
++               rejected = teststat > critical_value))
++ }
+\end{Sinput}
+\end{Schunk}
+A drawback of Pearson's chi-squared test is its inconsistency caused by information reduction, \ie information about the data sample is lost in the process of categorising the observations in classes. As a consequence, different class bounds can lead to different test results. Furthermore, this test is rather suited for large sample sizes.
+
+\subsubsection{Kolmogorov-Smirnov test}
+
+\subsection{Box-Cox-Transformation}
+
+
+
+\newpage
+\section{Testing the data sample for normality}
+
+\subsection{Testing original data}
+
+\subsubsection{Q-Q-plot}
+
+\subsubsection{Shapiro-Wilk test}
+
+\subsubsection{Pearson's chi-squared test}
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is not suited for rather small sample sizes because of the approximation via the chi-squared distribution. Concerning the given data, the samples of type 3 glass (17 observations), type 5 glass (13 observations) and type 6 glass (9 observations) are not large enough to ensure a viable test result. Hence, the data belonging to those types will not be considered for separate tests. However, it will remain in the overall data sample of all types. The minimum size of observations in each class is set to five and the number of initial classes (\ie number of classes before unifying) will be ten. The first tests are conducted on the whole data set for each variable. The results are shown in table \ref{tab:chi-full}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 64.95 & 0.01 & 13.28 & 2.64011035255862e-13 & yes\\ 
+Na & 36.99 & 0.01 & 13.28 & 1.80797974702607e-07 & yes\\ 
+Mg & 158.3 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
+Al & 27.2 & 0.01 & 9.21 & 1.24084046404516e-06 & yes\\ 
+Si & 38.85 & 0.01 & 13.28 & 7.4876188027595e-08 & yes\\ 
+K & 95.97 & 0.01 & NA & NA & NA\\ 
+Ca & 131.13 & 0.01 & 13.28 & < 1.0e-15 & yes\\ 
+Ba & 31.37 & 0.01 & NA & NA & NA\\ 
+Fe & 70.96 & 0.01 & 13.28 & 1.4210854715202e-14 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the whole data sample with ten initial classes}
+\label{tab:chi-full}
+\end{table}
+
+For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
+
+The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately 0.52. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 28.01 & 0.01 & 9.21 & 8.26265138420545e-07 & yes\\ 
+Na & 3.25 & 0.01 & 13.28 & 0.51688441877949 & no\\ 
+Mg & 18.81 & 0.01 & 6.63 & 1.44068580684165e-05 & yes\\ 
+Al & 23.55 & 0.01 & 11.34 & 3.10284613768141e-05 & yes\\ 
+Si & 23.68 & 0.01 & 13.28 & 9.26014020323773e-05 & yes\\ 
+K & 114.86 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
+Ca & 22.58 & 0.01 & 15.09 & 0.000405198755082603 & yes\\ 
+Fe & 18.65 & 0.01 & 9.21 & 8.91413549507503e-05 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 1 glass with ten initial classes}
+\label{tab:chi-type1}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|cc|} \hline class & \multicolumn{2}{c|}{frequencies}\\ (interval) & observed & expected\\ \hline ]12.4, 12.8] & 15 & 13.15\\ 
+]12.8, 13] & 12 & 8.81\\ 
+]13, 13.2] & 9 & 10.68\\ 
+]13.2, 13.4] & 11 & 11.04\\ 
+]13.4, 13.6] & 8 & 9.74\\ 
+]13.6, 14] & 9 & 12.06\\ 
+]14, 14.8] & 6 & 4.52\\ \hline \end{tabular}\caption{Observed end expected frequencies of items in the classes for the variable Natrium of type 1 glass}
+\label{tab:testresChisqFreqNaType1}
+\end{table}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{report-chisqType1Na}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:chisqType1Na}
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 27.92 & 0.05 & 9.21 & 8.6430973300633e-07 & yes\\ 
+Na & 8.2 & 0.05 & 6.63 & 0.00418393039163056 & yes\\ 
+Mg & 66.57 & 0.05 & 6.63 & < 1.0e-15 & yes\\ 
+Al & 9.41 & 0.05 & 11.34 & 0.024332262426528 & no\\ 
+Si & 6.24 & 0.05 & 9.21 & 0.0441247638253744 & no\\ 
+K & 41.06 & 0.05 & 6.63 & 1.47495904379014e-10 & yes\\ 
+Ca & 71.68 & 0.05 & 9.21 & < 1.0e-15 & yes\\ 
+Fe & 16.75 & 0.05 & 11.34 & 0.000794876178432768 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 2 glass}
+\label{tab:chi-type2}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 19.93 & 0.01 & NA & NA & NA\\ 
+Na & 1.4 & 0.01 & NA & NA & NA\\ 
+Al & 3.42 & 0.01 & 6.63 & 0.0644860281274806 & no\\ 
+Si & 4.84 & 0.01 & NA & NA & NA\\ 
+K & 13.14 & 0.01 & NA & NA & NA\\ 
+Ca & 11.93 & 0.01 & NA & NA & NA\\ 
+Ba & 0.2 & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 7 glass}
+\label{tab:chi-type7}
+\end{table}
+
+\subsubsection{Kolmogorov-Smirnov test}
+
+
+
+\subsection{Testing transformed data}
+
+\subsubsection{Q-Q-plot}
+
+\subsubsection{Shapiro-Wilk test}
+
+\subsubsection{Pearson's chi-squared test}
+
+\subsubsection{Kolmogorov-Smirnov test}
+
+\newpage
+\section{Conclusion}
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Section 1}
+Example for referring to a chapter: As written in section \ref{Intr} ...
+
+  \subsection{First Subsection}
+	Example for a citation: \cite{sqltuerker},\cite{journals/jods/VolzSM05}, \cite{das}\\
+	%% you might need to compile the tex-file several times (pdfLaTeX, BibTeX, pdfLaTeX)
+	%% in order to see the correct citations instead of question marks: "?"
+
+	\begin{figure}[t!]
+	\centering
+	  \includegraphics[height=0.49\textwidth,angle=90]{images/ercis.png}
+	    \caption{Logo of ERCIS as an example for figures}
+	  \label{ERCIS_Logo}
+	\end{figure}
+
+  \subsection{Second Subsection}
+
+\newpage
+\section{Section 2}
+Here could be a table, e.g. table \ref{tab} (which is on page \pageref{tab}):
+
+\begin{table}[ht] 
+   \centering
+      \begin{tabular}{|c||c|c|c|c|} \hline
+			& \multicolumn{4}{c|}{Feature 2} 						\\
+	Feature 1 & \multicolumn{2}{c|}{case} & \multicolumn{2}{c|}{studies}	\\
+			& ca 			& te 		& go 	& ry 					\\ \hline \hline
+	data 		& 63,50\% 	& 9,56\% 	& 2,16\% 	& 1,17\% 				\\ \hline
+	analytics 	& 1,57\% 		& 0,41\% 	& 0,29\% 	& 0,41\% 				\\ \hline
+      \end{tabular}
+      \caption{This is the label of the table}
+   \label{tab}
+\end{table}
+
+
+If you want to relate to a figure or table from a different page, you could do it this way: Figure \ref{ERCIS_Logo}, see page \pageref{ERCIS_Logo}, shows the ERCIS-Logo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% appendix
+
+\newpage
+
+\begin{appendix}
+\pagenumbering{roman}		%% roman page numbers for the appendix
+
+\section{Appendix}
+here starts the appendix
+
+\subsection{Slides}
+here could be some slides
+
+\end{appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% lists of figures and tables
+
+\newpage
+\listoffigures
+\listoftables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% bibliography (if needed)
+
+%\nocite{*}
+\bibliographystyle{plain}
+\bibliography{lit}
+
+\end{document}
