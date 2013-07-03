@@ -9,8 +9,11 @@
 \usepackage[left = 3cm, right = 2cm, top = 2.2cm, bottom = 3.5cm]{geometry} % spaces on the sides of the paper
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsfonts}
 \usepackage{natbib}
 \usepackage{scrpage2}
+\usepackage{dsfont}
+\usepackage{amssymb}
 \frenchspacing
 
 \usepackage{bbm}
@@ -25,6 +28,7 @@
 
 \newcommand{\eg}{e.\,g. }
 \newcommand{\ie}{i.\,e. }
+\newcommand{\cdf}{c.\,d.\,f. }
 \newtheorem{thm}{Theorem}
 \newtheorem{df}{Definition}
 \newtheorem{lem}{Lemma}
@@ -54,7 +58,7 @@
 
 \usepackage{Sweave}
 \begin{document}
-\input{report-concordance}
+\input{Report-concordance}
 \thispagestyle{empty}
 \maketitle
 
@@ -222,9 +226,29 @@ Further functions are needed for calculating the expected frequencies, the test 
 A drawback of Pearson's chi-squared test is its inconsistency caused by information reduction, \ie information about the data sample is lost in the process of categorising the observations in classes. As a consequence, different class bounds can lead to different test results. Furthermore, this test is rather suited for large sample sizes.
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
+The Kolmogorov-Smirnov test is used for checking if a given univariate sample
+$X_1,\dots X_2$ is distributed according to a given distribution function $F$.
+This check is performed by analyzing the difference between the given
+distribution function $F$ and the empirical distribution function $F_n$.
 \begin{df}
-For a given univariate sample $X_1, X_2, \dots, X_n$ the function \[F_n(x)=\frac{1}{n}\sum_{i=1}^n I(X_i\le x)\] is called empirical cumulative distribution function.
+For a given univariate sample $X_1, X_2, \dots, X_n$ the function
+\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{X_i\le x\}}\] is called empirical
+cumulative distribution function (\cdf), where $\mathbbm{1}_{\{X_i\le x\}}$ is an
+indicator function defined as follows: \[\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
+\begin{array}{cll}
+                 1 & \mbox{if} \ X_i\le x\\
+                 0 & \mbox{otherwise}.
+\end{array} 
+\right.\]
 \end{df}
+The exemplary graph of such a function is depicted in the following figure:
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{report-empiricFunc}
+\caption{Exemplary empirical \cdf of a data sample.}
+\label{fig:empiricFunc}
+\end{figure}
+
 
 
 \subsection{Box-Cox-Transformation}
@@ -258,7 +282,6 @@ Fe & 70.96 & 0.01 & 13.28 & 1.4210854715202e-14 & yes\\ \hline \end{tabular}\cap
 \end{table}
 
 For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
-
 The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately 0.52. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
 \begin{table}[h!]
