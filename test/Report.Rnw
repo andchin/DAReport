@@ -399,15 +399,23 @@ seq = seq(from = 12, to = 15, length.out=1000)
 empseq = sapply(seq, function(x) {empiric(x,dat)})
 plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.", 
 		cex=0.2, xlab="sample X", ylab = "")
+empdat = sapply(dat, function(x) {empiric(x,dat)})
 
 mean = mean(dat)
 Cov = var(dat)
 
 theordat = pnorm(dat,mean,Cov)
-empdat = sapply(dat, function(x) {empiric(x,dat)})
 diff = theordat-empdat
 pointsmax = dat[which(abs(diff)==max(abs(diff)))]
 if(length(pointsmax)>1) pointmax=pointsmax[1]
+
+mean1 = 13.1528759
+Cov1 = 0.4558641
+
+theordat1 = pnorm(dat,mean1,Cov1)
+diff1 = theordat1-empdat
+pointsmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
+if(length(pointsmax1)>1) pointmax1=pointsmax1[1]
 
 points(seq,pnorm(seq,mean,Cov), type='l', col='red')
 points(seq,pnorm(seq,13.1528759,0.4558641), type='l', col='black')
