@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  4 JUL 2013 22:47
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  5 JUL 2013 00:12
 entering extended mode
 **Report.tex
 (D:\DA\report\test\Report.tex
@@ -773,15 +773,26 @@ Package pdftex.def Info: report-empiricFunc.pdf used on input line 247.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<report-improvedKS.pdf, id=49, 433.62pt x 433.62pt>
+File: report-improvedKS.pdf Graphic file (type pdf)
+
+<use report-improvedKS.pdf>
+Package pdftex.def Info: report-improvedKS.pdf used on input line 255.
+(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [6] [7 <D:/DA/report/test/report-empiricFunc.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType1Na.pdf, id=67, 433.62pt x 433.62pt>
+[8 <D:/DA/report/test/report-improvedKS.pdf>]
+<report-chisqType1Na.pdf, id=79, 433.62pt x 433.62pt>
 File: report-chisqType1Na.pdf Graphic file (type pdf)
 
 <use report-chisqType1Na.pdf>
-Package pdftex.def Info: report-chisqType1Na.pdf used on input line 315.
+Package pdftex.def Info: report-chisqType1Na.pdf used on input line 321.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
@@ -793,32 +804,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8]
-Overfull \vbox (41.81259pt too high) has occurred while \output is active []
+[9]
+Overfull \vbox (29.81259pt too high) has occurred while \output is active []
 
 
-[9 <D:/DA/report/test/report-chisqType1Na.pdf>] [10]
+[10 <D:/DA/report/test/report-chisqType1Na.pdf>] [11]
 
-LaTeX Warning: Reference `Intr' on page 11 undefined on input line 375.
-
-
-Package natbib Warning: Citation `sqltuerker' on page 11 undefined on input lin
-e 378.
+LaTeX Warning: Reference `Intr' on page 12 undefined on input line 381.
 
 
-Package natbib Warning: Citation `journals/jods/VolzSM05' on page 11 undefined 
-on input line 378.
+Package natbib Warning: Citation `sqltuerker' on page 12 undefined on input lin
+e 384.
 
 
-Package natbib Warning: Citation `das' on page 11 undefined on input line 378.
+Package natbib Warning: Citation `journals/jods/VolzSM05' on page 12 undefined 
+on input line 384.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 378--381
+Package natbib Warning: Citation `das' on page 12 undefined on input line 384.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--387
 
  []
 
 
-LaTeX Warning: File `images/ercis.png' not found on input line 384.
+LaTeX Warning: File `images/ercis.png' not found on input line 390.
 
 
 ! Package pdftex.def Error: File `images/ercis.png' not found.
@@ -827,13 +838,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.384 ....49\textwidth,angle=90]{images/ercis.png}
+l.390 ....49\textwidth,angle=90]{images/ercis.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[11] [12] [1] (D:\DA\report\test\Report.lof)
+[12] [13] [1] (D:\DA\report\test\Report.lof)
 \tf@lof=\write5
  (D:\DA\report\test\Report.lot)
 \tf@lot=\write6
@@ -848,10 +859,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6507 strings out of 494045
- 96656 string characters out of 3148436
- 190331 words of memory out of 3000000
- 9624 multiletter control sequences out of 15000+200000
+ 6513 strings out of 494045
+ 96805 string characters out of 3148436
+ 189340 words of memory out of 3000000
+ 9629 multiletter control sequences out of 15000+200000
  40688 words of font info for 93 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,9n,47p,1036b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -872,9 +883,9 @@ TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (16 pages, 256222 bytes).
+Output written on Report.pdf (17 pages, 277360 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 20 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
