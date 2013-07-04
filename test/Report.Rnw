@@ -388,10 +388,12 @@ The exemplary graph of such a function is depicted in the following figure:
 \begin{figure}[h!]
 <<empiricFunc, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
 dat =  Glass.type1$Na
+
 empiric = function(x, sample) {
 	sortsample = sort(sample)
 	return(length(which(sortsample<=x))/length(sample))
 }
+
 
 seq = seq(from = 12, to = 15, length.out=1000)
 empseq = sapply(seq, function(x) {empiric(x,dat)})
@@ -404,20 +406,21 @@ Cov = var(dat)
 theordat = pnorm(dat,mean,Cov)
 empdat = sapply(dat, function(x) {empiric(x,dat)})
 diff = theordat-empdat
-pointmax = dat[which(abs(diff)==max(abs(diff)))]
+pointsmax = dat[which(abs(diff)==max(abs(diff)))]
+if(length(pointsmax)>1) pointmax=pointsmax[1]
 
 points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+points(seq,pnorm(seq,13.1528759,0.4558641), type='l', col='black')
 points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
 		type='l', lty = "dashed", col='green')
-legend("bottomright",title = "Legend", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
-		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
-
-
+legend("bottomright",title = "Legend", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])),"Fnew")), 
+		lty = c("solid","solid","dashed","solid"), lwd = 1, cex=1, col = c(2,4,3,1)) 
 @
 \includegraphics[width=\textwidth]{report-empiricFunc}
 \caption{Exemplary empirical \cdf of a data sample.}
 \label{fig:empiricFunc}
 \end{figure}
+
 
 
 
