@@ -403,34 +403,30 @@ plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.",
 		cex=0.2, xlab="sample X", ylab = "")
 }
 
+#draw empirical c.d.f.
 drawEmpiric(dat)
-
+#empirical values of probabilities
 empdat = sapply(dat, function(x) {empiric(x,dat)})
 
+#sample mean and sample covariance
 mean = mean(dat)
 Cov = var(dat)
 
+#theoretical values of probabilities
 theordat = pnorm(dat,mean,Cov)
+#difference between theoretica and empirical probabilities
 diff = theordat-empdat
+#point of maximum
 pointmax = dat[which(abs(diff)==max(abs(diff)))]
 if(length(pointmax)>1) pointmax=pointmax[1]
 
-mean1 = 13.1528759
-Cov1 = 0.4558641
-
-theordat1 = pnorm(dat,mean1,Cov1)
-diff1 = theordat1-empdat
-pointmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
-if(length(pointmax1)>1) pointmax1=pointmax1[1]
-
+#draw theoretical normal c.d.f.
 points(seq,pnorm(seq,mean,Cov), type='l', col='red')
-points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
+#draw distance between theoretical and empirical c.d.f. 
 points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
 		type='l', lty = "dashed", col='green')
-points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
-		type='l', lty = "dashed", col="cyan")
-legend("bottomright",title = "Legend", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])),"Fnew","NewDiff")), 
-		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
+		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
 \includegraphics[width=\textwidth]{report-empiricFunc}
 \caption{Exemplary empirical \cdf of a data sample.}
