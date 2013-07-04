@@ -406,23 +406,25 @@ Cov = var(dat)
 
 theordat = pnorm(dat,mean,Cov)
 diff = theordat-empdat
-pointsmax = dat[which(abs(diff)==max(abs(diff)))]
-if(length(pointsmax)>1) pointmax=pointsmax[1]
+pointmax = dat[which(abs(diff)==max(abs(diff)))]
+if(length(pointmax)>1) pointmax=pointmax[1]
 
 mean1 = 13.1528759
 Cov1 = 0.4558641
 
 theordat1 = pnorm(dat,mean1,Cov1)
 diff1 = theordat1-empdat
-pointsmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
-if(length(pointsmax1)>1) pointmax1=pointsmax1[1]
+pointmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
+if(length(pointmax1)>1) pointmax1=pointmax1[1]
 
 points(seq,pnorm(seq,mean,Cov), type='l', col='red')
-points(seq,pnorm(seq,13.1528759,0.4558641), type='l', col='black')
+points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
 points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
 		type='l', lty = "dashed", col='green')
-legend("bottomright",title = "Legend", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])),"Fnew")), 
-		lty = c("solid","solid","dashed","solid"), lwd = 1, cex=1, col = c(2,4,3,1)) 
+points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
+		type='l', lty = "dashed", col="cyan")
+legend("bottomright",title = "Legend", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])),"Fnew","NewDiff")), 
+		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
 @
 \includegraphics[width=\textwidth]{report-empiricFunc}
 \caption{Exemplary empirical \cdf of a data sample.}
