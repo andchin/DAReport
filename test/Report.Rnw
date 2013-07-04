@@ -396,15 +396,16 @@ empiric = function(x, sample) {
 }
 
 #Draws empiric c.d.f.
-drawEmpiric <- function(sample) {
+drawEmpiric = function(sample) {
 seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
 empseq = sapply(seq, function(x) {empiric(x,sample)})
 plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.", 
 		cex=0.2, xlab="sample X", ylab = "")
 }
-
+seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
 #draw empirical c.d.f.
 drawEmpiric(dat)
+
 #empirical values of probabilities
 empdat = sapply(dat, function(x) {empiric(x,dat)})
 
@@ -433,7 +434,45 @@ legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])
 \label{fig:empiricFunc}
 \end{figure}
 
+Here is another figure:
 
+\begin{figure}[h!]
+<<improvedKS, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
+#draw empirical c.d.f.
+drawEmpiric(dat)
+
+#new optimized mu and sigma
+mean1 = 13.1528759
+Cov1 = 0.4558641
+
+#new distance calculation
+theordat1 = pnorm(dat,mean1,Cov1)
+diff1 = theordat1-empdat
+pointmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
+if(length(pointmax1)>1) pointmax1=pointmax1[1]
+
+#draw old theoretical normal c.d.f.
+points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+
+#draw improved one
+points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
+
+#draw the distance between the first one and empirical c.d.f.
+points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
+		type='l', lty = "dashed", col='green')
+
+#draw the distance between the second one and empirical c.d.f.
+points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
+		type='l', lty = "dashed", col="cyan")
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
+		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
+				
+
+@
+\includegraphics[width=\textwidth]{report-improvedKS}
+\caption{Exemplary empirical \cdf of a data sample.}
+\label{fig:improvedKS}
+\end{figure}
 
 
 \subsection{Box-Cox-Transformation}
