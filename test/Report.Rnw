@@ -387,18 +387,24 @@ The exemplary graph of such a function is depicted in the following figure:
 
 \begin{figure}[h!]
 <<empiricFunc, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
+#Take Na as the most likely normaly distributed vector
 dat =  Glass.type1$Na
-
+#Return the value of empiric c.d.f on point x
 empiric = function(x, sample) {
 	sortsample = sort(sample)
 	return(length(which(sortsample<=x))/length(sample))
 }
 
-
-seq = seq(from = 12, to = 15, length.out=1000)
-empseq = sapply(seq, function(x) {empiric(x,dat)})
+#Draws empiric c.d.f.
+drawEmpiric <- function(sample) {
+seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+empseq = sapply(seq, function(x) {empiric(x,sample)})
 plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.", 
 		cex=0.2, xlab="sample X", ylab = "")
+}
+
+drawEmpiric(dat)
+
 empdat = sapply(dat, function(x) {empiric(x,dat)})
 
 mean = mean(dat)
