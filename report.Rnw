@@ -15,8 +15,7 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 # Calculates bounds of bins (classes) of a data sample.
 # The initial bounds are given by initial_breaks, k denotes the minimum class size.
 makebins = function(data, initial_breaks, k) {
-  h = hist(data, breaks=initial_breaks, plot=FALSE)
-  
+  h = hist(data, breaks=initial_breaks, plot=FALSE) 
   br = h$breaks
   changed = TRUE
   
@@ -144,8 +143,11 @@ histFromExpectedFreqs = function(testresult) {
 \usepackage[left = 3cm, right = 2cm, top = 2.2cm, bottom = 3.5cm]{geometry} % spaces on the sides of the paper
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{amsfonts}
 \usepackage{natbib}
 \usepackage{scrpage2}
+\usepackage{dsfont}
+\usepackage{amssymb}
 \frenchspacing
 
 \usepackage{bbm}
@@ -160,6 +162,7 @@ histFromExpectedFreqs = function(testresult) {
 
 \newcommand{\eg}{e.\,g. }
 \newcommand{\ie}{i.\,e. }
+\newcommand{\cdf}{c.\,d.\,f. }
 \newtheorem{thm}{Theorem}
 \newtheorem{df}{Definition}
 \newtheorem{lem}{Lemma}
@@ -365,9 +368,111 @@ chisq.test.norm = function(data, initial_breaks, min, sig) {
 A drawback of Pearson's chi-squared test is its inconsistency caused by information reduction, \ie information about the data sample is lost in the process of categorising the observations in classes. As a consequence, different class bounds can lead to different test results. Furthermore, this test is rather suited for large sample sizes.
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
+The Kolmogorov-Smirnov test is used for checking if a given univariate sample
+$X_1,\dots X_2$ is distributed according to a given distribution function $F$.
+This check is performed by analyzing the difference between the given
+distribution function $F$ and the empirical distribution function $F_n$.
 \begin{df}
-For a given univariate sample $X_1, X_2, \dots, X_n$ the function \[F_n(x)=\frac{1}{n}\sum_{i=1}^n I(X_i\le x)\] is called empirical cumulative distribution function.
+For a given univariate sample $X_1, X_2, \dots, X_n$ the function
+\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{X_i\le x\}}\] is called empirical
+cumulative distribution function (\cdf), where $\mathbbm{1}_{\{X_i\le x\}}$ is an
+indicator function defined as follows: \[\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
+\begin{array}{cll}
+                 1 & \mbox{if} \ X_i\le x\\
+                 0 & \mbox{otherwise}.
+\end{array} 
+\right.\]
 \end{df}
+The exemplary graph of such a function is depicted in the following figure:
+
+\begin{figure}[h!]
+<<empiricFunc, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
+#Take Na as the most likely normaly distributed vector
+dat =  Glass.type1$Na
+#Return the value of empiric c.d.f on point x
+empiric = function(x, sample) {
+	sortsample = sort(sample)
+	return(length(which(sortsample<=x))/length(sample))
+}
+
+#Draws empiric c.d.f.
+drawEmpiric = function(sample) {
+seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+empseq = sapply(seq, function(x) {empiric(x,sample)})
+plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.", 
+		cex=0.2, xlab="sample X", ylab = "")
+}
+seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
+#draw empirical c.d.f.
+drawEmpiric(dat)
+
+#empirical values of probabilities
+empdat = sapply(dat, function(x) {empiric(x,dat)})
+
+#sample mean and sample covariance
+mean = mean(dat)
+Cov = var(dat)
+
+#theoretical values of probabilities
+theordat = pnorm(dat,mean,Cov)
+#difference between theoretica and empirical probabilities
+diff = theordat-empdat
+#point of maximum
+pointmax = dat[which(abs(diff)==max(abs(diff)))]
+if(length(pointmax)>1) pointmax=pointmax[1]
+
+#draw theoretical normal c.d.f.
+points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+#draw distance between theoretical and empirical c.d.f. 
+points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
+		type='l', lty = "dashed", col='green')
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
+		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
+@
+\includegraphics[width=\textwidth]{report-empiricFunc}
+\caption{Exemplary empirical \cdf of a data sample.}
+\label{fig:empiricFunc}
+\end{figure}
+
+Here is another figure:
+
+\begin{figure}[h!]
+<<improvedKS, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
+#draw empirical c.d.f.
+drawEmpiric(dat)
+
+#new optimized mu and sigma
+mean1 = 13.1528759
+Cov1 = 0.4558641
+
+#new distance calculation
+theordat1 = pnorm(dat,mean1,Cov1)
+diff1 = theordat1-empdat
+pointmax1 = dat[which(abs(diff1)==max(abs(diff1)))]
+if(length(pointmax1)>1) pointmax1=pointmax1[1]
+
+#draw old theoretical normal c.d.f.
+points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+
+#draw improved one
+points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
+
+#draw the distance between the first one and empirical c.d.f.
+points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
+		type='l', lty = "dashed", col='green')
+
+#draw the distance between the second one and empirical c.d.f.
+points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
+		type='l', lty = "dashed", col="cyan")
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
+		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
+				
+
+@
+\includegraphics[width=\textwidth]{report-improvedKS}
+\caption{Exemplary empirical \cdf of a data sample.}
+\label{fig:improvedKS}
+\end{figure}
 
 
 \subsection{Box-Cox-Transformation}
@@ -420,7 +525,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \end{table}
 
 For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
-
 The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately \Sexpr{round(testresult.type1$Na$p_value, 2)}. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
 \begin{table}[h!]
