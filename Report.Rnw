@@ -148,6 +148,9 @@ histFromExpectedFreqs = function(testresult) {
 \usepackage{scrpage2}
 \usepackage{dsfont}
 \usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+
 \frenchspacing
 
 \usepackage{bbm}
@@ -383,9 +386,10 @@ indicator function defined as follows: \[\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbr
 \end{array} 
 \right.\]
 \end{df}
-The exemplary graph of such a function is depicted in the following figure:
+The exemplary graph of such a function is depicted in the figure
+\ref{fig:empiricFunc}.
 
-\begin{figure}[h!]
+%\begin{figure}[h!]
 <<empiricFunc, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
 #Take Na as the most likely normaly distributed vector
 dat =  Glass.type1$Na
@@ -400,20 +404,20 @@ drawEmpiric = function(sample) {
 seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
 empseq = sapply(seq, function(x) {empiric(x,sample)})
 plot(seq,empseq,pch=20,col='blue',main="", 
-		cex=0.2, xlab="sample X", ylab = "")
+		cex=0.2, xlab="", ylab = "")
 }
 seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
 #draw empirical c.d.f.
 drawEmpiric(dat)
 
 @
-\includegraphics[width=\textwidth]{report-empiricFunc}
-\caption{Exemplary empirical \cdf of a data sample.}
-\label{fig:empiricFunc}
-\end{figure}
+%\includegraphics[width=\textwidth]{report-empiricFunc}
+%\caption{Exemplary empirical \cdf of a data sample.}
+%\label{fig:empiricFunc}
+%\end{figure}
 
 
-\begin{figure}[h!]
+%\begin{figure}[h!]
 <<empiricTeorFunc, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
 <<empiricFunc>>
 
@@ -441,9 +445,29 @@ text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= "
 legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
 		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
-\includegraphics[width=\textwidth]{report-empiricTeorFunc}
-\caption{Exemplary empirical \cdf of a data sample.}
-\label{fig:empiricTeorFunc}
+%\includegraphics[width=\textwidth]{report-empiricTeorFunc}
+%\caption{Exemplary empirical \cdf of a data sample.}
+%\label{fig:empiricTeorFunc}
+%\end{figure}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{report-empiricFunc}
+  \vspace{-1cm}
+  \caption{}
+  \label{fig:empiricFunc}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{report-empiricTeorFunc}
+  \vspace{-1cm}
+  \caption{}
+  \label{fig:empiricTeorFunc}
+\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:commonFigureKStest}
 \end{figure}
 
 Here is another figure:
