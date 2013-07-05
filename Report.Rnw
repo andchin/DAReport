@@ -399,7 +399,7 @@ empiric = function(x, sample) {
 drawEmpiric = function(sample) {
 seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
 empseq = sapply(seq, function(x) {empiric(x,sample)})
-plot(seq,empseq,pch=20,col='blue',main="Empirical c.d.f.", 
+plot(seq,empseq,pch=20,col='blue',main="", 
 		cex=0.2, xlab="sample X", ylab = "")
 }
 seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
@@ -437,6 +437,7 @@ points(seq,pnorm(seq,mean,Cov), type='l', col='red')
 #draw distance between theoretical and empirical c.d.f. 
 points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
 		type='l', lty = "dashed", col='green')
+text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
 legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
 		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
@@ -453,8 +454,11 @@ Here is another figure:
 drawEmpiric(dat)
 
 #new optimized mu and sigma
-mean1 = 13.1528759
-Cov1 = 0.4558641
+#mean1 = 13.1528759
+#Cov1 = 0.4558641
+
+mean1 = 13.1769501
+Cov1 = 0.4682486
 
 #new distance calculation
 theordat1 = pnorm(seq,mean1,Cov1)
@@ -471,10 +475,12 @@ points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
 #draw the distance between the first one and empirical c.d.f.
 points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
 		type='l', lty = "dashed", col='green')
-
+text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
 #draw the distance between the second one and empirical c.d.f.
 points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
 		type='l', lty = "dashed", col="cyan")
+text(pointmax1+0.3,(empiric(pointmax1,dat)+pnorm(pointmax1,mean1,Cov1))/2,paste("d= ",format(max(abs(diff1)), digits=3)))
+
 legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
 		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
 				
