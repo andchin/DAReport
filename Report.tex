@@ -13,6 +13,7 @@
 \usepackage{natbib}
 \usepackage{scrpage2}
 \usepackage{dsfont}
+\usepackage{float}
 \usepackage{amssymb}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -229,24 +230,39 @@ Further functions are needed for calculating the expected frequencies, the test 
 A drawback of Pearson's chi-squared test is its inconsistency caused by information reduction, \ie information about the data sample is lost in the process of categorising the observations in classes. As a consequence, different class bounds can lead to different test results. Furthermore, this test is rather suited for large sample sizes.
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
-The Kolmogorov-Smirnov test is used for checking if a given univariate sample
-$X_1,\dots X_2$ is distributed according to a given distribution function $F$.
-This check is performed by analyzing the difference between the given
-distribution function $F$ and the empirical distribution function $F_n$.
+The Kolmogorov-Smirnov (KS later on) test as all other tests is used for testing
+whether a given univariate sample $X_1,\dots X_2$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
+distribution $\mathbb{P}_0$. It implies a decision making between the following
+two hypotheses:
+\[\begin{array}{rcl}
+H_0 & : & \mathbb{P} = \mathbb{P}_0,\\
+H_1 & : & \mathbb{P} \ne \mathbb{P}_0.
+\end{array}\]
+The decision is made according to the value of KS test
+statistics and a given significance level $\alpha$.
+
 \begin{df}
 For a given univariate sample $X_1, X_2, \dots, X_n$ the function
 \[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{X_i\le x\}}\] is called empirical
 cumulative distribution function (\cdf), where $\mathbbm{1}_{\{X_i\le x\}}$ is an
-indicator function defined as follows: \[\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
+indicator function defined as follows: $\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
 \begin{array}{cll}
                  1 & \mbox{if} \ X_i\le x\\
                  0 & \mbox{otherwise}.
 \end{array} 
-\right.\]
+\right.$
 \end{df}
-The exemplary graph of such a function is depicted in the figure
-\ref{fig:empiricFunc}.
+The exemplary graph of such a function is depicted in the Figure
+\ref{fig:empiricFunc}. 
 
+The main idea of the KS test is the analysis of the difference between the given
+cumulative distribution function (\cdf) $F$ and the empirical \cdf $F_n$. Since
+both theoretical and empirical functions belong to normed space of bounded
+functions $\mathbb{B}(\mathbb{R})$ (all values are between 0 and 1), this difference can be measured as
+a distance $\|F_n-F\|_{\infty}=\sup_{x \in \mathbb{R}}|F_n(x)-F(x)|$. Figure
+\ref{fig:empiricTeorFunc} illustrates the calculated distance between the
+empirical \cdf and the theoretical normal \cdf with parameters of sample mean
+and sample variance. 
 %\begin{figure}[h!]
 %\includegraphics[width=\textwidth]{report-empiricFunc}
 %\caption{Exemplary empirical \cdf of a data sample.}
@@ -259,8 +275,7 @@ The exemplary graph of such a function is depicted in the figure
 %\caption{Exemplary empirical \cdf of a data sample.}
 %\label{fig:empiricTeorFunc}
 %\end{figure}
-
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -276,11 +291,52 @@ The exemplary graph of such a function is depicted in the figure
   \caption{}
   \label{fig:empiricTeorFunc}
 \end{subfigure}
-\caption{A figure with two subfigures}
+\caption{Empirical \cdf for Natrium vector (a) and theoretical normal \cdf with
+sample mean and sample variance (b)}
 \label{fig:commonFigureKStest}
 \end{figure}
 
-Here is another figure:
+The KS statistics is defined as follows:
+\[D_n = \sqrt{n}\cdot \sup_{x \in \mathbb{R}}|F_n(x)-F(x)|.\]
+If value $D_i$ is considered for different $1\le i\le n$, then the sample
+$\hat{D}_n=(D_1,\dots,D_n)$ is obtained that also complies with some
+distribution $\mathbb{D}_n$.
+It can be shown that if hypothesis $H_0$ is true, then this distribution does not depend on the \cdf $F$
+and therefore can be tabulated. Moreover, Kolmogorov proved that if $n$ is large
+enough then the distribution function of $\mathbb{D}_n$ can be approximated by
+Kolmogorov-Smirnov distribution function
+$H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}$, \ie for each positive
+value $t$ the probability $P(D_n\le t)\to H(t)$ when $n \to \infty$. More detail
+can be found in the textbook \cite{De02}.
+
+The KS test uses the decision rule
+\[ \delta = 
+\left\{
+\begin{array}{rcl}
+H_0&:& D_n\le c\\
+H_1&:& D_n> c
+\end{array}
+\right.,
+\]
+where the critical value $c$ depends on the significance level $\alpha$ and
+can be calculated from the following equations:
+\[\alpha = P(\delta \ne H_0|H_0)=P(D_n>c|H_0)=1-P(D_n\le c|H_0)\approx 1-H(c).\]
+As was mentioned above the last equality can be considered only when $n$ is
+relatively high. Otherwise the table values for $\mathbb{D}_n$ distribution
+should be used. Hence, $c\approx H^{-1}(1-\alpha)$.
+
+Although the KS test is commonly used is has a huge drawback. Namely it
+considers only completely defined theoretical \cdf. In case of normality testing
+both parameters $\mu$ and $\sigma$ have to be predefined. But usually they are
+a priori unknown when a sample is going to be tested. Of course it can be
+managed by assigning sample mean and sample variance as unknown parameters (and
+initial KS test suggests to do that) but they are not always the best choice.
+Further example of Natrium distribution illustrates this proposition. 
+
+For Natrium (Na) univariate sample of 70 observatons the sample mean
+$\bar{\mu}=$13.2423 and the sample variance $\bar{\sigma}=$
+0.2493 are calculated.
+
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{report-improvedKS}
@@ -474,5 +530,7 @@ here could be some slides
 %\nocite{*}
 \bibliographystyle{plain}
 \bibliography{lit}
-
+%\bibitem[De02]{De02}DeGroot, Morris H., and Mark J. Schervish. Probability and
+%Statistics.
+% 3rd ed. Boston, MA: Addison-Wesley, 2002.
 \end{document}

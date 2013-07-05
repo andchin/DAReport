@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  5 JUL 2013 14:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  6 JUL 2013 00:05
 entering extended mode
 **Report.tex
 (D:\DA\report\Report.tex
@@ -398,6 +398,14 @@ LaTeX Info: Redefining \pagemark on input line 176.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\dstroke\dsfont.sty"
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count93
+\float@exts=\toks19
+\float@box=\box27
+\@float@everytoks=\toks20
+\@floatcapt=\box28
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 )
@@ -414,12 +422,13 @@ Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \caption@hangindent=\dimen118
 )
 Package caption Info: KOMA-Script document class.
-\c@ContinuedFloat=\count93
+\c@ContinuedFloat=\count94
+Package caption Info: float package is loaded.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
 Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
-\c@subfigure=\count94
-\c@subtable=\count95
+\c@subfigure=\count95
+\c@subtable=\count96
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\bbm.sty"
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
@@ -437,25 +446,16 @@ See the caption package documentation for explanation.
 Package: newfloat 2011/11/16 v1.0a Defining new floating environments (AR)
 )
 Package newfloat Info: New float `listing' with options `fileext=los,placement=
-{!ht}' on input line 24.
-\c@listing=\count96
-\newfloat@ftype=\count97
-Package newfloat Info: float type `listing'=8 on input line 24.
-Package tocbasic Info: setting babel extension for `los' on input line 24.
+{!ht}' on input line 25.
+\c@listing=\count97
+Package newfloat Info: float type `listing'=4 on input line 25.
+Package tocbasic Info: setting babel extension for `los' on input line 25.
 \c@sublisting=\count98
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\boxedminipage\boxedminipage.sty")
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count99
-\float@exts=\toks19
-\float@box=\box27
-\@float@everytoks=\toks20
-\@floatcapt=\box28
-)
-\c@thm=\count100
-\c@df=\count101
-\c@lem=\count102
+\c@thm=\count99
+\c@df=\count100
+\c@lem=\count101
 
 ("C:\Program Files\R\R-3.0.0\share\texmf\tex\latex\Sweave.sty"
 Package: Sweave 
@@ -468,11 +468,11 @@ Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
 <2008/02/07> (tvz)
-\FV@CodeLineNo=\count103
+\FV@CodeLineNo=\count102
 \FV@InFile=\read1
 \FV@TabBox=\box29
-\c@FancyVerbLine=\count104
-\FV@StepNumber=\count105
+\c@FancyVerbLine=\count103
+\FV@StepNumber=\count104
 \FV@OutFile=\write3
 )
 ("C:\Program Files\R\R-3.0.0\share\texmf\tex\latex\upquote.sty"
@@ -657,24 +657,24 @@ LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 ))))
 (D:\DA\report\Report.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 64.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -712,33 +712,32 @@ LaTeX Font Info:    ... okay on input line 63.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
+\scratchcounter=\count105
 \scratchdimen=\dimen119
 \scratchbox=\box30
-\nofMPsegments=\count107
-\nofMParguments=\count108
+\nofMPsegments=\count106
+\nofMParguments=\count107
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count109
+\MPscratchCnt=\count108
 \MPscratchDim=\dimen120
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks22
 )
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (D:\DA\report\Report-concordance.tex)
-LaTeX Font Info:    Try loading font information for T1+aess on input line 67.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 68.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aess.fd"
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 67.
+LaTeX Font Info:    Try loading font information for U+msa on input line 68.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 67.
+LaTeX Font Info:    Try loading font information for U+msb on input line 68.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -751,18 +750,18 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 File: report-chisqSampleHist.pdf Graphic file (type pdf)
 
 <use report-chisqSampleHist.pdf>
-Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 99.
+Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 100.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 123.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 124.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ) [2] [3 <D:/DA/report/report-chisqSampleHist.pdf>] [4] [5]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 238.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 246.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
@@ -771,36 +770,39 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 File: report-empiricFunc.pdf Graphic file (type pdf)
 
 <use report-empiricFunc.pdf>
-Package pdftex.def Info: report-empiricFunc.pdf used on input line 267.
+Package pdftex.def Info: report-empiricFunc.pdf used on input line 282.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
 
 <report-empiricTeorFunc.pdf, id=49, 433.62pt x 433.62pt>
 File: report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use report-empiricTeorFunc.pdf>
-Package pdftex.def Info: report-empiricTeorFunc.pdf used on input line 274.
+Package pdftex.def Info: report-empiricTeorFunc.pdf used on input line 289.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
+ [6 <D:/DA/report/report-empiricFunc.pdf> <D:/DA/report/report-empiricTeorFunc.
+pdf>]
 
-<report-improvedKS.pdf, id=50, 433.62pt x 433.62pt>
+Package natbib Warning: Citation `De02' on page 7 undefined on input line 310.
+
+<report-improvedKS.pdf, id=71, 433.62pt x 433.62pt>
 File: report-improvedKS.pdf Graphic file (type pdf)
 
 <use report-improvedKS.pdf>
-Package pdftex.def Info: report-improvedKS.pdf used on input line 286.
+Package pdftex.def Info: report-improvedKS.pdf used on input line 342.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <D:/DA/report/report-empiricFunc.pdf> <D:/DA/report/report-empiricTeorFunc.p
-df>] [7 <D:/DA/report/report-improvedKS.pdf>]
+[7] [8 <D:/DA/report/report-improvedKS.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType1Na.pdf, id=81, 433.62pt x 433.62pt>
+<report-chisqType1Na.pdf, id=86, 433.62pt x 433.62pt>
 File: report-chisqType1Na.pdf Graphic file (type pdf)
 
 <use report-chisqType1Na.pdf>
-Package pdftex.def Info: report-chisqType1Na.pdf used on input line 352.
+Package pdftex.def Info: report-chisqType1Na.pdf used on input line 408.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
@@ -812,32 +814,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8]
+[9]
 Overfull \vbox (41.81259pt too high) has occurred while \output is active []
 
 
-[9 <D:/DA/report/report-chisqType1Na.pdf>] [10]
+[10 <D:/DA/report/report-chisqType1Na.pdf>] [11]
 
-LaTeX Warning: Reference `Intr' on page 11 undefined on input line 412.
-
-
-Package natbib Warning: Citation `sqltuerker' on page 11 undefined on input lin
-e 415.
+LaTeX Warning: Reference `Intr' on page 12 undefined on input line 468.
 
 
-Package natbib Warning: Citation `journals/jods/VolzSM05' on page 11 undefined 
-on input line 415.
+Package natbib Warning: Citation `sqltuerker' on page 12 undefined on input lin
+e 471.
 
 
-Package natbib Warning: Citation `das' on page 11 undefined on input line 415.
+Package natbib Warning: Citation `journals/jods/VolzSM05' on page 12 undefined 
+on input line 471.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--418
+Package natbib Warning: Citation `das' on page 12 undefined on input line 471.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 471--474
 
  []
 
 
-LaTeX Warning: File `images/ercis.png' not found on input line 421.
+LaTeX Warning: File `images/ercis.png' not found on input line 477.
 
 
 ! Package pdftex.def Error: File `images/ercis.png' not found.
@@ -846,13 +848,13 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.421 ....49\textwidth,angle=90]{images/ercis.png}
+l.477 ....49\textwidth,angle=90]{images/ercis.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[11] [12] [1] (D:\DA\report\Report.lof)
+[12] [13] [1] (D:\DA\report\Report.lof)
 \tf@lof=\write5
  (D:\DA\report\Report.lot)
 \tf@lot=\write6
@@ -867,13 +869,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6615 strings out of 494045
- 98460 string characters out of 3148436
- 191443 words of memory out of 3000000
- 9723 multiletter control sequences out of 15000+200000
+ 6616 strings out of 494045
+ 98468 string characters out of 3148436
+ 191320 words of memory out of 3000000
+ 9725 multiletter control sequences out of 15000+200000
  45327 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,9n,47p,1036b,481s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,47p,1036b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Program Files\R\R-3.0.0\share\texmf\fonts\pk\ljfour\public\bbm\dpi600\bb
 m12.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Progr
@@ -883,17 +885,19 @@ am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files
 /type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmtt12.pfb>
-Output written on Report.pdf (16 pages, 284972 bytes).
+mr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb>
+Output written on Report.pdf (17 pages, 304416 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
+ 181 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  30 words of extra memory for PDF output out of 10000 (max. 10000000)
 
