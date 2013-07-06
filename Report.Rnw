@@ -639,12 +639,61 @@ The new value of KS statistics is $D_n=\sqrt{n}\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$\Sexpr{format(sqrt(length(dat))*KSoptim$value,digits=4,nsmall=4)}
 that is smaller than the critical value $c=$\Sexpr{c}. Therefore the null
 hypothesis $H_0$ is accepted by KS-test. For all further samples the improved KS
-test is used.
+test is used. It was implemented in $R$ and has the following code.
+
+<<fullImprovedKStest, eval=TRUE, echo=TRUE, prompt = " ", continue = " ">>=
+# Performs a Kolmogorov-Smirnov goodness of fit test on the given data
+# for the assumption of a normal distribution.
+# Returns true if the null hypothesis (sample drawn from a
+# normal distributed population) is rejected, false otherwise.
+# The parameters are optimized.
+# The significance level is determined by sig.
+KSimpr.test.norm = function(data, sig) {
+	critical_value = Inverse(H,1-sig)
+	#Sample mean and sample variance calculation
+	mu = mean(data)
+	sigma = var(data)
+	#KS function that has to be minimized.
+	KS= function(param) {
+		#discretization of a line segment
+		seq = seq(from = min(data)-0.2, 
+				to = max(data)+0.2, length.out=1000)
+		#values of empirical c.d.f.
+		empdat = sapply(seq, function(x) {empiric(x,data)})
+		#values of theoretical c.d.f.
+		theordat = pnorm(seq,param[1],abs(param[2]))
+		#difference between the values
+		diff=theordat-empdat
+		absdiff=abs(diff)
+		max(absdiff)
+		}	
+	#optim is a predifined R function in stats package
+	#defalut method of optimization is Nelder and Mead (1965)
+	KSoptim = optim(c(mu,sigma),KS)
+	teststat = sqrt(length(data))*KSoptim$value
+	p_value = 1-H(teststat)
+	
+	print(teststat > critical_value)
+	
+	return(list( mean = mu,
+				var = sigma,
+				mu_opt = KSoptim$par[1],
+				sigma_opt = KSoptim$par[2],
+				teststat = teststat,
+				critical_value = critical_value,
+				p_value = p_value,
+				rejected = teststat > critical_value))
+}
+
+KSimpr.test.norm(dat,0.01)
+@
 
 The problem of approximation with $H$ function remains in the improved KS test
 as well. Therefore this approximation is only applicable when 
 the sample size is relatively high. Otherwise the tabular values for
-$\mathbb{D}_n$ distribution should be used.
+$\mathbb{D}_n$ distribution should be used. 
+
+
 
 \subsection{Box-Cox-Transformation}
 
