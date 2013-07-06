@@ -496,8 +496,8 @@ and therefore can be tabulated. Moreover, Kolmogorov proved that if $n$ is large
 enough then the distribution function of $\mathbb{D}_n$ can be approximated by
 Kolmogorov-Smirnov distribution function
 $H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}$, \ie for each positive
-value $t$ the probability $P(D_n\le t)\to H(t)$ when $n \to \infty$. More detail
-can be found in the textbook \cite{De02}.
+value $t$ the probability $P(D_n\le t)\to H(t)$ when $n \to \infty$. More
+details can be found in the textbook \cite{De02}.
 
 The KS test uses the decision rule
 \[ \delta = 
@@ -529,19 +529,79 @@ $\bar{\mu}=$\Sexpr{format(mean,digits=4, nsmall=4)} and the sample variance $\ba
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistics is calculated: $D_n=\sqrt{n}\cdot
 \sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(diff)),digits=4, nsmall=4)}.
+Critical value for the significance level $\alpha=0.01$ is equal to
+$c=H^{-1}(1-\alpha)$=\Sexpr{c=format(Inverse(H,1-0.01),digits=4,nsmall=4)}. To
+calculate this value the following $R$ functions are used:
 
+<<HFunction, eval=TRUE, echo=TRUE, fig=FALSE, include=FALSE, results=tex, prompt = " ", continue = " ">>=
+#Calculates KS distribution function
+H= function(t) {
+	i=1
+	sum=0
+	while(abs(f(t,i) - f(t,i+1))>0.000000000001) {
+		sum=sum+f(t,i)
+		i=i+1
+	}
+	1-2*sum
+}
+#Summand of H function
+f=function(t,i) {
+	(-1)^(i-1)*exp(-2*i^2*t^2)
+}
+#Returns value c such that H(c)=a 
+Inverse = function(H,a) {
+	newFunction = function(t) {
+		H(t)-a
+	}
+	#Returns the root of the equation H(x)-a=0
+	uniroot(newFunction,c(0.2,4),tol=0.001)$root
+}
+@
+Since $D_n>c$ the null hypothesis is rejected by KS test. But that does not mean
+that the sample is not normal distributed. That means only that it is not normal
+distributed with sample mean and sample variance as parameters of that
+distribution. 
 
-\begin{figure}[h!]
+In order to manage that issue KS test is improved by solving the following
+optimization problem \[KS(\mu,\sigma)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+When the new values $\hat{\mu}$ and $\hat{\sigma}$ that minimize the value
+$KS(\mu,\sigma)$ are found the general KS test is performed with respect to
+these values of parameters. For solving this optimization problem the following
+$R$ code is used:
+
+<<KSfunctionOptimization, eval=TRUE, echo=TRUE>>=
+KS= function(param) {
+	#discretization of a line segment
+	seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
+	#values of empirical c.d.f.
+	empdat = sapply(seq, function(x) {empiric(x,dat)})
+	#values of theoretical c.d.f.
+	theordat = pnorm(seq,param[1],abs(param[2]))
+	#difference between the values
+	diff=theordat-empdat
+	absdiff=abs(diff)
+	max(absdiff)
+}
+#optim is a predifined R function in stats package
+#defalut method of optimization is Nelder and Mead (1965)
+KSoptim = optim(c(mean,Cov),KS)
+KSoptim$par
+KSoptim$value
+@
+These new parameters
+$\hat{\mu}=$\Sexpr{format(KSoptim$par[1],digits=4,nsmall=4)} and
+$\hat{\sigma}=$\Sexpr{format(KSoptim$par[2],digits=4,nsmall=4)} are taken as
+parameters of a new theoretical normal \cdf and a new distance is calculated
+(Figure \ref{fig:improvedKS}). 
+\begin{figure}[H]
 <<improvedKS, eval=TRUE, echo=FALSE, fig=TRUE, include=FALSE, results=tex>>=
 #draw empirical c.d.f.
 drawEmpiric(dat)
 
 #new optimized mu and sigma
-#mean1 = 13.1528759
-#Cov1 = 0.4558641
-
-mean1 = 13.1769501
-Cov1 = 0.4682486
+mean1 = KSoptim$par[1]
+Cov1 = KSoptim$par[2]
 
 #new distance calculation
 theordat1 = pnorm(seq,mean1,Cov1)
@@ -570,10 +630,21 @@ legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])
 
 @
 \includegraphics[width=\textwidth]{report-improvedKS}
-\caption{Exemplary empirical \cdf of a data sample.}
+\caption{Normal \cdf with optimized parameters in comparison to the old \cdf
+with sample mean and sample variance.}
 \label{fig:improvedKS}
 \end{figure}
 
+The new value of KS statistics is $D_n=\sqrt{n}\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$\Sexpr{format(sqrt(length(dat))*KSoptim$value,digits=4,nsmall=4)}
+that is smaller than the critical value $c=$\Sexpr{c}. Therefore the null
+hypothesis $H_0$ is accepted by KS-test. For all further samples the improved KS
+test is used.
+
+The problem of approximation with $H$ function remains in the improved KS test
+as well. Therefore this approximation is only applicable when 
+the sample size is relatively high. Otherwise the tabular values for
+$\mathbb{D}_n$ distribution should be used.
 
 \subsection{Box-Cox-Transformation}
 
