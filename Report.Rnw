@@ -1,4 +1,5 @@
 <<initialActions, eval=TRUE, echo=FALSE, term=FALSE>>=
+options(prompt=" ", continue = " ")
 require(mlbench)
 data(Glass)
 Glass.type1 = Glass[which(Glass$Type == 1), -10]
@@ -869,7 +870,39 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 
 \subsubsection{Kolmogorov-Smirnov test}
 
+<<calculatKS, eval=FALSE ,echo=FALSE>>=
+testresultKS.full = apply(Glass[, -10], 2, KSimpr.test.norm, sig=0.01)
+@
+The first tests are conducted on the whole data set for each variable. 
+The results are shown in table \ref{tab:KS-full}.
 
+\begin{table}[h!]
+\centering
+<<testresKSFull, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresultKS.full
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the improved KS test on the whole data sample with ten
+initial classes}
+\label{tab:KS-full}
+\end{table}
 
 \subsection{Testing transformed data}
 
