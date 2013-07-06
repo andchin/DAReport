@@ -1,4 +1,5 @@
 %%%%%
+%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,6 +71,8 @@
 
 \subsection{Normality as a requirement for statistical methods}
 
+test test test
+
 \subsection{The glass data sample}
 
 \subsection{Aim and structure}
@@ -77,14 +80,16 @@
 \newpage
 \section{Preliminaries}
 
-\subsection{Test methods for normality}
+\subsection{Test methods for normality}\label{sec:methods}
+
+A statistical hypothesis test which tests empirical data on conformance with a certain distribution (or a family of distributions) is called a goodness of fit test. The null hypothesis is usually the hypothesis that the tested sample has been drawn from a population which is distributed according to the given distribution. Consequently, the alternative hypothesis states that the sample was drawn from a population of any other distribution. In every test, a certain method is used to calculate a test statistic from the data. If the test statistic exceeds a critical value which is computed for the particular distribution and a certain significance level, the null hypothesis is rejected. The p-value is the lowest significance level for which the null hypothesis would still be rejected. It can be interpreted as the probability of getting a result like the present one or an even more extreme result if the null hypothesis is true.
 
 \subsubsection{Q-Q-plot}
 
 \subsubsection{Shapiro-Wilk test}
 
 \subsubsection{Pearson's chi-squared test}\label{sec:chisq-theoretical}
-Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to a given theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
+Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to an arbitrary theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{report-chisqSampleHist}
 \caption{Exemplary histrograms of a data sample, expected densities for a normal distribution with parameters estimated from the sample and a combined histogram of these both histograms.}
@@ -220,7 +225,69 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-\subsection{Box-Cox-Transformation}
+\subsection{Box-Cox-transformation}
+
+If data is not normally distributed, it can still be transformed to fit to a normal distribtion in some cases. One possibility is the Box-Cox-transformation. It is a family of parameterised power tranformations:
+\[
+  \phantom{\quad\mbox{for}\ x > 0}
+   x^{(\lambda)} =
+   \left\{ 
+    \begin{array}{cl}
+%\vspace{12pt}
+                 \frac{x^\lambda - 1}{\lambda} & \lambda \neq 0\\
+                 \ln(x) & \lambda = 0
+    \end{array}
+   \right.
+   \quad\mbox{for}\ x > 0
+\]
+The optimal parameter for specific observations $x_1, \dots, x_n$ can be determined by a maximum-likelihood estimation, maximising the log likelihood
+\[
+\begin{array}{l}
+\vspace{12pt}
+   l(\lambda) = - \frac{n}{2}\ln\left[\frac{1}{n}\sum_{j=1}^{n}(x_j^{(\lambda)} - \overline{x^{(\lambda)}})^2\right] + (\lambda - 1) \sum_{j=1}^{n}\ln(x_j)\\
+   \mbox{with}\ \overline{x^{(\lambda)}} = \frac{1}{n} \sum_{j=1}^{n}x_j^{(\lambda)}
+\end{array}
+\]
+However, a Box-Cox-transformation does not ensure that the data is normally distributed thereafter. One reason that a sample cannot be properly transformed could be that it is not unimodal. Histograms and QQ-plots of a sample from a unimodal distribution are depicted in figure \ref{fig:transformationUnimodal}. Data that is generated from a Weibull distribution can be transformed to approximately normally distributed values quite well as can be recognised by the histogram and the QQ-plot. In contrast, it is not possible to properly transform a sample that is combined from two different distributions (here with different scale parameters of the Weibull distribution) as shown in figure \ref{fig:transformationBimodal}. By the combination of two samples with different mean values a bimodal sample emerges preventing the underlying data to be transformed to a unimodal sample (namely a normally distributed sample) by a simple function. Furthermore, noisy data is not suited for Box-Cox-transformation either because the Box-Cox-function is applied on the whole sample (and not only the "noisy parts").
+\newpage
+\phantom{.}
+\vfill
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{report-transformationUnimodal}
+\caption{Histograms and QQ-plots of a Weibull(1, 1) simulated sample of size 500 and of the Box-Cox-transformed data}
+\label{fig:transformationUnimodal}
+\end{figure}
+
+\vfill
+
+\newpage
+\phantom{.}
+\vfill
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{report-transformationBimodal}
+\caption{Histograms and QQ-plots of a mixed sample composed of a Weibull(5, 1) simulated sample and a Weibull(5, 4) simulated sample (each of size 250) and of the Box-Cox-transformed data}
+\label{fig:transformationBimodal}
+\end{figure}
+
+\vfill
+
+\newpage
+\subsection{Plot of a multivariate normal distribution}
+
+Contour lines of the plot of a multivariate normal distribution
+\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)'\Simga^{-1}(x-\mu)\right\}\]
+with mean vector $\mu$ and covariance matrix $\Sigma > 0$ are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
+
+A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{report-plotMVNSim}
+\caption{cap}
+\label{fig:plotMVNSim}
+\end{figure}
 
 
 
@@ -229,12 +296,33 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsection{Testing original data}
 
+The test methods for normality that were introduced in section \ref{sec:methods} are now applied on the glass data set. For each method, the whole sample is tested first. Since it can be assumed that the different glass types are distinct in terms of the underlying distribution of variable values, the tests are conducted on the individual types as well (where applicable). It appears reasonable to skip particular variables whose values predominantly consist of zeros (more than 50\,\% of the observations, see table \ref{tab:zeros}) because this indicates that those variables are not normally distributed anyway (moreover, this can lead to complications for some methods).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cl|}
+\hline
+type & skipped variables\\
+\hline
+1 & Ba\\
+2 & Ba\\
+3 & Ba, Fe\\
+5 & Ba, Fe\\
+6 & K, Ba, Fe\\
+7 & Mg\\
+\hline
+\end{tabular}
+\caption{Skipped variables for the particular glass types due to too many zero values}
+\label{tab:zeros}
+\end{table}
+
 \subsubsection{Q-Q-plot}
 
 \subsubsection{Shapiro-Wilk test}
 
 \subsubsection{Pearson's chi-squared test}
-As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is not suited for rather small sample sizes because of the approximation via the chi-squared distribution. Concerning the given data, the samples of type 3 glass (17 observations), type 5 glass (13 observations) and type 6 glass (9 observations) are not large enough to ensure a viable test result. Hence, the data belonging to those types will not be considered for separate tests. However, it will remain in the overall data sample of all types. The minimum size of observations in each class is set to five and the number of initial classes (\ie number of classes before unifying) will be ten. The first tests are conducted on the whole data set for each variable. The results are shown in table \ref{tab:chi-full}.
+
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is not suited for rather small sample sizes because of the approximation via the chi-squared distribution. Concerning the given data, the samples of type 3 glass (17 observations), type 5 glass (13 observations) and type 6 glass (9 observations) are not large enough to ensure a viable test result. Hence, the data belonging to those types will not be considered for separate tests. However, it will remain in the overall data sample of all types. The minimum size of observations in each class is set to five and the number of initial classes (\ie number of classes before unifying) will be ten. The first tests are conducted on the whole data set for each variable. The results are shown in table \ref{tab:chi-full}. For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
 
 \begin{table}[h!]
 \centering
@@ -249,8 +337,6 @@ Ba & 31.37 & 0.01 & NA & NA & NA\\
 Fe & 70.96 & 0.01 & 13.28 & 1.4210854715202e-14 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the whole data sample with ten initial classes}
 \label{tab:chi-full}
 \end{table}
-
-For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
 
 The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately 0.52. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
@@ -286,30 +372,36 @@ Fe & 18.65 & 0.01 & 9.21 & 8.91413549507503e-05 & yes\\ \hline \end{tabular}\cap
 \label{fig:chisqType1Na}
 \end{figure}
 
-\begin{table}[h!]
+The test results for observations of type 2 glass are summarised in table \ref{tab:chi-type2}. The null hypothesis is rejected for all variables except for Aluminium (Al) and Silicon (Si). The p-values for these variables are however rather small (approximately 0.02 and 0.04).
+
+\begin{table}[h]
 \centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 27.92 & 0.05 & 9.21 & 8.6430973300633e-07 & yes\\ 
-Na & 8.2 & 0.05 & 6.63 & 0.00418393039163056 & yes\\ 
-Mg & 66.57 & 0.05 & 6.63 & < 1.0e-15 & yes\\ 
-Al & 9.41 & 0.05 & 11.34 & 0.024332262426528 & no\\ 
-Si & 6.24 & 0.05 & 9.21 & 0.0441247638253744 & no\\ 
-K & 41.06 & 0.05 & 6.63 & 1.47495904379014e-10 & yes\\ 
-Ca & 71.68 & 0.05 & 9.21 & < 1.0e-15 & yes\\ 
-Fe & 16.75 & 0.05 & 11.34 & 0.000794876178432768 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 2 glass}
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 27.92 & 0.01 & 9.21 & 8.6430973300633e-07 & yes\\ 
+Na & 8.2 & 0.01 & 6.63 & 0.00418393039163056 & yes\\ 
+Mg & 66.57 & 0.01 & 6.63 & < 1.0e-15 & yes\\ 
+Al & 9.41 & 0.01 & 11.34 & 0.0243322624265285 & no\\ 
+Si & 6.24 & 0.01 & 9.21 & 0.0441247638253744 & no\\ 
+K & 41.06 & 0.01 & 6.63 & 1.47495904379014e-10 & yes\\ 
+Ca & 71.68 & 0.01 & 9.21 & < 1.0e-15 & yes\\ 
+Fe & 16.75 & 0.01 & 11.34 & 0.000794876178432768 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 2 glass with ten initial classes}
 \label{tab:chi-type2}
 \end{table}
+
+For the observations of type 7 glass, test results (table \ref{tab:chi-type7}) are only available for the variable Aluminium (Al). Due to the small sample size of 29 observations, most of the initial classes are joined so that no degree of freedom remains for the chi-squared distribution function. The hypothesis of normality is not rejected for the data of Aluminium.
 
 \begin{table}[h!]
 \centering
 \begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 19.93 & 0.01 & NA & NA & NA\\ 
 Na & 1.4 & 0.01 & NA & NA & NA\\ 
-Al & 3.42 & 0.01 & 6.63 & 0.0644860281274806 & no\\ 
+Al & 3.42 & 0.01 & 6.63 & 0.0644860281274808 & no\\ 
 Si & 4.84 & 0.01 & NA & NA & NA\\ 
 K & 13.14 & 0.01 & NA & NA & NA\\ 
 Ca & 11.93 & 0.01 & NA & NA & NA\\ 
-Ba & 0.2 & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 7 glass}
+Ba & 0.2 & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 7 glass with ten initial classes}
 \label{tab:chi-type7}
 \end{table}
+
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Natrium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Natrium of type 1 glass ($\sim$ 0.52) with ten initial classes decreases to approximately 0.02 with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ 0.06) increases to approximately 0.19. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
 
 \subsubsection{Kolmogorov-Smirnov test}
 
@@ -317,11 +409,90 @@ Ba & 0.2 & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of th
 
 \subsection{Testing transformed data}
 
+The same tests are now conducted on the data that have been Box-Cox-transformed with a parameter that is estimated by the maximum likelihood method. For some variables, an estimation is not possible because the algorithm does not converge or, as in most cases, not all of the observations of one variable are strictly positive.
+
 \subsubsection{Q-Q-plot}
 
 \subsubsection{Shapiro-Wilk test}
 
 \subsubsection{Pearson's chi-squared test}
+Although for all variables for which a transformation is possible the p-value is higher than for the non-transformed data, the hypothesis of normality is still rejected for the whole sample (table \ref{tab:chi-full-trans}). The data of all types of glass is presumably too heterogenuous so that it comprises samples from several distributions within the overall sample of particular variables.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 42.17 & 0.01 & 13.28 & 1.54164938592771e-08 & yes\\ 
+Na & 29.94 & 0.01 & 9.21 & 3.14878775276028e-07 & yes\\ 
+Mg & NA & 0.01 & NA & NA & NA\\ 
+Al & 24.44 & 0.01 & 18.48 & 0.000953232079633159 & yes\\ 
+Si & 34 & 0.01 & 13.28 & 7.44688221865353e-07 & yes\\ 
+K & NA & 0.01 & NA & NA & NA\\ 
+Ca & 44.87 & 0.01 & 11.34 & 9.8475638754536e-10 & yes\\ 
+Ba & NA & 0.01 & NA & NA & NA\\ 
+Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the whole transformed data sample with ten initial classes}
+\label{tab:chi-full-trans}
+\end{table}
+
+Concerning the transformation of type 1 glass, two more variables (Al and Ca) are now tested positively on the hypothesis of normality (table \ref{tab:chi-type1-trans}). In both cases, the p-value is be increased substantially by the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & NA & 0.01 & NA & NA & NA\\ 
+Na & 0.98 & 0.01 & 11.34 & 0.806907793258229 & no\\ 
+Mg & 17.87 & 0.01 & NA & NA & NA\\ 
+Al & 6.41 & 0.01 & 11.34 & 0.0931106570164038 & no\\ 
+Si & 16.87 & 0.01 & 13.28 & 0.00205136639088022 & yes\\ 
+K & NA & 0.01 & NA & NA & NA\\ 
+Ca & 3.35 & 0.01 & 11.34 & 0.340872105291174 & no\\ 
+Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the transformed data of type 1 glass with ten initial classes}
+\label{tab:chi-type1-trans}
+\end{table}
+
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{report-chisqType1Ca}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass}
+\label{fig:chisqType1Ca}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{report-chisqType1CaTrans}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass}
+\label{fig:chisqType1CaTrans}
+\end{figure}
+
+
+
+Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Natrium.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 19.94 & 0.01 & 6.63 & 7.98065978391271e-06 & yes\\ 
+Na & 4.56 & 0.01 & 9.21 & 0.102375873469687 & no\\ 
+Mg & NA & 0.01 & NA & NA & NA\\ 
+Al & 2.61 & 0.01 & 13.28 & 0.625534711346593 & no\\ 
+Si & 2.37 & 0.01 & 6.63 & 0.1233141782769 & no\\ 
+K & NA & 0.01 & NA & NA & NA\\ 
+Ca & 15.58 & 0.01 & 6.63 & 7.92121275099422e-05 & yes\\ 
+Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes}
+\label{tab:chi-type2-trans}
+\end{table}
+
+For the observations of type 7 glass, the test can now even be conducted on data of the variable Natrium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 6.98 & 0.01 & NA & NA & NA\\ 
+Na & 1.83 & 0.01 & 6.63 & 0.176007215452645 & no\\ 
+Al & 1.53 & 0.01 & 9.21 & 0.465771718544361 & no\\ 
+Si & 12.46 & 0.01 & NA & NA & NA\\ 
+K & NA & 0.01 & NA & NA & NA\\ 
+Ca & 2.39 & 0.01 & NA & NA & NA\\ 
+Ba & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the transformed data of type 7 glass with ten initial classes}
+\label{tab:chi-type7-trans}
+\end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
 
@@ -385,11 +556,90 @@ If you want to relate to a figure or table from a different page, you could do i
 \begin{appendix}
 \pagenumbering{roman}		%% roman page numbers for the appendix
 
-\section{Appendix}
-here starts the appendix
 
-\subsection{Slides}
-here could be some slides
+
+\section{Appendix}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 86.4 & 0.01 & 20.09 & 2.44249065417534e-15 & yes\\ 
+Na & 49.04 & 0.01 & 23.21 & 3.99921126548186e-07 & yes\\ 
+Mg & 668.81 & 0.01 & 16.81 & < 1.0e-15 & yes\\ 
+Al & 61.72 & 0.01 & 29.14 & 5.84218540211623e-08 & yes\\ 
+Si & 92.86 & 0.01 & 23.21 & 1.4432899320127e-15 & yes\\ 
+K & 178.04 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
+Ca & 149.63 & 0.01 & 18.48 & < 1.0e-15 & yes\\ 
+Ba & 301.07 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
+Fe & 137.37 & 0.01 & 18.48 & < 1.0e-15 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on the whole data sample with 30 initial classes}
+\label{tab:chi-full-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 102 & 0.01 & 13.28 & < 1.0e-15 & yes\\ 
+Na & 16.61 & 0.01 & 18.48 & 0.0200763340092527 & no\\ 
+Mg & 28.9 & 0.01 & 16.81 & 6.36733763034192e-05 & yes\\ 
+Al & 27.56 & 0.01 & 16.81 & 0.000113486165164822 & yes\\ 
+Si & 35.74 & 0.01 & 15.09 & 1.07201048937799e-06 & yes\\ 
+K & 129.69 & 0.01 & 18.48 & < 1.0e-15 & yes\\ 
+Ca & 20.22 & 0.01 & 18.48 & 0.00510775321781398 & yes\\ 
+Fe & 45.28 & 0.01 & 9.21 & 1.46922363164492e-10 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 1 glass with 30 initial classes}
+\label{tab:chi-type1-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 77.84 & 0.01 & 15.09 & 2.33146835171283e-15 & yes\\ 
+Na & 17.26 & 0.01 & 18.48 & 0.0157897896300554 & no\\ 
+Mg & 306.84 & 0.01 & 15.09 & < 1.0e-15 & yes\\ 
+Al & 20.77 & 0.01 & 20.09 & 0.00778471801730818 & yes\\ 
+Si & 13.38 & 0.01 & 16.81 & 0.0374408380909446 & no\\ 
+K & 54.24 & 0.01 & 13.28 & 4.67884619936854e-11 & yes\\ 
+Ca & 106.11 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
+Fe & 49.63 & 0.01 & 11.34 & 9.60126422810959e-11 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 2 glass with 30 initial classes}
+\label{tab:chi-type2-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 22.42 & 0.01 & 6.63 & 2.18961874765e-06 & yes\\ 
+Na & 12.16 & 0.01 & 6.63 & 0.000489125271576851 & yes\\ 
+Al & 3.37 & 0.01 & 9.21 & 0.185460070738202 & no\\ 
+Si & 21.68 & 0.01 & 6.63 & 3.2242744996136e-06 & yes\\ 
+K & 15.8 & 0.01 & NA & NA & NA\\ 
+Ca & 11.55 & 0.01 & NA & NA & NA\\ 
+Ba & 19.75 & 0.01 & 9.21 & 5.14515780526414e-05 & yes\\ \hline \end{tabular}\caption{Test results of the chi-squared test on type 7 glass with 30 initial classes}
+\label{tab:chi-type7-30}
+\end{table}
+
+%%% to be deleted:
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{report-chisqType2Na}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{report-chisqType2Na-30}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:2}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{report-chisqType2Al}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.6\textwidth]{report-chisqType2Al-30}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:2}
+\end{figure}
 
 \end{appendix}
 

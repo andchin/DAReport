@@ -1,6 +1,15 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Test results of the chi-squared test on the whole data sample with ten initial classes\relax }}{7}
-\contentsline {table}{\numberline {2}{\ignorespaces Test results of the chi-squared test on type 1 glass with ten initial classes\relax }}{8}
-\contentsline {table}{\numberline {3}{\ignorespaces Observed end expected frequencies of items in the classes for the variable Natrium of type 1 glass\relax }}{8}
-\contentsline {table}{\numberline {4}{\ignorespaces Test results of the chi-squared test on type 2 glass\relax }}{8}
-\contentsline {table}{\numberline {5}{\ignorespaces Test results of the chi-squared test on type 7 glass\relax }}{8}
-\contentsline {table}{\numberline {6}{\ignorespaces This is the label of the table\relax }}{12}
+\contentsline {table}{\numberline {1}{\ignorespaces Skipped variables for the particular glass types due to too many zero values\relax }}{10}
+\contentsline {table}{\numberline {2}{\ignorespaces Test results of the chi-squared test on the whole data sample with ten initial classes\relax }}{11}
+\contentsline {table}{\numberline {3}{\ignorespaces Test results of the chi-squared test on type 1 glass with ten initial classes\relax }}{11}
+\contentsline {table}{\numberline {4}{\ignorespaces Observed end expected frequencies of items in the classes for the variable Natrium of type 1 glass\relax }}{11}
+\contentsline {table}{\numberline {5}{\ignorespaces Test results of the chi-squared test on type 2 glass with ten initial classes\relax }}{13}
+\contentsline {table}{\numberline {6}{\ignorespaces Test results of the chi-squared test on type 7 glass with ten initial classes\relax }}{13}
+\contentsline {table}{\numberline {7}{\ignorespaces Test results of the chi-squared test on the whole transformed data sample with ten initial classes\relax }}{14}
+\contentsline {table}{\numberline {8}{\ignorespaces Test results of the chi-squared test on the transformed data of type 1 glass with ten initial classes\relax }}{14}
+\contentsline {table}{\numberline {9}{\ignorespaces Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes\relax }}{14}
+\contentsline {table}{\numberline {10}{\ignorespaces Test results of the chi-squared test on the transformed data of type 7 glass with ten initial classes\relax }}{15}
+\contentsline {table}{\numberline {11}{\ignorespaces This is the label of the table\relax }}{18}
+\contentsline {table}{\numberline {12}{\ignorespaces Test results of the chi-squared test on the whole data sample with 30 initial classes\relax }}{i}
+\contentsline {table}{\numberline {13}{\ignorespaces Test results of the chi-squared test on type 1 glass with 30 initial classes\relax }}{i}
+\contentsline {table}{\numberline {14}{\ignorespaces Test results of the chi-squared test on type 2 glass with 30 initial classes\relax }}{i}
+\contentsline {table}{\numberline {15}{\ignorespaces Test results of the chi-squared test on type 7 glass with 30 initial classes\relax }}{ii}
