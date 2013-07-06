@@ -1,4 +1,5 @@
 <<initialActions, eval=TRUE, echo=FALSE, term=FALSE>>=
+require(car)
 require(mlbench)
 data(Glass)
 Glass.type1 = Glass[which(Glass$Type == 1), -10]
@@ -100,6 +101,20 @@ chisq.test.norm = function(data, initial_breaks, min, sig) {
               rejected = teststat > critical_value))
 }
 
+chisq.test.norm.eh = function(data, initial_breaks, min, sig) {
+  res = tryCatch(chisq.test.norm(data, initial_breaks, min, sig), error=function(e) NA)
+  if(is.na(res)) {
+    return(list(hist = NA,
+                expected_probabilities = NA,
+                expected_frequencies = NA,
+                teststat = NA,
+                critical_value = NA,
+                p_value = NA,
+                rejected = NA))
+  }
+  return(res)
+}
+
 # Returns class centers (mids) for given breaks.
 getMids = function(breaks) {
   mids = rep(0, length(breaks)-1)
@@ -132,6 +147,47 @@ dataFromFreq = function(testresult, mult) {
 # Does not plot the histogram.
 histFromExpectedFreqs = function(testresult) {
   hist(dataFromFreq(testresult, 1000), breaks=testresult$hist$breaks, freq=FALSE, plot=FALSE)
+}
+@
+%%%%%
+<<boxcoxFunctions, eval=TRUE, echo=FALSE, term=FALSE>>=
+boxcox = function(x, lambda) {
+  if(lambda == 0) {
+    return(log(x))
+  }
+  return((x^lambda - 1) / lambda)
+}
+
+boxcox.likelihood = function(X, lambda) {
+  n = length(X)
+  xlmean = 1/n * sum(boxcox(X, lambda))
+  return(
+    -n/2 * log(1/n * sum((boxcox(X, lambda) - xlmean)^2)) + (lambda-1) * sum(log(X))
+  )
+}
+
+powerTransform.eh = function(X) {
+  tryCatch(powerTransform(X), error=function(e) NULL)
+}
+
+transformDataFrame = function(data) {
+  data.lambda = apply(data, 2, powerTransform.eh)
+  data.t = data
+  for(name in colnames(data.t)) {
+    if(is.null(data.lambda[[name]])) {
+      col = rep(NA, length(data.t[,1]))
+    }
+    else {
+      col = boxcox(data[[name]], data.lambda[[name]][["lambda"]])
+    }
+    data.t[[name]] = col
+  }
+  return(data.t)
+}
+
+transformVector = function(data) {
+  lambda = powerTransform(data)
+  return(boxcox(data, lambda$lambda))
 }
 @
 
@@ -213,12 +269,31 @@ histFromExpectedFreqs = function(testresult) {
 
 \subsection{Test methods for normality}
 
+A statistical hypothesis test which tests empirical data on conformance with a certain distribution (or a family of distributions) is called a goodness of fit test. The null hypothesis is usually the hypothesis that the tested sample has been drawn from a population which is distributed according to the given distribution. Consequently, the alternative hypothesis states that the sample was drawn from a population of any other distribution. In every test, a certain method is used to calculate a test statistic from the data. If the test statistic exceeds a critical value which is computed for the particular distribution and a certain significance level, the null hypothesis is rejected. The p-value is the lowest significance level for which the null hypothesis would still be rejected. It can be interpreted as the probability of getting a result like the present one or an even more extreme result if the null hypothesis is true.
+
 \subsubsection{Q-Q-plot}
+
+Quantile-Quantile-Plots provide a graphical comparison of the quantiles of two probability distributions. The observed values are plotted against the quantiles of a theoretical distribution. To check for normality, the observations $y_1, \dots, y_n$ from a sample with size n are ordered ( $y_1 \le y_2 \le \dots \le y_n$ ) and plotted against an assumed cumulative distribution function. Let $y_(_i_)$ denote the sample quantiles. For each sample quantile $y_(_j_)$ with j observations to the left, the proportion of these observations is approximated by
+\[ p_(_j_) = \frac{j - \frac{1}{2}} {n}\]
+and the theoretical quantiles $q_(_j_)$ are defined by
+\[ q_(_j_) = \Phi^-^1(p_(_j_)) \]
+
+Given a sufficient sample size, normally distributed data will be approximately linearly related to the approximated normal distribution.
 
 \subsubsection{Shapiro-Wilk test}
 
+The Shapiro-Wilk-Test is a statistical procedure for testing a complete sample for normality. The test statistic (denoted as W) indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles by comparing the expected variance of the assumed normally distributed quantile values (in the numerator) with the actual variance of the ordered observed sample values (in the denominator):
+\[ W =(\frac{\sum \limits_{i=1}^n a_i y_i)^2} {\sum \limits_{i=1}^n (y_i-\bar{y})^2}\]
+where
+$a_i$ denotes the normalized "best linear unbiased" coefficients and
+$y_i$ denotes the ordered observations.
+
+The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
+
+Compared to the Kolmogorov-Smirnov-Test and the Chi-Squared-Test, the Shapiro-Wilk-Test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) are a the size of n < 50, the test result is quite interesting for the evaluation of these cases.
+
 \subsubsection{Pearson's chi-squared test}\label{sec:chisq-theoretical}
-Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to a given theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
+Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to an arbitrary theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
 \begin{figure}[h!]
 <<chisqSampleHist, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
 testres = chisq.test.norm(Glass$Na, 30, 5, 0.01)
@@ -363,7 +438,84 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-\subsection{Box-Cox-Transformation}
+\subsection{Box-Cox-transformation}
+
+If data is not normally distributed, it can still be transformed to fit to a normal distribtion in some cases. One possibility is the Box-Cox-transformation. It is a family of parameterised power tranformations:
+\[
+  \phantom{\quad\mbox{for}\ x > 0}
+   x^{(\lambda)} =
+   \left\{ 
+    \begin{array}{cl}
+%\vspace{12pt}
+                 \frac{x^\lambda - 1}{\lambda} & \lambda \neq 0\\
+                 \ln(x) & \lambda = 0
+    \end{array}
+   \right.
+   \quad\mbox{for}\ x > 0
+\]
+The optimal parameter for specific observations $x_1, \dots, x_n$ can be determined by a maximum-likelihood estimation, maximising the log likelihood
+\[
+\begin{array}{l}
+\vspace{12pt}
+   l(\lambda) = - \frac{n}{2}\ln\left[\frac{1}{n}\sum_{j=1}^{n}(x_j^{(\lambda)} - \overline{x^{(\lambda)}})^2\right] + (\lambda - 1) \sum_{j=1}^{n}\ln(x_j)\\
+   \mbox{with}\ \overline{x^{(\lambda)}} = \frac{1}{n} \sum_{j=1}^{n}x_j^{(\lambda)}
+\end{array}
+\]
+However, a Box-Cox-transformation does not ensure that the data is normally distributed thereafter. One reason that a sample cannot be properly transformed could be that it is not unimodal. Histograms and QQ-plots of a sample from a unimodal distribution are depicted in figure \ref{fig:transformationUnimodal}. Data that is generated from a Weibull distribution can be transformed to approximately normally distributed values quite well as can be recognised by the histogram and the QQ-plot. In contrast, it is not possible to properly transform a sample that is combined from two different distributions (here with different scale parameters of the Weibull distribution) as shown in figure \ref{fig:transformationBimodal}. By the combination of two samples with different mean values a bimodal sample emerges preventing the underlying data to be transformed to a unimodal sample (namely a normally distributed sample) by a simple function. Furthermore, noisy data is not suited for Box-Cox-transformation either because the Box-Cox-function is applied on the whole sample (and not only the "noisy parts").
+\newpage
+\phantom{.}
+\vfill
+
+\begin{figure}[h!]
+<<transformationUnimodal, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+par(mfrow=c(2,2))
+set.seed(549)
+x = rweibull(500, 1)
+plot(hist(x, plot=FALSE), main="Histogram of a Weibull(1, 1)\n sample of size 500", xlab="Weibull(1, 1)")
+lambda = powerTransform(x)
+x.transformed = boxcox(x, lambda$lambda)
+plot(hist(x.transformed, plot=FALSE), main="Histogram of the Box-Cox-\n transformed Weibull(1, 1) sample", xlab="transformed Weibull(1, 1)")
+plot(qqnorm(x, plot=FALSE), main="Normal Q-Q Plot", xlab="Weibull(1, 1)", ylab="Sample Quantiles")
+qqline(x,lwd=2,col="red")
+plot(qqnorm(x.transformed, plot=FALSE), main="Normal Q-Q Plot", xlab="transformed Weibull(1, 1)", ylab="Sample Quantiles")
+qqline(x.transformed,lwd=2,col="red")
+par(mfrow=c(1,1))
+@
+\includegraphics[width=\textwidth]{report-transformationUnimodal}
+\caption{Histograms and QQ-plots of a Weibull(1, 1) simulated sample of size 500 and of the Box-Cox-transformed data}
+\label{fig:transformationUnimodal}
+\end{figure}
+
+\vfill
+
+\newpage
+\phantom{.}
+\vfill
+
+\begin{figure}[h!]
+<<transformationBimodal, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+par(mfrow=c(2,2))
+set.seed(518161878)
+x.1 = rweibull(250, 5, 1)
+x.2 = rweibull(250, 5, 4)
+x.bimodal = c(x.1, x.2)
+plot(hist(x.bimodal, plot=FALSE), main="Histogram of a Weibull(5, 1) /\n Weibull(5, 4) mixed sample", xlab="Weibull(5, 1), Weibull(5, 4)")
+lambda = powerTransform(x.bimodal)
+x.bimodal.transformed = boxcox(x.bimodal, lambda$lambda)
+plot(hist(x.bimodal.transformed, plot=FALSE), main="Histogram of the Box-Cox-\n transfomed mixed sample", xlab="transformed Weibull(5, 1), Weibull(5, 4)")
+plot(qqnorm(x.bimodal, plot=FALSE), main="Normal Q-Q Plot", xlab="Weibull(5, 1), Weibull(5, 4)", ylab="Sample Quantiles")
+qqline(x.bimodal,lwd=2,col="red")
+plot(qqnorm(x.bimodal.transformed, plot=FALSE), main="Normal Q-Q Plot", xlab="transformed Weibull(5, 1), Weibull(5, 4)", ylab="Sample Quantiles")
+qqline(x.bimodal.transformed,lwd=2,col="red")
+par(mfrow=c(1,1))
+@
+\includegraphics[width=\textwidth]{report-transformationBimodal}
+\caption{Histograms and QQ-plots of a mixed sample composed of a Weibull(5, 1) simulated sample and a Weibull(5, 4) simulated sample (each of size 250) and of the Box-Cox-transformed data}
+\label{fig:transformationBimodal}
+\end{figure}
+
+\vfill
+
 
 
 
@@ -373,17 +525,264 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 \subsection{Testing original data}
 
 \subsubsection{Q-Q-plot}
+For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for each glass type separately. The graphical comparison shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed  quantiles and the observed values.
+
+\begin{figure}[h!]
+\centering
+<<QQsamples, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+par(mfrow=c(2,2))
+qqnorm(Glass.type1[["Si"]], main ="Si in Glass Type 1",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type1[["Si"]],lwd=2,col="red")
+qqnorm(Glass.type1[["Fe"]], main ="Fe in Glass Type 1",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type1[["Fe"]],lwd=2,col="red")
+qqnorm(Glass.type2[["Ca"]], main ="Ca in Glass Type 2",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type2[["Ca"]],lwd=2,col="red")
+qqnorm(Glass.type2[["K"]], main ="K in Glass Type 2",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type2[["K"]],lwd=2,col="red")
+@
+\includegraphics[width=\textwidth]{report-QQsamples}
+\caption{Exemplary QQ-Plots from Glass Type 1 where a graphical inspection does not suggest a linear relationship}
+\label{fig:QQsamples}
+\end{figure}
+
+The only Cases where a linear relationship can be assumed given some outliers are Mg in glass type 1 and Ca in glass type 7. For some observations (e.g. Na in glass type 5 and RI in glass type 6) a linear relationship seems to be plausible, however, the total number of observations in these cases is too small to make conclusions about a hypothetical linear relationship (glass type 5: n = 13; glass type 6: n = 9).
+
+\begin{figure}[h!]
+\centering
+<<QQsampleslin, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+par(mfrow=c(2,2))
+qqnorm(Glass.type1[["Mg"]], main ="Mg in Glass Type 1",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type1[["Mg"]],lwd=2,col="red")
+qqnorm(Glass.type7[["Ca"]], main ="Ca in Glass Type 7",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type7[["Ca"]],lwd=2,col="red")
+qqnorm(Glass.type5[["Na"]], main ="Na in Glass Type 5",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type5[["Na"]],lwd=2,col="red")
+qqnorm(Glass.type6[["RI"]], main ="RI in Glass Type 6",pch=19,
+       cex.lab=1,cex.main=2)
+qqline(Glass.type6[["RI"]],lwd=2,col="red")
+@
+\includegraphics[width=\textwidth]{report-QQsampleslin}
+\caption{QQ-Plots of the cases where a linear relationship seems plausible}
+\label{fig:QQsampleslin}
+\end{figure}
+
 
 \subsubsection{Shapiro-Wilk test}
+Performing the Shapiro-Wilk-Test on the complete dataset at hand, according to the p-values the Null Hypothesis (the data the sample is taken from is normally distributed) is rejected for all the elements.
+Testing the different glass types separately, the p-values of majority of the elements are still very small (about 50 Percent of the tested elements had a p-value < 0.001). Consequently, the Null Hypotheses can be rejected for almost all separate cases. Only a total of 12 elements returned a p-value above or equal to the required alpha-level of 1 Percent.
+
+
+<<calcSWresults, echo=FALSE, term=TRUE>>=
+sig=0.01
+shapresult.full <- apply(Glass[,-10], 2, shapiro.test)
+shapresult.type1 <- apply(Glass.type1, 2, shapiro.test)
+shapresult.type2 <- apply(Glass.type2, 2, shapiro.test)
+shapresult.type3 <- apply(Glass.type3, 2, shapiro.test)
+shapresult.type5 <- apply(Glass.type5, 2, shapiro.test)
+shapresult.type7 <- apply(Glass.type7, 2, shapiro.test)
+@
+
+\begin{table}[h!]
+\centering
+<<testresFullSW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.full
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the whole data sample with ten initial classes}
+\label{tab:testresFullSW}
+\end{table}
+
+For glass type 6 the elements K, Ba, and Fe are only zeros, so they were excluded from the testing procedure. In these cases the Shapiro-Wilk-Statistic is not applicable since the expression 
+$\sum \limits_{i=1}^n (y_i - \bar{y})^2$ 
+in the denominator sums up to 0.
+
+\begin{table}[h!]
+\centering
+<<testrestype1SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type1
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 1 glass with ten initial classes}
+\label{tab:testrestype1SW}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype2SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type2
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 2 glass with ten initial classes}
+\label{tab:testrestype2SW}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype3SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type3
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 3 glass with ten initial classes}
+\label{tab:testrestype3SW}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype5SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type5
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 5 glass with ten initial classes}
+\label{tab:testrestype5SW}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype7SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type7
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 7 glass with ten initial classes}
+\label{tab:testrestype7SW}
+\end{table}
+
+As can be seen from the tables, for only 12 of the Elements in the data subsets, the hypothetical normal distribution is not rejected. Additionally, 9 of these elements stem from the subsets of type 3 and type 5 glass which consist only of 17 and 13 observations. Given the small sample size the test result is at best questionable.
 
 \subsubsection{Pearson's chi-squared test}
-<<calculat, echo=FALSE>>=
+<<calculatChisq, echo=FALSE>>=
 testresult.full = apply(Glass[, -10], 2, chisq.test.norm, initial_breaks=10, min=5, sig=0.01)
 testresult.type1 = apply(Glass.type1[, c(-8,-10)], 2, chisq.test.norm, initial_breaks=10, min=5, sig=0.01)
 testresult.type2 = apply(Glass.type2[, c(-8,-10)], 2, chisq.test.norm, initial_breaks=10, min=5, sig=0.01)
 testresult.type7 = apply(Glass.type7[, c(-3,-9)], 2, chisq.test.norm, initial_breaks=10, min=5, sig=0.01)
+
+testresult.full.30 = apply(Glass[, -10], 2, chisq.test.norm, initial_breaks=30, min=5, sig=0.01)
+testresult.type1.30 = apply(Glass.type1[, c(-8,-10)], 2, chisq.test.norm, initial_breaks=30, min=5, sig=0.01)
+testresult.type2.30 = apply(Glass.type2[, c(-8,-10)], 2, chisq.test.norm, initial_breaks=30, min=5, sig=0.01)
+testresult.type7.30 = apply(Glass.type7[, c(-3,-9)], 2, chisq.test.norm, initial_breaks=30, min=5, sig=0.01)
 @
-As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is not suited for rather small sample sizes because of the approximation via the chi-squared distribution. Concerning the given data, the samples of type 3 glass (\Sexpr{length(Glass.type3$RI)} observations), type 5 glass (\Sexpr{length(Glass.type5$RI)} observations) and type 6 glass (\Sexpr{length(Glass.type6$RI)} observations) are not large enough to ensure a viable test result. Hence, the data belonging to those types will not be considered for separate tests. However, it will remain in the overall data sample of all types. The minimum size of observations in each class is set to five and the number of initial classes (\ie number of classes before unifying) will be ten. The first tests are conducted on the whole data set for each variable. The results are shown in table \ref{tab:chi-full}.
+
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is not suited for rather small sample sizes because of the approximation via the chi-squared distribution. Concerning the given data, the samples of type 3 glass (\Sexpr{length(Glass.type3$RI)} observations), type 5 glass (\Sexpr{length(Glass.type5$RI)} observations) and type 6 glass (\Sexpr{length(Glass.type6$RI)} observations) are not large enough to ensure a viable test result. Hence, the data belonging to those types will not be considered for separate tests. However, it will remain in the overall data sample of all types. The minimum size of observations in each class is set to five and the number of initial classes (\ie number of classes before unifying) will be ten. The first tests are conducted on the whole data set for each variable. The results are shown in table \ref{tab:chi-full}. For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
 
 \begin{table}[h!]
 \centering
@@ -411,8 +810,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \caption{Test results of the chi-squared test on the whole data sample with ten initial classes}
 \label{tab:chi-full}
 \end{table}
-
-For two variables, it is not possible to determine a test result with the given parameters: The observations of the variables Potassium (K) and Barium (Ba) are divided only into three classes respectively after the unification of classes in order to fulfill the requirement of minimum class size. Since one degree of freedom is subtracted always and two degrees of freedom are subtracted for the estimation of the mean value and the standard deviation, zero degrees of freedom remain and so the critical value cannot be calculated. For each of the other variables, the hypothesis of normality is clearly rejected for the given significance level.
 
 The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately \Sexpr{round(testresult.type1$Na$p_value, 2)}. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
@@ -482,7 +879,9 @@ plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 \label{fig:chisqType1Na}
 \end{figure}
 
-\begin{table}[h!]
+The test results for observations of type 2 glass are summarised in table \ref{tab:chi-type2}. The null hypothesis is rejected for all variables except for Aluminium (Al) and Silicon (Si). The p-values for these variables are however rather small (approximately \Sexpr{round(testresult.type2$Al$p_value, 2)} and \Sexpr{round(testresult.type2$Si$p_value, 2)}).
+
+\begin{table}[h]
 \centering
 <<testresType2, echo=FALSE, term=TRUE, results=tex>>=
 cat("\\begin{tabular}{|cccccc|} ")
@@ -495,7 +894,7 @@ for(i in 1:(length(tr))) {
   cat(paste(
     names(tr[i]),
     round(tr[i][[1]]$teststat, 2),
-    0.05,
+    0.01,
     round(tr[i][[1]]$critical_value, 2),
     ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
     ifelse(tr[i][[1]]$rejected, "yes", "no"),
@@ -505,9 +904,11 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the chi-squared test on type 2 glass}
+\caption{Test results of the chi-squared test on type 2 glass with ten initial classes}
 \label{tab:chi-type2}
 \end{table}
+
+For the observations of type 7 glass, test results (table \ref{tab:chi-type7}) are only available for the variable Aluminium (Al). Due to the small sample size of \Sexpr{length(Glass.type7$RI)} observations, most of the initial classes are joined so that no degree of freedom remains for the chi-squared distribution function. The hypothesis of normality is not rejected for the data of Aluminium.
 
 \begin{table}[h!]
 \centering
@@ -532,9 +933,11 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the chi-squared test on type 7 glass}
+\caption{Test results of the chi-squared test on type 7 glass with ten initial classes}
 \label{tab:chi-type7}
 \end{table}
+
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Natrium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Natrium of type 1 glass ($\sim$ \Sexpr{round(testresult.type1$Na$p_value, 2)}) with ten initial classes decreases to approximately \Sexpr{round(testresult.type1.30$Na$p_value, 2)} with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ \Sexpr{round(testresult.type7$Al$p_value, 2)}) increases to approximately \Sexpr{round(testresult.type7.30$Al$p_value, 2)}. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
 
 \subsubsection{Kolmogorov-Smirnov test}
 
@@ -542,11 +945,166 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 
 \subsection{Testing transformed data}
 
+The same tests are now conducted on the data that have been Box-Cox-transformed with a parameter that is estimated by the maximum likelihood method. For some variables, an estimation is not possible because the algorithm does not converge or, as in most cases, not all of the observations of one variable are strictly positive.
+
 \subsubsection{Q-Q-plot}
 
 \subsubsection{Shapiro-Wilk test}
 
 \subsubsection{Pearson's chi-squared test}
+<<calculatChisqTrans, echo=FALSE>>=
+testresult.full.trans = apply(transformDataFrame(Glass[, -10]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type1.trans = apply(transformDataFrame(Glass.type1[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type2.trans = apply(transformDataFrame(Glass.type2[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type7.trans = apply(transformDataFrame(Glass.type7[, c(-3,-9)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+@
+Although for all variables for which a transformation is possible the p-value is higher than for the non-transformed data, the hypothesis of normality is still rejected for the whole sample (table \ref{tab:chi-full-trans}). The data of all types of glass is presumably too heterogenuous so that it comprises samples from several distributions within the overall sample of particular variables.
+
+\begin{table}[h!]
+\centering
+<<testresFullTrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.full.trans
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(is.na(tr[i][[1]]$p_value), NA, ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value)),
+    ifelse(is.na(tr[i][[1]]$rejected), NA, ifelse(tr[i][[1]]$rejected, "yes", "no")),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the whole transformed data sample with ten initial classes}
+\label{tab:chi-full-trans}
+\end{table}
+
+Concerning the transformation of type 1 glass, two more variables (Al and Ca) are now tested positively on the hypothesis of normality (table \ref{tab:chi-type1-trans}). In both cases, the p-value is be increased substantially by the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
+
+\begin{table}[h!]
+\centering
+<<testresType1Trans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type1.trans
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(is.na(tr[i][[1]]$p_value), NA, ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value)),
+    ifelse(is.na(tr[i][[1]]$rejected), NA, ifelse(tr[i][[1]]$rejected, "yes", "no")),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the transformed data of type 1 glass with ten initial classes}
+\label{tab:chi-type1-trans}
+\end{table}
+
+
+
+\begin{figure}[h!]
+\centering
+<<chisqType1Ca, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type1$Ca, 10, 5, 0.05)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Calcium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.8\textwidth]{report-chisqType1Ca}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass}
+\label{fig:chisqType1Ca}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<chisqType1CaTrans, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(transformVector(Glass.type1$Ca), 10, 5, 0.05)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="transformed amount of Calcium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.8\textwidth]{report-chisqType1CaTrans}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass}
+\label{fig:chisqType1CaTrans}
+\end{figure}
+
+
+
+Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Natrium.
+
+\begin{table}[h!]
+\centering
+<<testresType2Trans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type2.trans
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(is.na(tr[i][[1]]$p_value), NA, ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value)),
+    ifelse(is.na(tr[i][[1]]$rejected), NA, ifelse(tr[i][[1]]$rejected, "yes", "no")),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes}
+\label{tab:chi-type2-trans}
+\end{table}
+
+For the observations of type 7 glass, the test can now even be conducted on data of the variable Natrium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
+
+\begin{table}[h!]
+\centering
+<<testresType7Trans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type7.trans
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(is.na(tr[i][[1]]$p_value), NA, ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value)),
+    ifelse(is.na(tr[i][[1]]$rejected), NA, ifelse(tr[i][[1]]$rejected, "yes", "no")),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the transformed data of type 7 glass with ten initial classes}
+\label{tab:chi-type7-trans}
+\end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
 
@@ -610,11 +1168,174 @@ If you want to relate to a figure or table from a different page, you could do i
 \begin{appendix}
 \pagenumbering{roman}		%% roman page numbers for the appendix
 
-\section{Appendix}
-here starts the appendix
 
-\subsection{Slides}
-here could be some slides
+
+\section{Appendix}
+
+\begin{table}[h!]
+\centering
+<<testresFull, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.full.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the whole data sample with 30 initial classes}
+\label{tab:chi-full-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type1.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 1 glass with 30 initial classes}
+\label{tab:chi-type1-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type2.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 2 glass with 30 initial classes}
+\label{tab:chi-type2-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType7-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type7.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 7 glass with 30 initial classes}
+\label{tab:chi-type7-30}
+\end{table}
+
+%%% to be deleted:
+\begin{figure}[h!]
+\centering
+<<chisqType2Na, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type2$Na, 10, 5, 0.01)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Natrium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.6\textwidth]{report-chisqType2Na}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<chisqType2Na-30, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type2$Na, 30, 5, 0.01)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Natrium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.6\textwidth]{report-chisqType2Na-30}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:2}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<chisqType2Al, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type2$Al, 10, 5, 0.01)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Natrium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.6\textwidth]{report-chisqType2Al}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:1}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<chisqType2Al-30, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type2$Al, 30, 5, 0.01)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Natrium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.6\textwidth]{report-chisqType2Al-30}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\label{fig:2}
+\end{figure}
 
 \end{appendix}
 

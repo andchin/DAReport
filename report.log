@@ -1,43 +1,34 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.11)  28 JUN 2013 17:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.6.27)  5 JUL 2013 12:14
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **report.tex
-
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.tex"
+(./report.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrartcl.cls"
-Document Class: scrartcl 2011/06/16 v3.09a KOMA-Script document class (article)
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrartcl.cls
+Document Class: scrartcl 2012/07/29 v3.11b KOMA-Script document class (article)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
-Package: scrkbase 2011/06/16 v3.09a KOMA-Script package (KOMA-Script-dependent 
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrkbase.sty
+Package: scrkbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-dependent 
 basics and keyval usage)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
-Package: scrbase 2011/06/16 v3.09a KOMA-Script package (KOMA-Script-independent
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrbase.sty
+Package: scrbase 2012/07/29 v3.11b KOMA-Script package (KOMA-Script-independent
  basics and keyval usage)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
-Package: scrlfile 2011/03/09 v3.09 KOMA-Script package (loading files)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrlfile.sty
+Package: scrlfile 2012/06/15 v3.12 KOMA-Script package (loading files)
 
-Package scrlfile, 2011/03/09 v3.09 KOMA-Script package (loading files)
+Package scrlfile, 2012/06/15 v3.12 KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-))) ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
-Package: tocbasic 2011/05/30 v3.09a KOMA-Script package (handling toc-files)
+))) (/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/tocbasic.sty
+Package: tocbasic 2012/04/04 v3.10b KOMA-Script package (handling toc-files)
 )
 Package tocbasic Info: omitting babel extension for `toc'
 (tocbasic)             because of feature `nobabel' available
@@ -54,16 +45,16 @@ Package scrartcl Info: You've used obsolete option `12pt'.
 (scrartcl)             You may simply replace `12pt'
 (scrartcl)             by `fontsize=12pt'.
 Class scrartcl Info: File `scrsize12pt.clo' used to setup font sizes on input l
-ine 1247.
+ine 1267.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize12pt.clo"
-File: scrsize12pt.clo 2011/06/16 v3.09a KOMA-Script font size class option (12p
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrsize12pt.clo
+File: scrsize12pt.clo 2012/07/29 v3.11b KOMA-Script font size class option (12p
 t)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
-Package: typearea 2011/06/16 v3.09a KOMA-Script package (type area)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/typearea.sty
+Package: typearea 2012/07/29 v3.11b KOMA-Script package (type area)
 
-Package typearea, 2011/06/16 v3.09a KOMA-Script package (type area)
+Package typearea, 2012/07/29 v3.11b KOMA-Script package (type area)
                   Copyright (C) Frank Neukam, 1992-1994
                   Copyright (C) Markus Kohm, 1994-
 
@@ -94,7 +85,7 @@ Package typearea Info: These are the values describing the layout:
 (typearea)              \topskip        = 12.0pt
 (typearea)              \footskip       = 50.75pt
 (typearea)              \baselineskip   = 14.5pt
-(typearea)              on input line 1139.
+(typearea)              on input line 1213.
 )
 \c@part=\count80
 \c@section=\count81
@@ -108,18 +99,18 @@ Package typearea Info: These are the values describing the layout:
 \c@figure=\count86
 \c@table=\count87
 \bibindent=\dimen102
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -134,21 +125,20 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -298,7 +288,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -329,7 +319,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -353,27 +343,27 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count91
@@ -381,35 +371,37 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen111
 \Gin@req@width=\dimen112
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\natbib\natbib.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip47
 \bibsep=\skip48
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count92
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrpage2.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/koma-script/scrpage2.sty
 Package: scrpage2 2010/04/22 v2.5 LaTeX2e KOMA-Script package
 LaTeX Info: Redefining \pagemark on input line 176.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\bbm.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/bbm-macros/bbm.sty
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
 (Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
 LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
-Package: caption 2011/11/10 v3.2e Customizing captions (AR)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2011/11/01 v1.4a caption3 kernel (AR)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen113
 \captionmargin@=\dimen114
 \captionwidth=\dimen115
-\caption@indent=\dimen116
-\caption@parindent=\dimen117
-\caption@hangindent=\dimen118
+\caption@tempdima=\dimen116
+\caption@indent=\dimen117
+\caption@parindent=\dimen118
+\caption@hangindent=\dimen119
 )
 Package caption Info: KOMA-Script document class.
 
@@ -419,18 +411,18 @@ Package caption Warning: Option `tableposition=top' has no effect
 See the caption package documentation for explanation.
 
 \c@ContinuedFloat=\count93
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\newfloat.sty"
-Package: newfloat 2011/10/30 v1.0 Defining new floating environments (AR)
+) (/usr/local/texlive/2013/texmf-dist/tex/latex/caption/newfloat.sty
+Package: newfloat 2013/05/11 v1.1-91 Defining new floating environments (AR)
 )
 Package newfloat Info: New float `listing' with options `fileext=los,placement=
-{!ht}' on input line 18.
+{!ht}' on input line 19.
 \c@listing=\count94
 \newfloat@ftype=\count95
-Package newfloat Info: float type `listing'=8 on input line 18.
-Package tocbasic Info: setting babel extension for `los' on input line 18.
+Package newfloat Info: float type `listing'=8 on input line 19.
+Package tocbasic Info: setting babel extension for `los' on input line 19.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\boxedminipage\boxedminipage.sty")
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/boxedminipage/boxedminipage.sty)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count96
 \float@exts=\toks18
@@ -438,13 +430,13 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks19
 \@floatcapt=\box28
 )
-(D:/PROGRA~2/R/R-30~1.1/share/texmf/tex/latex\Sweave.sty
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Sweave.sty
 Package: Sweave 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyvrb\fancyvrb.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
@@ -455,45 +447,215 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \c@FancyVerbLine=\count98
 \FV@StepNumber=\count99
 \FV@OutFile=\write3
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+)
+(/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/upquote.sty
+Package: upquote 2003/08/11 v1.1 Covington's upright-quote modification to verb
+atim and verb
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+Now handling font encoding TS1 ...
+... processing UTF-8 mapping file for font encoding TS1
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1enc.dfu
+File: ts1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A2 (decimal 162)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00A4 (decimal 164)
+   defining Unicode char U+00A5 (decimal 165)
+   defining Unicode char U+00A6 (decimal 166)
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00A8 (decimal 168)
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AC (decimal 172)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00AF (decimal 175)
+   defining Unicode char U+00B0 (decimal 176)
+   defining Unicode char U+00B1 (decimal 177)
+   defining Unicode char U+00B2 (decimal 178)
+   defining Unicode char U+00B3 (decimal 179)
+   defining Unicode char U+00B4 (decimal 180)
+   defining Unicode char U+00B5 (decimal 181)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+00B9 (decimal 185)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+00BC (decimal 188)
+   defining Unicode char U+00BD (decimal 189)
+   defining Unicode char U+00BE (decimal 190)
+   defining Unicode char U+00D7 (decimal 215)
+   defining Unicode char U+00F7 (decimal 247)
+   defining Unicode char U+0192 (decimal 402)
+   defining Unicode char U+02C7 (decimal 711)
+   defining Unicode char U+02D8 (decimal 728)
+   defining Unicode char U+02DD (decimal 733)
+   defining Unicode char U+0E3F (decimal 3647)
+   defining Unicode char U+2016 (decimal 8214)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+203B (decimal 8251)
+   defining Unicode char U+203D (decimal 8253)
+   defining Unicode char U+2044 (decimal 8260)
+   defining Unicode char U+204E (decimal 8270)
+   defining Unicode char U+2052 (decimal 8274)
+   defining Unicode char U+20A1 (decimal 8353)
+   defining Unicode char U+20A4 (decimal 8356)
+   defining Unicode char U+20A6 (decimal 8358)
+   defining Unicode char U+20A9 (decimal 8361)
+   defining Unicode char U+20AB (decimal 8363)
+   defining Unicode char U+20AC (decimal 8364)
+   defining Unicode char U+20B1 (decimal 8369)
+   defining Unicode char U+2103 (decimal 8451)
+   defining Unicode char U+2116 (decimal 8470)
+   defining Unicode char U+2117 (decimal 8471)
+   defining Unicode char U+211E (decimal 8478)
+   defining Unicode char U+2120 (decimal 8480)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2126 (decimal 8486)
+   defining Unicode char U+2127 (decimal 8487)
+   defining Unicode char U+212E (decimal 8494)
+   defining Unicode char U+2190 (decimal 8592)
+   defining Unicode char U+2191 (decimal 8593)
+   defining Unicode char U+2192 (decimal 8594)
+   defining Unicode char U+2193 (decimal 8595)
+   defining Unicode char U+2329 (decimal 9001)
+   defining Unicode char U+232A (decimal 9002)
+   defining Unicode char U+2422 (decimal 9250)
+   defining Unicode char U+25E6 (decimal 9702)
+   defining Unicode char U+25EF (decimal 9711)
+   defining Unicode char U+266A (decimal 9834)
+))
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\ae.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ae/ae.sty
 Package: ae 2001/02/12 1.3 Almost European Computer Modern
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 )
 LaTeX Font Info:    Try loading font information for T1+aer on input line 100.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aer.fd"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
-))))
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+)))) (./report.aux
+
+LaTeX Warning: Label `fig:1' multiply defined.
+
+
+LaTeX Warning: Label `fig:2' multiply defined.
+
+)
+\openout1 = `report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 54.
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 54.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -529,74 +691,257 @@ LaTeX Font Info:    ... okay on input line 53.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count100
-\scratchdimen=\dimen119
+\scratchdimen=\dimen120
 \scratchbox=\box30
 \nofMPsegments=\count101
 \nofMParguments=\count102
 \everyMPshowfont=\toks20
 \MPscratchCnt=\count103
-\MPscratchDim=\dimen120
+\MPscratchDim=\dimen121
 \MPnumerator=\count104
 \makeMPintoPDFobject=\count105
 \everyMPtoPDFconversion=\toks21
+) (/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report-concordance.tex")
-LaTeX Font Info:    Try loading font information for T1+aess on input line 57.
+(./report-concordance.tex)
+LaTeX Font Info:    Try loading font information for T1+aess on input line 58.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aess.fd"
+(/usr/local/texlive/2013/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 57.
+(Font)              <17.28> on input line 58.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 57.
+(Font)              <12> on input line 58.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.toc"
+{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./repo
+rt.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
 )
 \tf@toc=\write4
- [2] [1]
-<report-chisqSampleHist.pdf, id=16, 433.62pt x 433.62pt>
+\openout4 = `report.toc'.
+
+ [2]
+[1]
+! Double subscript.
+l.87 ...umulative distribution function. Let $y_(_
+                                                  i_)$ denote the sample qua...
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.87 ...ulative distribution function. Let $y_(_i_
+                                                  )$ denote the sample quant...
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.87 ... quantiles. For each sample quantile $y_(_
+                                                  j_)$ with j observations t...
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.87 ...uantiles. For each sample quantile $y_(_j_
+                                                  )$ with j observations to ...
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.88 \[ p_(_
+            j_) = \frac{j - \frac{1}{2}} {n}\]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.88 \[ p_(_j_
+              ) = \frac{j - \frac{1}{2}} {n}\]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.89 and the theoretical quantiles $q_(_
+                                        j_)$ are defined by
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.89 and the theoretical quantiles $q_(_j_
+                                          )$ are defined by
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.90 \[ q_(_
+            j_) = \Phi^-^1(p_(_j_)) \]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.90 \[ q_(_j_
+              ) = \Phi^-^1(p_(_j_)) \]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double superscript.
+l.90 \[ q_(_j_) = \Phi^-^
+                         1(p_(_j_)) \]
+I treat `x^1^2' essentially like `x^1{}^2'.
+
+! Double subscript.
+l.90 \[ q_(_j_) = \Phi^-^1(p_(_
+                               j_)) \]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+! Double subscript.
+l.90 \[ q_(_j_) = \Phi^-^1(p_(_j_
+                                 )) \]
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+[2] <report-chisqSampleHist.pdf, id=26, 433.62pt x 433.62pt>
 File: report-chisqSampleHist.pdf Graphic file (type pdf)
 
 <use report-chisqSampleHist.pdf>
-Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 89.
+Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 109.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 113.
+[3]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 133.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [2] [3 <C:/Users/Carlos/Documents/Studium Inhalt/Master/2. Sem/Data Analytics
-/case studies/Report/report-chisqSampleHist.pdf>] [4] [5] [6]
+) [4 <./report-chisqSampleHist.pdf>] [5] [6]
+Overfull \hbox (11.67815pt too wide) in paragraph at lines 257--259
+\T1/aer/m/n/12 The op-ti-mal pa-ram-e-ter for spe-cific ob-ser-va-tions $\OML/c
+mm/m/it/12 x[]; [] ; x[]$ \T1/aer/m/n/12 can be de-ter-mined by a maximum-
+ []
+
+[7] <report-transformationUnimodal.pdf, id=56, 433.62pt x 433.62pt>
+File: report-transformationUnimodal.pdf Graphic file (type pdf)
+
+<use report-transformationUnimodal.pdf>
+Package pdftex.def Info: report-transformationUnimodal.pdf used on input line 2
+72.
+(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+ [8 <./report-transformationUnimodal.pdf>] <report-transformationBimodal.pdf, i
+d=66, 433.62pt x 433.62pt>
+File: report-transformationBimodal.pdf Graphic file (type pdf)
+
+<use report-transformationBimodal.pdf>
+Package pdftex.def Info: report-transformationBimodal.pdf used on input line 28
+4.
+(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+ [9 <./report-transformationBimodal.pdf>] <report-QQsamples.pdf, id=76, 433.62p
+t x 433.62pt>
+File: report-QQsamples.pdf Graphic file (type pdf)
+ <use report-QQsamples.pdf>
+Package pdftex.def Info: report-QQsamples.pdf used on input line 304.
+(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+
+[10 <./report-QQsamples.pdf>]
+<report-QQsampleslin.pdf, id=86, 433.62pt x 433.62pt>
+File: report-QQsampleslin.pdf Graphic file (type pdf)
+
+<use report-QQsampleslin.pdf>
+Package pdftex.def Info: report-QQsampleslin.pdf used on input line 313.
+(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./report-QQsampleslin.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType1Na.pdf, id=51, 433.62pt x 433.62pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType1Na.pdf, id=103, 433.62pt x 433.62pt>
 File: report-chisqType1Na.pdf Graphic file (type pdf)
 
 <use report-chisqType1Na.pdf>
-Package pdftex.def Info: report-chisqType1Na.pdf used on input line 284.
+Package pdftex.def Info: report-chisqType1Na.pdf used on input line 462.
+(pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15 <./report-chisqType1Na.pdf>] [16]
+<report-chisqType1Ca.pdf, id=121, 433.62pt x 433.62pt>
+File: report-chisqType1Ca.pdf Graphic file (type pdf)
+
+<use report-chisqType1Ca.pdf>
+Package pdftex.def Info: report-chisqType1Ca.pdf used on input line 546.
+(pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType1CaTrans.pdf, id=122, 433.62pt x 433.62pt>
+File: report-chisqType1CaTrans.pdf Graphic file (type pdf)
+
+<use report-chisqType1CaTrans.pdf>
+Package pdftex.def Info: report-chisqType1CaTrans.pdf used on input line 553.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
@@ -605,52 +950,100 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[17]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7]
+[18 <./report-chisqType1Ca.pdf>] [19 <./report-chisqType1CaTrans.pdf>]
 
-LaTeX Warning: Text page 8 contains only floats.
-
-[8] [9 <C:/Users/Carlos/Documents/Studium Inhalt/Master/2. Sem/Data Analytics/c
-ase studies/Report/report-chisqType1Na.pdf>] [10]
-
-LaTeX Warning: Reference `Intr' on page 11 undefined on input line 344.
+LaTeX Warning: Reference `Intr' on page 20 undefined on input line 607.
 
 
-Package natbib Warning: Citation `sqltuerker' on page 11 undefined on input lin
-e 347.
+Package natbib Warning: Citation `sqltuerker' on page 20 undefined on input lin
+e 610.
 
 
-Package natbib Warning: Citation `journals/jods/VolzSM05' on page 11 undefined 
-on input line 347.
+Package natbib Warning: Citation `journals/jods/VolzSM05' on page 20 undefined 
+on input line 610.
 
 
-Package natbib Warning: Citation `das' on page 11 undefined on input line 347.
+Package natbib Warning: Citation `das' on page 20 undefined on input line 610.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--350
+Underfull \hbox (badness 10000) in paragraph at lines 610--613
 
  []
 
-<images/ercis.png, id=72, 45.16875pt x 135.50626pt>
-File: images/ercis.png Graphic file (type png)
- <use images/ercis.png>
-Package pdftex.def Info: images/ercis.png used on input line 353.
-(pdftex.def)             Requested size: 364.2961pt x 223.08147pt.
 
-[11 <C:/Users/Carlos/Documents/Studium Inhalt/Master/2. Sem/Data Analytics/case
- studies/Report/images/ercis.png>] [12] [1]
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.lof")
+LaTeX Warning: File `images/ercis.png' not found on input line 616.
+
+
+! Package pdftex.def Error: File `images/ercis.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.616 ....49\textwidth,angle=90]{images/ercis.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[20] [21]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType2Na.pdf, id=157, 433.62pt x 433.62pt>
+File: report-chisqType2Na.pdf Graphic file (type pdf)
+
+<use report-chisqType2Na.pdf>
+Package pdftex.def Info: report-chisqType2Na.pdf used on input line 710.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType2Na-30.pdf, id=158, 433.62pt x 433.62pt>
+File: report-chisqType2Na-30.pdf Graphic file (type pdf)
+
+<use report-chisqType2Na-30.pdf>
+Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 717.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType2Al.pdf, id=159, 433.62pt x 433.62pt>
+File: report-chisqType2Al.pdf Graphic file (type pdf)
+
+<use report-chisqType2Al.pdf>
+Package pdftex.def Info: report-chisqType2Al.pdf used on input line 724.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType2Al-30.pdf, id=160, 433.62pt x 433.62pt>
+File: report-chisqType2Al-30.pdf Graphic file (type pdf)
+
+<use report-chisqType2Al-30.pdf>
+Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 731.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1] (./report.lof [2 <./report-chisqType2Na.pdf>] [3 <./report-chisqType2Na-30.
+pdf> <./report-chisqType2Al.pdf>])
 \tf@lof=\write5
+\openout5 = `report.lof'.
 
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.lot")
+ (./report.lot [4 <./report-chisqType2Al-30.pdf>])
 \tf@lot=\write6
+\openout6 = `report.lot'.
 
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.bbl"
+ (./report.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
@@ -658,37 +1051,42 @@ Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
 Package natbib Warning: There were undefined citations.
 
-[2]
-("C:\Users\Carlos\Documents\Studium Inhalt\Master\2. Sem\Data Analytics\case st
-udies\Report\report.aux")
+[5] (./report.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 5569 strings out of 494045
- 84910 string characters out of 3148383
- 185478 words of memory out of 3000000
- 8727 multiletter control sequences out of 15000+200000
- 35397 words of font info for 74 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
- 42i,9n,47p,1036b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on report.pdf (16 pages, 213916 bytes).
+ 6647 strings out of 493315
+ 103156 string characters out of 6137904
+ 208959 words of memory out of 5000000
+ 9917 multiletter control sequences out of 15000+600000
+ 35566 words of font info for 75 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 47i,10n,47p,1809b,376s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/te
+xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
+ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on report.pdf (28 pages, 425069 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
+ 261 PDF objects out of 1000 (max. 8388607)
+ 188 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 20 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 
