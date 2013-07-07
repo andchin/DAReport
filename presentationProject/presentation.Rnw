@@ -1,3 +1,18 @@
+<<initialActions, eval=TRUE, echo=FALSE, term=FALSE>>=
+options(prompt=" ", continue = " ", concordance=FALSE)
+require(car)
+require(mlbench)
+require(MASS)
+require(gplots)
+data(Glass)
+Glass.type1 = Glass[which(Glass$Type == 1), -10]
+Glass.type2 = Glass[which(Glass$Type == 2), -10]
+Glass.type3 = Glass[which(Glass$Type == 3), -10]
+Glass.type5 = Glass[which(Glass$Type == 5), -10]
+Glass.type6 = Glass[which(Glass$Type == 6), -10]
+Glass.type7 = Glass[which(Glass$Type == 7), -10]
+@
+%%%%%
 % 
 \documentclass[mathserif,graphics]{beamer}
 \usepackage{Sweave}
@@ -159,6 +174,10 @@
 \frame{
 \frametitle{Graphical Methods for Normality Testing}
 \framesubtitle{Kolmogorov-Smirnov Test}
+Let $X=(x_1,x_2, \dots, x_n)$ be a sample of a given size $n$
+\vspace{10cm}
+
+
 }
 
 
