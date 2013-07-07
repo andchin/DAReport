@@ -470,9 +470,9 @@ test is used. It was implemented in $R$ and has the following code.
  	print(teststat > critical_value)
  	
  	return(list( mean = mu,
- 				var = sigma,
+ 				var = abs(sigma),
  				mu_opt = KSoptim$par[1],
- 				sigma_opt = KSoptim$par[2],
+ 				sigma_opt = abs(KSoptim$par[2]),
  				teststat = teststat,
  				critical_value = critical_value,
  				p_value = p_value,
@@ -801,6 +801,44 @@ Ba & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the
 \end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
+
+%<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
+%testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
+%@
+The first tests are conducted on the whole transformed data set for each
+variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
+for univariate transformation.
+
+%The results are shown in table \ref{tab:KS-full}.
+
+%\begin{table}[h!]
+%\centering
+%<<testresKSFullTrans, echo=FALSE, term=TRUE, results=tex>>=
+%cat("\\begin{tabular}{|cccccc|} ")
+%cat("\\hline ")
+%cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+%cat("\\hline ")
+%tr=testresultKS.full.trans
+%
+%for(i in 1:(length(tr))) {
+%  cat(paste(
+%    names(tr[i]),
+%    round(tr[i][[1]]$teststat, 2),
+%    0.01,
+%    round(tr[i][[1]]$critical_value, 2),
+%    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+%    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+%           sep=" & "), "\\\\ ", "\n", sep="")
+%}
+%
+%cat("\\hline ")
+%cat(paste("\\end{tabular}", "\n", sep=""))
+%@
+%\caption{Test results of the improved KS test on the whole transformed data
+%sample with ten initial classes}
+%\label{tab:KS-fullTrans}
+%\end{table}
+
 
 \newpage
 \section{Conclusion}

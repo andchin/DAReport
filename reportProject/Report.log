@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  7 JUL 2013 10:05
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  7 JUL 2013 19:15
 entering extended mode
 **Report.tex
 (D:\DA\report\reportProject\Report.tex
@@ -881,26 +881,26 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [20] [21 <D:/DA/report/reportProject/report-chisqType1Ca.pdf>]
 
-LaTeX Warning: Reference `Intr' on page 22 undefined on input line 821.
+LaTeX Warning: Reference `Intr' on page 22 undefined on input line 859.
 
 
 Package natbib Warning: Citation `sqltuerker' on page 22 undefined on input lin
-e 824.
+e 862.
 
 
 Package natbib Warning: Citation `journals/jods/VolzSM05' on page 22 undefined 
-on input line 824.
+on input line 862.
 
 
-Package natbib Warning: Citation `das' on page 22 undefined on input line 824.
+Package natbib Warning: Citation `das' on page 22 undefined on input line 862.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 824--827
+Underfull \hbox (badness 10000) in paragraph at lines 862--865
 
  []
 
 
-LaTeX Warning: File `images/ercis.png' not found on input line 830.
+LaTeX Warning: File `images/ercis.png' not found on input line 868.
 
 
 ! Package pdftex.def Error: File `images/ercis.png' not found.
@@ -909,7 +909,7 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.830 ....49\textwidth,angle=90]{images/ercis.png}
+l.868 ....49\textwidth,angle=90]{images/ercis.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
@@ -923,7 +923,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: report-chisqType2Na.pdf Graphic file (type pdf)
 
 <use report-chisqType2Na.pdf>
-Package pdftex.def Info: report-chisqType2Na.pdf used on input line 924.
+Package pdftex.def Info: report-chisqType2Na.pdf used on input line 962.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
@@ -933,7 +933,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: report-chisqType2Na-30.pdf Graphic file (type pdf)
 
 <use report-chisqType2Na-30.pdf>
-Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 931.
+Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 969.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
@@ -943,7 +943,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: report-chisqType2Al.pdf Graphic file (type pdf)
 
 <use report-chisqType2Al.pdf>
-Package pdftex.def Info: report-chisqType2Al.pdf used on input line 938.
+Package pdftex.def Info: report-chisqType2Al.pdf used on input line 976.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
@@ -953,7 +953,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: report-chisqType2Al-30.pdf Graphic file (type pdf)
 
 <use report-chisqType2Al-30.pdf>
-Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 945.
+Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 983.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
@@ -982,8 +982,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  6679 strings out of 494045
- 100715 string characters out of 3148436
- 189533 words of memory out of 3000000
+ 100716 string characters out of 3148436
+ 190533 words of memory out of 3000000
  9779 multiletter control sequences out of 15000+200000
  45327 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -1007,7 +1007,7 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on Report.pdf (31 pages, 414915 bytes).
+Output written on Report.pdf (31 pages, 415083 bytes).
 PDF statistics:
  303 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

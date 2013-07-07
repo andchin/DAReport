@@ -507,20 +507,34 @@ empdat = sapply(seq, function(x) {empiric(x,dat)})
 mean = mean(dat)
 Cov = var(dat)
 
-#theoretical values of probabilities
-theordat = pnorm(seq,mean,Cov)
-#difference between theoretica and empirical probabilities
-diff = theordat-empdat
-#point of maximum
-pointmax = seq[which(abs(diff)==max(abs(diff)))]
-if(length(pointmax)>1) pointmax=pointmax[1]
+drawDistance = function(sample,mu,sigma, col) {
+	#line discretization
+	seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+		
+	#empirical values of probabilities
+	empdat = sapply(seq, function(x) {empiric(x,sample)})
+	
+	#theoretical values of probabilities
+	theordat = pnorm(seq,mu,sigma)
+	#difference between theoretica and empirical probabilities
+	diff = theordat-empdat
+	#point of maximum
+	pointmax = seq[which(abs(diff)==max(abs(diff)))]
+	if(length(pointmax)>1) pointmax=pointmax[1]
+	#draw distance between theoretical and empirical c.d.f. 
+	points(c(pointmax,pointmax),c(empiric(pointmax,sample),pnorm(pointmax,mu,sigma)), 
+			type='l', lty = "dashed", col=col)
+	text(pointmax+0.3,(empiric(pointmax,sample)+pnorm(pointmax,mu,sigma))/2,paste("d= ",format(max(abs(diff)), digits=4,nsmall=4)))
+}
 
-#draw theoretical normal c.d.f.
-points(seq,pnorm(seq,mean,Cov), type='l', col='red')
-#draw distance between theoretical and empirical c.d.f. 
-points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
-		type='l', lty = "dashed", col='green')
-text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
+drawDistance(dat,mean,Cov,"green")
+
+drawTheoreticFunc = function(sample,mu,sigma, col) {
+	seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+	#draw theoretical normal c.d.f.
+	points(seq,pnorm(seq,mu,sigma), type='l', col=col)
+}
+drawTheoreticFunc(dat,mean,Cov,"red")
 legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
 		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
@@ -666,31 +680,21 @@ drawEmpiric(dat)
 mean1 = KSoptim$par[1]
 Cov1 = KSoptim$par[2]
 
-#new distance calculation
-theordat1 = pnorm(seq,mean1,Cov1)
-diff1 = theordat1-empdat
-pointmax1 = seq[which(abs(diff1)==max(abs(diff1)))]
-if(length(pointmax1)>1) pointmax1=pointmax1[1]
 
 #draw old theoretical normal c.d.f.
-points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+drawTheoreticFunc(dat,mean,Cov,"red")
 
 #draw improved one
-points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
+drawTheoreticFunc(dat,mean1,Cov1,"black")
 
 #draw the distance between the first one and empirical c.d.f.
-points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
-		type='l', lty = "dashed", col='green')
-text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
+drawDistance(dat,mean,Cov,"green")
+
 #draw the distance between the second one and empirical c.d.f.
-points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
-		type='l', lty = "dashed", col="cyan")
-text(pointmax1+0.3,(empiric(pointmax1,dat)+pnorm(pointmax1,mean1,Cov1))/2,paste("d= ",format(max(abs(diff1)), digits=3)))
+drawDistance(dat,mean1,Cov1,"cyan")
 
 legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
 		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
-				
-
 @
 \includegraphics[width=\textwidth]{report-improvedKS}
 \caption{Normal \cdf with optimized parameters in comparison to the old \cdf
@@ -739,9 +743,9 @@ KSimpr.test.norm = function(data, sig) {
 	print(teststat > critical_value)
 	
 	return(list( mean = mu,
-				var = sigma,
+				var = abs(sigma),
 				mu_opt = KSoptim$par[1],
-				sigma_opt = KSoptim$par[2],
+				sigma_opt = abs(KSoptim$par[2]),
 				teststat = teststat,
 				critical_value = critical_value,
 				p_value = p_value,
@@ -1258,6 +1262,44 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
+
+%<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
+%testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
+%@
+The first tests are conducted on the whole transformed data set for each
+variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
+for univariate transformation.
+
+%The results are shown in table \ref{tab:KS-full}.
+
+%\begin{table}[h!]
+%\centering
+%<<testresKSFullTrans, echo=FALSE, term=TRUE, results=tex>>=
+%cat("\\begin{tabular}{|cccccc|} ")
+%cat("\\hline ")
+%cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+%cat("\\hline ")
+%tr=testresultKS.full.trans
+%
+%for(i in 1:(length(tr))) {
+%  cat(paste(
+%    names(tr[i]),
+%    round(tr[i][[1]]$teststat, 2),
+%    0.01,
+%    round(tr[i][[1]]$critical_value, 2),
+%    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+%    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+%           sep=" & "), "\\\\ ", "\n", sep="")
+%}
+%
+%cat("\\hline ")
+%cat(paste("\\end{tabular}", "\n", sep=""))
+%@
+%\caption{Test results of the improved KS test on the whole transformed data
+%sample with ten initial classes}
+%\label{tab:KS-fullTrans}
+%\end{table}
+
 
 \newpage
 \section{Conclusion}
