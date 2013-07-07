@@ -23,6 +23,17 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 \usepackage{graphicx} % to include figures
 \usepackage{subfigure} % to have figures in figures
 \usepackage{multimedia} % to include movies
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{natbib}
+\usepackage{scrpage2}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{amssymb}
+
+\usepackage{bbm}
+
 \usepackage{tikz}
 \usetikzlibrary{arrows,shapes,backgrounds, patterns, decorations.markings} % loads some tikz extensions
 \usepackage[english]{babel}
@@ -30,6 +41,9 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 \usepackage{mdframed}
 \usepackage{boxedminipage}
 \newcommand{\hlcolor}[2]{{\setlength{\fboxsep}{0pt}\colorbox{#1}{\strut #2}}}
+\newcommand{\eg}{e.\,g. }
+\newcommand{\ie}{i.\,e. }
+\newcommand{\cdf}{c.\,d.\,f. }
 %\usepackage[usenames,dvipsnames]{xcolor}
 \definecolor{lightblue}{rgb}{0.8,0.85,1}
 
@@ -160,22 +174,43 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 
 \subsection{Shapiro-Wilk Test}
 \frame{
-\frametitle{Graphical Methods for Normality Testing}
+\frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Shapiro-Wilk Test}
 }
 
 \subsection{Pearson's Chi-Squared Test}
 \frame{
-\frametitle{Graphical Methods for Normality Testing}
+\frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Pearson's Chi-Squared Test}
 }
 
 \subsection{Kolmogorov-Smirnov Test}
 \frame{
-\frametitle{Graphical Methods for Normality Testing}
+\frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Kolmogorov-Smirnov Test}
-Let $X=(x_1,x_2, \dots, x_n)$ be a sample of a given size $n$
-\vspace{10cm}
+Let $x=(x_1,x_2, \dots, x_n)$ be a sample of a given size $n$.
+\begin{columns}[t]
+\column{0.5\columnwidth}
+\begin{definition}
+$F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}$ - empirical
+\cdf, where $\forall  x\in \mathbb{R}$ $\mathbbm{1}_{\{x_i\le x\}}(x)=\left\lbrace 
+\begin{array}{cll}
+                1 & \mbox{if} \ x_i\le x\\
+                 0 & \mbox{otherwise}.
+\end{array} 
+\right.$
+\end{definition}
+\column{0.5\columnwidth}
+  \vspace{-1cm}
+    \begin{figure}
+	\includegraphics[width=\columnwidth]{../reportProject/Report-empiricFunc}
+	\end{figure}
+\vspace{-1.5cm}
+\begin{center}
+Glass Type 1, Natrium (Na)
+\end{center}
+\end{columns}
+
 
 
 }

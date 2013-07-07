@@ -221,8 +221,6 @@ transformVector = function(data) {
 %\usepackage{chngcntr}
 %\def \lstWidth {0.9}
 
-\usepackage{float}
-
 \newcommand{\eg}{e.\,g. }
 \newcommand{\ie}{i.\,e. }
 \newcommand{\cdf}{c.\,d.\,f. }
@@ -436,7 +434,7 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
 The Kolmogorov-Smirnov (KS later on) test as all other tests is used for testing
-whether a given univariate sample $X_1,\dots X_2$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
+whether a given univariate sample $x=(x_1,x_2 \dots x_n)$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
 distribution $\mathbb{P}_0$. It implies a decision making between the following
 two hypotheses:
 \[\begin{array}{rcl}
@@ -447,12 +445,12 @@ The decision is made according to the value of KS test
 statistics and a given significance level $\alpha$.
 
 \begin{df}
-For a given univariate sample $X_1, X_2, \dots, X_n$ the function
-\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{X_i\le x\}}\] is called empirical
-cumulative distribution function (\cdf), where $\mathbbm{1}_{\{X_i\le x\}}$ is an
-indicator function defined as follows: $\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
+For a given univariate sample $x=(x_1, x_2, \dots, x_n)$ the function
+\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}\] is called empirical
+cumulative distribution function (\cdf), where $\mathbbm{1}_{\{x_i\le x\}}$ is an
+indicator function defined as follows: $\mathbbm{1}_{\{x_i\le x\}}(x)=\left\lbrace 
 \begin{array}{cll}
-                 1 & \mbox{if} \ X_i\le x\\
+                 1 & \mbox{if} \ x_i\le x\\
                  0 & \mbox{otherwise}.
 \end{array} 
 \right.$
