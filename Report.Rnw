@@ -1,6 +1,7 @@
 <<initialActions, eval=TRUE, echo=FALSE, term=FALSE>>=
-options(prompt=" ", continue = " ")
+options(prompt=" ", continue = " ", concordance=FALSE)
 require(car)
+require(mlbench)
 require(MASS)
 require(gplots)
 data(Glass)
@@ -839,7 +840,7 @@ par(mfrow=c(1,1))
 \subsection{Plot of a multivariate normal distribution}
 
 Contour lines of the plot of a multivariate normal distribution
-\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)'\Simga^{-1}(x-\mu)\right\}\]
+\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
 with mean vector $\mu$ and covariance matrix $\Sigma > 0$ are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
 
 A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines.
