@@ -8,24 +8,24 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Shapiro-Wilk test}{2}
 \contentsline {subsubsection}{\numberline {2.1.3}Pearson's chi-squared test}{2}
 \contentsline {subsubsection}{\numberline {2.1.4}Kolmogorov-Smirnov test}{6}
-\contentsline {subsection}{\numberline {2.2}Box-Cox-Transformation}{11}
-\contentsline {section}{\numberline {3}Testing the data sample for normality}{12}
-\contentsline {subsection}{\numberline {3.1}Testing original data}{12}
-\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{12}
-\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{12}
-\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{12}
-\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{14}
-\contentsline {subsection}{\numberline {3.2}Testing transformed data}{15}
-\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{15}
-\contentsline {subsubsection}{\numberline {3.2.2}Shapiro-Wilk test}{15}
-\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{15}
-\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{15}
-\contentsline {section}{\numberline {4}Conclusion}{16}
-\contentsline {section}{\numberline {5}Section 1}{17}
-\contentsline {subsection}{\numberline {5.1}First Subsection}{17}
-\contentsline {subsection}{\numberline {5.2}Second Subsection}{17}
-\contentsline {section}{\numberline {6}Section 2}{18}
+\contentsline {subsection}{\numberline {2.2}Box-Cox-transformation}{12}
+\contentsline {subsection}{\numberline {2.3}Plot of a multivariate normal distribution}{15}
+\contentsline {section}{\numberline {3}Testing the data sample for normality}{16}
+\contentsline {subsection}{\numberline {3.1}Testing original data}{16}
+\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{16}
+\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{16}
+\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{16}
+\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{19}
+\contentsline {subsection}{\numberline {3.2}Testing transformed data}{20}
+\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{20}
+\contentsline {subsubsection}{\numberline {3.2.2}Shapiro-Wilk test}{20}
+\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{20}
+\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{20}
+\contentsline {section}{\numberline {4}Conclusion}{21}
+\contentsline {section}{\numberline {5}Section 1}{22}
+\contentsline {subsection}{\numberline {5.1}First Subsection}{23}
+\contentsline {subsection}{\numberline {5.2}Second Subsection}{23}
+\contentsline {section}{\numberline {6}Section 2}{24}
 \contentsline {section}{\numberline {A}Appendix}{i}
-\contentsline {subsection}{\numberline {A.1}Slides}{i}
 \contentsline {section}{List of Figures}{ii}
-\contentsline {section}{List of Tables}{ii}
+\contentsline {section}{List of Tables}{iv}
