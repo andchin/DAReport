@@ -30,29 +30,37 @@
 \headcommand {\slideentry {2}{4}{1}{9/9}{Pearson's Chi-Squared Test}{0}}
 \headcommand {\beamer@framepages {9}{9}}
 \headcommand {\beamer@subsectionentry {0}{2}{5}{10}{Kolmogorov-Smirnov Test}}\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\slideentry {2}{5}{1}{10/10}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {10}{10}}
-\headcommand {\sectionentry {3}{Transformation to Normality}{11}{Transformation to Normality}{0}}
-\headcommand {\beamer@sectionpages {5}{10}}
-\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {3}{0}{2}{11/11}{}{0}}
-\headcommand {\beamer@framepages {11}{11}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{12}{Box-Cox Transformation}}\headcommand {\beamer@subsectionpages {11}{11}}
-\headcommand {\slideentry {3}{1}{1}{12/12}{Box-Cox Transformation}{0}}
-\headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{13}{Transformation Results Testing}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {3}{2}{1}{13/13}{Transformation Results Testing}{0}}
-\headcommand {\beamer@framepages {13}{13}}
-\headcommand {\sectionentry {4}{Summary}{14}{Summary}{0}}
-\headcommand {\beamer@sectionpages {11}{13}}
-\headcommand {\beamer@subsectionpages {13}{13}}
-\headcommand {\slideentry {4}{0}{2}{14/14}{}{0}}
-\headcommand {\beamer@framepages {14}{14}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{15}{Summary}}\headcommand {\beamer@subsectionpages {14}{14}}
-\headcommand {\slideentry {4}{1}{1}{15/15}{Summary}{0}}
-\headcommand {\beamer@framepages {15}{15}}
-\headcommand {\beamer@partpages {1}{15}}
-\headcommand {\beamer@subsectionpages {15}{15}}
-\headcommand {\beamer@sectionpages {14}{15}}
-\headcommand {\beamer@documentpages {15}}
-\headcommand {\def \inserttotalframenumber {15}}
+\headcommand {\slideentry {2}{5}{1}{10/12}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {10}{12}}
+\headcommand {\slideentry {2}{5}{2}{13/18}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {13}{18}}
+\headcommand {\slideentry {2}{5}{3}{19/25}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {19}{25}}
+\headcommand {\slideentry {2}{5}{4}{26/33}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {26}{33}}
+\headcommand {\slideentry {2}{5}{5}{34/41}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {34}{41}}
+\headcommand {\sectionentry {3}{Transformation to Normality}{42}{Transformation to Normality}{0}}
+\headcommand {\beamer@sectionpages {5}{41}}
+\headcommand {\beamer@subsectionpages {10}{41}}
+\headcommand {\slideentry {3}{0}{6}{42/42}{}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{43}{Box-Cox Transformation}}\headcommand {\beamer@subsectionpages {42}{42}}
+\headcommand {\slideentry {3}{1}{1}{43/43}{Box-Cox Transformation}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{44}{Transformation Results Testing}}\headcommand {\beamer@subsectionpages {43}{43}}
+\headcommand {\slideentry {3}{2}{1}{44/44}{Transformation Results Testing}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\sectionentry {4}{Summary}{45}{Summary}{0}}
+\headcommand {\beamer@sectionpages {42}{44}}
+\headcommand {\beamer@subsectionpages {44}{44}}
+\headcommand {\slideentry {4}{0}{2}{45/45}{}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{46}{Summary}}\headcommand {\beamer@subsectionpages {45}{45}}
+\headcommand {\slideentry {4}{1}{1}{46/46}{Summary}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\beamer@partpages {1}{46}}
+\headcommand {\beamer@subsectionpages {46}{46}}
+\headcommand {\beamer@sectionpages {45}{46}}
+\headcommand {\beamer@documentpages {46}}
+\headcommand {\def \inserttotalframenumber {19}}

@@ -9,8 +9,8 @@
 \beamer@subsectionintoc {2}{3}{Shapiro-Wilk Test}{8}{0}{2}
 \beamer@subsectionintoc {2}{4}{Pearson's Chi-Squared Test}{9}{0}{2}
 \beamer@subsectionintoc {2}{5}{Kolmogorov-Smirnov Test}{10}{0}{2}
-\beamer@sectionintoc {3}{Transformation to Normality}{11}{0}{3}
-\beamer@subsectionintoc {3}{1}{Box-Cox Transformation}{12}{0}{3}
-\beamer@subsectionintoc {3}{2}{Transformation Results Testing}{13}{0}{3}
-\beamer@sectionintoc {4}{Summary}{14}{0}{4}
-\beamer@subsectionintoc {4}{1}{Summary}{15}{0}{4}
+\beamer@sectionintoc {3}{Transformation to Normality}{42}{0}{3}
+\beamer@subsectionintoc {3}{1}{Box-Cox Transformation}{43}{0}{3}
+\beamer@subsectionintoc {3}{2}{Transformation Results Testing}{44}{0}{3}
+\beamer@sectionintoc {4}{Summary}{45}{0}{4}
+\beamer@subsectionintoc {4}{1}{Summary}{46}{0}{4}

@@ -6,6 +6,7 @@
 \usetheme{Boadilla} % Beamer Theme
 \usecolortheme{whale}
 \usepackage{amsmath} % for math AMS fonts
+\usepackage{centernot}
 \usepackage{graphicx} % to include figures
 \usepackage{subfigure} % to have figures in figures
 \usepackage{multimedia} % to include movies
@@ -174,33 +175,190 @@
 \frame{
 \frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Kolmogorov-Smirnov Test}
-Let $x=(x_1,x_2, \dots, x_n)$ be a sample of a given size $n$.
+Let $x=(x_1,x_2, \dots, x_n)$ be a sample of unknown
+distribution $\mathbb{P}$.
 \begin{columns}[t]
 \column{0.5\columnwidth}
 \begin{definition}
-$F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}$ - empirical
-\cdf, where $\forall  x\in \mathbb{R}$ $\mathbbm{1}_{\{x_i\le x\}}(x)=\left\lbrace 
+$F_n(x)=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}(x)$ \\
+- \alert{empirical} \cdf, where \\
+$\mathbbm{1}_{\{x_i\le x\}}(x)=\left\lbrace 
 \begin{array}{cll}
                 1 & \mbox{if} \ x_i\le x\\
                  0 & \mbox{otherwise}.
 \end{array} 
 \right.$
 \end{definition}
+\onslide<2->{
+$F(x)$ - theoretical normal \cdf with
+\[\bar{x}=\frac{1}{n}\sum_i x_i,\quad \sigma^2_x=\frac{1}{n}(x_i-\bar{x})^2\]}
+\onslide<3->{
+$d=\sup_{x\in \mathbb{R}}|F_n(x)-F(x)|$ \\- distance between them.}
 \column{0.5\columnwidth}
   \vspace{-1cm}
+    \only<1>{
     \begin{figure}
 	\includegraphics[width=\columnwidth]{Report-empiricFunc}
-	\end{figure}
+	\end{figure}}
+    \only<2->{
+    \begin{figure}
+	\includegraphics[width=\columnwidth]{Report-empiricTeorFunc}
+	\end{figure}}
 \vspace{-1.5cm}
 \begin{center}
 Glass Type 1, Natrium (Na)
 \end{center}
 \end{columns}
-
-
-
 }
 
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Kolmogorov-Smirnov Test}
+Let $x=(x_1,x_2, \dots, x_n)$ be a sample of unknown
+distribution $\mathbb{P}$.\\
+Theoretical \cdf $F$ defines a distribution $\mathbb{P}_0$.\\
+\onslide<2->{
+\[\begin{array}{rcl}
+H_0 & : & \mathbb{P} = \mathbb{P}_0,\\
+H_1 & : & \mathbb{P} \ne \mathbb{P}_0.
+\end{array}\]}
+\onslide<3->{
+KS test statistics:
+\[D_n = \sqrt{n}\cdot \sup_{x \in \mathbb{R}}|F_n(x)-F(x)|.\]}
+\onslide<4->{
+Properties of $D_n$ in case $H_0$ is \alert{TRUE}:}
+\begin{itemize}
+\item<4-> Distribution of $\hat{D}_n:=(D_1,D_2,\dots, D_n)$ does not depend on
+$F$\\
+\onslide<5->{\hfill$\implies$ \alert{tabulated}}
+\item<6-> $\forall t>0:$ \[P(D_n\le t)\xrightarrow[n \to \infty]{}
+H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}\]
+\end{itemize}
+
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Kolmogorov-Smirnov Test}
+The KS test uses the decision rule
+\[ \delta = 
+\left\{
+\begin{array}{rcl}
+H_0&:& D_n\le c\\
+H_1&:& D_n> c
+\end{array}
+\right.,
+\]
+where $c$ - critical value \onslide<2-> {that\\
+depends on a significance level $\alpha$:}
+\[\onslide<3->{\alpha = P(\delta \ne H_0|H_0)}\onslide<4->{=P(D_n>c|H_0)}\onslide<5->{=1-P(D_n\le c|H_0)}\onslide<6->{\approx 1-H(c).}\]
+\onslide<7->{\[\implies \alert{c\approx H_{1-\alpha}}\]}
+
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Kolmogorov-Smirnov Test}
+The KS test uses the decision rule for a given significance level $\alpha$
+\[ \delta = 
+\left\{
+\begin{array}{rcl}
+H_0&:& D_n\le H_{1-\alpha}\\
+H_1&:& D_n> H_{1-\alpha}
+\end{array}
+\right., \quad H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}
+\]
+\begin{columns}[t]
+\column{0.5\columnwidth}
+\onslide<2->{\centerline{{\bf Example:}}}\\
+\begin{itemize}
+\item<3->
+$n=70$
+\item<4->
+$D_n=\sqrt{n}
+\sup|F_n-F|=2.2493$
+\item<5->
+$\alpha = 0.01$\\
+\hfill$\implies
+c=H_{1-\alpha}=1.6276$
+
+\item<6->
+$D_n>c \implies  H_0$ \alert{rejected}
+
+\item<7-> 
+$\implies \mathbb{P}\ne \mathbb{P}_0$
+
+\item<8-> \alert{$\centernot\implies$
+ data not normally distributed!!!}
+\end{itemize}
+
+\column{0.5\columnwidth}
+  \vspace{-1.9cm}
+    \onslide<2->{
+    \begin{figure}
+	\includegraphics[width=\columnwidth]{Report-empiricTeorFunc}
+	\end{figure}
+\vspace{-1.5cm}
+\begin{center}
+Glass Type 1, Natrium (Na)
+\end{center}}
+\end{columns}
+
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Improved Kolmogorov-Smirnov Test}
+KS test is improved by solving the following
+optimization problem \[KS(\mu,\sigma)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+\begin{columns}[t]
+\column{0.5\columnwidth}
+\vspace{-1cm}
+\begin{itemize}
+\item<2->Initial vector of parameters
+$\mu=13.2423,\quad
+\sigma^2=0.2493$
+\item<3->Optimized vector of parameters
+$\hat{\mu}=13.1770, \quad
+\hat{\sigma}^2=0.4682$
+\item<4->
+$D_n=\sqrt{n}
+\sup|F_n-F_{new}|=0.6585$
+\item<5->
+$c=1.6276$
+\item<6->
+$D_n<c \implies  H_0$ \alert{accepted}
+
+\item<7-> 
+$\implies \mathbb{P}= \mathbb{P}_0$
+
+\item<8-> \alert{$\implies$
+ data normally distributed!}
+\end{itemize}
+
+\column{0.5\columnwidth}
+  \vspace{-1.9cm}
+    \only<2,3>{
+    \begin{figure}
+	\includegraphics[width=\columnwidth]{Report-empiricTeorFunc}
+	\end{figure}}
+    \only<4->{
+    \begin{figure}
+	\includegraphics[width=\columnwidth]{Report-improvedKS}
+	\end{figure}}
+\onslide<2->{
+\vspace{-1.5cm}
+\begin{center}
+Glass Type 1, Natrium (Na)
+\end{center}}
+\end{columns}
+
+\vspace{15cm}
+}
 
 \section{Transformation to Normality}
 \frame{

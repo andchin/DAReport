@@ -504,6 +504,9 @@ empdat = sapply(seq, function(x) {empiric(x,dat)})
 #sample mean and sample covariance
 mean = mean(dat)
 Cov = var(dat)
+empdat = sapply(seq, function(x) {empiric(x,dat)})
+theordat = pnorm(seq,mean,Cov)
+dif = theordat-empdat
 
 drawDistance = function(sample,mu,sigma, col) {
 	#line discretization
@@ -515,14 +518,14 @@ drawDistance = function(sample,mu,sigma, col) {
 	#theoretical values of probabilities
 	theordat = pnorm(seq,mu,sigma)
 	#difference between theoretica and empirical probabilities
-	diff = theordat-empdat
+	dif = theordat-empdat
 	#point of maximum
-	pointmax = seq[which(abs(diff)==max(abs(diff)))]
+	pointmax = seq[which(abs(dif)==max(abs(dif)))]
 	if(length(pointmax)>1) pointmax=pointmax[1]
 	#draw distance between theoretical and empirical c.d.f. 
 	points(c(pointmax,pointmax),c(empiric(pointmax,sample),pnorm(pointmax,mu,sigma)), 
 			type='l', lty = "dashed", col=col)
-	text(pointmax+0.3,(empiric(pointmax,sample)+pnorm(pointmax,mu,sigma))/2,paste("d= ",format(max(abs(diff)), digits=4,nsmall=4)))
+	text(pointmax+0.3,(empiric(pointmax,sample)+pnorm(pointmax,mu,sigma))/2,paste("d= ",format(max(abs(dif)), digits=4,nsmall=4)))
 }
 
 drawDistance(dat,mean,Cov,"green")
@@ -533,7 +536,7 @@ drawTheoreticFunc = function(sample,mu,sigma, col) {
 	points(seq,pnorm(seq,mu,sigma), type='l', col=col)
 }
 drawTheoreticFunc(dat,mean,Cov,"red")
-legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F[n]-F)))), 
 		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
 %\includegraphics[width=\textwidth]{report-empiricTeorFunc}
@@ -561,7 +564,7 @@ sample mean and sample variance (b)}
 \label{fig:commonFigureKStest}
 \end{figure}
 
-The KS statistics is defined as follows:
+The KS test statistics is defined as follows:
 \[D_n = \sqrt{n}\cdot \sup_{x \in \mathbb{R}}|F_n(x)-F(x)|.\]
 If value $D_i$ is considered for different $1\le i\le n$, then the sample
 $\hat{D}_n=(D_1,\dots,D_n)$ is obtained that also complies with some
@@ -603,7 +606,7 @@ $\bar{\mu}=$\Sexpr{format(mean,digits=4, nsmall=4)} and the sample variance $\ba
 \Sexpr{format(Cov,digits=4, nsmall=4)} are calculated. For these values of
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistics is calculated: $D_n=\sqrt{n}\cdot
-\sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(diff)),digits=4, nsmall=4)}.
+\sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(dif)),digits=4, nsmall=4)}.
 Critical value for the significance level $\alpha=0.01$ is equal to
 $c=H^{-1}(1-\alpha)$=\Sexpr{c=format(Inverse(H,1-0.01),digits=4,nsmall=4)}. To
 calculate this value the following $R$ functions are used:
@@ -654,8 +657,8 @@ KS= function(param) {
 	#values of theoretical c.d.f.
 	theordat = pnorm(seq,param[1],abs(param[2]))
 	#difference between the values
-	diff=theordat-empdat
-	absdiff=abs(diff)
+	dif=theordat-empdat
+	absdiff=abs(dif)
 	max(absdiff)
 }
 #optim is a predifined R function in stats package
@@ -691,7 +694,7 @@ drawDistance(dat,mean,Cov,"green")
 #draw the distance between the second one and empirical c.d.f.
 drawDistance(dat,mean1,Cov1,"cyan")
 
-legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F[n]-F))),expression(F[new]),expression(sup(abs(F[n]-F[new])))), 
 		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
 @
 \includegraphics[width=\textwidth]{report-improvedKS}
@@ -728,8 +731,8 @@ KSimpr.test.norm = function(data, sig) {
 		#values of theoretical c.d.f.
 		theordat = pnorm(seq,param[1],abs(param[2]))
 		#difference between the values
-		diff=theordat-empdat
-		absdiff=abs(diff)
+		dif=theordat-empdat
+		absdiff=abs(dif)
 		max(absdiff)
 		}	
 	#optim is a predifined R function in stats package
