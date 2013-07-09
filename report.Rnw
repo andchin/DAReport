@@ -8,6 +8,13 @@ Glass.type3 = Glass[which(Glass$Type == 3), -10]
 Glass.type5 = Glass[which(Glass$Type == 5), -10]
 Glass.type6 = Glass[which(Glass$Type == 6), -10]
 Glass.type7 = Glass[which(Glass$Type == 7), -10]
+
+Glass.type1s = Glass[which(Glass$Type == 1), -10][,-9][,-8]
+Glass.type2s = Glass[which(Glass$Type == 2), -10][,-9][,-8]
+Glass.type3s = Glass[which(Glass$Type == 3), -10][,-9][,-8]
+Glass.type5s = Glass[which(Glass$Type == 5), -10][,-9][,-8]
+Glass.type6s = Glass[which(Glass$Type == 6), -10][,-9][,-8][,-6]
+Glass.type7s = Glass[which(Glass$Type == 7), -10][,-9][,-6][,-3]
 @
 %%%%%
 <<chisqTestFunctions, eval=TRUE, echo=FALSE, term=FALSE>>=
@@ -202,6 +209,9 @@ transformVector = function(data) {
 \usepackage{graphicx}
 \usepackage{natbib}
 \usepackage{scrpage2}
+\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage{caption}
 \frenchspacing
 
 \usepackage{bbm}
@@ -271,26 +281,32 @@ transformVector = function(data) {
 
 A statistical hypothesis test which tests empirical data on conformance with a certain distribution (or a family of distributions) is called a goodness of fit test. The null hypothesis is usually the hypothesis that the tested sample has been drawn from a population which is distributed according to the given distribution. Consequently, the alternative hypothesis states that the sample was drawn from a population of any other distribution. In every test, a certain method is used to calculate a test statistic from the data. If the test statistic exceeds a critical value which is computed for the particular distribution and a certain significance level, the null hypothesis is rejected. The p-value is the lowest significance level for which the null hypothesis would still be rejected. It can be interpreted as the probability of getting a result like the present one or an even more extreme result if the null hypothesis is true.
 
-\subsubsection{Q-Q-plot}
+\subsubsection{Q-Q-plot}\label{sec:qq-theoretical}
 
-Quantile-Quantile-Plots provide a graphical comparison of the quantiles of two probability distributions. The observed values are plotted against the quantiles of a theoretical distribution. To check for normality, the observations $y_1, \dots, y_n$ from a sample with size n are ordered ( $y_1 \le y_2 \le \dots \le y_n$ ) and plotted against an assumed cumulative distribution function. Let $y_(_i_)$ denote the sample quantiles. For each sample quantile $y_(_j_)$ with j observations to the left, the proportion of these observations is approximated by
-\[ p_(_j_) = \frac{j - \frac{1}{2}} {n}\]
-and the theoretical quantiles $q_(_j_)$ are defined by
-\[ q_(_j_) = \Phi^-^1(p_(_j_)) \]
+Quantile-Quantile-Plots provide a graphical comparison of the quantiles of two probability distributions. The observed values are plotted against the quantiles of a theoretical distribution. To check for normality, the observations $y_1, \dots, y_n$ from a sample with size n are ordered ( $y_1 \le y_2 \le \dots \le y_n$ ) and plotted against an assumed cumulative distribution function. Let $y_{(i)}$ denote the sample quantiles. For each sample quantile $y_{(j)}$ with $j$ observations to the left, the proportion of these $j$ observations is approximated by
+\[ p_{(j)} = \frac{j - \frac{1}{2}} {n}\]
+and the theoretical quantiles $q_{(j)}$ are defined by
+\[ q_{(j)} = \Phi^{-1}(p_{(j)}) \]
 
-Given a sufficient sample size, normally distributed data will be approximately linearly related to the approximated normal distribution.
+Given a sufficient sample size, normally distributed data will be linearly related to the theoretical normal distribution in the QQ-plot.
 
-\subsubsection{Shapiro-Wilk test}
+\subsubsection{Shapiro-Wilk test}\label{sec:shapiro-theoretical}
 
-The Shapiro-Wilk-Test is a statistical procedure for testing a complete sample for normality. The test statistic (denoted as W) indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles by comparing the expected variance of the assumed normally distributed quantile values (in the numerator) with the actual variance of the ordered observed sample values (in the denominator):
-\[ W =(\frac{\sum \limits_{i=1}^n a_i y_i)^2} {\sum \limits_{i=1}^n (y_i-\bar{y})^2}\]
+The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. The test statistic (denoted as $W$) indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles by comparing the expected variance of the assumed normally distributed quantile values (in the numerator) with the actual variance of the ordered observed sample values (in the denominator):
+\[ W = \frac{\sum \limits_{i=1}^n (a_i y_i)^2} {\sum \limits_{i=1}^n (y_i-\bar{y})^2}\]
 where
 $a_i$ denotes the normalized "best linear unbiased" coefficients and
 $y_i$ denotes the ordered observations.
 
 The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
 
-Compared to the Kolmogorov-Smirnov-Test and the Chi-Squared-Test, the Shapiro-Wilk-Test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) are a the size of n < 50, the test result is quite interesting for the evaluation of these cases.
+Compared to the Kolmogorov-Smirnov test and the Chi-Squared-Test, the Shapiro-Wilk test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) are a the size of $n$ < 50, the test result is quite interesting for the evaluation of these cases.
+
+To conduct the Shapiro-Wilk test in R the function shapiro.test() from the package \textit{stats} was used.
+
+In some datasets certain variables may contain only zeros. In these cases the Shapiro-Wilk-Statistic is not applicable for these specific variables since the expression 
+\[ \sum \limits_{i=1}^n (y_i - \bar{y})^2 \]
+in the denominator sums up to 0. Tests can therefore only be run if such variables are excluded from the testing procedure.
 
 \subsubsection{Pearson's chi-squared test}\label{sec:chisq-theoretical}
 Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to an arbitrary theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
@@ -438,7 +454,7 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-\subsection{Box-Cox-transformation}
+\subsection{Box-Cox-transformation}\label{sec:boxcox-theory}
 
 If data is not normally distributed, it can still be transformed to fit to a normal distribtion in some cases. One possibility is the Box-Cox-transformation. It is a family of parameterised power tranformations:
 \[
@@ -524,69 +540,114 @@ par(mfrow=c(1,1))
 
 \subsection{Testing original data}
 
-\subsubsection{Q-Q-plot}
-For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for each glass type separately. The graphical comparison shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed  quantiles and the observed values.
+\subsubsection{Q-Q-plot}\label{sec:qq-original}
+For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for each glass type separately. The graphical comparison shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed quantiles and the observed values.
 
 \begin{figure}[h!]
 \centering
 <<QQsamples, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
 par(mfrow=c(2,2))
-qqnorm(Glass.type1[["Si"]], main ="Si in Glass Type 1",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type1[["Si"]],lwd=2,col="red")
-qqnorm(Glass.type1[["Fe"]], main ="Fe in Glass Type 1",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type1[["Fe"]],lwd=2,col="red")
-qqnorm(Glass.type2[["Ca"]], main ="Ca in Glass Type 2",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type2[["Ca"]],lwd=2,col="red")
-qqnorm(Glass.type2[["K"]], main ="K in Glass Type 2",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type2[["K"]],lwd=2,col="red")
+qqnorm(Glass.type1s[["Si"]], main ="Si in Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["Si"]],lwd=2,col="red")
+qqnorm(Glass.type1s[["K"]], main ="K in Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["K"]],lwd=2,col="red")
+qqnorm(Glass.type2s[["Ca"]], main ="Ca in Glass Type 2",pch=19,
+       cex.lab=1)
+qqline(Glass.type2s[["Ca"]],lwd=2,col="red")
+qqnorm(Glass.type2s[["K"]], main ="K in Glass Type 2",pch=19,
+       cex.lab=1)
+qqline(Glass.type2s[["K"]],lwd=2,col="red")
 @
 \includegraphics[width=\textwidth]{report-QQsamples}
 \caption{Exemplary QQ-Plots from Glass Type 1 where a graphical inspection does not suggest a linear relationship}
 \label{fig:QQsamples}
 \end{figure}
 
-The only Cases where a linear relationship can be assumed given some outliers are Mg in glass type 1 and Ca in glass type 7. For some observations (e.g. Na in glass type 5 and RI in glass type 6) a linear relationship seems to be plausible, however, the total number of observations in these cases is too small to make conclusions about a hypothetical linear relationship (glass type 5: n = 13; glass type 6: n = 9).
+For some cases based on a graphical inspection a linear relationship can be assumed given some outliers. As shown in Figure \ref{fig:QQsampleslin1} Magnesium (Mg), Aluminium(Al), and Silicon (Si) in glass type 1 and Ca in glass type 7 show approximately linear relationships with just a few outliers. For some observations (e.g. Na in glass type 5 and RI in glass type 6 in Figure \ref{fig:QQsampleslin2}) a linear relationship seems to be plausible, however, the total number of observations in these cases is considered too small to make conclusions about a hypothetical linear relationship (glass type 5: $n$ = 13; glass type 6: $n$ = 9).
 
 \begin{figure}[h!]
 \centering
-<<QQsampleslin, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+<<QQsampleslin1, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
 par(mfrow=c(2,2))
-qqnorm(Glass.type1[["Mg"]], main ="Mg in Glass Type 1",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type1[["Mg"]],lwd=2,col="red")
-qqnorm(Glass.type7[["Ca"]], main ="Ca in Glass Type 7",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type7[["Ca"]],lwd=2,col="red")
-qqnorm(Glass.type5[["Na"]], main ="Na in Glass Type 5",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type5[["Na"]],lwd=2,col="red")
-qqnorm(Glass.type6[["RI"]], main ="RI in Glass Type 6",pch=19,
-       cex.lab=1,cex.main=2)
-qqline(Glass.type6[["RI"]],lwd=2,col="red")
+qqnorm(Glass.type1s[["Mg"]], main ="Mg in Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["Mg"]],lwd=2,col="red")
+qqnorm(Glass.type2s[["Al"]], main ="Al in Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type2s[["Al"]],lwd=2,col="red")
+qqnorm(Glass.type7s[["Si"]], main ="Si in Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type7s[["Si"]],lwd=2,col="red")
+qqnorm(Glass.type7s[["Ca"]], main ="Ca in Glass Type 7",pch=19,
+       cex.lab=1)
+qqline(Glass.type7s[["Ca"]],lwd=2,col="red")
 @
-\includegraphics[width=\textwidth]{report-QQsampleslin}
+\includegraphics[width=\textwidth]{report-QQsampleslin1}
 \caption{QQ-Plots of the cases where a linear relationship seems plausible}
-\label{fig:QQsampleslin}
+\label{fig:QQsampleslin1}
 \end{figure}
 
+%\begin{figure}[h!]
+%\centering
+<<QQsampleslin2a, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+qqnorm(Glass.type5s[["Na"]], main ="Na in Glass Type 5",pch=19,
+       cex.lab=1)
+qqline(Glass.type5s[["Na"]],lwd=2,col="red")
+@
+%\includegraphics[width=\textwidth]{report-QQsampleslin2}
+%\caption{QQ-Plots of possible linear relationships with very small sample sizes}
+%\label{fig:QQsampleslin2}
+%\end{figure}
 
-\subsubsection{Shapiro-Wilk test}
-Performing the Shapiro-Wilk-Test on the complete dataset at hand, according to the p-values the Null Hypothesis (the data the sample is taken from is normally distributed) is rejected for all the elements.
-Testing the different glass types separately, the p-values of majority of the elements are still very small (about 50 Percent of the tested elements had a p-value < 0.001). Consequently, the Null Hypotheses can be rejected for almost all separate cases. Only a total of 12 elements returned a p-value above or equal to the required alpha-level of 1 Percent.
+%\begin{figure}[h!]
+%\centering
+<<QQsampleslin2b, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+qqnorm(Glass.type6s[["RI"]], main ="RI in Glass Type 6",pch=19,
+       cex.lab=1)
+qqline(Glass.type6s[["RI"]],lwd=2,col="red")
+@
+%\includegraphics[width=\textwidth]{report-QQsampleslin2}
+%\caption{QQ-Plots of possible linear relationships with very small sample sizes}
+%\label{fig:QQsampleslin2}
+%\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{report-QQsampleslin2a}
+  \vspace{-1cm}
+  \caption{}
+  \label{fig:QQsampleslin2a}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{report-QQsampleslin2b}
+  \vspace{-1cm}
+  \caption{}
+  \label{fig:QQsampleslin2b}
+\end{subfigure}
+\caption{QQ-Plots of possible linear relationships with very small sample sizes}
+\label{fig:QQsampleslin2}
+\end{figure}
+
+\subsubsection{Shapiro-Wilk test}\label{sec:shapiro-original}
+Performing the Shapiro-Wilk test on the complete dataset at hand, according to the p-values the Null Hypothesis (the data the sample is taken from is normally distributed) is rejected for all the elements.
+Testing the different glass types separately, the p-values of majority of the variables are still very small. Consequently, the Null Hypotheses can be rejected for almost all separate cases. For a total 16 cases (over all 6 glass types) the test returned a p-value above or equal to the set alpha-level of 1\, \% (Tables \ref{tab:testrestype1SW} to \ref{tab:testrestype7SW}). However, the majority of the cases for which the Null Hypothesis holds stems from the three subdatasets containing significantly less observations (Tables \ref{tab:testrestype3SW} to \ref{tab:testrestype6SW}). For glass type 1 H0 is rejected for all the variables (see Table \ref{tab:testrestype1SW}). For glass type 2 it only holds for Aluminium (Al) and for glass type 7 only for Aluminium (Al) and Barium (Ba) (see Tables \ref{tab:testrestype2SW} and \ref{tab:testrestype7SW}).
+More than 80\, \% of the total rejections in the 6 tests (13 out of 16) stem from the three smaller subdatasets glass type 3, glass type 5, and glass type 6. These results raise the question if the low number of rejections is due to the smaller sample size in these cases. Looking only at the glass types 1, 2, and 7, a normal distribution can be rejected for most of the cases.
 
 
 <<calcSWresults, echo=FALSE, term=TRUE>>=
 sig=0.01
 shapresult.full <- apply(Glass[,-10], 2, shapiro.test)
-shapresult.type1 <- apply(Glass.type1, 2, shapiro.test)
-shapresult.type2 <- apply(Glass.type2, 2, shapiro.test)
-shapresult.type3 <- apply(Glass.type3, 2, shapiro.test)
-shapresult.type5 <- apply(Glass.type5, 2, shapiro.test)
-shapresult.type7 <- apply(Glass.type7, 2, shapiro.test)
+shapresult.type1 <- apply(Glass.type1s, 2, shapiro.test)
+shapresult.type2 <- apply(Glass.type2s, 2, shapiro.test)
+shapresult.type3 <- apply(Glass.type3s, 2, shapiro.test)
+shapresult.type5 <- apply(Glass.type5s, 2, shapiro.test)
+shapresult.type6 <- apply(Glass.type6s, 2, shapiro.test)
+shapresult.type7 <- apply(Glass.type7s, 2, shapiro.test)
 @
 
 \begin{table}[h!]
@@ -614,13 +675,9 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on the whole data sample with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on the whole data sample}
 \label{tab:testresFullSW}
 \end{table}
-
-For glass type 6 the elements K, Ba, and Fe are only zeros, so they were excluded from the testing procedure. In these cases the Shapiro-Wilk-Statistic is not applicable since the expression 
-$\sum \limits_{i=1}^n (y_i - \bar{y})^2$ 
-in the denominator sums up to 0.
 
 \begin{table}[h!]
 \centering
@@ -647,7 +704,7 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on type 1 glass with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on type 1 glass}
 \label{tab:testrestype1SW}
 \end{table}
 
@@ -676,7 +733,7 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on type 2 glass with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on type 2 glass}
 \label{tab:testrestype2SW}
 \end{table}
 
@@ -705,7 +762,7 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on type 3 glass with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on type 3 glass}
 \label{tab:testrestype3SW}
 \end{table}
 
@@ -734,8 +791,37 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on type 5 glass with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on type 5 glass}
 \label{tab:testrestype5SW}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype6SW, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type6
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  pvalue = tr[[varname]][["p.value"]]
+  cat(paste(
+    varname,
+    round(tr[[varname]][["statistic"]], 2),
+    sig,
+    "NA",
+    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+    ifelse(pvalue<=sig, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on type 6 glass}
+\label{tab:testrestype6SW}
 \end{table}
 
 \begin{table}[h!]
@@ -763,11 +849,10 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the Shapiro-Wilk test on type 7 glass with ten initial classes}
+\caption{Test results of the Shapiro-Wilk test on type 7 glass}
 \label{tab:testrestype7SW}
 \end{table}
 
-As can be seen from the tables, for only 12 of the Elements in the data subsets, the hypothetical normal distribution is not rejected. Additionally, 9 of these elements stem from the subsets of type 3 and type 5 glass which consist only of 17 and 13 observations. Given the small sample size the test result is at best questionable.
 
 \subsubsection{Pearson's chi-squared test}
 <<calculatChisq, echo=FALSE>>=
@@ -811,7 +896,7 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \label{tab:chi-full}
 \end{table}
 
-The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately \Sexpr{round(testresult.type1$Na$p_value, 2)}. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
+The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Sodium (Na). The p-value for Sodium is comparably high amounting to approximately \Sexpr{round(testresult.type1$Na$p_value, 2)}. It is well recognisable that the observed class frequencies for Sodium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
 \begin{table}[h!]
 \centering
@@ -937,19 +1022,400 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \label{tab:chi-type7}
 \end{table}
 
-As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Natrium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Natrium of type 1 glass ($\sim$ \Sexpr{round(testresult.type1$Na$p_value, 2)}) with ten initial classes decreases to approximately \Sexpr{round(testresult.type1.30$Na$p_value, 2)} with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ \Sexpr{round(testresult.type7$Al$p_value, 2)}) increases to approximately \Sexpr{round(testresult.type7.30$Al$p_value, 2)}. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Sodium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Sodium of type 1 glass ($\sim$ \Sexpr{round(testresult.type1$Na$p_value, 2)}) with ten initial classes decreases to approximately \Sexpr{round(testresult.type1.30$Na$p_value, 2)} with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ \Sexpr{round(testresult.type7$Al$p_value, 2)}) increases to approximately \Sexpr{round(testresult.type7.30$Al$p_value, 2)}. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
 
 \subsubsection{Kolmogorov-Smirnov test}
 
 
 
-\subsection{Testing transformed data}
+\subsection{Testing transformed data}\label{sec:testing-transformed-data}
 
 The same tests are now conducted on the data that have been Box-Cox-transformed with a parameter that is estimated by the maximum likelihood method. For some variables, an estimation is not possible because the algorithm does not converge or, as in most cases, not all of the observations of one variable are strictly positive.
 
-\subsubsection{Q-Q-plot}
+\subsubsection{Q-Q-plot}\label{sec:qq-transformed}
 
-\subsubsection{Shapiro-Wilk test}
+Before testing statistically, the results of the transformation can be examined graphically by again plotting the quantiles of the transformed data and comparing these plots with the QQ-plots from the original data in section \ref{sec:qq-original}. For some of the elements in the dataset the transformation leads to a slight approximation towards normality (figure \ref{fig:QQtrans}). However, for rather complicated cases (e. g. where several distributions seem to be combined) the transformation appearently does not produce normally distributed data (figure \ref{fig:QQtransno}). In these cases the initial distribution is not unimodal and therefore the Box-Cox-transformation is not very helpful (see section \ref{sec:Box-Cox-transformation} for a detailed explanation).
+
+\begin{figure}[h!]
+\centering
+<<QQtrans, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+Glass.t <- transformDataFrame(Glass[,-10])
+Glass.type1s.t <- transformDataFrame(Glass.type1s)
+Glass.type2s.t <- transformDataFrame(Glass.type2s)
+Glass.type3s.t <- transformDataFrame(Glass.type3s)
+Glass.type5s.t <- transformDataFrame(Glass.type5s)
+Glass.type6s.t <- transformDataFrame(Glass.type6s)
+Glass.type7s.t <- transformDataFrame(Glass.type7s)
+
+par(mfrow=c(2,2))
+qqnorm(Glass.type1s[["Na"]], main ="Na Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["Na"]],lwd=2,col="red")
+qqnorm(Glass.type1s.t[["Na"]], main ="Na Glass Type 1 transformed",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s.t[["Na"]],lwd=2,col="red")
+qqnorm(Glass.type7s[["Ca"]], main ="Ca Glass Type 7",pch=19,
+       cex.lab=1)
+qqline(Glass.type7s[["Ca"]],lwd=2,col="red")
+qqnorm(Glass.type7s.t[["Ca"]], main ="Ca Glass Type 7 transformed",pch=19,
+       cex.lab=1)
+qqline(Glass.type7s.t[["Ca"]],lwd=2,col="red")
+par(mfrow=c(1,1))
+@
+\includegraphics[width=\textwidth]{report-QQtrans}
+\caption{QQ-Plots of the cases where the transformation shows slight approximations to normality}
+\label{fig:QQtrans}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<QQtransno, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+
+par(mfrow=c(2,2))
+qqnorm(Glass.type1s[["RI"]], main ="RI Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["RI"]],lwd=2,col="red")
+qqnorm(Glass.type1s.t[["RI"]], main ="RI Glass Type 1 transformed",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s.t[["RI"]],lwd=2,col="red")
+qqnorm(Glass.type1s[["Si"]], main ="Si Glass Type 1",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s[["Si"]],lwd=2,col="red")
+qqnorm(Glass.type1s.t[["Si"]], main ="Si Glass Type 1 transformed",pch=19,
+       cex.lab=1)
+qqline(Glass.type1s.t[["Si"]],lwd=2,col="red")
+@
+\includegraphics[width=\textwidth]{report-QQtransno}
+\caption{QQ-Plots of the non-unimodal cases where the transformation does not lead to normal distributions}
+\label{fig:QQtransno}
+\end{figure}
+
+
+\subsubsection{Shapiro-Wilk test}\label{sec:shapiro-transformed}
+
+When performing the Shapiro-Wilk test on the whole transformed data, at the first glance the transformation does not seem to have had the desired impact on the data. As displayed in table \ref{tab:testresFullSWtrans} for all elements the Null Hypothesis is rejected. Although the p-values increased, they are still below the 1\, \% significance level, so there is no fundamental difference to the results from testing the original data.
+
+However, proceeding analogously to section \ref{sec:shapiro-original} and testing the different glass types separately, these separate results reveal some improvements.
+
+Glass type 1 shows the largest number of improvements, since in the original dataset the Null hypothesis was rejected for all variables. The test results of the transformed type 1 data from table \ref{tab:testrestype1SWtrans} show significantly increased p-values. For the three variables Sodium (Na), Aluminium (Al), and Calcium (Ca) now a normal distribution cannot be rejected any more.
+
+For the glass types 2 and 3 there are no changes in the number of rejections at the 1\, \% significance level (tables \ref{tab:testrestype2SWtrans} and \ref{tab:testrestype3SWtrans}). In fact the the p-values of the variables increased considerably with the transformation, however, they still lie below the alpha level.
+
+The test on the transformed glass type 5 data shows that, in addition to refractive index (RI), Sodium (Na), Silicon (Si), and Calcium (Ca), now for Aluminium (Al) and Potassium (K) a normal distribution cannot be rejected any more (see table \ref{tab:testrestype6SWtrans}).
+
+Furthermore for glass type 6 the p-values increase significantly as well, except for Silicon (Si) which only slightly increases (see table \ref{tab:testrestype6SWtrans}). Consequently, H0 is, analogously to the original data, not rejected for Aluminium (Al), Silicon (Si), and Calcium (Ca), plus the refractive index (RI) for which H0 cannot be rejected after the transformation.
+
+The test results of the transformed glass type 7 data show that for Aluminium (Al) the Null hypothesis still cannot be rejected. Due to contained zero-values Barium (Ba) is excluded from the transformation (see section \ref{sec:testing-transformed-data}) and therefore nothing is concluded about this specific variable. Furthermore, the result shows that the p-values of Sodium (Na) and Calcium (Ca) considerably increase and exceed the 1\, \% significance level after the transformation.
+
+In a nutshell, the Shapiro-Wilk test shows shows significant improvements towards a normal distribution of the variables when the Box-Cox-transformation is used and the different glass types are analysed separately. Analysing the full dataset also shows some minor improvements of the p-values, however, H0 is still rejected at the chosen significance level. An explanation for this result could be that in the full dataset different distributions of the different distinctive glass types are combined and therefore the Box-Cox-transformation does not improve the distribution (see section \ref{sec:boxcox-theory}).
+
+
+<<calcSWresultstrans, echo=FALSE, term=TRUE>>=
+
+shapresult.full.t <- sapply(colnames(Glass.t[,-10]), function(x) {
+  if (is.na(Glass.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.t[[x]])
+  }
+})
+
+shapresult.type1.t <- sapply(colnames(Glass.type1s.t), function(x) {
+  if (is.na(Glass.type1s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type1s.t[[x]])
+  }
+})
+
+shapresult.type2.t <- sapply(colnames(Glass.type2s.t), function(x) {
+  if (is.na(Glass.type2s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type2s.t[[x]])
+  }
+})
+
+shapresult.type3.t <- sapply(colnames(Glass.type3s.t), function(x) {
+  if (is.na(Glass.type3s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type3s.t[[x]])
+  }
+})
+
+shapresult.type5.t <- sapply(colnames(Glass.type5s.t), function(x) {
+  if (is.na(Glass.type5s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type5s.t[[x]])
+  }
+})
+
+shapresult.type6.t <- sapply(colnames(Glass.type6s.t), function(x) {
+  if (is.na(Glass.type6s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type6s.t[[x]])
+  }
+})
+
+shapresult.type7.t <- sapply(colnames(Glass.type7s.t), function(x) {
+  if (is.na(Glass.type7s.t[[x]][1])) {
+  }
+  else {
+    shapiro.test(Glass.type7s.t[[x]])
+  }
+})
+@
+
+
+\begin{table}[h!]
+\centering
+<<testresFullSWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.full.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the whole transformed data sample}
+\label{tab:testresFullSWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype1SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type1.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 1 glass}
+\label{tab:testrestype1SWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype2SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type2.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 2 glass}
+\label{tab:testrestype2SWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype3SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type3.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 3 glass}
+\label{tab:testrestype3SWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype5SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type5.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 5 glass}
+\label{tab:testrestype5SWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype6SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type6.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 6 glass}
+\label{tab:testrestype6SWtrans}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testrestype7SWtrans, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=shapresult.type7.t
+
+for(i in 1:(length(tr))) {
+  varname = names(tr[i])
+  if (is.null(tr[[varname]])) {
+    cat(paste(varname, "NA", "NA", "NA", "NA", "NA", sep=" & "))
+    cat(paste("\\\\ ", "\n", sep=""))
+  }
+  else {
+    pvalue = tr[[varname]][["p.value"]]
+    cat(paste(
+      varname,
+      round(tr[[varname]][["statistic"]], 2),
+      sig,
+      "NA",
+      ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
+      ifelse(pvalue<=sig, "yes", "no"),
+             sep=" & "), "\\\\ ", "\n", sep="")
+  }
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the Shapiro-Wilk test on the transformed type 7 glass}
+\label{tab:testrestype7SWtrans}
+\end{table}
+
+
 
 \subsubsection{Pearson's chi-squared test}
 <<calculatChisqTrans, echo=FALSE>>=
