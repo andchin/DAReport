@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  9 JUL 2013 12:48
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  9 JUL 2013 17:15
 entering extended mode
 **auxiliary.tex
 (D:\DA\report\DAProject\auxiliary.tex
@@ -755,11 +755,11 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ) [1]
 (D:\DA\report\DAProject\auxiliary.aux) ) 
 Here is how much of TeX's memory you used:
- 6471 strings out of 494045
- 95747 string characters out of 3148436
+ 6468 strings out of 494045
+ 95726 string characters out of 3148436
  175169 words of memory out of 3000000
  9623 multiletter control sequences out of 15000+200000
- 30520 words of font info for 75 fonts, out of 3000000 for 9000
+ 29613 words of font info for 72 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,9n,47p,333b,219s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type
@@ -768,7 +768,7 @@ amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
 cm/cmsl12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmslt
 t10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pf
 b>
-Output written on auxiliary.pdf (3 pages, 58005 bytes).
+Output written on auxiliary.pdf (3 pages, 58224 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

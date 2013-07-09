@@ -80,11 +80,12 @@
  data = Glass[,-10]
  par(mfrow = c(3, 3))
  for(i in 1:9){
- 	qqnorm(data[,i], 
- 			main = paste("QQ-Plot of iris (", colnames(data)[i], ")", sep = ""),
+ 	newdata = (data[,i]-mean(data[,i]))/(sqrt(var(data[,i])))
+ 	qqnorm(newdata, 
+ 			main = paste("QQ-Plot of ", colnames(data)[i], sep = ""),
  			las = 1,
  			cex.main = 1, cex.lab = 1, cex.axis = 1)
- 	qqline(data[,i], col = "red")
+ 	abline(0,1, col="red")
  }
 \end{Sinput}
 \end{Schunk}
