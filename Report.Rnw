@@ -221,8 +221,6 @@ transformVector = function(data) {
 %\usepackage{chngcntr}
 %\def \lstWidth {0.9}
 
-\usepackage{float}
-
 \newcommand{\eg}{e.\,g. }
 \newcommand{\ie}{i.\,e. }
 \newcommand{\cdf}{c.\,d.\,f. }
@@ -436,7 +434,7 @@ A drawback of Pearson's chi-squared test is its inconsistency caused by informat
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
 The Kolmogorov-Smirnov (KS later on) test as all other tests is used for testing
-whether a given univariate sample $X_1,\dots X_2$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
+whether a given univariate sample $x=(x_1,x_2 \dots x_n)$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
 distribution $\mathbb{P}_0$. It implies a decision making between the following
 two hypotheses:
 \[\begin{array}{rcl}
@@ -447,12 +445,12 @@ The decision is made according to the value of KS test
 statistics and a given significance level $\alpha$.
 
 \begin{df}
-For a given univariate sample $X_1, X_2, \dots, X_n$ the function
-\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{X_i\le x\}}\] is called empirical
-cumulative distribution function (\cdf), where $\mathbbm{1}_{\{X_i\le x\}}$ is an
-indicator function defined as follows: $\mathbbm{1}_{\{X_i\le x\}}(x)=\left\lbrace 
+For a given univariate sample $x=(x_1, x_2, \dots, x_n)$ the function
+\[F_n=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}\] is called empirical
+cumulative distribution function (\cdf), where $\mathbbm{1}_{\{x_i\le x\}}$ is an
+indicator function defined as follows: $\mathbbm{1}_{\{x_i\le x\}}(x)=\left\lbrace 
 \begin{array}{cll}
-                 1 & \mbox{if} \ X_i\le x\\
+                 1 & \mbox{if} \ x_i\le x\\
                  0 & \mbox{otherwise}.
 \end{array} 
 \right.$
@@ -506,22 +504,39 @@ empdat = sapply(seq, function(x) {empiric(x,dat)})
 #sample mean and sample covariance
 mean = mean(dat)
 Cov = var(dat)
-
-#theoretical values of probabilities
+empdat = sapply(seq, function(x) {empiric(x,dat)})
 theordat = pnorm(seq,mean,Cov)
-#difference between theoretica and empirical probabilities
-diff = theordat-empdat
-#point of maximum
-pointmax = seq[which(abs(diff)==max(abs(diff)))]
-if(length(pointmax)>1) pointmax=pointmax[1]
+dif = theordat-empdat
 
-#draw theoretical normal c.d.f.
-points(seq,pnorm(seq,mean,Cov), type='l', col='red')
-#draw distance between theoretical and empirical c.d.f. 
-points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
-		type='l', lty = "dashed", col='green')
-text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
-legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n])))), 
+drawDistance = function(sample,mu,sigma, col) {
+	#line discretization
+	seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+		
+	#empirical values of probabilities
+	empdat = sapply(seq, function(x) {empiric(x,sample)})
+	
+	#theoretical values of probabilities
+	theordat = pnorm(seq,mu,sigma)
+	#difference between theoretica and empirical probabilities
+	dif = theordat-empdat
+	#point of maximum
+	pointmax = seq[which(abs(dif)==max(abs(dif)))]
+	if(length(pointmax)>1) pointmax=pointmax[1]
+	#draw distance between theoretical and empirical c.d.f. 
+	points(c(pointmax,pointmax),c(empiric(pointmax,sample),pnorm(pointmax,mu,sigma)), 
+			type='l', lty = "dashed", col=col)
+	text(pointmax+0.3,(empiric(pointmax,sample)+pnorm(pointmax,mu,sigma))/2,paste("d= ",format(max(abs(dif)), digits=4,nsmall=4)))
+}
+
+drawDistance(dat,mean,Cov,"green")
+
+drawTheoreticFunc = function(sample,mu,sigma, col) {
+	seq = seq(from = min(sample)-0.2, to = max(sample)+0.2, length.out=1000)
+	#draw theoretical normal c.d.f.
+	points(seq,pnorm(seq,mu,sigma), type='l', col=col)
+}
+drawTheoreticFunc(dat,mean,Cov,"red")
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F[n]-F)))), 
 		lty = c("solid","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3)) 
 @
 %\includegraphics[width=\textwidth]{report-empiricTeorFunc}
@@ -549,7 +564,7 @@ sample mean and sample variance (b)}
 \label{fig:commonFigureKStest}
 \end{figure}
 
-The KS statistics is defined as follows:
+The KS test statistics is defined as follows:
 \[D_n = \sqrt{n}\cdot \sup_{x \in \mathbb{R}}|F_n(x)-F(x)|.\]
 If value $D_i$ is considered for different $1\le i\le n$, then the sample
 $\hat{D}_n=(D_1,\dots,D_n)$ is obtained that also complies with some
@@ -591,7 +606,7 @@ $\bar{\mu}=$\Sexpr{format(mean,digits=4, nsmall=4)} and the sample variance $\ba
 \Sexpr{format(Cov,digits=4, nsmall=4)} are calculated. For these values of
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistics is calculated: $D_n=\sqrt{n}\cdot
-\sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(diff)),digits=4, nsmall=4)}.
+\sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(dif)),digits=4, nsmall=4)}.
 Critical value for the significance level $\alpha=0.01$ is equal to
 $c=H^{-1}(1-\alpha)$=\Sexpr{c=format(Inverse(H,1-0.01),digits=4,nsmall=4)}. To
 calculate this value the following $R$ functions are used:
@@ -642,8 +657,8 @@ KS= function(param) {
 	#values of theoretical c.d.f.
 	theordat = pnorm(seq,param[1],abs(param[2]))
 	#difference between the values
-	diff=theordat-empdat
-	absdiff=abs(diff)
+	dif=theordat-empdat
+	absdiff=abs(dif)
 	max(absdiff)
 }
 #optim is a predifined R function in stats package
@@ -666,31 +681,21 @@ drawEmpiric(dat)
 mean1 = KSoptim$par[1]
 Cov1 = KSoptim$par[2]
 
-#new distance calculation
-theordat1 = pnorm(seq,mean1,Cov1)
-diff1 = theordat1-empdat
-pointmax1 = seq[which(abs(diff1)==max(abs(diff1)))]
-if(length(pointmax1)>1) pointmax1=pointmax1[1]
 
 #draw old theoretical normal c.d.f.
-points(seq,pnorm(seq,mean,Cov), type='l', col='red')
+drawTheoreticFunc(dat,mean,Cov,"red")
 
 #draw improved one
-points(seq,pnorm(seq,mean1,Cov1), type='l', col='black')
+drawTheoreticFunc(dat,mean1,Cov1,"black")
 
 #draw the distance between the first one and empirical c.d.f.
-points(c(pointmax,pointmax),c(empiric(pointmax,dat),pnorm(pointmax,mean,Cov)), 
-		type='l', lty = "dashed", col='green')
-text(pointmax+0.3,(empiric(pointmax,dat)+pnorm(pointmax,mean,Cov))/2,paste("d= ",format(max(abs(diff)), digits=4)))
+drawDistance(dat,mean,Cov,"green")
+
 #draw the distance between the second one and empirical c.d.f.
-points(c(pointmax1,pointmax1),c(empiric(pointmax1,dat),pnorm(pointmax1,mean1,Cov1)), 
-		type='l', lty = "dashed", col="cyan")
-text(pointmax1+0.3,(empiric(pointmax1,dat)+pnorm(pointmax1,mean1,Cov1))/2,paste("d= ",format(max(abs(diff1)), digits=3)))
+drawDistance(dat,mean1,Cov1,"cyan")
 
-legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F-F[n]))),expression(F[new]),expression(sup(abs(F[new]-F[n])))), 
+legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F[n]-F))),expression(F[new]),expression(sup(abs(F[n]-F[new])))), 
 		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
-				
-
 @
 \includegraphics[width=\textwidth]{report-improvedKS}
 \caption{Normal \cdf with optimized parameters in comparison to the old \cdf
@@ -726,8 +731,8 @@ KSimpr.test.norm = function(data, sig) {
 		#values of theoretical c.d.f.
 		theordat = pnorm(seq,param[1],abs(param[2]))
 		#difference between the values
-		diff=theordat-empdat
-		absdiff=abs(diff)
+		dif=theordat-empdat
+		absdiff=abs(dif)
 		max(absdiff)
 		}	
 	#optim is a predifined R function in stats package
@@ -739,9 +744,9 @@ KSimpr.test.norm = function(data, sig) {
 	print(teststat > critical_value)
 	
 	return(list( mean = mu,
-				var = sigma,
+				var = abs(sigma),
 				mu_opt = KSoptim$par[1],
-				sigma_opt = KSoptim$par[2],
+				sigma_opt = abs(KSoptim$par[2]),
 				teststat = teststat,
 				critical_value = critical_value,
 				p_value = p_value,
@@ -1062,13 +1067,16 @@ As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test 
 
 <<calculatKS, eval=FALSE ,echo=FALSE>>=
 testresultKS.full = apply(Glass[, -10], 2, KSimpr.test.norm, sig=0.01)
+testresultKS.type1 = apply(Glass.type1[, c(-8,-10)], 2, KSimpr.test.norm, sig=0.01)
+testresultKS.type2 = apply(Glass.type2[, c(-8,-10)], 2, KSimpr.test.norm, sig=0.01)
+testresultKS.type7 = apply(Glass.type7[, c(-3,-9)], 2, KSimpr.test.norm, sig=0.01)
 @
 The first tests are conducted on the whole data set for each variable. 
 The results are shown in table \ref{tab:KS-full}.
 
 \begin{table}[h!]
 \centering
-<<testresKSFull, echo=FALSE, term=TRUE, results=tex>>=
+<<testresKSType1, echo=FALSE, term=TRUE, results=tex>>=
 cat("\\begin{tabular}{|cccccc|} ")
 cat("\\hline ")
 cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
@@ -1089,9 +1097,98 @@ for(i in 1:(length(tr))) {
 cat("\\hline ")
 cat(paste("\\end{tabular}", "\n", sep=""))
 @
-\caption{Test results of the improved KS test on the whole data sample with ten
-initial classes}
+\caption{Test results of the improved KS test on the whole data sample}
 \label{tab:KS-full}
+\end{table}
+
+Then tests are conducted on type 1 glass for each variable.
+The results are shown in table \ref{tab:KS-type1}.
+
+\begin{table}[h!]
+\centering
+<<testresKSType1, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresultKS.type1
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the improved KS test on type 1 glass}
+\label{tab:KS-type1}
+\end{table}
+
+After that the tests are conducted on type 2 glass for each variable.
+The results are shown in table \ref{tab:KS-type2}.
+
+\begin{table}[h!]
+\centering
+<<testresKSType2, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresultKS.type2
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the improved KS test on type 2 glass}
+\label{tab:KS-type2}
+\end{table}
+
+After that the tests are conducted on type 7 glass for each variable.
+The results are shown in table \ref{tab:KS-type7}.
+
+\begin{table}[h!]
+\centering
+<<testresKSType7, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresultKS.type7
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the improved KS test on type 7 glass}
+\label{tab:KS-type7}
 \end{table}
 
 \subsection{Testing transformed data}
@@ -1258,6 +1355,44 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
+
+%<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
+%testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
+%@
+The first tests are conducted on the whole transformed data set for each
+variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
+for univariate transformation.
+
+%The results are shown in table \ref{tab:KS-full}.
+
+%\begin{table}[h!]
+%\centering
+%<<testresKSFullTrans, echo=FALSE, term=TRUE, results=tex>>=
+%cat("\\begin{tabular}{|cccccc|} ")
+%cat("\\hline ")
+%cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+%cat("\\hline ")
+%tr=testresultKS.full.trans
+%
+%for(i in 1:(length(tr))) {
+%  cat(paste(
+%    names(tr[i]),
+%    round(tr[i][[1]]$teststat, 2),
+%    0.01,
+%    round(tr[i][[1]]$critical_value, 2),
+%    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+%    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+%           sep=" & "), "\\\\ ", "\n", sep="")
+%}
+%
+%cat("\\hline ")
+%cat(paste("\\end{tabular}", "\n", sep=""))
+%@
+%\caption{Test results of the improved KS test on the whole transformed data
+%sample with ten initial classes}
+%\label{tab:KS-fullTrans}
+%\end{table}
+
 
 \newpage
 \section{Conclusion}
