@@ -309,6 +309,43 @@ Glass Type 1, Natrium (Na)
 \vspace{15cm}
 }
 
+\begin{frame}[fragile]
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Improved Kolmogorov-Smirnov Test}
+KS test is improved by solving the following
+optimization problem \[KS(\mu,\sigma)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+\begin{itemize}
+\item<1->[]$R$ code used:
+\item<2->[]
+\begin{Schunk}
+\begin{Sinput}
+ c(mean(dat),var(dat))
+\end{Sinput}
+\begin{Soutput}
+[1] 13.2422857  0.2493019
+\end{Soutput}
+\begin{Sinput}
+ #optim is a predifined R function in stats package
+ #defalut method of optimization is Nelder and Mead
+ result = optim(c(mean(dat),var(dat)),KS)
+ result$par
+\end{Sinput}
+\begin{Soutput}
+[1] 13.1769501  0.4682486
+\end{Soutput}
+\begin{Sinput}
+ result$value
+\end{Sinput}
+\begin{Soutput}
+[1] 0.07870673
+\end{Soutput}
+\end{Schunk}
+\end{itemize}
+\vspace{10cm}
+\end{frame}
+
+
 \frame{
 \frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Improved Kolmogorov-Smirnov Test}
@@ -319,34 +356,34 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \column{0.5\columnwidth}
 \vspace{-1cm}
 \begin{itemize}
-\item<2->Initial vector of parameters
+\item<1->Initial vector of parameters
 $\mu=13.2423,\quad
 \sigma^2=0.2493$
-\item<3->Optimized vector of parameters
+\item<1->Optimized vector of parameters
 $\hat{\mu}=13.1770, \quad
 \hat{\sigma}^2=0.4682$
-\item<4->
+\item<3->
 $D_n=\sqrt{n}
 \sup|F_n-F_{new}|=0.6585$
-\item<5->
+\item<4->
 $c=1.6276$
-\item<6->
+\item<5->
 $D_n<c \implies  H_0$ \alert{accepted}
 
-\item<7-> 
+\item<6-> 
 $\implies \mathbb{P}= \mathbb{P}_0$
 
-\item<8-> \alert{$\implies$
+\item<7-> \alert{$\implies$
  data normally distributed!}
 \end{itemize}
 
 \column{0.5\columnwidth}
   \vspace{-1.9cm}
-    \only<2,3>{
+    \only<1>{
     \begin{figure}
 	\includegraphics[width=\columnwidth]{Report-empiricTeorFunc}
 	\end{figure}}
-    \only<4->{
+    \only<2->{
     \begin{figure}
 	\includegraphics[width=\columnwidth]{Report-improvedKS}
 	\end{figure}}
@@ -357,6 +394,67 @@ Glass Type 1, Natrium (Na)
 \end{center}}
 \end{columns}
 
+\vspace{15cm}
+}
+
+
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Improved Kolmogorov-Smirnov Test Results}
+Results of Improved KS test on the whole data set:
+\scriptsize
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 1.34 & 0.01 & 1.63 & 0.0561963016778131 & no\\ 
+Na & 0.87 & 0.01 & 1.63 & 0.43825271603342 & no\\ 
+Mg & 2.94 & 0.01 & 1.63 & 6.18457917100912e-08 & yes\\ 
+Al & 0.84 & 0.01 & 1.63 & 0.474757887353829 & no\\ 
+Si & 0.96 & 0.01 & 1.63 & 0.314710019077325 & no\\ 
+K & 2.14 & 0.01 & 1.63 & 0.000212776619708754 & yes\\ 
+Ca & 1.33 & 0.01 & 1.63 & 0.057710602872685 & no\\ 
+Ba & 2.60 & 0.01 & 1.63 & 2.75476085742632e-06 & yes\\ 
+Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}
+\end{table}
+\normalsize
+\begin{itemize}
+\item<2-> 5 variables are normaly distributed (RI,Na,Al,Si,Ca)
+\item<3-> 4 variables are not (Mg,K,Ba,Fe)
+\item<4-> The best statistics test value for Al
+\item<5-> The worst statistic test value for Fe
+\end{itemize}
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Quantitative Methods for Normality Testing}
+\begin{columns}[t]
+\column{0.3\columnwidth}
+
+{\bf \centerline{Test Results:}}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cc|} \hline variable & rejected\\ 
+\hline 
+RI & no\\ 
+Na & no\\ 
+Mg & yes\\ 
+Al & no\\ 
+Si & no\\ 
+K & yes\\ 
+Ca & no\\ 
+Ba & yes\\ 
+Fe & yes\\ 
+\hline 
+\end{tabular}
+\end{table}
+
+\column{0.7\columnwidth}
+\only<2->{
+\vspace{-1.35cm}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{auxiliary-drawQQPlots}
+	\end{figure}}
+\end{columns}
 \vspace{15cm}
 }
 

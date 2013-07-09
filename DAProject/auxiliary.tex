@@ -1,0 +1,93 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Template for the papers to the case studies of Data Analytics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper, 12pt, titlepage, headsepline, listof = totoc, bibliography = totoc, numbers = noenddot]{scrartcl}
+\usepackage[left = 3cm, right = 2cm, top = 2.2cm, bottom = 3.5cm]{geometry} % spaces on the sides of the paper
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{natbib}
+\usepackage{scrpage2}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\frenchspacing
+
+\usepackage{bbm}
+\usepackage[labelfont=bf, font=footnotesize, tableposition=top]{caption}
+\DeclareCaptionType[fileext=los,placement={!ht}]{listing}
+%\usepackage{mdframed}
+\usepackage{boxedminipage}
+%\usepackage{chngcntr}
+%\def \lstWidth {0.9}
+
+\newcommand{\eg}{e.\,g. }
+\newcommand{\ie}{i.\,e. }
+\newcommand{\cdf}{c.\,d.\,f. }
+\newtheorem{thm}{Theorem}
+\newtheorem{df}{Definition}
+\newtheorem{lem}{Lemma}
+
+%% path, where the figures are stored
+\graphicspath{{./images/}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% design of the head of the report pages
+
+\clearscrheadings                   	% clears all predefined formats voreingestellte Formatierungen
+\pagestyle{scrheadings}			% use this style only on the actual text
+\ohead{FirstName LastName}		% writes your name on each side in the upper right corner
+\automark{section}                  
+\ihead{\headmark}				% automatically writtes the section name in the upper left corner
+\cfoot{\pagemark}				% page number on the bottom (center)
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% cover sheet
+
+\title{\hrulefill \\ \vspace*{1cm} Case Studies\\\vspace*{0.5cm}
+ "Data Analytics" \\ \vspace*{1cm}\hrulefill\vspace*{1.5cm}}
+\subtitle{Topic\\\vspace*{1.5cm} Summer Term 2013\vspace*{1.5cm}}
+\author{FirstName LastName}
+%\institute{e-mail}
+
+\usepackage{Sweave}
+\begin{document}
+\input{auxiliary-concordance}
+\thispagestyle{empty}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% table of contents
+
+\thispagestyle{empty}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% the document itself
+
+\newpage
+\setcounter{page}{1}
+\section{Introduction}
+
+\begin{Schunk}
+\begin{Sinput}
+ data = Glass[,-10]
+ par(mfrow = c(3, 3))
+ for(i in 1:9){
+ 	qqnorm(data[,i], 
+ 			main = paste("QQ-Plot of iris (", colnames(data)[i], ")", sep = ""),
+ 			las = 1,
+ 			cex.main = 1, cex.lab = 1, cex.axis = 1)
+ 	qqline(data[,i], col = "red")
+ }
+\end{Sinput}
+\end{Schunk}
+
+
+\end{document}

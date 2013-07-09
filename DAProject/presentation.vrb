@@ -1,0 +1,33 @@
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Improved Kolmogorov-Smirnov Test}
+KS test is improved by solving the following
+optimization problem \[KS(\mu,\sigma)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+\begin{itemize}
+\item<1->[]$R$ code used:
+\item<2->[]
+\begin{Schunk}
+\begin{Sinput}
+ c(mean(dat),var(dat))
+\end{Sinput}
+\begin{Soutput}
+[1] 13.2422857  0.2493019
+\end{Soutput}
+\begin{Sinput}
+ #optim is a predifined R function in stats package
+ #defalut method of optimization is Nelder and Mead
+ result = optim(c(mean(dat),var(dat)),KS)
+ result$par
+\end{Sinput}
+\begin{Soutput}
+[1] 13.1769501  0.4682486
+\end{Soutput}
+\begin{Sinput}
+ result$value
+\end{Sinput}
+\begin{Soutput}
+[1] 0.07870673
+\end{Soutput}
+\end{Schunk}
+\end{itemize}
+\vspace{10cm}
