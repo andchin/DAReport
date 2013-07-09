@@ -19,7 +19,8 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 # Calculates bounds of bins (classes) of a data sample.
 # The initial bounds are given by initial_breaks, k denotes the minimum class size.
 makebins = function(data, initial_breaks, k) {
-  h = hist(data, breaks=initial_breaks, plot=FALSE) 
+  h = hist(data, breaks=initial_breaks, plot=FALSE)
+  
   br = h$breaks
   changed = TRUE
   
@@ -273,12 +274,18 @@ transformVector = function(data) {
 
 test test test
 
-\subsection{The glass data sample}
+\subsection{The Glass data set}
+
+The data set that is investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databeses \cite{uci}. It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
 
 \subsection{Aim and structure}
 
+This report aims at describing test methods for normality and conducting them on the Glass data set. Since the hypothesis of normality is rejected for most of the variables, this report is focused on methods for testing on univariate normal distribution. A transformation is applied to convert the data so that it complies with a normal distribution if possible. Nevertheless, a small part of this report deals with multivariate normal distribution.
+
+Test methods for univariate normal distribution are introduced in section \ref{sec:preliminaries}. Furthermore, a transformation method and a technique for identifying multivariate (more precisely: bivariate) normally distributed data are described. In section \ref{sec:testing}, the introduced test methods are conducted on the original data as well as on the transformed data. After that, the technique for checking on bivariate normal distribution is demonstrated on an example from the Glass data set. The findings are shortly concluded in section \ref{sec:conclusion}.
+
 \newpage
-\section{Preliminaries}
+\section{Preliminaries}\label{sec:preliminaries}
 
 \subsection{Test methods for normality}\label{sec:methods}
 
@@ -295,10 +302,10 @@ Pearson's chi-squared goodness of fit test is used to test whether data from a s
 testres = chisq.test.norm(Glass$Na, 30, 5, 0.01)
 par(mfrow=c(2,2))
 hist=testres$hist
-plot(hist, col=rgb(1, 0, 0,0.5), main="(1) Histogram of\n empirical data", xlab="empirical data")
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of\n empirical data", xlab="empirical data")
 hist.exp=histFromExpectedFreqs(testres)
-plot(hist.exp, col=rgb(0, 0, 1,0.5), main="(2) Histogram of\n expected densities", xlab="expected data")
-plot(hist, col=rgb(1, 0, 0,0.5), main="(3) Histogram of both empirical\n data and expected densities", xlab="empirical and expected data")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), main="Histogram of\n expected densities", xlab="expected data")
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of both empirical\n data and expected densities", xlab="empirical and expected data")
 plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 par(mfrow=c(1,1))
 @
@@ -846,26 +853,30 @@ par(mfrow=c(1,1))
 
 Contour lines of the plot of a multivariate normal distribution
 \[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
-with mean vector $\mu$ and covariance matrix $\Sigma > 0$ are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
+with mean vector $\mu$ and covariance matrix $\Sigma > 0$ are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\, \Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
 
-A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines.
+A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines. An exemplary contour plot is depicted in figure \ref{fig:plotMVNSim}. The data is simulated from the mulitvariate normal distribution with the parameters
+\[\mu = \left(\begin{array}{c} 1\\ 2\end{array} \right), \quad \Sigma = \left[\begin{array}{cc} 27 & 15\\ 15 & 18\end{array} \right]\]
+and a sample size of 500. The contour lines for this simulated sample are apparently elliptically shaped. Obviously, this graphical method only works for two variables respectively, \ie for bivariate distributions.
 
 \begin{figure}[h!]
 \centering
 <<plotMVNSim, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
 set.seed=1337
 mvns = mvrnorm(n=500, c(1,2), matrix(c(27,15,15,18), nrow=2))
-ci2d(mvns, show="contour", col="black", show.points=TRUE, factor=3)
+X <- mvns[,1]
+Y <- mvns[,2]
+ci2d(X, Y, show="contour", col="black", show.points=TRUE, factor=3)
 @
 \includegraphics[width=0.8\textwidth]{report-plotMVNSim}
-\caption{cap}
+\caption{Data plot with contour lines of a simulated sample from a bivariate normal distribution}
 \label{fig:plotMVNSim}
 \end{figure}
 
 
 
 \newpage
-\section{Testing the data sample for normality}
+\section{Testing the data sample for normality}\ref{sec:testing}
 
 \subsection{Testing original data}
 
@@ -1355,6 +1366,44 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \end{table}
 
 \subsubsection{Kolmogorov-Smirnov test}
+
+\subsection{Contour plots of selected variables}
+
+The search for bivariate normally distributed variables shall be now demonstrated by an example from the Glass sample. Concerning the complete sample, the p-values for the variables Na and Al are highest among all used test methods. Therefore, these two variables are selected for the contour plot (\ref{fig:contourGlassNaAl}).
+
+\begin{figure}[h!]
+<<contourGlassNaAl, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+ci2d(Glass$Na, Glass$Al, show="contour", col="black", show.points=TRUE, factor=3)
+@
+\includegraphics[width=\textwidth]{report-contourGlassNaAl}
+\caption{Data plot with contour lines of the variables Na and Al of the whole sample}
+\label{fig:contourGlassNaAl}
+\end{figure}
+
+
+From the shape of the plot, no clear insight can be deducted about multivariate normality. In the center, the contour lines have an elliptical shape whereas an accumulation of data points can be observed at the upper right corner. This accumulation is presumably due to different distributions of variables among particular glass types. Indeed, it can be acribed to the data of type 7 glass, which can be seen in figure \ref{fig:cluster7}.
+
+\begin{figure}[h!]
+<<cluster7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+plot(Glass$Na, Glass$Al)
+points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]$Al, col="red")
+@
+\includegraphics[width=\textwidth]{report-cluster7}
+\caption{Data plot of the variables Na and Al of the whole sample. Data points of type 7 glass are highlighted in red.}
+\label{fig:cluster7}
+\end{figure}
+
+If the same plot is drawn for the whole sample without data of type 7 glass (figure \ref{fig:contourGlassNaAl-7}), an elliptical shape is recognisable, except for some outliers. Quantitative tests should be conducted next in order to make an exacter point about the compliance of the data with a multivariate normal distribution.
+
+\begin{figure}[h!]
+<<contourGlassNaAl-7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+ci2d(Glass[which(Glass$Type != 7), ]$Na, Glass[which(Glass$Type != 7), ]$Al, show="contour", col="black", show.points=TRUE, factor=3)
+@
+\includegraphics[width=\textwidth]{report-contourGlassNaAl-7}
+\caption{Data plot with contour lines of the variables Na and Al of the whole sample except data of type 7 glass}
+\label{fig:contourGlassNaAl-7}
+\end{figure}
+
 
 %<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
 %testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
