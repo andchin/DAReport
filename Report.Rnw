@@ -1683,7 +1683,7 @@ plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% bibliography (if needed)
-
+%I just wanna merge
 %\nocite{*}
 \bibliographystyle{plain}
 \bibliography{lit}
