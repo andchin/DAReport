@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  9 JUL 2013 19:51
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  9 JUL 2013 20:12
 entering extended mode
 **Report.tex
 (D:\DA\report\DAProject\Report.tex
@@ -849,69 +849,59 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18 <D:/DA/report/DAProject/report-chisqType1Na.pdf>] [19]
-
-LaTeX Warning: Reference `tab:KS-type1' on page 20 undefined on input line 755.
-
-
-
-LaTeX Warning: Reference `tab:KS-type2' on page 20 undefined on input line 771.
-
-
+[18 <D:/DA/report/DAProject/report-chisqType1Na.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `tab:KS-type7' on page 20 undefined on input line 787.
-
-
-[20]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[21] <report-chisqType1Ca.pdf, id=160, 433.62pt x 433.62pt>
+[19] [20] <report-chisqType1Ca.pdf, id=157, 433.62pt x 433.62pt>
 File: report-chisqType1Ca.pdf Graphic file (type pdf)
 
 <use report-chisqType1Ca.pdf>
-Package pdftex.def Info: report-chisqType1Ca.pdf used on input line 845.
+Package pdftex.def Info: report-chisqType1Ca.pdf used on input line 804.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType1CaTrans.pdf, id=161, 433.62pt x 433.62pt>
+<report-chisqType1CaTrans.pdf, id=158, 433.62pt x 433.62pt>
 File: report-chisqType1CaTrans.pdf Graphic file (type pdf)
 
 <use report-chisqType1CaTrans.pdf>
-Package pdftex.def Info: report-chisqType1CaTrans.pdf used on input line 852.
+Package pdftex.def Info: report-chisqType1CaTrans.pdf used on input line 811.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22] [23 <D:/DA/report/DAProject/report-chisqType1Ca.pdf>] [24 <D:/DA/report/DA
-Project/report-chisqType1CaTrans.pdf>] [25]
 
-LaTeX Warning: Reference `Intr' on page 26 undefined on input line 944.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Package natbib Warning: Citation `sqltuerker' on page 26 undefined on input lin
-e 947.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[21] [22 <D:/DA/report/DAProject/report-chisqType1Ca.pdf>] [23 <D:/DA/report/DA
+Project/report-chisqType1CaTrans.pdf>]
+
+LaTeX Warning: Reference `Intr' on page 24 undefined on input line 903.
 
 
-Package natbib Warning: Citation `journals/jods/VolzSM05' on page 26 undefined 
-on input line 947.
+Package natbib Warning: Citation `sqltuerker' on page 24 undefined on input lin
+e 906.
 
 
-Package natbib Warning: Citation `das' on page 26 undefined on input line 947.
+Package natbib Warning: Citation `journals/jods/VolzSM05' on page 24 undefined 
+on input line 906.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 947--950
+Package natbib Warning: Citation `das' on page 24 undefined on input line 906.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 906--909
 
  []
 
 
-LaTeX Warning: File `images/ercis.png' not found on input line 953.
+LaTeX Warning: File `images/ercis.png' not found on input line 912.
 
 
 ! Package pdftex.def Error: File `images/ercis.png' not found.
@@ -920,51 +910,51 @@ See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.953 ....49\textwidth,angle=90]{images/ercis.png}
+l.912 ....49\textwidth,angle=90]{images/ercis.png}
                                                   
 Using draft setting for this image.
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[26] [27]
+[24] [25]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType2Na.pdf, id=197, 433.62pt x 433.62pt>
+<report-chisqType2Na.pdf, id=191, 433.62pt x 433.62pt>
 File: report-chisqType2Na.pdf Graphic file (type pdf)
 
 <use report-chisqType2Na.pdf>
-Package pdftex.def Info: report-chisqType2Na.pdf used on input line 1047.
+Package pdftex.def Info: report-chisqType2Na.pdf used on input line 1006.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType2Na-30.pdf, id=198, 433.62pt x 433.62pt>
+<report-chisqType2Na-30.pdf, id=192, 433.62pt x 433.62pt>
 File: report-chisqType2Na-30.pdf Graphic file (type pdf)
 
 <use report-chisqType2Na-30.pdf>
-Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 1054.
+Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 1013.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType2Al.pdf, id=199, 433.62pt x 433.62pt>
+<report-chisqType2Al.pdf, id=193, 433.62pt x 433.62pt>
 File: report-chisqType2Al.pdf Graphic file (type pdf)
 
 <use report-chisqType2Al.pdf>
-Package pdftex.def Info: report-chisqType2Al.pdf used on input line 1061.
+Package pdftex.def Info: report-chisqType2Al.pdf used on input line 1020.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType2Al-30.pdf, id=200, 433.62pt x 433.62pt>
+<report-chisqType2Al-30.pdf, id=194, 433.62pt x 433.62pt>
 File: report-chisqType2Al-30.pdf Graphic file (type pdf)
 
 <use report-chisqType2Al-30.pdf>
-Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 1068.
+Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 1027.
 (pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
@@ -992,8 +982,8 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  6682 strings out of 494045
- 100778 string characters out of 3148436
- 188533 words of memory out of 3000000
+ 100745 string characters out of 3148436
+ 189563 words of memory out of 3000000
  9782 multiletter control sequences out of 15000+200000
  45327 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -1017,9 +1007,9 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on Report.pdf (34 pages, 418855 bytes).
+Output written on Report.pdf (32 pages, 417157 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
+ 306 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  75 words of extra memory for PDF output out of 10000 (max. 10000000)
 

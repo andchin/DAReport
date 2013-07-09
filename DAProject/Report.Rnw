@@ -1065,7 +1065,7 @@ As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test 
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-<<calculatKS, eval=TRUE ,echo=FALSE>>=
+<<calculatKS, eval=FALSE ,echo=FALSE>>=
 testresultKS.full = apply(Glass[, -10], 2, KSimpr.test.norm, sig=0.01)
 testresultKS.type1 = apply(Glass.type1[, c(-8,-10)], 2, KSimpr.test.norm, sig=0.01)
 testresultKS.type2 = apply(Glass.type2[, c(-8,-10)], 2, KSimpr.test.norm, sig=0.01)
@@ -1081,7 +1081,7 @@ cat("\\begin{tabular}{|cccccc|} ")
 cat("\\hline ")
 cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
 cat("\\hline ")
-tr=testresultKS.type1
+tr=testresultKS.full
 
 for(i in 1:(length(tr))) {
   cat(paste(

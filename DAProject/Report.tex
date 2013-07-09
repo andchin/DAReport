@@ -693,61 +693,20 @@ As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test 
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-\begin{Schunk}
-\begin{Soutput}
-[1] FALSE
-[1] FALSE
-[1] TRUE
-[1] FALSE
-[1] FALSE
-[1] TRUE
-[1] FALSE
-[1] TRUE
-[1] TRUE
-\end{Soutput}
-\begin{Soutput}
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] TRUE
-[1] FALSE
-[1] TRUE
-\end{Soutput}
-\begin{Soutput}
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] TRUE
-\end{Soutput}
-\begin{Soutput}
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-[1] FALSE
-\end{Soutput}
-\end{Schunk}
 The first tests are conducted on the whole data set for each variable. 
 The results are shown in table \ref{tab:KS-full}.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 1.31 & 0.01 & 1.63 & 0.0630043926883292 & no\\ 
-Na & 0.66 & 0.01 & 1.63 & 0.77871853343362 & no\\ 
-Mg & 0.49 & 0.01 & 1.63 & 0.967729719418776 & no\\ 
-Al & 0.92 & 0.01 & 1.63 & 0.366854549713195 & no\\ 
-Si & 1.06 & 0.01 & 1.63 & 0.208027646546284 & no\\ 
-K & 1.73 & 0.01 & 1.63 & 0.00491847745617136 & yes\\ 
-Ca & 0.84 & 0.01 & 1.63 & 0.48064266616439 & no\\ 
-Fe & 2.65 & 0.01 & 1.63 & 1.63244296669252e-06 & yes\\ \hline \end{tabular}\caption{Test results of the improved KS test on the whole data sample}
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 1.34 & 0.01 & 1.63 & 0.0561963016778131 & no\\ 
+Na & 0.87 & 0.01 & 1.63 & 0.43825271603342 & no\\ 
+Mg & 2.94 & 0.01 & 1.63 & 6.18457917100912e-08 & yes\\ 
+Al & 0.84 & 0.01 & 1.63 & 0.474757887353829 & no\\ 
+Si & 0.96 & 0.01 & 1.63 & 0.314710019077325 & no\\ 
+K & 2.14 & 0.01 & 1.63 & 0.000212776619708754 & yes\\ 
+Ca & 1.33 & 0.01 & 1.63 & 0.057710602872685 & no\\ 
+Ba & 2.6 & 0.01 & 1.63 & 2.75476085742632e-06 & yes\\ 
+Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}\caption{Test results of the improved KS test on the whole data sample}
 \label{tab:KS-full}
 \end{table}
 
