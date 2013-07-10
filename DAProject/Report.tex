@@ -86,58 +86,62 @@ test test test
 
 \subsection{The Glass data set}
 
-The data set that is investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databeses \cite{uci}. It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
+The data set investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases \cite{uci}. It contains 214 observations of 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
 
 \subsection{Aim and structure}
 
 This report aims at describing test methods for normality and conducting them on the Glass data set. Since the hypothesis of normality is rejected for most of the variables, this report is focused on methods for testing on univariate normal distribution. A transformation is applied to convert the data so that it complies with a normal distribution if possible. Nevertheless, a small part of this report deals with multivariate normal distribution.
 
-Test methods for univariate normal distribution are introduced in section \ref{sec:preliminaries}. Furthermore, a transformation method and a technique for identifying multivariate (more precisely: bivariate) normally distributed data are described. In section \ref{sec:testing}, the introduced test methods are conducted on the original data as well as on the transformed data. After that, the technique for checking on bivariate normal distribution is demonstrated on an example from the Glass data set. The findings are shortly concluded in section \ref{sec:conclusion}.
+Test methods for univariate normal distribution are introduced in section \ref{sec:preliminaries}. Furthermore, a transformation method and a technique for identifying multivariate (more precisely: bivariate) normally distributed data are described. In section \ref{sec:testing}, the introduced test methods are conducted on the original data as well as on the transformed data. Subsequently, the technique for checking on bivariate normal distribution is demonstrated on an example from the Glass data set. The findings are shortly concluded in section \ref{sec:conclusion}.
 
 \newpage
 \section{Preliminaries}\label{sec:preliminaries}
 
 \subsection{Test methods for normality}\label{sec:methods}
 
-A statistical hypothesis test which tests empirical data on conformance with a certain distribution (or a family of distributions) is called a goodness of fit test. The null hypothesis is usually the hypothesis that the tested sample has been drawn from a population which is distributed according to the given distribution. Consequently, the alternative hypothesis states that the sample was drawn from a population of any other distribution. In every test, a certain method is used to calculate a test statistic from the data. If the test statistic exceeds a critical value which is computed for the particular distribution and a certain significance level, the null hypothesis is rejected. The p-value is the lowest significance level for which the null hypothesis would still be rejected. It can be interpreted as the probability of getting a result like the present one or an even more extreme result if the null hypothesis is true.
+A statistical hypothesis test which tests empirical data on conformance with a certain distribution (or a family of distributions) is called a goodness of fit test. The null hypothesis usually refers to the position that the tested sample has been drawn from a population which is distributed according to the given distribution. Consequently, the alternative hypothesis states that the sample was drawn from a population of any other distribution. In every test, a certain method is used to calculate a test statistic from the data. If the test statistic exceeds a critical value which is computed for the particular distribution at a certain significance level, the null hypothesis is rejected. The p-value is the lowest significance level for which the null hypothesis would still be rejected. It can be interpreted as the probability of getting a result like the present one or an even more extreme result if the null hypothesis is true.
 
 \subsubsection{Q-Q-plot}\label{sec:qq-theoretical}
 
-Quantile-Quantile-Plots provide a graphical comparison of the quantiles of two probability distributions. The observed values are plotted against the quantiles of a theoretical distribution. To check for normality, the observations $y_1, \dots, y_n$ from a sample with size n are ordered ( $y_1 \le y_2 \le \dots \le y_n$ ) and plotted against an assumed cumulative distribution function. Let $y_{(i)}$ denote the sample quantiles. For each sample quantile $y_{(j)}$ with $j$ observations to the left, the proportion of these $j$ observations is approximated by
+Quantile-Quantile-Plots provide a graphical comparison of the quantiles of two probability distributions. The observed values are plotted against the quantiles of a theoretical distribution. To check for normality, the observations $x_1, \dots, x_n$ from a sample with size $n$ are ordered ( $x_{(1)} \le x_{(2)} \le \dots \le x_{(n)}$ ) and plotted against an assumed cumulative distribution function. Let $x_{(i)}$ denote the sample quantiles. For each sample quantile $x_{(j)}$ with $j$ observations to the left, the proportion of these $j$ observations is approximated by
 \[ p_{(j)} = \frac{j - \frac{1}{2}} {n}\]
 and the theoretical quantiles $q_{(j)}$ are defined by
 \[ q_{(j)} = \Phi^{-1}(p_{(j)}) \]
 
-Given a sufficient sample size, normally distributed data will be linearly related to the theoretical normal distribution in the QQ-plot.
+where $\Phi$ is the cumulative distribution function of the standard normal distribution.
+
+In the QQ-Plot these theoretical quantiles $q_{(j)}$ are then plotted against the sample quantiles $x_{(j)}$. Given a sufficient sample size, in the case of normally distributed data the observed quantiles will be linearly related to the theoretical normal distribution quantiles in the QQ-plot.
 
 \subsubsection{Shapiro-Wilk test}\label{sec:shapiro-theoretical}
 
-The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. The test statistic (denoted as $W$) indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles by comparing the expected variance of the assumed normally distributed quantile values (in the numerator) with the actual variance of the ordered observed sample values (in the denominator):
-\[ W = \frac{\sum \limits_{i=1}^n (a_i y_i)^2} {\sum \limits_{i=1}^n (y_i-\bar{y})^2}\]
+The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. Basically, the test statistic, denoted as $W$, indicates the squared correlation of the observed quantile values and the assumed cumulative distribution function quantiles. In detail the formula compares the expected variance of the assumed normally distributed quantile values in the numerator with the actual variance of the ordered observed sample values in the denominator:
+\[ W = \frac{\sum \limits_{i=1}^n (a_i x_i)^2} {\sum \limits_{i=1}^n (x_i-\bar{x})^2}\]
 where
+
 $a_i$ denotes the normalized "best linear unbiased" coefficients and
-$y_i$ denotes the ordered observations.
+
+$x_i$ denotes the ordered observations.
 
 The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
 
-Compared to the Kolmogorov-Smirnov test and the Chi-Squared-Test, the Shapiro-Wilk test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) are a the size of $n$ < 50, the test result is quite interesting for the evaluation of these cases.
+In general the statistical power of tests decreases with smaller sample sizes. Compared to other statistical tests, like the Kolmogorov-Smirnov test or the Chi-Squared-Test, the Shapiro-Wilk test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) have a size of $n$ < 50, the test result is quite interesting for the tests of the subdatasets.
 
 To conduct the Shapiro-Wilk test in R the function shapiro.test() from the package \textit{stats} was used.
 
-In some datasets certain variables may contain only zeros. In these cases the Shapiro-Wilk-Statistic is not applicable for these specific variables since the expression 
+In some cases all observations of certain variables are identical. In these cases the Shapiro-Wilk-Statistic is not applicable for these specific variables since the expression 
 \[ \sum \limits_{i=1}^n (y_i - \bar{y})^2 \]
-in the denominator sums up to 0. Tests can therefore only be run if such variables are excluded from the testing procedure.
+in the denominator, denoting the variance, sums up to 0. Tests can therefore only be run if such variables are excluded from the testing procedure.
 
 \subsubsection{Pearson's chi-squared test}\label{sec:chisq-theoretical}
-Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to an arbitrary theoretical distribution. The main idea of this test is to divide the observations $X_1, \dots, X_N$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
+Pearson's chi-squared goodness of fit test is used to test whether data from a sample are distributed according to an arbitrary theoretical distribution. The main idea of this test is to divide the observations $x_1, \dots, x_n$ into several pairwise disjoint classes $C_1, \dots, C_K$ and compare the empirical frequencies within these classes to the theoretical frequencies, which are expected if the data complies to the hypothetical distribution.
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{report-chisqSampleHist}
 \caption{Exemplary histrograms of a data sample, expected densities for a normal distribution with parameters estimated from the sample and a combined histogram of these both histograms.}
 \label{fig:chisqSampleHist}
 \end{figure}
-If the histograms of the sample data and the expected densities are plotted together (see figure \ref{fig:chisqSampleHist}), the area of density that is not overlapped by both histograms can be understood as a kind of indicator for the likelihood that the sample is drawn from a population which is distributed according to the hypothetical distribution: The more area is not overlapping, the less likely it is that the sample is drawn from a population with the assumed distribution. However, the test statistic of the chi-squared test is calculated differently, namely by the sum of the squared differences between observed frequencies $O_k$ and expected frequencies $E_k$ divided by the expected frequencies for each class $k$ of the overall $K$ classes. Thus, the test statistic is calculated by
+If the histograms of the sample data and the expected densities are plotted together (see figure \ref{fig:chisqSampleHist}), the area of density that is not overlapped by both histograms can be understood as a kind of indicator for the likelihood that the sample is drawn from a population which is distributed according to the hypothetical distribution: The larger the non-overlapping area, the less likely it is that the sample is drawn from a population with the assumed distribution. However, the test statistic of the chi-squared test is calculated differently, namely by the sum of the squared differences between observed frequencies $O_k$ and expected frequencies $E_k$ divided by the expected frequencies for each class $k$ of the overall $K$ classes. Thus, the test statistic is calculated by
 \[\chi^2 = \sum_{k=1}^{K}\frac{(O_k - E_k)^2}{E_k}\]
-Larger differences of observed and expected values indicate a lower compliance to the assumed distribution. However, the addends are not weighted (neither by the size of a class nor by the frequencies within a class nor by any other means). Therefore, the class bounds should be chosen equidistant or in such a way that the classes contain preferably the same number of observations or according to similar reasonable rationales. The test statistic is approximately $\chi^2$-distributed with $K-1$ degrees of freedom -- the larger the sample size, the better the approximation. A sample size that is too small can be a reason for the approximation being insufficient. Moreover, for each parameter of the hypothetical distribution which is estimated from the data sample, one degree of freedom is lost; the number of estimated parameters is denoted by $p$. The test statistic is determined under the null hypothesis that the sample is distributed according to the assumed distribution and the chi-squared test is defined as
+Larger differences of observed and expected values indicate a lower compliance to the assumed distribution. However, the addends are not weighted (neither by the size of a class nor by the frequencies within a class nor by any other means). Therefore, the class bounds should be chosen equidistant or in such a way that the classes contain preferably the same number of observations, or should be chosen according to similar reasonable rationales. The test statistic is approximately $\chi^2$-distributed with $K-1$ degrees of freedom -- the larger the sample size, the better the approximation. A sample size that is too small can be a reason for the approximation being insufficient. Moreover, for each parameter of the hypothetical distribution which is estimated from the data sample, one degree of freedom is lost; the number of estimated parameters is denoted by $p$. The test statistic is determined under the null hypothesis that the sample is distributed according to the assumed distribution and the chi-squared test is defined as
 %\[\phantom{\quad \textrm{with}\ F=\chi^2_{K-1-p}} \delta(Y) = \mathbbm{1}_{\{\chi^2\, >\, F^{-1}(1-\alpha)\}} \quad \mbox{with}\ F=\chi^2_{K-1-p}\]
 \[
   \phantom{\quad\mbox{with}\ F=\chi^2_{K-1-p}}
@@ -153,7 +157,7 @@ Larger differences of observed and expected values indicate a lower compliance t
 \]
 for a given significance level $\alpha$ where $Y$ is a multinomial distributed random variable denoting the counts of observations in each class with $Y_k = |\{i : X_i \in C_k\}|$.
 
-As a common requirement for a sufficient approximation, the minimum number of observations in each class should not fall below five. Hence, marginal or even inner classes have to be unified in some cases in order to achieve a sufficient class size. The following R-function is used here for this purpose.
+A common requirement for a sufficient approximation demands the minimum number of observations in each class not to fall below five. Hence, marginal or even inner classes have to be unified in some cases in order to achieve a sufficient class size. The following R-function is used here for this purpose.
 \begin{Schunk}
 \begin{Sinput}
  # Calculates bounds of bins (classes) of a data sample.
@@ -203,7 +207,7 @@ As a common requirement for a sufficient approximation, the minimum number of ob
  }
 \end{Sinput}
 \end{Schunk}
-Further functions are needed for calculating the expected frequencies, the test statistic and the result of the test (since the mean and the standard deviation are estimated from the sample, two degrees of freedom are additionally lost):
+Further functions are needed for calculating the expected frequencies, the test statistic, and the result of the test (since the mean and the standard deviation are estimated from the sample, two degrees of freedom are additionally lost):
 \begin{Schunk}
 \begin{Sinput}
  # Calculates the expected probabilities of a normal distribution
@@ -264,15 +268,12 @@ Further functions are needed for calculating the expected frequencies, the test 
 A drawback of Pearson's chi-squared test is its inconsistency caused by information reduction, \ie information about the data sample is lost in the process of categorising the observations in classes. As a consequence, different class bounds can lead to different test results. Furthermore, this test is rather suited for large sample sizes.
 
 \subsubsection{Kolmogorov-Smirnov test}\label{sec:kolm-smir}
-The Kolmogorov-Smirnov (KS later on) test as all other tests is used for testing
-whether a given univariate sample $x=(x_1,x_2 \dots x_n)$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined
-distribution $\mathbb{P}_0$. It implies a decision making between the following
-two hypotheses:
+Like the other tests introduced in the previous chapters, the Kolmogorov-Smirnov (subsequently abbreviated as KS) is used for testing whether a given univariate sample $x=(x_1,x_2 \dots x_n)$ with unknown distribution $\mathbb{P}$ is distributed according to a completely determined distribution $\mathbb{P}_0$. Based on the test a decision is made between the following two hypotheses:
 \[\begin{array}{rcl}
 H_0 & : & \mathbb{P} = \mathbb{P}_0,\\
 H_1 & : & \mathbb{P} \ne \mathbb{P}_0.
 \end{array}\]
-The decision is made according to the value of KS test
+This decision is made according to the KS test
 statistics and a given significance level $\alpha$.
 
 \begin{df}
@@ -295,8 +296,8 @@ both theoretical and empirical functions belong to normed space of bounded
 functions $\mathbb{B}(\mathbb{R})$ (all values are between 0 and 1), this difference can be measured as
 a distance $\|F_n-F\|_{\infty}=\sup_{x \in \mathbb{R}}|F_n(x)-F(x)|$. Figure
 \ref{fig:empiricTeorFunc} illustrates the calculated distance between the
-empirical \cdf and the theoretical normal \cdf with parameters of sample mean
-and sample variance. 
+empirical \cdf and the theoretical normal \cdf with respect to the given parameters \textit{sample mean}
+and \textit{sample variance}. 
 %\begin{figure}[h!]
 %\includegraphics[width=\textwidth]{report-empiricFunc}
 %\caption{Exemplary empirical \cdf of a data sample.}
@@ -325,7 +326,7 @@ and sample variance.
   \caption{}
   \label{fig:empiricTeorFunc}
 \end{subfigure}
-\caption{Empirical \cdf for Natrium vector (a) and theoretical normal \cdf with
+\caption{Empirical \cdf for Sodium (Na) vector (a) and theoretical normal \cdf with
 sample mean and sample variance (b)}
 \label{fig:commonFigureKStest}
 \end{figure}
@@ -337,7 +338,7 @@ $\hat{D}_n=(D_1,\dots,D_n)$ is obtained that also complies with some
 distribution $\mathbb{D}_n$.
 It can be shown that if hypothesis $H_0$ is true, then this distribution does not depend on the \cdf $F$
 and therefore can be tabulated. Moreover, Kolmogorov proved that if $n$ is large
-enough then the distribution function of $\mathbb{D}_n$ can be approximated by
+enough, the distribution function of $\mathbb{D}_n$ can be approximated by
 Kolmogorov-Smirnov distribution function
 $H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}$, \ie for each positive
 value $t$ the probability $P(D_n\le t)\to H(t)$ when $n \to \infty$. More
@@ -355,25 +356,25 @@ H_1&:& D_n> c
 where the critical value $c$ depends on the significance level $\alpha$ and
 can be calculated from the following equations:
 \[\alpha = P(\delta \ne H_0|H_0)=P(D_n>c|H_0)=1-P(D_n\le c|H_0)\approx 1-H(c).\]
-As was mentioned above the last equality can be considered only when $n$ is
+As mentioned above the last expression can only be considered appriximately equal when $n$ is
 relatively high. Otherwise the table values for $\mathbb{D}_n$ distribution
 should be used. Hence, $c\approx H^{-1}(1-\alpha)$.
 
-Although the KS test is commonly used is has a huge drawback. Namely it
-considers only completely defined theoretical \cdf. In case of normality testing
+Although the KS test is commonly used, it has a huge drawback. Namely it
+considers only completely defined theoretical \cdf. When testing for normality 
 both parameters $\mu$ and $\sigma$ have to be predefined. But usually they are
 a priori unknown when a sample is going to be tested. Of course it can be
 managed by assigning sample mean and sample variance as unknown parameters (and
 initial KS test suggests to do that) but they are not always the best choice.
-Further example of Natrium distribution illustrates this proposition. 
+The followong example of the Sodium (Na) distribution illustrates this proposition. 
 
-For Natrium (Na) univariate sample of 70 observatons the sample mean
+For the univariate Sodium (Na) sample of 70 observations the sample mean
 $\bar{\mu}=$13.2423 and the sample variance $\bar{\sigma}=$
-0.2493 are calculated. For these values of
+0.2493 are calculated. For these values the
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
-the value of KS statistics is calculated: $D_n=\sqrt{n}\cdot
+the value of KS statistic is calculated: $D_n=\sqrt{n}\cdot
 \sup_x|F_n(x)-F(x)|=$2.2493.
-Critical value for the significance level $\alpha=0.01$ is equal to
+The critical value for the significance level $\alpha=0.01$ is equal to
 $c=H^{-1}(1-\alpha)$=1.6276. To
 calculate this value the following $R$ functions are used:
 
@@ -403,16 +404,16 @@ calculate this value the following $R$ functions are used:
  }
 \end{Sinput}
 \end{Schunk}
-Since $D_n>c$ the null hypothesis is rejected by KS test. But that does not mean
-that the sample is not normal distributed. That means only that it is not normal
+Since $D_n>c$ the null hypothesis is rejected by the KS test. But that does not mean
+that the sample is not normal distributed. It only means that it is not normal
 distributed with sample mean and sample variance as parameters of that
 distribution. 
 
-In order to manage that issue KS test is improved by solving the following
+In order to manage this issue, the KS test is improved by solving the following
 optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
 When the new values $\hat{\mu}$ and $\hat{\sigma}$ that minimize the value
-$KS(\mu,\sigma)$ are found the general KS test is performed with respect to
+$KS(\mu,\sigma)$ are found, the general KS test is performed with respect to
 these values of parameters. For solving this optimization problem the following
 $R$ code is used:
 
@@ -457,10 +458,10 @@ with sample mean and sample variance.}
 \label{fig:improvedKS}
 \end{figure}
 
-The new value of KS statistics is $D_n=\sqrt{n}\sup_{x \in
+The new value of the KS statistics is $D_n=\sqrt{n}\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$0.6585
-that is smaller than the critical value $c=$1.6276. Therefore the null
-hypothesis $H_0$ is accepted by KS-test. For all further samples the improved KS
+which is smaller than the critical value $c=$1.6276. Therefore the null
+hypothesis $H_0$ is cannot further be rejected by KS-test. For all further samples the improved KS
 test is used. It was implemented in $R$ and has the following code.
 
 \begin{Schunk}
@@ -537,7 +538,7 @@ $rejected
 \end{Soutput}
 \end{Schunk}
 
-The problem of approximation with $H$ function remains in the improved KS test
+The approximation problem with the $H$ function remains in the improved KS test
 as well. Therefore this approximation is only applicable when 
 the sample size is relatively high. Otherwise the tabular values for
 $\mathbb{D}_n$ distribution should be used. 
@@ -713,7 +714,7 @@ Ba & 0.91 & 0.01 & NA & 0.0206467993594091 & no\\ \hline \end{tabular}\caption{T
 \end{table}
 
 \subsubsection{Q-Q-plot}\label{sec:qq-original}
-For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for the whole dataset and for each glass type separately. As depicted in Figure \ref{fig:QQfull}, the QQ-Plots of the full dataset do not suggest linear relationships. Only for the variable Aluminium (Al) a normal distribution could be assumed. The graphical comparison of the subdatasets shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed quantiles and the observed values, either.
+For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for the whole dataset and for each glass type separately. As depicted in Figure \ref{fig:QQfull}, the QQ-Plots for the five variables recursive index (RI), Sodium (Na), Aluminium (Al), Silicon (Si), and Calcium (Ca) do suggest that linear relationships could be assumed. The other four variables Magnesium (Mg), Barium (Ba), Potassium (K), and Iron (Fe) clearly are not linearly related to the hypothetical quantiles.
 
 \begin{figure}[h!]
 \centering
@@ -730,7 +731,7 @@ For the graphical analysis the quantiles for all elements in the glass-dataset w
 \label{fig:QQsamples}
 \end{figure}
 
-For some cases in the subdatasets, however, based on a graphical inspection a linear relationship can be assumed given some outliers. As shown in Figure \ref{fig:QQsampleslin1} Magnesium (Mg), Aluminium(Al), and Silicon (Si) in glass type 1 and Ca in glass type 7 show approximately linear relationships with just a few outliers. For some observations (e.g. Na in glass type 5 and RI in glass type 6 in Figure \ref{fig:QQsampleslin2}) a linear relationship seems to be plausible, however, the total number of observations in these cases is considered too small to make conclusions about a hypothetical linear relationship (glass type 5: $n$ = 13; glass type 6: $n$ = 9).
+The graphical comparison of the subdatasets shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed quantiles and the observed values. For some cases in the subdatasets, however, based on a graphical inspection a linear relationship can be assumed given some outliers. As shown in Figure \ref{fig:QQsampleslin1} Magnesium (Mg), Aluminium(Al), and Silicon (Si) in glass type 1 and Ca in glass type 7 show approximately linear relationships with just a few outliers. For some observations (e.g. Na in glass type 5 and RI in glass type 6 in Figure \ref{fig:QQsampleslin2}) a linear relationship seems to be plausible, however, the total number of observations in these cases is considered too small to make conclusions about a hypothetical linear relationship (glass type 5: $n$ = 13; glass type 6: $n$ = 9).
 
 \begin{figure}[h!]
 \centering
@@ -774,8 +775,8 @@ For some cases in the subdatasets, however, based on a graphical inspection a li
 \end{figure}
 
 \subsubsection{Shapiro-Wilk test}\label{sec:shapiro-original}
-Performing the Shapiro-Wilk test on the complete dataset at hand, according to the p-values the Null Hypothesis (the data the sample is taken from is normally distributed) is rejected for all the elements.
-Testing the different glass types separately, the p-values of majority of the variables are still very small. Consequently, the Null Hypotheses can be rejected for almost all separate cases. For a total 16 cases (over all 6 glass types) the test returned a p-value above or equal to the set alpha-level of 1\, \% (Tables \ref{tab:testrestype1SW} to \ref{tab:testrestype7SW}). However, the majority of the cases for which the Null Hypothesis holds stems from the three subdatasets containing significantly less observations (Tables \ref{tab:testrestype3SW} to \ref{tab:testrestype6SW}). For glass type 1 H0 is rejected for all the variables (see Table \ref{tab:testrestype1SW}). For glass type 2 it only holds for Aluminium (Al) and for glass type 7 only for Aluminium (Al) and Barium (Ba) (see Tables \ref{tab:testrestype2SW} and \ref{tab:testrestype7SW}).
+Performing the Shapiro-Wilk test on the complete dataset at hand, according to the p-values the null hypothesis (the data the sample is taken from is normally distributed) is rejected for all the elements.
+Testing the different glass types separately, the p-values of majority of the variables are still very small. Consequently, the null hypotheses can be rejected for almost all separate cases. For a total 16 cases (over all 6 glass types) the test returned a p-value above or equal to the set alpha-level of 1\, \% (Tables \ref{tab:testrestype1SW} to \ref{tab:testrestype7SW}). However, the majority of the cases for which the null hypothesis holds stems from the three subdatasets containing significantly less observations (Tables \ref{tab:testrestype3SW} to \ref{tab:testrestype6SW}). For glass type 1 $H_0$ is rejected for all the variables (see Table \ref{tab:testrestype1SW}). For glass type 2 it only holds for Aluminium (Al) and for glass type 7 only for Aluminium (Al) and Barium (Ba) (see Tables \ref{tab:testrestype2SW} and \ref{tab:testrestype7SW}).
 More than 80\, \% of the total rejections in the 6 tests (13 out of 16) stem from the three smaller subdatasets glass type 3, glass type 5, and glass type 6. These results raise the question if the low number of rejections is due to the smaller sample size in these cases. Looking only at the glass types 1, 2, and 7, a normal distribution can be rejected for most of the cases.
 
 
@@ -883,7 +884,7 @@ Fe & 70.96 & 0.01 & 13.28 & 1.4210854715202e-14 & yes\\ \hline \end{tabular}\cap
 \label{tab:chi-full}
 \end{table}
 
-The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Natrium (Na). The p-value for Natrium is comparably high amounting to approximately 0.52. It is well recognisable that the observed class frequencies for Natrium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
+The results for type 1 glass (table \ref{tab:chi-type1}) are slightly different; in this case, the results can be determined for each variable (except for Barium (Ba), which has been dropped beforehand) and the hypothesis of normality is rejected for each variable but Sodium (Na). The p-value for Sodium is comparably high amounting to approximately 0.52. It is well recognisable that the observed class frequencies for Sodium fluctuate around the expected class frequencies under the hypothesis of a normal distribution with the according parameters (table \ref{tab:testresChisqFreqNaType1}). The good compliance of empirical and hypothetical data for this variable is illustrated in figure \ref{fig:chisqType1Na}. In general, the p-values for this part of the sample are higher than those for the whole sample.
 
 \begin{table}[h!]
 \centering
@@ -906,14 +907,14 @@ Fe & 18.65 & 0.01 & 9.21 & 8.91413549507503e-05 & yes\\ \hline \end{tabular}\cap
 ]13.2, 13.4] & 11 & 11.04\\ 
 ]13.4, 13.6] & 8 & 9.74\\ 
 ]13.6, 14] & 9 & 12.06\\ 
-]14, 14.8] & 6 & 4.52\\ \hline \end{tabular}\caption{Observed end expected frequencies of items in the classes for the variable Natrium of type 1 glass}
+]14, 14.8] & 6 & 4.52\\ \hline \end{tabular}\caption{Observed end expected frequencies of items in the classes for the variable Sodium of type 1 glass}
 \label{tab:testresChisqFreqNaType1}
 \end{table}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\textwidth]{report-chisqType1Na}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
 \label{fig:chisqType1Na}
 \end{figure}
 
@@ -946,16 +947,16 @@ Ba & 0.2 & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of th
 \label{tab:chi-type7}
 \end{table}
 
-As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Natrium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Natrium of type 1 glass ($\sim$ 0.52) with ten initial classes decreases to approximately 0.02 with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ 0.06) increases to approximately 0.19. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
+As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test is inconsistent when the number or bounds of classes are changed. This inconsistency can also be observed with the present data set. The test have also been conducted with 30 initial classes each (see tables \ref{tab:chi-full-30} to \ref{tab:chi-type7-30} in the appendix) with partly different results. Whereas with ten initial classes, there are not enough classes left for most of the variables of type 7 glass to be tested, the data is divided in a sufficient number of classes when using 30 initial classes. Above all, the null hypothesis is not rejected for Aluminium (Al) of type 2 glass with ten initial classes but it is rejected with 30 initial classes while the opposite is true for Sodium (Na). In general, the p-values can alternate much with different classes; so the rather high p-value for Sodium of type 1 glass ($\sim$ 0.52) with ten initial classes decreases to approximately 0.02 with 30 initial classes. On the contrary, the p-value for Aluminium of type 7 glass ($\sim$ 0.06) increases to approximately 0.19. These different impacts on the test results are due to two opposing effects: First, with more classes there are more degrees of freedom for the chi-squared distribution and thus the critical value increases. Second, the test statistic tends to increase as well because the observations have to fit to smaller classes more precisely; or in other words, observations may be distorted (relatively to the hypothetical expectations) within a large class so that differences between empirical and hypothetical data do not raise the test statistic as much as the same observations would if they were divided into smaller classes (making the distortion "measurable").
 
 \subsubsection{Kolmogorov-Smirnov test}
 
 
 
-First and foremost, the Kolmogorov-Smirnov test is conducted on the whole dataset for each variable. As depicted in table \ref{tab:KS-full}, the results indicate that only for Magnesium (Mg), Potassium (K), Barium (Ba), and Iron (Fe) H0 can be rejected. For all other variables the hypothesis that the data the sample stems from is normally distributed cannot be rejected.
+First and foremost, the Kolmogorov-Smirnov test is conducted on the whole dataset for each variable. As depicted in table \ref{tab:KS-full}, the results indicate that only for Magnesium (Mg), Potassium (K), Barium (Ba), and Iron (Fe) $H_0$ can be rejected. For all other variables the hypothesis that the data the sample stems from is normally distributed cannot be rejected.
 
 Performing the test on the subclasses type 1 glass, type 2 glass, and type 7 glass for each variable, the results further support the notion that data in the different subclasses is normally distributed.
-While for type 1 glass H0 can only be rejected for Potassium (K) and Iron (Fe) (see table \ref{tab:KS-type1}) and for type 2 glass H0 can only be rejected for Iron (Fe) (see table \ref{tab:KS-type2}), the tests on type 7 glass show that for none of the contained Elements the null hypothesis can be rejected at the 1\, \% significance level.
+While for type 1 glass $H_0$ can only be rejected for Potassium (K) and Iron (Fe) (see table \ref{tab:KS-type1}) and for type 2 glass $H_0$ can only be rejected for Iron (Fe) (see table \ref{tab:KS-type2}), the tests on type 7 glass show that for none of the contained elements the null hypothesis can be rejected at the 1\, \% significance level.
 
 
 \begin{table}[h!]
@@ -1193,7 +1194,7 @@ Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the
 
 
 
-Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Natrium.
+Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Sodium.
 
 \begin{table}[h!]
 \centering
@@ -1408,28 +1409,28 @@ Ba & 19.75 & 0.01 & 9.21 & 5.14515780526414e-05 & yes\\ \hline \end{tabular}\cap
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{report-chisqType2Na}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
 \label{fig:1}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{report-chisqType2Na-30}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
 \label{fig:2}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{report-chisqType2Al}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
 \label{fig:1}
 \end{figure}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.6\textwidth]{report-chisqType2Al-30}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
 \label{fig:2}
 \end{figure}
 
