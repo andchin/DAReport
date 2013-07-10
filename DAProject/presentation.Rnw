@@ -677,12 +677,13 @@ Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}
 }
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Preliminaries}
 Let $x=(x_1,x_2, \dots, x_n)$ be a sample of unknown
 distribution $\mathbb{P}$.
 \begin{columns}[t]
 \column{0.5\columnwidth}
+\vspace{-0.5cm}
 \begin{definition}
 $F_n(x)=\frac{1}{n}\sum_{i=1}^n \mathbbm{1}_{\{x_i\le x\}}(x)$ \\
 - \alert{empirical} \cdf, where \\
@@ -710,14 +711,13 @@ $d=\sup_{x\in \mathbb{R}}|F_n(x)-F(x)|$ \\- distance between them.}
 	\end{figure}}
 \vspace{-1.5cm}
 \begin{center}
-Glass Type 1, Natrium (Na)
+Glass Type 1, Sodium (Na)
 \end{center}
 \end{columns}
 }
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
 Let $x=(x_1,x_2, \dots, x_n)$ be a sample of unknown
 distribution $\mathbb{P}$.\\
 Theoretical \cdf $F$ defines a distribution $\mathbb{P}_0$.\\
@@ -743,8 +743,7 @@ H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}\]
 }
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
 The KS test uses the decision rule
 \[ \delta = 
 \left\{
@@ -763,8 +762,7 @@ depends on a significance level $\alpha$:}
 }
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
 The KS test uses the decision rule for a given significance level $\alpha$
 \[ \delta = 
 \left\{
@@ -806,7 +804,7 @@ $\implies \mathbb{P}\ne \mathbb{P}_0$
 	\end{figure}
 \vspace{-1.5cm}
 \begin{center}
-Glass Type 1, Natrium (Na)
+Glass Type 1, Sodium (Na)
 \end{center}}
 \end{columns}
 
@@ -814,8 +812,8 @@ Glass Type 1, Natrium (Na)
 }
 
 \begin{frame}[fragile]
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Improved Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Improvement}
 KS test is improved by solving the following
 optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
@@ -836,8 +834,8 @@ result$value
 
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Improved Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Improvement}
 KS test is improved by solving the following
 optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
@@ -857,7 +855,7 @@ $D_n=\sqrt{n}
 \item<4->
 $c=\Sexpr{format(Inverse(H,1-0.01),digits=4,nsmall=4)}$
 \item<5->
-$D_n<c \implies  H_0$ \alert{accepted}
+$D_n<c \implies  H_0$ \alert{not rejected}
 
 \item<6-> 
 $\implies \mathbb{P}= \mathbb{P}_0$
@@ -879,7 +877,7 @@ $\implies \mathbb{P}= \mathbb{P}_0$
 \onslide<2->{
 \vspace{-1.5cm}
 \begin{center}
-Glass Type 1, Natrium (Na)
+Glass Type 1, Sodium (Na)
 \end{center}}
 \end{columns}
 
@@ -888,8 +886,8 @@ Glass Type 1, Natrium (Na)
 
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Improved Kolmogorov-Smirnov Test Results}
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Results of the improved test on the whole data set}
 Results of Improved KS test on the whole data set:
 \scriptsize
 \begin{table}[h!]
@@ -906,8 +904,8 @@ Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}
 \end{table}
 \normalsize
 \begin{itemize}
-\item<2-> 5 variables are normaly distributed (RI,Na,Al,Si,Ca)
-\item<3-> 4 variables are not (Mg,K,Ba,Fe)
+\item<2-> for 5 variables $H_0$ is not rejected (RI,Na,Al,Si,Ca)
+\item<3-> for 4 variables $H_0$ is rejected (Mg,K,Ba,Fe)
 \item<4-> The best statistics test value for Al
 \item<5-> The worst statistic test value for Fe
 \end{itemize}
@@ -915,7 +913,7 @@ Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}
 }
 
 \frame{
-\frametitle{Quantitative Methods for Normality Testing}
+\frametitle{Kolmogorov-Smirnov Test}
 \begin{columns}[t]
 \column{0.3\columnwidth}
 

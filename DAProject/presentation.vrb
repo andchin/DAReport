@@ -1,5 +1,5 @@
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Improved Kolmogorov-Smirnov Test}
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Improvement}
 KS test is improved by solving the following
 optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
