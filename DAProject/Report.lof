@@ -1,14 +1,22 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces Exemplary histrograms of a data sample, expected densities for a normal distribution with parameters estimated from the sample and a combined histogram of these both histograms.\relax }}{3}
-\contentsline {figure}{\numberline {2}{\ignorespaces Empirical c.\,d.\,f. for Natrium vector (a) and theoretical normal c.\,d.\,f. with sample mean and sample variance (b)\relax }}{7}
-\contentsline {figure}{\numberline {3}{\ignorespaces Normal c.\,d.\,f. with optimized parameters in comparison to the old c.\,d.\,f. with sample mean and sample variance.\relax }}{10}
-\contentsline {figure}{\numberline {4}{\ignorespaces Histograms and QQ-plots of a Weibull(1, 1) simulated sample of size 500 and of the Box-Cox-transformed data\relax }}{13}
-\contentsline {figure}{\numberline {5}{\ignorespaces Histograms and QQ-plots of a mixed sample composed of a Weibull(5, 1) simulated sample and a Weibull(5, 4) simulated sample (each of size 250) and of the Box-Cox-transformed data\relax }}{14}
-\contentsline {figure}{\numberline {6}{\ignorespaces cap\relax }}{15}
-\contentsline {figure}{\numberline {7}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{18}
-\contentsline {figure}{\numberline {8}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass\relax }}{22}
-\contentsline {figure}{\numberline {9}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass\relax }}{23}
-\contentsline {figure}{\numberline {10}{\ignorespaces Logo of ERCIS as an example for figures\relax }}{24}
-\contentsline {figure}{\numberline {11}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{ii}
-\contentsline {figure}{\numberline {12}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iii}
-\contentsline {figure}{\numberline {13}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iii}
-\contentsline {figure}{\numberline {14}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iv}
+\contentsline {figure}{\numberline {1}{\ignorespaces Exemplary histrograms of a data sample, expected densities for a normal distribution with parameters estimated from the sample and a combined histogram of these both histograms.\relax }}{4}
+\contentsline {figure}{\numberline {2}{\ignorespaces Empirical c.\,d.\,f. for Natrium vector (a) and theoretical normal c.\,d.\,f. with sample mean and sample variance (b)\relax }}{8}
+\contentsline {figure}{\numberline {3}{\ignorespaces Normal c.\,d.\,f. with optimized parameters in comparison to the old c.\,d.\,f. with sample mean and sample variance.\relax }}{11}
+\contentsline {figure}{\numberline {4}{\ignorespaces Histograms and QQ-plots of a Weibull(1, 1) simulated sample of size 500 and of the Box-Cox-transformed data\relax }}{14}
+\contentsline {figure}{\numberline {5}{\ignorespaces Histograms and QQ-plots of a mixed sample composed of a Weibull(5, 1) simulated sample and a Weibull(5, 4) simulated sample (each of size 250) and of the Box-Cox-transformed data\relax }}{15}
+\contentsline {figure}{\numberline {6}{\ignorespaces Data plot with contour lines of a simulated sample from a bivariate normal distribution\relax }}{16}
+\contentsline {figure}{\numberline {7}{\ignorespaces Exemplary QQ-Plots from Glass Type 1 where a graphical inspection does not suggest a linear relationship\relax }}{19}
+\contentsline {figure}{\numberline {8}{\ignorespaces QQ-Plots of the cases where a linear relationship seems plausible\relax }}{20}
+\contentsline {figure}{\numberline {9}{\ignorespaces QQ-Plots of possible linear relationships with very small sample sizes\relax }}{20}
+\contentsline {figure}{\numberline {10}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{25}
+\contentsline {figure}{\numberline {11}{\ignorespaces QQ-Plots of the cases where the transformation shows slight approximations to normality\relax }}{28}
+\contentsline {figure}{\numberline {12}{\ignorespaces QQ-Plots of the non-unimodal cases where the transformation does not lead to normal distributions\relax }}{29}
+\contentsline {figure}{\numberline {13}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass\relax }}{33}
+\contentsline {figure}{\numberline {14}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass\relax }}{34}
+\contentsline {figure}{\numberline {15}{\ignorespaces Data plot with contour lines of the variables Na and Al of the whole sample\relax }}{35}
+\contentsline {figure}{\numberline {16}{\ignorespaces Data plot of the variables Na and Al of the whole sample. Data points of type 7 glass are highlighted in red.\relax }}{36}
+\contentsline {figure}{\numberline {17}{\ignorespaces Data plot with contour lines of the variables Na and Al of the whole sample except data of type 7 glass\relax }}{37}
+\contentsline {figure}{\numberline {18}{\ignorespaces Logo of ERCIS as an example for figures\relax }}{i}
+\contentsline {figure}{\numberline {19}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iii}
+\contentsline {figure}{\numberline {20}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iv}
+\contentsline {figure}{\numberline {21}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{iv}
+\contentsline {figure}{\numberline {22}{\ignorespaces Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Natrium of type 1 glass\relax }}{v}
