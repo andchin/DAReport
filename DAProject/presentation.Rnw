@@ -945,8 +945,52 @@ Fe & yes\\
 \vspace{15cm}
 }
 
+\frame{
+\frametitle{Kolmogorov-Smirnov Test}
+\framesubtitle{Results on the data subsets}
+\scriptsize
+\begin{table}[h!]
+\centering
+\vspace{-0.2cm}
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 1.31 & 0.01 & 1.63 & 0.0630043926883292 & no\\ 
+Na & 0.66 & 0.01 & 1.63 & 0.77871853343362 & no\\ 
+Mg & 0.49 & 0.01 & 1.63 & 0.967729719418776 & no\\ 
+Al & 0.92 & 0.01 & 1.63 & 0.366854549713195 & no\\ 
+Si & 1.06 & 0.01 & 1.63 & 0.208027646546284 & no\\ 
+K & 1.73 & 0.01 & 1.63 & 0.00491847745617136 & yes\\ 
+Ca & 0.84 & 0.01 & 1.63 & 0.48064266616439 & no\\ 
+Fe & 2.65 & 0.01 & 1.63 & 1.63244296669252e-06 & yes\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the improved KS test on type 1 glass}
+\end{table}
+\vspace{-0.5cm}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.67 & 0.01 & 1.63 & 0.767837508224946 & no\\ 
+Na & 0.52 & 0.01 & 1.63 & 0.951658259816235 & no\\ 
+Al & 0.49 & 0.01 & 1.63 & 0.968495966845634 & no\\ 
+Si & 0.56 & 0.01 & 1.63 & 0.915628110530136 & no\\ 
+K & 1.43 & 0.01 & 1.63 & 0.0340401962712393 & no\\ 
+Ca & 0.56 & 0.01 & 1.63 & 0.91558957374917 & no\\ 
+Ba & 0.76 & 0.01 & 1.63 & 0.61288183743927 & no\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the improved KS test on type 7 glass}
+\end{table}
+}
 
-
+\frame{
+\frametitle{Chi-Square Plot for Multivariate Normality}
+\begin{columns}[t]
+\column{0.5\columnwidth}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{auxiliary-drawChiSquarePlotFull}
+    \caption{The whole data set}
+\end{figure}
+\column{0.5\columnwidth}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{auxiliary-drawChiSquarePlotType7}
+    \caption{Type 7 Glass}
+\end{figure}
+\end{columns}
+}
 
 \subsection{Bivariate case}
 
