@@ -91,4 +91,37 @@
 \end{Schunk}
 
 
+\begin{Schunk}
+\begin{Sinput}
+ x = Glass[,-10]
+ cm = colMeans(x)
+ S = cov(x)
+ d = apply(x,1,function(x) t(x-cm) %*% solve(S) %*% (x-cm))
+ plot(qc <- qchisq((1:nrow(x)-1/2)/nrow(x), df=9),
+      sd <- sort(d), xlab=expression(paste(chi[9]^2,'Quantile')),
+      ylab='Ordered Distances', xlim=range(qc)*c(1,1.1),
+      pch=19,cex.lab=1,cex.axis=1,cex=1)
+ out <- which(rank(abs(qc-sd), ties='random') > nrow(x)-3)
+ text(qc[out], sd[out]-1.5, names(out),cex=1,col='blue')
+ abline(a=0,b=1,col='red',lwd=1)
+\end{Sinput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+ x = Glass.type7
+ cm = colMeans(x)
+ S = cov(x)
+ d = apply(x,1,function(x) t(x-cm) %*% solve(S) %*% (x-cm))
+ plot(qc <- qchisq((1:nrow(x)-1/2)/nrow(x), df=9),
+      sd <- sort(d), xlab=expression(paste(chi[9]^2,'Quantile')),
+      ylab='Ordered Distances', xlim=range(qc)*c(1,1.1),
+      pch=19,cex.lab=1,cex.axis=1,cex=1)
+ out <- which(rank(abs(qc-sd), ties='random') > nrow(x)-3)
+ text(qc[out], sd[out]-1.5, names(out),cex=1,col='blue')
+ abline(a=0,b=1,col='red',lwd=1)
+\end{Sinput}
+\end{Schunk}
+
+
 \end{document}

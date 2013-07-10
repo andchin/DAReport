@@ -303,14 +303,13 @@ The (univariate) normal distribution $N(\mu,\sigma^2)$ is defined to have the de
 
 \[ Pr(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp (-\frac{1}{2\sigma^2}(x - \mu)^2) \]
 
-where $\mu \in \mathbb{R}$ and $\sigma > 0$
+where $\mu \in \mathbb{R}$ and $\sigma > 0$.
 
 The univariate normal distribution is generalised by the multivariate normal distribution for higher
-dimensions. $X$ has a multivariate normal distribution with mean vector $\mu$ and covariance $\Sigma$ > 0, i.e. $X ~ N_p(\mu,\Sigma)$, if
+dimensions. $X$ has a multivariate normal distribution with mean vector $\mu$ and covariance $\Sigma$ > 0, i.e. $X \sim N_p(\mu,\Sigma)$, if
 
 \[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
 
-.
 Contour lines of the plot of a multivariate normal distribution are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\, \Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
 
 A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines. An exemplary contour plot is depicted in figure \ref{fig:plotMVNSim}. The data is simulated from the mulitvariate normal distribution with the parameters
@@ -1557,7 +1556,7 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 testres = chisq.test.norm(Glass.type1$Na, 10, 5, 0.05)
 hist=testres$hist
 hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in [unit]")
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in weight percent")
 plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 @
 \includegraphics[width=0.8\textwidth]{report-chisqType1Na}
@@ -1762,7 +1761,7 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 The same tests are now conducted on the data that have been Box-Cox-transformed with a parameter that is estimated by the maximum likelihood method. For some variables, an estimation is not possible because the algorithm does not converge or, as in most cases, not all of the observations of one variable are strictly positive.
 \subsubsection{Q-Q-plot}\label{sec:qq-transformed}
 
-Before testing statistically, the results of the transformation can be examined graphically by again plotting the quantiles of the transformed data and comparing these plots with the QQ-plots from the original data in section \ref{sec:qq-original}. For some of the elements in the dataset the transformation leads to a slight approximation towards normality (figure \ref{fig:QQtrans}). However, for rather complicated cases (e. g. where several distributions seem to be combined) the transformation appearently does not produce normally distributed data (figure \ref{fig:QQtransno}). In these cases the initial distribution is not unimodal and therefore the Box-Cox-transformation is not very helpful (see section \ref{sec:Box-Cox-transformation} for a detailed explanation).
+Before testing statistically, the results of the transformation can be examined graphically by again plotting the quantiles of the transformed data and comparing these plots with the QQ-plots from the original data in section \ref{sec:qq-original}. For some of the elements in the dataset the transformation leads to a slight approximation towards normality (figure \ref{fig:QQtrans}). However, for rather complicated cases (e. g. where several distributions seem to be combined) the transformation appearently does not produce normally distributed data (figure \ref{fig:QQtransno}). In these cases the initial distribution is not unimodal and therefore the Box-Cox-transformation is not very helpful (see section \ref{sec:boxcox-theory} for a detailed explanation).
 
 \begin{figure}[h!]
 \centering
@@ -1831,11 +1830,11 @@ For the glass types 2 and 3 there are no changes in the number of rejections at 
 
 The test on the transformed glass type 5 data shows that, in addition to refractive index (RI), Sodium (Na), Silicon (Si), and Calcium (Ca), now for Aluminium (Al) and Potassium (K) a normal distribution cannot be rejected any more (see table \ref{tab:testrestype6SWtrans}).
 
-Furthermore for glass type 6 the p-values increase significantly as well, except for Silicon (Si) which only slightly increases (see table \ref{tab:testrestype6SWtrans}). Consequently, H0 is, analogously to the original data, not rejected for Aluminium (Al), Silicon (Si), and Calcium (Ca), plus the refractive index (RI) for which H0 cannot be rejected after the transformation.
+Furthermore for glass type 6 the p-values increase significantly as well, except for Silicon (Si) which only slightly increases (see table \ref{tab:testrestype6SWtrans}). Consequently, $H_0$ is, analogously to the original data, not rejected for Aluminium (Al), Silicon (Si), and Calcium (Ca), plus the refractive index (RI) for which $H_0$ cannot be rejected after the transformation.
 
 The test results of the transformed glass type 7 data show that for Aluminium (Al) the Null hypothesis still cannot be rejected. Due to contained zero-values Barium (Ba) is excluded from the transformation (see section \ref{sec:testing-transformed-data}) and therefore nothing is concluded about this specific variable. Furthermore, the result shows that the p-values of Sodium (Na) and Calcium (Ca) considerably increase and exceed the 1\, \% significance level after the transformation.
 
-In a nutshell, the Shapiro-Wilk test shows shows significant improvements towards a normal distribution of the variables when the Box-Cox-transformation is used and the different glass types are analysed separately. Analysing the full dataset also shows some minor improvements of the p-values, however, H0 is still rejected at the chosen significance level. An explanation for this result could be that in the full dataset different distributions of the different distinctive glass types are combined and therefore the Box-Cox-transformation does not improve the distribution (see section \ref{sec:boxcox-theory}).
+In a nutshell, the Shapiro-Wilk test shows shows significant improvements towards a normal distribution of the variables when the Box-Cox-transformation is used and the different glass types are analysed separately. Analysing the full dataset also shows some minor improvements of the p-values, however, $H_0$ is still rejected at the chosen significance level. An explanation for this result could be that in the full dataset different distributions of the different distinctive glass types are combined and therefore the Box-Cox-transformation does not improve the distribution (see section \ref{sec:boxcox-theory}).
 
 
 <<calcSWresultstrans, echo=FALSE, term=TRUE>>=
@@ -1910,7 +1909,7 @@ testresult.type7.trans = apply(transformDataFrame(Glass.type7[, c(-3,-9)]), 2, c
 @
 Although for all variables for which a transformation is possible the p-value is higher than for the non-transformed data, the hypothesis of normality is still rejected for the whole sample (table \ref{tab:chi-full-trans}). The data of all types of glass is presumably too heterogenuous so that it comprises samples from several distributions within the overall sample of particular variables.
 
-Concerning the transformation of type 1 glass, two more variables (Al and Ca) are now tested positively on the hypothesis of normality (table \ref{tab:chi-type1-trans}). In both cases, the p-value is be increased substantially by the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
+Concerning the transformation of type 1 glass, for two more variables (Al and Ca) the hypothesis of normality now cannot be rejected (table \ref{tab:chi-type1-trans}). In both cases, the p-value increases substantially through the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
 
 \begin{figure}[h!]
 \centering
@@ -1918,7 +1917,7 @@ Concerning the transformation of type 1 glass, two more variables (Al and Ca) ar
 testres = chisq.test.norm(Glass.type1$Ca, 10, 5, 0.05)
 hist=testres$hist
 hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Calcium in [unit]")
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Calcium in weight percent")
 plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 @
 \includegraphics[width=0.8\textwidth]{report-chisqType1Ca}
@@ -1932,7 +1931,7 @@ plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 testres = chisq.test.norm(transformVector(Glass.type1$Ca), 10, 5, 0.05)
 hist=testres$hist
 hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="transformed amount of Calcium in [unit]")
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="transformed amount of Calcium in weight percent")
 plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
 @
 \includegraphics[width=0.8\textwidth]{report-chisqType1CaTrans}
@@ -1952,9 +1951,7 @@ For the observations of type 7 glass, the test can now even be conducted on data
 %<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
 %testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
 %@
-The first tests are conducted on the whole transformed data set for each
-variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
-for univariate transformation.
+Since in the KS test of the original dataset the null hypotheses was only rejected for the variables Magnesium (Mg), Potassium (K), Barium (Ba), and Iron (Fe), transforming the data would aim at achieving a normal distribution for these four variables. However, exactly these four the transformation is not possible (see section \ref{sec:testing-transformed-data}). Therefore KS testing the transformed data will not provide further insights.
 
 %The results are shown in table \ref{tab:KS-full}.
 
@@ -2000,7 +1997,7 @@ ci2d(Glass$Na, Glass$Al, show="contour", col="black", show.points=TRUE, factor=3
 \end{figure}
 
 
-From the shape of the plot, no clear insight can be deducted about multivariate normality. In the center, the contour lines have an elliptical shape whereas an accumulation of data points can be observed at the upper right corner. This accumulation is presumably due to different distributions of variables among particular glass types. Indeed, it can be acribed to the data of type 7 glass, which can be seen in figure \ref{fig:cluster7}.
+From the shape of the plot, no clear insight can be deducted about multivariate normality. In the center, the contour lines have an elliptical shape whereas an accumulation of data points can be observed at the upper right corner. This accumulation is presumably due to different distributions of variables among particular glass types. Indeed, it can be ascribed to the data of type 7 glass, which can be seen in figure \ref{fig:cluster7}.
 
 \begin{figure}[h!]
 <<cluster7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
@@ -2013,7 +2010,7 @@ points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]
 \label{fig:cluster7}
 \end{figure}
 
-If the same plot is drawn for the whole sample without data of type 7 glass (figure \ref{fig:contourGlassNaAl-7}), an elliptical shape is recognisable, except for some outliers. Quantitative tests should be conducted next in order to make an exacter point about the compliance of the data with a multivariate normal distribution.
+If the same plot is drawn for the whole sample without data of type 7 glass (figure \ref{fig:contourGlassNaAl-7}), an elliptical shape is recognisable, except for some outliers. Quantitative tests should be conducted next in order to make a more accurate point about the compliance of the data with a multivariate normal distribution.
 
 \begin{figure}[h!]
 <<contourGlassNaAl-7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
