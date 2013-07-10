@@ -1,16 +1,10 @@
 \beamer@endinputifotherversion {3.19pt}
 \select@language {english}
-\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
 \beamer@subsectionintoc {1}{1}{Normality as a requirement for statistical methods}{3}{0}{1}
 \beamer@subsectionintoc {1}{2}{Data Set Overview}{4}{0}{1}
-\beamer@sectionintoc {2}{Normality Testing}{5}{0}{2}
-\beamer@subsectionintoc {2}{1}{Q-Q-Plots}{6}{0}{2}
-\beamer@subsectionintoc {2}{2}{Shapiro-Wilk Test}{10}{0}{2}
-\beamer@subsectionintoc {2}{3}{Chi-Square Plot}{13}{0}{2}
-\beamer@subsectionintoc {2}{4}{Pearson's Chi-Squared Test}{14}{0}{2}
-\beamer@subsectionintoc {2}{5}{Kolmogorov-Smirnov Test}{15}{0}{2}
-\beamer@sectionintoc {3}{Transformation to Normality}{55}{0}{3}
-\beamer@subsectionintoc {3}{1}{Box-Cox Transformation}{56}{0}{3}
-\beamer@subsectionintoc {3}{2}{Transformation Results Testing}{57}{0}{3}
-\beamer@sectionintoc {4}{Summary}{58}{0}{4}
-\beamer@subsectionintoc {4}{1}{Summary}{59}{0}{4}
+\beamer@sectionintoc {2}{Transformation to Normality}{5}{0}{2}
+\beamer@sectionintoc {3}{Normality Testing}{8}{0}{3}
+\beamer@subsectionintoc {3}{1}{Univariate case}{8}{0}{3}
+\beamer@subsectionintoc {3}{2}{Bivariate case}{64}{0}{3}
+\beamer@sectionintoc {4}{Summary}{68}{0}{4}

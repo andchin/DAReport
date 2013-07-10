@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 16:53
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 17:33
 entering extended mode
 **presentation.tex
 (D:\DA\report\DAProject\presentation.tex
@@ -1266,6 +1266,318 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 librarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
+("C:\Program Files\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2001/02/13 v0.1j Color table columns (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen202
+\extrarowheight=\dimen203
+\NC@list=\toks46
+\extratabsurround=\skip65
+\backup@length=\skip66
+)
+\everycr=\toks47
+\minrowclearance=\skip67
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\mdframed.sty"
+Package: mdframed 2012/04/08 v1.5: mdframed
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3names.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3bootstrap.sty"
+Package: l3bootstrap 2011/12/29 v3110 L3 Experimental bootstrap code
+)
+Package: l3names 2012/03/04 v3494 L3 Experimental namespace for primitives
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count173
+)
+Package: expl3 2012/04/23 v3570 L3 Experimental code bundle wrapper
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3basics.sty"
+Package: l3basics 2012/03/04 v3491 L3 Experimental basic definitions
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3expan.sty"
+Package: l3expan 2012/02/26 v3460 L3 Experimental argument expansion
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3tl.sty"
+Package: l3tl 2012/03/04 v3490 L3 Experimental token lists
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3seq.sty"
+Package: l3seq 2012/03/04 v3490 L3 Experimental sequences and stacks
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3int.sty"
+Package: l3int 2012/03/04 v3490 L3 Experimental integers
+\c_max_int=\count174
+\l_tmpa_int=\count175
+\l_tmpb_int=\count176
+\l_tmpc_int=\count177
+\g_tmpa_int=\count178
+\g_tmpb_int=\count179
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3quark.sty"
+Package: l3quark 2012/02/12 v3384 L3 Experimental quarks
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prg.sty"
+Package: l3prg 2012/03/04 v3490 L3 Experimental control structures
+\g_prg_map_int=\count180
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3clist.sty"
+Package: l3clist 2012/03/04 v3490 L3 Experimental comma separated lists
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3token.sty"
+Package: l3token 2012/03/04 v3491 L3 Experimental token manipulation
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prop.sty"
+Package: l3prop 2012/03/04 v3490 L3 Experimental property lists
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3msg.sty"
+Package: l3msg 2012/04/23 v3568 L3 Experimental messages
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3file.sty"
+Package: l3file 2012/03/09 v3520 L3 Experimental file and I/O operations
+\l_iow_stream_int=\count181
+\l_iow_line_length_int=\count182
+\l_iow_target_length_int=\count183
+\l_iow_current_line_int=\count184
+\l_iow_current_word_int=\count185
+\l_iow_current_indentation_int=\count186
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3skip.sty"
+Package: l3skip 2012/03/05 v3499 L3 Experimental dimensions and skips
+Normal \dimen register pool exhausted, switching to extended pool.
+\l_tmpa_dim=\dimen256
+\l_tmpb_dim=\dimen257
+\l_tmpc_dim=\dimen258
+\g_tmpa_dim=\dimen259
+\g_tmpb_dim=\dimen260
+\l_tmpa_skip=\skip68
+\l_tmpb_skip=\skip69
+\l_tmpc_skip=\skip70
+\g_tmpa_skip=\skip71
+\g_tmpb_skip=\skip72
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3keys.sty"
+Package: l3keys 2012/03/03 v3487 L3 Experimental key-value interfaces
+\g_keyval_level_int=\count187
+\l_keys_choice_int=\count188
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3fp.sty"
+Package: l3fp 2012/03/04 v3490 L3 Experimental floating-point operations
+\c_one_million=\count189
+\c_one_hundred_million=\count190
+\c_five_hundred_million=\count191
+\c_one_thousand_million=\count192
+\c_fp_pi_by_four_decimal_int=\count193
+\c_fp_pi_by_four_extended_int=\count194
+\c_fp_pi_decimal_int=\count195
+\c_fp_pi_extended_int=\count196
+\c_fp_two_pi_decimal_int=\count197
+\c_fp_two_pi_extended_int=\count198
+\l_fp_count_int=\count199
+\l_fp_div_offset_int=\count200
+\l_fp_exp_integer_int=\count201
+Normal \count register pool exhausted, switching to extended pool.
+\l_fp_exp_decimal_int=\count277
+\l_fp_exp_extended_int=\count278
+\l_fp_exp_exponent_int=\count279
+\l_fp_input_a_sign_int=\count280
+\l_fp_input_a_integer_int=\count281
+\l_fp_input_a_decimal_int=\count282
+\l_fp_input_a_exponent_int=\count283
+\l_fp_input_b_sign_int=\count284
+\l_fp_input_b_integer_int=\count285
+\l_fp_input_b_decimal_int=\count286
+\l_fp_input_b_exponent_int=\count287
+\l_fp_input_a_extended_int=\count288
+\l_fp_input_b_extended_int=\count289
+\l_fp_mul_a_i_int=\count290
+\l_fp_mul_a_ii_int=\count291
+\l_fp_mul_a_iii_int=\count292
+\l_fp_mul_a_iv_int=\count293
+\l_fp_mul_a_v_int=\count294
+\l_fp_mul_a_vi_int=\count295
+\l_fp_mul_b_i_int=\count296
+\l_fp_mul_b_ii_int=\count297
+\l_fp_mul_b_iii_int=\count298
+\l_fp_mul_b_iv_int=\count299
+\l_fp_mul_b_v_int=\count300
+\l_fp_mul_b_vi_int=\count301
+\l_fp_mul_output_int=\count302
+\l_fp_output_sign_int=\count303
+\l_fp_output_integer_int=\count304
+\l_fp_output_decimal_int=\count305
+\l_fp_output_exponent_int=\count306
+\l_fp_output_extended_int=\count307
+\l_fp_round_position_int=\count308
+\l_fp_round_target_int=\count309
+\l_fp_split_sign_int=\count310
+\l_fp_internal_int=\count311
+\l_fp_trig_octant_int=\count312
+\l_fp_trig_sign_int=\count313
+\l_fp_trig_decimal_int=\count314
+\l_fp_trig_extended_int=\count315
+\l_fp_internal_dim=\dimen261
+\l_fp_internal_skip=\skip73
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3box.sty"
+Package: l3box 2012/03/04 v3490 L3 Experimental boxes
+\l_tmpb_box=\box59
+\l_box_top_dim=\dimen262
+\l_box_bottom_dim=\dimen263
+\l_box_left_dim=\dimen264
+\l_box_right_dim=\dimen265
+\l_box_top_new_dim=\dimen266
+\l_box_bottom_new_dim=\dimen267
+\l_box_left_new_dim=\dimen268
+\l_box_right_new_dim=\dimen269
+\l_box_internal_box=\box60
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3coffins.sty"
+Package: l3coffins 2012/03/03 v3482 L3 Experimental coffin code layer
+\l_coffin_internal_box=\box61
+\l_coffin_internal_dim=\dimen270
+\l_coffin_offset_x_dim=\dimen271
+\l_coffin_offset_y_dim=\dimen272
+\l_coffin_x_dim=\dimen273
+\l_coffin_y_dim=\dimen274
+\l_coffin_x_prime_dim=\dimen275
+\l_coffin_y_prime_dim=\dimen276
+\l_coffin_Depth_dim=\dimen277
+\l_coffin_Height_dim=\dimen278
+\l_coffin_TotalHeight_dim=\dimen279
+\l_coffin_Width_dim=\dimen280
+\c_empty_coffin=\box62
+\l_coffin_aligned_coffin=\box63
+\l_coffin_aligned_internal_coffin=\box64
+\l_coffin_bounding_shift_dim=\dimen281
+\l_coffin_left_corner_dim=\dimen282
+\l_coffin_right_corner_dim=\dimen283
+\l_coffin_bottom_corner_dim=\dimen284
+\l_coffin_top_corner_dim=\dimen285
+\l_coffin_scaled_total_height_dim=\dimen286
+\l_coffin_scaled_width_dim=\dimen287
+\l_coffin_display_coffin=\box65
+\l_coffin_display_coord_coffin=\box66
+\l_coffin_display_pole_coffin=\box67
+\l_coffin_display_offset_dim=\dimen288
+\l_coffin_display_x_dim=\dimen289
+\l_coffin_display_y_dim=\dimen290
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3color.sty"
+Package: l3color 2011/09/07 v2776 L3 Experimental colour support
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3luatex.sty"
+Package: l3luatex 2012/02/09 v3355 L3 Experimental LuaTeX-specific functions
+\g_cctab_allocate_int=\count316
+\g_cctab_stack_int=\count317
+))
+Package: xparse 2012/04/23 v3570 L3 Experimental document command parser
+\l_xparse_current_arg_int=\count318
+\l_xparse_m_args_int=\count319
+\l_xparse_mandatory_args_int=\count320
+\l_xparse_processor_int=\count321
+\l_xparse_v_nesting_int=\count322
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+\etb@tempcnta=\count323
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-abspage.sty"
+Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-base.sty"
+Package: zref-base 2012/04/04 v2.24 Module base for zref (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 759.
+Package zref Info: New property: default on input line 760.
+Package zref Info: New property: page on input line 761.
+)
+\c@abspage=\count324
+Package zref Info: New property: abspage on input line 62.
+)
+\mdf@templength=\skip74
+\c@mdf@globalstyle@cnt=\count325
+\mdf@skipabove@length=\skip75
+\mdf@skipbelow@length=\skip76
+\mdf@leftmargin@length=\skip77
+\mdf@rightmargin@length=\skip78
+\mdf@innerleftmargin@length=\skip79
+\mdf@innerrightmargin@length=\skip80
+\mdf@innertopmargin@length=\skip81
+\mdf@innerbottommargin@length=\skip82
+\mdf@splittopskip@length=\skip83
+\mdf@splitbottomskip@length=\skip84
+\mdf@outermargin@length=\skip85
+\mdf@innermargin@length=\skip86
+\mdf@linewidth@length=\skip87
+\mdf@innerlinewidth@length=\skip88
+\mdf@middlelinewidth@length=\skip89
+\mdf@outerlinewidth@length=\skip90
+\mdf@roundcorner@length=\skip91
+\mdf@footenotedistance@length=\skip92
+\mdf@userdefinedwidth@length=\skip93
+\mdf@frametitleaboveskip@length=\skip94
+\mdf@frametitlebelowskip@length=\skip95
+\mdf@frametitlerulewidth@length=\skip96
+\mdf@frametitleleftmargin@length=\skip97
+\mdf@frametitlerightmargin@length=\skip98
+\mdf@shadowsize@length=\skip99
+\mdf@frametitlebox=\box68
+\mdf@footnotebox=\box69
+\mdf@splitbox@one=\box70
+\mdf@splitbox@two=\box71
+\mdfsplitboxwidth=\skip100
+\mdfsplitboxtotalwidth=\skip101
+\mdfsplitboxheight=\skip102
+\mdfsplitboxdepth=\skip103
+\mdfsplitboxtotalheight=\skip104
+\mdfframetitleboxwidth=\skip105
+\mdfframetitleboxtotalwidth=\skip106
+\mdfframetitleboxheight=\skip107
+\mdfframetitleboxdepth=\skip108
+\mdfframetitleboxtotalheight=\skip109
+\mdffootnoteboxwidth=\skip110
+\mdffootnoteboxtotalwidth=\skip111
+\mdffootnoteboxheight=\skip112
+\mdffootnoteboxdepth=\skip113
+\mdffootnoteboxtotalheight=\skip114
+\mdftotallinewidth=\skip115
+\mdfboundingboxwidth=\skip116
+\mdfboundingboxtotalwidth=\skip117
+\mdfboundingboxheight=\skip118
+\mdfboundingboxdepth=\skip119
+\mdfboundingboxtotalheight=\skip120
+\mdf@freevspace@length=\skip121
+\mdf@horizontalwidthofbox@length=\skip122
+\mdf@verticalmarginwhole@length=\skip123
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining document command \newmdtheoremenv with arg. spec. 'O{} m o m o ' on
+. line 501.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining document command \mdtheorem with arg. spec. ' O{} m o m o ' on line
+. 581.
+.................................................
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\md-frame-0.mdf"
+File: md-frame-0.mdf 2012/04/08 v1.5: md-frame-0
+)
+\c@mdf@zref@counter=\count326
+Package zref Info: New property: mdf@pagevalue on input line 782.
+\mdf@horizontalspaceofbox=\skip124
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\boxedminipage\boxedminipage.sty")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 libraryarrows.code.tex"
 File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
@@ -1273,7 +1585,7 @@ File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryarrows.code.t
 ex"
 File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
-\arrowsize=\dimen202
+\arrowsize=\dimen291
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 libraryshapes.code.tex"
@@ -1322,32 +1634,32 @@ File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes
 .multipart.code.tex"
 File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
-\pgfnodepartlowerbox=\box59
-\pgfnodeparttwobox=\box60
-\pgfnodepartthreebox=\box61
-\pgfnodepartfourbox=\box62
-\pgfnodeparttwentybox=\box63
-\pgfnodepartnineteenbox=\box64
-\pgfnodeparteighteenbox=\box65
-\pgfnodepartseventeenbox=\box66
-\pgfnodepartsixteenbox=\box67
-\pgfnodepartfifteenbox=\box68
-\pgfnodepartfourteenbox=\box69
-\pgfnodepartthirteenbox=\box70
-\pgfnodeparttwelvebox=\box71
-\pgfnodepartelevenbox=\box72
-\pgfnodeparttenbox=\box73
-\pgfnodepartninebox=\box74
-\pgfnodeparteightbox=\box75
-\pgfnodepartsevenbox=\box76
-\pgfnodepartsixbox=\box77
-\pgfnodepartfivebox=\box78
+\pgfnodepartlowerbox=\box72
+\pgfnodeparttwobox=\box73
+\pgfnodepartthreebox=\box74
+\pgfnodepartfourbox=\box75
+\pgfnodeparttwentybox=\box76
+\pgfnodepartnineteenbox=\box77
+\pgfnodeparteighteenbox=\box78
+\pgfnodepartseventeenbox=\box79
+\pgfnodepartsixteenbox=\box80
+\pgfnodepartfifteenbox=\box81
+\pgfnodepartfourteenbox=\box82
+\pgfnodepartthirteenbox=\box83
+\pgfnodeparttwelvebox=\box84
+\pgfnodepartelevenbox=\box85
+\pgfnodeparttenbox=\box86
+\pgfnodepartninebox=\box87
+\pgfnodeparteightbox=\box88
+\pgfnodepartsevenbox=\box89
+\pgfnodepartsixbox=\box90
+\pgfnodepartfivebox=\box91
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 librarybackgrounds.code.tex"
 File: tikzlibrarybackgrounds.code.tex 2010/02/08 v2.10 (rcs-revision 1.2)
-\pgf@layerbox@background=\box79
-\pgf@layerboxsaved@background=\box80
+\pgf@layerbox@background=\box92
+\pgf@layerboxsaved@background=\box93
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
 librarypatterns.code.tex"
@@ -1363,16 +1675,16 @@ librarydecorations.markings.code.tex"
 librarydecorations.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduledecorations.code
 .tex"
-\pgfdecoratedcompleteddistance=\dimen203
-\pgfdecoratedremainingdistance=\dimen204
-\pgfdecoratedinputsegmentcompleteddistance=\dimen205
-\pgfdecoratedinputsegmentremainingdistance=\dimen206
-\pgf@decorate@distancetomove=\dimen207
-\pgf@decorate@repeatstate=\count173
-\pgfdecorationsegmentamplitude=\dimen208
-\pgfdecorationsegmentlength=\dimen209
+\pgfdecoratedcompleteddistance=\dimen292
+\pgfdecoratedremainingdistance=\dimen293
+\pgfdecoratedinputsegmentcompleteddistance=\dimen294
+\pgfdecoratedinputsegmentremainingdistance=\dimen295
+\pgf@decorate@distancetomove=\dimen296
+\pgf@decorate@repeatstate=\count327
+\pgfdecorationsegmentamplitude=\dimen297
+\pgfdecorationsegmentlength=\dimen298
 )
-\tikz@lib@dec@box=\box81
+\tikz@lib@dec@box=\box94
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\decorations\pgflibraryd
 ecorations.markings.code.tex"))
@@ -1391,334 +1703,36 @@ Language: english 2005/03/30 v3.3o English support from the babel system
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
 LaTeX Info: Redefining \textlatin on input line 82.
-\babel@savecnt=\count174
-\U@D=\dimen210
+\babel@savecnt=\count328
+\U@D=\dimen299
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\mdframed.sty"
-Package: mdframed 2012/04/08 v1.5: mdframed
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3names.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3bootstrap.sty"
-Package: l3bootstrap 2011/12/29 v3110 L3 Experimental bootstrap code
-)
-Package: l3names 2012/03/04 v3494 L3 Experimental namespace for primitives
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\misc\etex.sty"
-Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count175
-)
-Package: expl3 2012/04/23 v3570 L3 Experimental code bundle wrapper
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3basics.sty"
-Package: l3basics 2012/03/04 v3491 L3 Experimental basic definitions
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3expan.sty"
-Package: l3expan 2012/02/26 v3460 L3 Experimental argument expansion
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3tl.sty"
-Package: l3tl 2012/03/04 v3490 L3 Experimental token lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3seq.sty"
-Package: l3seq 2012/03/04 v3490 L3 Experimental sequences and stacks
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3int.sty"
-Package: l3int 2012/03/04 v3490 L3 Experimental integers
-\c_max_int=\count176
-\l_tmpa_int=\count177
-\l_tmpb_int=\count178
-\l_tmpc_int=\count179
-\g_tmpa_int=\count180
-\g_tmpb_int=\count181
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3quark.sty"
-Package: l3quark 2012/02/12 v3384 L3 Experimental quarks
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prg.sty"
-Package: l3prg 2012/03/04 v3490 L3 Experimental control structures
-\g_prg_map_int=\count182
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3clist.sty"
-Package: l3clist 2012/03/04 v3490 L3 Experimental comma separated lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3token.sty"
-Package: l3token 2012/03/04 v3491 L3 Experimental token manipulation
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3prop.sty"
-Package: l3prop 2012/03/04 v3490 L3 Experimental property lists
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3msg.sty"
-Package: l3msg 2012/04/23 v3568 L3 Experimental messages
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3file.sty"
-Package: l3file 2012/03/09 v3520 L3 Experimental file and I/O operations
-\l_iow_stream_int=\count183
-\l_iow_line_length_int=\count184
-\l_iow_target_length_int=\count185
-\l_iow_current_line_int=\count186
-\l_iow_current_word_int=\count187
-\l_iow_current_indentation_int=\count188
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3skip.sty"
-Package: l3skip 2012/03/05 v3499 L3 Experimental dimensions and skips
-Normal \dimen register pool exhausted, switching to extended pool.
-\l_tmpa_dim=\dimen256
-\l_tmpb_dim=\dimen257
-\l_tmpc_dim=\dimen258
-\g_tmpa_dim=\dimen259
-\g_tmpb_dim=\dimen260
-\l_tmpa_skip=\skip65
-\l_tmpb_skip=\skip66
-\l_tmpc_skip=\skip67
-\g_tmpa_skip=\skip68
-\g_tmpb_skip=\skip69
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3keys.sty"
-Package: l3keys 2012/03/03 v3487 L3 Experimental key-value interfaces
-\g_keyval_level_int=\count189
-\l_keys_choice_int=\count190
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3fp.sty"
-Package: l3fp 2012/03/04 v3490 L3 Experimental floating-point operations
-\c_one_million=\count191
-\c_one_hundred_million=\count192
-\c_five_hundred_million=\count193
-\c_one_thousand_million=\count194
-\c_fp_pi_by_four_decimal_int=\count195
-\c_fp_pi_by_four_extended_int=\count196
-\c_fp_pi_decimal_int=\count197
-\c_fp_pi_extended_int=\count198
-\c_fp_two_pi_decimal_int=\count199
-\c_fp_two_pi_extended_int=\count200
-\l_fp_count_int=\count201
-Normal \count register pool exhausted, switching to extended pool.
-\l_fp_div_offset_int=\count277
-\l_fp_exp_integer_int=\count278
-\l_fp_exp_decimal_int=\count279
-\l_fp_exp_extended_int=\count280
-\l_fp_exp_exponent_int=\count281
-\l_fp_input_a_sign_int=\count282
-\l_fp_input_a_integer_int=\count283
-\l_fp_input_a_decimal_int=\count284
-\l_fp_input_a_exponent_int=\count285
-\l_fp_input_b_sign_int=\count286
-\l_fp_input_b_integer_int=\count287
-\l_fp_input_b_decimal_int=\count288
-\l_fp_input_b_exponent_int=\count289
-\l_fp_input_a_extended_int=\count290
-\l_fp_input_b_extended_int=\count291
-\l_fp_mul_a_i_int=\count292
-\l_fp_mul_a_ii_int=\count293
-\l_fp_mul_a_iii_int=\count294
-\l_fp_mul_a_iv_int=\count295
-\l_fp_mul_a_v_int=\count296
-\l_fp_mul_a_vi_int=\count297
-\l_fp_mul_b_i_int=\count298
-\l_fp_mul_b_ii_int=\count299
-\l_fp_mul_b_iii_int=\count300
-\l_fp_mul_b_iv_int=\count301
-\l_fp_mul_b_v_int=\count302
-\l_fp_mul_b_vi_int=\count303
-\l_fp_mul_output_int=\count304
-\l_fp_output_sign_int=\count305
-\l_fp_output_integer_int=\count306
-\l_fp_output_decimal_int=\count307
-\l_fp_output_exponent_int=\count308
-\l_fp_output_extended_int=\count309
-\l_fp_round_position_int=\count310
-\l_fp_round_target_int=\count311
-\l_fp_split_sign_int=\count312
-\l_fp_internal_int=\count313
-\l_fp_trig_octant_int=\count314
-\l_fp_trig_sign_int=\count315
-\l_fp_trig_decimal_int=\count316
-\l_fp_trig_extended_int=\count317
-\l_fp_internal_dim=\dimen261
-\l_fp_internal_skip=\skip70
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3box.sty"
-Package: l3box 2012/03/04 v3490 L3 Experimental boxes
-\l_tmpb_box=\box82
-\l_box_top_dim=\dimen262
-\l_box_bottom_dim=\dimen263
-\l_box_left_dim=\dimen264
-\l_box_right_dim=\dimen265
-\l_box_top_new_dim=\dimen266
-\l_box_bottom_new_dim=\dimen267
-\l_box_left_new_dim=\dimen268
-\l_box_right_new_dim=\dimen269
-\l_box_internal_box=\box83
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3coffins.sty"
-Package: l3coffins 2012/03/03 v3482 L3 Experimental coffin code layer
-\l_coffin_internal_box=\box84
-\l_coffin_internal_dim=\dimen270
-\l_coffin_offset_x_dim=\dimen271
-\l_coffin_offset_y_dim=\dimen272
-\l_coffin_x_dim=\dimen273
-\l_coffin_y_dim=\dimen274
-\l_coffin_x_prime_dim=\dimen275
-\l_coffin_y_prime_dim=\dimen276
-\l_coffin_Depth_dim=\dimen277
-\l_coffin_Height_dim=\dimen278
-\l_coffin_TotalHeight_dim=\dimen279
-\l_coffin_Width_dim=\dimen280
-\c_empty_coffin=\box85
-\l_coffin_aligned_coffin=\box86
-\l_coffin_aligned_internal_coffin=\box87
-\l_coffin_bounding_shift_dim=\dimen281
-\l_coffin_left_corner_dim=\dimen282
-\l_coffin_right_corner_dim=\dimen283
-\l_coffin_bottom_corner_dim=\dimen284
-\l_coffin_top_corner_dim=\dimen285
-\l_coffin_scaled_total_height_dim=\dimen286
-\l_coffin_scaled_width_dim=\dimen287
-\l_coffin_display_coffin=\box88
-\l_coffin_display_coord_coffin=\box89
-\l_coffin_display_pole_coffin=\box90
-\l_coffin_display_offset_dim=\dimen288
-\l_coffin_display_x_dim=\dimen289
-\l_coffin_display_y_dim=\dimen290
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3color.sty"
-Package: l3color 2011/09/07 v2776 L3 Experimental colour support
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3luatex.sty"
-Package: l3luatex 2012/02/09 v3355 L3 Experimental LuaTeX-specific functions
-\g_cctab_allocate_int=\count318
-\g_cctab_stack_int=\count319
-))
-Package: xparse 2012/04/23 v3570 L3 Experimental document command parser
-\l_xparse_current_arg_int=\count320
-\l_xparse_m_args_int=\count321
-\l_xparse_mandatory_args_int=\count322
-\l_xparse_processor_int=\count323
-\l_xparse_v_nesting_int=\count324
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
-Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
-\etb@tempcnta=\count325
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-abspage.sty"
-Package: zref-abspage 2012/04/04 v2.24 Module abspage for zref (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\zref-base.sty"
-Package: zref-base 2012/04/04 v2.24 Module base for zref (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
-Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-Package zref Info: New property list: main on input line 759.
-Package zref Info: New property: default on input line 760.
-Package zref Info: New property: page on input line 761.
-)
-\c@abspage=\count326
-Package zref Info: New property: abspage on input line 62.
-)
-\mdf@templength=\skip71
-\c@mdf@globalstyle@cnt=\count327
-\mdf@skipabove@length=\skip72
-\mdf@skipbelow@length=\skip73
-\mdf@leftmargin@length=\skip74
-\mdf@rightmargin@length=\skip75
-\mdf@innerleftmargin@length=\skip76
-\mdf@innerrightmargin@length=\skip77
-\mdf@innertopmargin@length=\skip78
-\mdf@innerbottommargin@length=\skip79
-\mdf@splittopskip@length=\skip80
-\mdf@splitbottomskip@length=\skip81
-\mdf@outermargin@length=\skip82
-\mdf@innermargin@length=\skip83
-\mdf@linewidth@length=\skip84
-\mdf@innerlinewidth@length=\skip85
-\mdf@middlelinewidth@length=\skip86
-\mdf@outerlinewidth@length=\skip87
-\mdf@roundcorner@length=\skip88
-\mdf@footenotedistance@length=\skip89
-\mdf@userdefinedwidth@length=\skip90
-\mdf@frametitleaboveskip@length=\skip91
-\mdf@frametitlebelowskip@length=\skip92
-\mdf@frametitlerulewidth@length=\skip93
-\mdf@frametitleleftmargin@length=\skip94
-\mdf@frametitlerightmargin@length=\skip95
-\mdf@shadowsize@length=\skip96
-\mdf@frametitlebox=\box91
-\mdf@footnotebox=\box92
-\mdf@splitbox@one=\box93
-\mdf@splitbox@two=\box94
-\mdfsplitboxwidth=\skip97
-\mdfsplitboxtotalwidth=\skip98
-\mdfsplitboxheight=\skip99
-\mdfsplitboxdepth=\skip100
-\mdfsplitboxtotalheight=\skip101
-\mdfframetitleboxwidth=\skip102
-\mdfframetitleboxtotalwidth=\skip103
-\mdfframetitleboxheight=\skip104
-\mdfframetitleboxdepth=\skip105
-\mdfframetitleboxtotalheight=\skip106
-\mdffootnoteboxwidth=\skip107
-\mdffootnoteboxtotalwidth=\skip108
-\mdffootnoteboxheight=\skip109
-\mdffootnoteboxdepth=\skip110
-\mdffootnoteboxtotalheight=\skip111
-\mdftotallinewidth=\skip112
-\mdfboundingboxwidth=\skip113
-\mdfboundingboxtotalwidth=\skip114
-\mdfboundingboxheight=\skip115
-\mdfboundingboxdepth=\skip116
-\mdfboundingboxtotalheight=\skip117
-\mdf@freevspace@length=\skip118
-\mdf@horizontalwidthofbox@length=\skip119
-\mdf@verticalmarginwhole@length=\skip120
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining document command \newmdtheoremenv with arg. spec. 'O{} m o m o ' on
-. line 501.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining document command \mdtheorem with arg. spec. ' O{} m o m o ' on line
-. 581.
-.................................................
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\mdframed\md-frame-0.mdf"
-File: md-frame-0.mdf 2012/04/08 v1.5: md-frame-0
-)
-\c@mdf@zref@counter=\count328
-Package zref Info: New property: mdf@pagevalue on input line 782.
-\mdf@horizontalspaceofbox=\skip121
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\boxedminipage\boxedminipage.sty")
 (D:\DA\report\DAProject\presentation.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 67.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 67.
-LaTeX Font Info:    Try loading font information for T1+aess on input line 67.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aess.fd"
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
@@ -1760,19 +1774,19 @@ File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count329
-\scratchdimen=\dimen291
+\scratchdimen=\dimen300
 \scratchbox=\box95
 \nofMPsegments=\count330
 \nofMParguments=\count331
-\everyMPshowfont=\toks46
+\everyMPshowfont=\toks48
 \MPscratchCnt=\count332
-\MPscratchDim=\dimen292
+\MPscratchDim=\dimen301
 \MPnumerator=\count333
 \makeMPintoPDFobject=\count334
-\everyMPtoPDFconversion=\toks47
+\everyMPtoPDFconversion=\toks49
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box96
-Package hyperref Info: Link coloring OFF on input line 67.
+Package hyperref Info: Link coloring OFF on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -1782,9 +1796,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count335
 )
-LaTeX Info: Redefining \ref on input line 67.
-LaTeX Info: Redefining \pageref on input line 67.
-LaTeX Info: Redefining \nameref on input line 67.
+LaTeX Info: Redefining \ref on input line 78.
+LaTeX Info: Redefining \pageref on input line 78.
+LaTeX Info: Redefining \nameref on input line 78.
 
 (D:\DA\report\DAProject\presentation.out)
 (D:\DA\report\DAProject\presentation.out)
@@ -1792,41 +1806,41 @@ LaTeX Info: Redefining \nameref on input line 67.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmr/m/n --> T1/aer/m/n on input line 67.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 67.
+(Font)                  OT1/cmr/m/n --> T1/aer/m/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 67.
+(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 67.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 67.
+(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> T1/aess/m/n on input line 67.
+(Font)                  OT1/cmss/m/n --> T1/aess/m/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> T1/aess/m/n on input line 67.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 67.
+(Font)                  OT1/cmss/bx/n --> T1/aess/m/n on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> T1/aer/m/it on input line 67.
+(Font)                  OT1/cmr/m/it --> T1/aer/m/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> T1/aer/m/it on input line 67.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 67.
+(Font)                  OT1/cmr/bx/it --> T1/aer/m/it on input line 78.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> T1/aett/m/n on input line 67.
+(Font)                  OT1/cmtt/m/n --> T1/aett/m/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> T1/aett/m/n on input line 67.
+(Font)                  OT1/cmtt/m/n --> T1/aett/m/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/aer/m/n --> T1/aer/bx/n on input line 67.
+(Font)                  T1/aer/m/n --> T1/aer/bx/n on input line 78.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/aer/m/it --> T1/aer/bx/it on input line 67.
+(Font)                  T1/aer/m/it --> T1/aer/bx/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 67.
+(Font)                  OT1/cmr/bx/n --> T1/aer/bx/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/aer/bx/n --> T1/aer/bx/n on input line 67.
+(Font)                  T1/aer/bx/n --> T1/aer/bx/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/aess/m/n --> T1/aess/bx/n on input line 67.
+(Font)                  T1/aess/m/n --> T1/aess/bx/n on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/aer/m/it --> T1/aer/bx/it on input line 67.
+(Font)                  T1/aer/m/it --> T1/aer/bx/it on input line 78.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/aett/m/n --> T1/aett/bx/n on input line 67.
+(Font)                  T1/aett/m/n --> T1/aett/bx/n on input line 78.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\beamer\base\translator\dicts\translator
 -basic-dictionary\translator-basic-dictionary-English.dict"
@@ -1852,7 +1866,7 @@ Dictionary: translator-numbers-dictionary, Language: English
 -theorem-dictionary\translator-theorem-dictionary-English.dict"
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 67.
+LaTeX Info: Redefining \includegraphics on input line 78.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: subfigure package is loaded.
@@ -1869,335 +1883,308 @@ Package scrpage2 Warning: seems you are using a very small headheight.
 (D:\DA\report\DAProject\presentation.nav) [1{C:/ProgramData/MiKTeX/2.9/pdftex/c
 onfig/pdftex.map}
 
-] [2
+] (D:\DA\report\DAProject\presentation.toc) [2
 
 ] [3
 
-] [4
+]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 109.
 
-] [5
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [4
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 177.
+LaTeX Font Info:    Try loading font information for U+msa on input line 140.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 177.
+LaTeX Font Info:    Try loading font information for U+msb on input line 140.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Overfull \hbox (4.14604pt too wide) detected at line 177
- \OT1/cmr/m/n/9 =[]\OMS/cmsy/m/n/9 )  []\T1/aer/m/it/9 x[][]q[]
- []
+) [5
 
-<report-QQfull.pdf, id=400, 433.62pt x 433.62pt>
-File: report-QQfull.pdf Graphic file (type pdf)
- <use report-QQfull.pdf>
-Package pdftex.def Info: report-QQfull.pdf used on input line 177.
-(pdftex.def)             Requested size: 235.01881pt x 235.01807pt.
+]
+<report-transformationUnimodal.pdf, id=466, 433.62pt x 433.62pt>
+File: report-transformationUnimodal.pdf Graphic file (type pdf)
 
-Overfull \vbox (858.16373pt too high) detected at line 177
+<use report-transformationUnimodal.pdf>
+Package pdftex.def Info: report-transformationUnimodal.pdf used on input line 1
+48.
+(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
+
+Overfull \vbox (2.16252pt too high) detected at line 148
  []
 
 [6
 
- <D:/DA/report/DAProject/report-QQfull.pdf>]
-<graph.pdf, id=468, 505.89pt x 722.7pt>
-File: graph.pdf Graphic file (type pdf)
- <use graph.pdf>
-Package pdftex.def Info: graph.pdf used on input line 200.
-(pdftex.def)             Requested size: 161.1587pt x 230.23213pt.
+ <D:/DA/report/DAProject/report-transformationUnimodal.pdf>]
+<report-transformationBimodal.pdf, id=536, 433.62pt x 433.62pt>
+File: report-transformationBimodal.pdf Graphic file (type pdf)
 
-Overfull \vbox (783.88846pt too high) detected at line 200
+<use report-transformationBimodal.pdf>
+Package pdftex.def Info: report-transformationBimodal.pdf used on input line 15
+6.
+(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
+
+Overfull \vbox (2.16252pt too high) detected at line 156
  []
 
 [7
 
- <D:/DA/report/DAProject/graph.pdf>]
-<Report-QQtrans.pdf, id=529, 433.62pt x 433.62pt>
-File: Report-QQtrans.pdf Graphic file (type pdf)
- <use Report-QQtrans.pdf>
-Package pdftex.def Info: Report-QQtrans.pdf used on input line 225.
-(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
+ <D:/DA/report/DAProject/report-transformationBimodal.pdf>]
+Overfull \hbox (4.14604pt too wide) detected at line 186
+ \OT1/cmr/m/n/9 =[]\OMS/cmsy/m/n/9 )  []\T1/aer/m/it/9 x[][]q[]
+ []
 
-Overfull \vbox (793.88846pt too high) detected at line 225
+<report-QQfull.pdf, id=607, 433.62pt x 433.62pt>
+File: report-QQfull.pdf Graphic file (type pdf)
+ <use report-QQfull.pdf>
+Package pdftex.def Info: report-QQfull.pdf used on input line 186.
+(pdftex.def)             Requested size: 235.01881pt x 235.01807pt.
+
+Overfull \vbox (858.16373pt too high) detected at line 186
  []
 
 [8
 
- <D:/DA/report/DAProject/Report-QQtrans.pdf>]
-<Report-QQtransno.pdf, id=589, 433.62pt x 433.62pt>
-File: Report-QQtransno.pdf Graphic file (type pdf)
- <use Report-QQtransno.pdf>
-Package pdftex.def Info: Report-QQtransno.pdf used on input line 250.
-(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
+ <D:/DA/report/DAProject/report-QQfull.pdf>]
+<graph.pdf, id=687, 505.89pt x 722.7pt>
+File: graph.pdf Graphic file (type pdf)
+ <use graph.pdf>
+Package pdftex.def Info: graph.pdf used on input line 209.
+(pdftex.def)             Requested size: 161.1587pt x 230.23213pt.
 
-Overfull \vbox (804.88846pt too high) detected at line 250
+Overfull \vbox (783.88846pt too high) detected at line 209
  []
 
 [9
 
- <D:/DA/report/DAProject/Report-QQtransno.pdf>] [10
+ <D:/DA/report/DAProject/graph.pdf>]
+<Report-QQtrans.pdf, id=757, 433.62pt x 433.62pt>
+File: Report-QQtrans.pdf Graphic file (type pdf)
+ <use Report-QQtrans.pdf>
+Package pdftex.def Info: Report-QQtrans.pdf used on input line 234.
+(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
 
-]
-Overfull \hbox (4.93263pt too wide) in paragraph at lines 325--325
- [] 
+Overfull \vbox (793.88846pt too high) detected at line 234
  []
 
+[10
 
-Overfull \hbox (6.34865pt too wide) in paragraph at lines 325--325
- [] 
- []
+ <D:/DA/report/DAProject/Report-QQtrans.pdf>]
+<Report-QQtransno.pdf, id=827, 433.62pt x 433.62pt>
+File: Report-QQtransno.pdf Graphic file (type pdf)
+ <use Report-QQtransno.pdf>
+Package pdftex.def Info: Report-QQtransno.pdf used on input line 259.
+(pdftex.def)             Requested size: 201.44762pt x 201.44595pt.
 
-
-Overfull \vbox (434.28606pt too high) detected at line 325
+Overfull \vbox (804.88846pt too high) detected at line 259
  []
 
 [11
 
+ <D:/DA/report/DAProject/Report-QQtransno.pdf>] [12
+
 ]
-Overfull \hbox (6.34865pt too wide) in paragraph at lines 376--376
+Overfull \hbox (5.73262pt too wide) in paragraph at lines 333--333
  [] 
  []
 
 
-Overfull \hbox (4.93263pt too wide) in paragraph at lines 376--376
+Overfull \hbox (7.14864pt too wide) in paragraph at lines 333--333
  [] 
  []
 
 
-Overfull \vbox (425.2388pt too high) detected at line 376
+Overfull \vbox (434.28606pt too high) detected at line 333
  []
 
-[12
-
-] [13
-
-] [14
+[13
 
 ]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 428.
+Overfull \hbox (7.14864pt too wide) in paragraph at lines 384--384
+ [] 
+ []
+
+
+Overfull \hbox (5.73262pt too wide) in paragraph at lines 384--384
+ [] 
+ []
+
+
+Overfull \vbox (425.2388pt too high) detected at line 384
+ []
+
+[14
+
+] [15
+
+] [16
+
+]
+<presentation-chisqSampleHist.pdf, id=1204, 433.62pt x 433.62pt>
+File: presentation-chisqSampleHist.pdf Graphic file (type pdf)
+
+<use presentation-chisqSampleHist.pdf>
+Package pdftex.def Info: presentation-chisqSampleHist.pdf used on input line 41
+4.
+(pdftex.def)             Requested size: 335.74263pt x 335.7609pt.
+
+Overfull \vbox (173.47746pt too high) detected at line 414
+ []
+
+[17
+
+ <D:/DA/report/DAProject/presentation-chisqSampleHist.pdf>] [18
+
+] [19
+
+]
+[20
+
+] [21
+
+] <report-chisqType1Na.pdf, id=1526, 433.62pt x 433.62pt>
+File: report-chisqType1Na.pdf Graphic file (type pdf)
+
+<use report-chisqType1Na.pdf>
+Package pdftex.def Info: report-chisqType1Na.pdf used on input line 497.
+(pdftex.def)             Requested size: 131.61308pt x 131.6154pt.
+ [22
+
+ <D:/DA/report/DAProject/report-chisqType1Na.pdf>] [23
+
+]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 552.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<Report-empiricFunc.pdf, id=915, 433.62pt x 433.62pt>
+<Report-empiricFunc.pdf, id=1658, 433.62pt x 433.62pt>
 File: Report-empiricFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricFunc.pdf>
-Package pdftex.def Info: Report-empiricFunc.pdf used on input line 428.
+Package pdftex.def Info: Report-empiricFunc.pdf used on input line 552.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 428
+Overfull \vbox (3.88528pt too high) detected at line 552
  []
 
-[15
+[24
 
  <D:/DA/report/DAProject/Report-empiricFunc.pdf>]
-<Report-empiricTeorFunc.pdf, id=979, 433.62pt x 433.62pt>
+<Report-empiricTeorFunc.pdf, id=1730, 433.62pt x 433.62pt>
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 428.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 552.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 428
+Overfull \vbox (3.88528pt too high) detected at line 552
  []
 
-[16
+[25
 
  <D:/DA/report/DAProject/Report-empiricTeorFunc.pdf>]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 428.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 552.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 428
- []
-
-[17
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[18
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[19
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[20
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[21
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[22
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 455
- []
-
-[23
-
-]
-Overfull \vbox (356.30858pt too high) detected at line 475
- []
-
-[24
-
-]
-Overfull \vbox (356.30858pt too high) detected at line 475
- []
-
-[25
-
-]
-Overfull \vbox (356.30858pt too high) detected at line 475
+Overfull \vbox (3.88528pt too high) detected at line 552
  []
 
 [26
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 475
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [27
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 475
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [28
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 475
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [29
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 475
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [30
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [31
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (425.26721pt too high) detected at line 579
  []
 
 [32
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [33
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [34
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [35
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [36
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [37
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
-(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
-
-Overfull \vbox (431.60172pt too high) detected at line 526
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [38
 
-] (D:\DA\report\DAProject\presentation.vrb
-LaTeX Font Info:    Try loading font information for T1+aett on input line 10.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-))
-Overfull \vbox (272.453pt too high) detected at line 562
+]
+Overfull \vbox (356.30858pt too high) detected at line 599
  []
 
 [39
 
-] (D:\DA\report\DAProject\presentation.vrb)
-Overfull \vbox (272.453pt too high) detected at line 562
+]
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [40
@@ -2205,188 +2192,330 @@ Overfull \vbox (272.453pt too high) detected at line 562
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 614.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [41
 
-] <Report-improvedKS.pdf, id=2351, 433.62pt x 433.62pt>
-File: Report-improvedKS.pdf Graphic file (type pdf)
-
-<use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+]
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [42
 
- <D:/DA/report/DAProject/Report-improvedKS.pdf>]
-File: Report-improvedKS.pdf Graphic file (type pdf)
-
-<use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+]
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [43
 
 ]
-File: Report-improvedKS.pdf Graphic file (type pdf)
- <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [44
 
 ]
-File: Report-improvedKS.pdf Graphic file (type pdf)
- <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [45
 
 ]
-File: Report-improvedKS.pdf Graphic file (type pdf)
- <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [46
 
 ]
-File: Report-improvedKS.pdf Graphic file (type pdf)
- <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 650.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 614
+Overfull \vbox (431.60172pt too high) detected at line 650
  []
 
 [47
 
-]
-Overfull \vbox (390.3061pt too high) detected at line 642
+] (D:\DA\report\DAProject\presentation.vrb)
+Overfull \vbox (272.453pt too high) detected at line 686
  []
 
 [48
 
-]
-Overfull \vbox (390.3061pt too high) detected at line 642
+] (D:\DA\report\DAProject\presentation.vrb)
+Overfull \vbox (272.453pt too high) detected at line 686
  []
 
 [49
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 642
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 738
  []
 
 [50
 
-]
-Overfull \vbox (390.3061pt too high) detected at line 642
+] <Report-improvedKS.pdf, id=3362, 433.62pt x 433.62pt>
+File: Report-improvedKS.pdf Graphic file (type pdf)
+
+<use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 738
  []
 
 [51
 
-]
-Overfull \vbox (390.3061pt too high) detected at line 642
+ <D:/DA/report/DAProject/Report-improvedKS.pdf>]
+File: Report-improvedKS.pdf Graphic file (type pdf)
+
+<use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 738
  []
 
 [52
 
 ]
-Overfull \vbox (397.75107pt too high) detected at line 675
+File: Report-improvedKS.pdf Graphic file (type pdf)
+ <use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 738
  []
 
 [53
 
-] <auxiliary-drawQQPlots.pdf, id=2987, 433.62pt x 433.62pt>
-File: auxiliary-drawQQPlots.pdf Graphic file (type pdf)
+]
+File: Report-improvedKS.pdf Graphic file (type pdf)
+ <use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-<use auxiliary-drawQQPlots.pdf>
-Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 675.
-(pdftex.def)             Requested size: 235.01881pt x 235.01807pt.
-
-Overfull \vbox (431.55785pt too high) detected at line 675
+Overfull \vbox (409.57948pt too high) detected at line 738
  []
 
 [54
 
- <D:/DA/report/DAProject/auxiliary-drawQQPlots.pdf>] [55
+]
+File: Report-improvedKS.pdf Graphic file (type pdf)
+ <use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-] [56
+Overfull \vbox (409.57948pt too high) detected at line 738
+ []
 
-] [57
-
-] [58
+[55
 
 ]
+File: Report-improvedKS.pdf Graphic file (type pdf)
+ <use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 738.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 738
+ []
+
+[56
+
+]
+Overfull \vbox (390.3061pt too high) detected at line 766
+ []
+
+[57
+
+]
+Overfull \vbox (390.3061pt too high) detected at line 766
+ []
+
+[58
+
+]
+Overfull \vbox (390.3061pt too high) detected at line 766
+ []
+
 [59
+
+]
+Overfull \vbox (390.3061pt too high) detected at line 766
+ []
+
+[60
+
+]
+Overfull \vbox (390.3061pt too high) detected at line 766
+ []
+
+[61
+
+]
+Overfull \vbox (397.75107pt too high) detected at line 799
+ []
+
+[62
+
+] <auxiliary-drawQQPlots.pdf, id=4118, 433.62pt x 433.62pt>
+File: auxiliary-drawQQPlots.pdf Graphic file (type pdf)
+
+<use auxiliary-drawQQPlots.pdf>
+Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 799.
+(pdftex.def)             Requested size: 235.01881pt x 235.01807pt.
+
+Overfull \vbox (431.55785pt too high) detected at line 799
+ []
+
+[63
+
+ <D:/DA/report/DAProject/auxiliary-drawQQPlots.pdf>]
+Underfull \hbox (badness 2302) in paragraph at lines 835--835
+[]\T1/aess/m/n/10 Multivariate nor-mal dis-tri-bu-tion with
+ []
+
+<report-plotMVNSim.pdf, id=4189, 433.62pt x 433.62pt>
+File: report-plotMVNSim.pdf Graphic file (type pdf)
+
+<use report-plotMVNSim.pdf>
+Package pdftex.def Info: report-plotMVNSim.pdf used on input line 835.
+(pdftex.def)             Requested size: 107.4364pt x 107.4321pt.
+ [64
+
+ <D:/DA/report/DAProject/report-plotMVNSim.pdf>] <report-contourGlassNaAl.pdf, 
+id=4259, 433.62pt x 433.62pt>
+File: report-contourGlassNaAl.pdf Graphic file (type pdf)
+
+<use report-contourGlassNaAl.pdf>
+Package pdftex.def Info: report-contourGlassNaAl.pdf used on input line 849.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (14.01465pt too high) detected at line 849
+ []
+
+[65
+
+ <D:/DA/report/DAProject/report-contourGlassNaAl.pdf>]
+<report-cluster7.pdf, id=4329, 433.62pt x 433.62pt>
+File: report-cluster7.pdf Graphic file (type pdf)
+ <use report-cluster7.pdf>
+Package pdftex.def Info: report-cluster7.pdf used on input line 849.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (14.01465pt too high) detected at line 849
+ []
+
+[66
+
+ <D:/DA/report/DAProject/report-cluster7.pdf>]
+<report-contourGlassNaAl-7.pdf, id=4398, 433.62pt x 433.62pt>
+File: report-contourGlassNaAl-7.pdf Graphic file (type pdf)
+
+<use report-contourGlassNaAl-7.pdf>
+Package pdftex.def Info: report-contourGlassNaAl-7.pdf used on input line 849.
+(pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
+
+Overfull \vbox (14.01465pt too high) detected at line 849
+ []
+
+[67
+
+ <D:/DA/report/DAProject/report-contourGlassNaAl-7.pdf>] [68
+
+]
+File: presentation-chisqSampleHist.pdf Graphic file (type pdf)
+
+<use presentation-chisqSampleHist.pdf>
+Package pdftex.def Info: presentation-chisqSampleHist.pdf used on input line 85
+8.
+(pdftex.def)             Requested size: 335.74263pt x 335.7609pt.
+ [69
 
 ]
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 758.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 758.
- (D:\DA\report\DAProject\presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 758.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 758.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 860.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 860.
+
+(D:\DA\report\DAProject\presentation.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 860.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 860.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 112EA326CA0725CF38B97104B437E40A;935.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 758.
+(rerunfilecheck)             Checksum: 3318E0C63C90496297531ED6EAA783EA;546.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 860.
  ) 
 Here is how much of TeX's memory you used:
- 29855 strings out of 494045
- 575846 string characters out of 3148436
- 713590 words of memory out of 3000000
- 32236 multiletter control sequences out of 15000+200000
- 57084 words of font info for 114 fonts, out of 3000000 for 9000
+ 30043 strings out of 494045
+ 578890 string characters out of 3148436
+ 729983 words of memory out of 3000000
+ 32383 multiletter control sequences out of 15000+200000
+ 65265 words of font info for 126 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 49i,20n,61p,957b,877s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,20n,63p,957b,803s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Program Files\R\R-3.0.0\share\texmf\fonts\pk\ljfour\public\bbm\dpi657\bb
 m10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (59 pages, 1061356 bytes).
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on presentation.pdf (69 pages, 1394790 bytes).
 PDF statistics:
- 3413 PDF objects out of 3580 (max. 8388607)
- 133 named destinations out of 1000 (max. 500000)
- 253 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 4676 PDF objects out of 5155 (max. 8388607)
+ 153 named destinations out of 1000 (max. 500000)
+ 259 words of extra memory for PDF output out of 10000 (max. 10000000)
 

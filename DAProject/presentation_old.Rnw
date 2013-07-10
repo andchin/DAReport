@@ -1,7 +1,19 @@
-%
+<<initialActions, eval=TRUE, echo=FALSE, term=FALSE>>=
+options(prompt=" ", continue = " ", concordance=FALSE)
+require(car)
+require(mlbench)
+require(MASS)
+require(gplots)
+data(Glass)
+Glass.type1 = Glass[which(Glass$Type == 1), -10]
+Glass.type2 = Glass[which(Glass$Type == 2), -10]
+Glass.type3 = Glass[which(Glass$Type == 3), -10]
+Glass.type5 = Glass[which(Glass$Type == 5), -10]
+Glass.type6 = Glass[which(Glass$Type == 6), -10]
+Glass.type7 = Glass[which(Glass$Type == 7), -10]
+@
 %%%%%
-%%%%%
-
+% 
 \documentclass[mathserif,graphics]{beamer}
 \usepackage{Sweave}
 \usepackage[labelformat=empty]{caption}
@@ -26,9 +38,6 @@
 \usepackage{bbm}
 
 \usepackage{tikz}
-\usepackage{colortbl}
-\usepackage{mdframed}
-\usepackage{boxedminipage}
 \usetikzlibrary{arrows,shapes,backgrounds, patterns, decorations.markings} % loads some tikz extensions
 \usepackage[english]{babel}
 \useoutertheme[subsection=false]{smoothbars} % Beamer Outer Theme
@@ -41,12 +50,6 @@
 %\usepackage[usenames,dvipsnames]{xcolor}
 \definecolor{lightblue}{rgb}{0.8,0.85,1}
 
-\newcommand{\bi}{\begin{itemize}}
-\newcommand{\ei}{\end{itemize}}
-\newcommand{\be}{\begin{enumerate}}
-\newcommand{\ee}{\end{enumerate}}
-
-\newcommand{\hl}[1]{\textcolor{red}{#1}}
 
 \defbeamertemplate*{footline}{my infolines theme}
     {
@@ -81,14 +84,39 @@
 \setbeamercovered{dynamic}
 }
 
-\begin{frame}
-\frametitle{Outline}
-\tableofcontents
-\end{frame}
 
 
 \section{Introduction}
-
+\frame{
+\frametitle{Outline}
+\begin{enumerate}
+\item \alert {Introduction}
+  \begin{itemize}
+  \item Normality as a requirement for statistical methods
+  \item Data Set Overview
+  \end{itemize}
+\item Normality Testing
+  \begin{itemize}
+  \item Graphical Methods for Normality Testing
+    \begin{itemize}
+    \item Q-Q-Plots
+    \item Chi-Square Plot
+    \end{itemize}
+  \item Quantitative Methods for Normality Testing
+    \begin{itemize}
+    \item Shapiro-Wilk Test
+    \item Pearson's Chi-Squared Test
+    \item Kolmogorov-Smirnov Test
+    \end{itemize}
+  \end{itemize}
+\item Transformation to Normality
+  \begin{itemize}
+  \item Box-Cox Transformation
+  \item Transformation Results Testing 
+  \end{itemize}
+\item Summary
+\end{enumerate}
+}
 \subsection{Normality as a requirement for statistical methods}
 
 \frame{
@@ -100,65 +128,42 @@
 
 \frame{
 \frametitle{Data Set Overview}
-\bi\setlength\parskip{8pt}
-\item \texttt{Glass} data set from package \texttt{mlbench}
-\item sample of 214 observations
-\item 7 \hl{types} of glass (but only 6 present in this sample)
-\item \hl{Variables:} refractive index (RI) and 8 elements (Na, Mg, Al, Si, K, Ca, Ba, Fe)
-\ei
-}
 
-\section{Transformation to Normality}
-\subsection{}
-\frame{
-\frametitle{Box-Cox Transformation}
-\framesubtitle{Definition}
-\begin{block}{Box-Cox Transformation}
-If data are not normally distributed, they can possibly be transformed by the parameterised power transformation
-\[
-  \phantom{\quad\mbox{for}\ x > 0}
-   x^{(\lambda)} =
-   \left\{ 
-    \begin{array}{cl}
-%\vspace{12pt}
-                 \frac{x^\lambda - 1}{\lambda} & \lambda \neq 0\\
-                 \ln(x) & \lambda = 0
-    \end{array}
-   \right.
-   \quad\mbox{for}\ x > 0
-\]
-\end{block}
-
-The optimal parameter $\lambda$ for specific observations $x_1, \dots, x_n$ can be obtained by a \hl{maximum-likelihood} estimation, maximising the log likelihood
-\[
-\begin{array}{l}
-\vspace{12pt}
-   l(\lambda) = - \frac{n}{2}\ln\left[\frac{1}{n}\sum_{j=1}^{n}(x_j^{(\lambda)} - \overline{x^{(\lambda)}})^2\right] + (\lambda - 1) \sum_{j=1}^{n}\ln(x_j)\\
-   \mbox{with}\ \overline{x^{(\lambda)}} = \frac{1}{n} \sum_{j=1}^{n}x_j^{(\lambda)}
-\end{array}
-\]
-}
-
-\frame{
-\frametitle{Box-Cox Transformation}
-\framesubtitle{Transformation issues}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{report-transformationUnimodal}
-\end{center}
-}
-
-\frame{
-\frametitle{Box-Cox Transformation}
-\framesubtitle{Transformation issues}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{report-transformationBimodal}
-\end{center}
 }
 
 \section{Normality Testing}
+\frame{
+\frametitle{Outline}
+\begin{enumerate}
+\item Introduction
+  \begin{itemize}
+  \item Normality as a requirement for statistical methods
+  \item Data Set Overview
+  \end{itemize}
+\item \alert{Normality Testing}
+  \begin{itemize}
+  \item Graphical Methods for Normality Testing
+    \begin{itemize}
+    \item Q-Q-Plots
+    \item Chi-Square Plot
+    \end{itemize}
+  \item Quantitative Methods for Normality Testing
+    \begin{itemize}
+    \item Shapiro-Wilk Test
+    \item Pearson's Chi-Squared Test
+    \item Kolmogorov-Smirnov Test
+    \end{itemize}
+  \end{itemize}
+\item Transformation to Normality
+  \begin{itemize}
+  \item Box-Cox Transformation
+  \item Transformation Results Testing 
+  \end{itemize}
+\item Summary
+\end{enumerate}
+}
 
-\subsection{Univariate case}
-
+\subsection{Q-Q-Plots}
 \frame{
 \frametitle{Q-Q-Plots}
 \footnotesize
@@ -258,6 +263,7 @@ where
 \vspace{15cm}
 }
 
+\subsection{Shapiro-Wilk Test}
 \frame{
 \frametitle{Shapiro-Wilk Test}
 The test statistic $W$ indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles 
@@ -383,135 +389,19 @@ type 1 glass}
 \end{columns}
 }
 
-
+\subsection{Chi-Square Plot}
 \frame{
 \frametitle{Graphical Methods for Normality Testing}
-\framesubtitle{Shapiro-Wilk Test}
+\framesubtitle{Chi-Square Plot}
 }
 
+\subsection{Pearson's Chi-Squared Test}
 \frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Theoretical foundations}
-
-\bi
-\item Divide observations $X_1, \dots, X_N$ into \hl{pairwise disjoint classes} $C_1, \dots, C_K$
-\item Common requirement: minimum class size of 5
-\item Compare \hl{observed} class frequencies to \hl{expected} theoretical class frequencies for a certain distribution
-\ei
-\[\mbox{test statistic:}\quad\chi^2 = \sum_{k=1}^{K}\frac{(O_k - E_k)^2}{E_k}\]
-\bi
-\item The test statistic is approximately \hl{$\chi^2$-distributed} with $K-1$ degrees of freedom (minus one degree of freedom per estimated parameter)
-\ei
+\frametitle{Quantitative Methods for Normality Testing}
+\framesubtitle{Pearson's Chi-Squared Test}
 }
 
-\begin{frame}<1>[label=zoom]
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Theoretical foundations}
-\framezoom<1><2>(7.8cm, 2.65cm)(3.7cm, 2.9cm)
-\vspace{50pt}
-
-\includegraphics[width=\textwidth]{presentation-chisqSampleHist}
-\end{frame}
-
-\frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Theoretical foundations}
-
-\bi
-\item Test under the \hl{null hypothesis} that the sample is drawn from a population with unknown distribution $\mathbb{P}$ which is equal to the assumed distribution $\mathbb{P}_0$:
-\[\begin{array}{rcl}
-H_0 & : & \mathbb{P} = \mathbb{P}_0,\\
-H_1 & : & \mathbb{P} \neq \mathbb{P}_0.
-\end{array}\]
-\ei
-\begin{block}{Decision rule}
-\[
-  %\phantom{\quad\mbox{with}\ F=\chi^2_{K-1-p}}
-  \delta =
-   \left\{ 
-    \begin{array}{cll}
-%\vspace{12pt}
-                 1 & \mbox{if} \ \chi^2 > F^{-1}(1-\alpha)\\
-                 0 & \mbox{otherwise}
-    \end{array} 
-   \right.
-   \quad\mbox{with}\ F=\chi^2_{K-1-p}
-\]
-\[(\mbox{significance level}\ \alpha,\quad \mbox{number of estimated parameters}\ p)\]
-\end{block}
-}
-
-\frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Test results for the whole sample}
-\scriptsize
-\begin{center}
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 64.95 & 0.01 & 13.28 & 2.64011035255862e-13 & yes\\ 
-Na & 36.99 & 0.01 & 13.28 & 1.80797974702607e-07 & yes\\ 
-Mg & 158.3 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
-Al & 27.2 & 0.01 & 9.21 & 1.24084046404516e-06 & yes\\ 
-Si & 38.85 & 0.01 & 13.28 & 7.4876188027595e-08 & yes\\ 
-K & 95.97 & 0.01 & NA & NA & NA\\ 
-Ca & 131.13 & 0.01 & 13.28 & < 1.0e-15 & yes\\ 
-Ba & 31.37 & 0.01 & NA & NA & NA\\ 
-Fe & 70.96 & 0.01 & 13.28 & 1.4210854715202e-14 & yes\\ \hline \end{tabular}
-\end{center}
-}
-
-\frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Test results for type 1 glass}
-\scriptsize
-\begin{center}
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 28.01 & 0.01 & 9.21 & 8.26265138420545e-07 & yes\\ 
-\alt<2>{\cellcolor{yellow}Na}{Na} & \alt<2>{\cellcolor{yellow}3.25}{3.25} & \alt<2>{\cellcolor{yellow}0.01}{0.01} & \alt<2>{\cellcolor{yellow}13.28}{13.28} & \alt<2>{\cellcolor{yellow}0.51688441877949}{0.51688441877949} & \alt<2>{\cellcolor{yellow}no}{no}\\ 
-Mg & 18.81 & 0.01 & 6.63 & 1.44068580684165e-05 & yes\\ 
-Al & 23.55 & 0.01 & 11.34 & 3.10284613768141e-05 & yes\\ 
-Si & 23.68 & 0.01 & 13.28 & 9.26014020323773e-05 & yes\\ 
-K & 114.86 & 0.01 & 11.34 & < 1.0e-15 & yes\\ 
-Ca & 22.58 & 0.01 & 15.09 & 0.000405198755082603 & yes\\ 
-Fe & 18.65 & 0.01 & 9.21 & 8.91413549507503e-05 & yes\\ \hline \end{tabular}
-\end{center}
-}
-
-\frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Test results for sodium of type 1 glass}
-\scriptsize
-\begin{center}
-
-\begin{minipage}{0.49\textwidth}
-\begin{tabular}{|c|cc|} \hline class & \multicolumn{2}{c|}{frequencies}\\ (interval) & observed & expected\\ \hline ]12.4, 12.8] & 15 & 13.15\\ 
-]12.8, 13] & 12 & 8.81\\ 
-]13, 13.2] & 9 & 10.68\\ 
-]13.2, 13.4] & 11 & 11.04\\ 
-]13.4, 13.6] & 8 & 9.74\\ 
-]13.6, 14] & 9 & 12.06\\ 
-]14, 14.8] & 6 & 4.52\\ \hline \end{tabular}
-\end{minipage}
-\hfill
-\begin{minipage}{0.49\textwidth}
-\includegraphics[width=0.8\textwidth]{report-chisqType1Na}
-\end{minipage}
-\end{center}
-}
-
-\frame{
-\frametitle{Pearson's Chi-Squared Test}
-\framesubtitle{Test results for transformed type 1 glass}
-\scriptsize
-\begin{center}
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 27.81 & 0.01 & 6.63 & 1.33864150764218e-07 & yes\\ 
-Na & 1.59 & 0.01 & 13.28 & 0.810360513797024 & no\\ 
-Mg & 17.87 & 0.01 & NA & NA & NA\\ 
-Al & 6.41 & 0.01 & 11.34 & 0.093110657016404 & no\\ 
-Si & 16.87 & 0.01 & 13.28 & 0.00205136639513992 & yes\\ 
-K & NA & 0.01 & NA & NA & NA\\ 
-Ca & 3.35 & 0.01 & 11.34 & 0.341234021909645 & no\\ 
-Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}
-\end{center}
-}
-
+\subsection{Kolmogorov-Smirnov Test}
 \frame{
 \frametitle{Quantitative Methods for Normality Testing}
 \framesubtitle{Kolmogorov-Smirnov Test}
@@ -615,14 +505,14 @@ H_1&:& D_n> H_{1-\alpha}
 \onslide<2->{\centerline{{\bf Example:}}}\\
 \begin{itemize}
 \item<3->
-$n=70$
+$n=\Sexpr{n=length(dat)}$
 \item<4->
 $D_n=\sqrt{n}
-\sup|F_n-F|=2.2493$
+\sup|F_n-F|=\Sexpr{format(sqrt(n)*KS(c(mean(dat),var(dat))),digits=4,nsmall=4)}$
 \item<5->
 $\alpha = 0.01$\\
 \hfill$\implies
-c=H_{1-\alpha}=1.6276$
+c=H_{1-\alpha}=\Sexpr{format(Inverse(H,1-0.01),digits=4,nsmall=4)}$
 
 \item<6->
 $D_n>c \implies  H_0$ \alert{rejected}
@@ -658,29 +548,14 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \begin{itemize}
 \item<1->[]$R$ code used:
 \item<2->[]
-\begin{Schunk}
-\begin{Sinput}
- c(mean(dat),var(dat))
-\end{Sinput}
-\begin{Soutput}
-[1] 13.2422857  0.2493019
-\end{Soutput}
-\begin{Sinput}
- #optim is a predifined R function in stats package
- #defalut method of optimization is Nelder and Mead
- result = optim(c(mean(dat),var(dat)),KS)
- result$par
-\end{Sinput}
-\begin{Soutput}
-[1] 13.1769501  0.4682486
-\end{Soutput}
-\begin{Sinput}
- result$value
-\end{Sinput}
-\begin{Soutput}
-[1] 0.07870673
-\end{Soutput}
-\end{Schunk}
+<<optimFunction, eval=TRUE, echo=TRUE, term=TRUE>>=
+c(mean(dat),var(dat))
+#optim is a predifined R function in stats package
+#defalut method of optimization is Nelder and Mead
+result = optim(c(mean(dat),var(dat)),KS)
+result$par
+result$value
+@
 \end{itemize}
 \vspace{10cm}
 \end{frame}
@@ -697,16 +572,16 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \vspace{-1cm}
 \begin{itemize}
 \item<1->Initial vector of parameters
-$\mu=13.2423,\quad
-\sigma^2=0.2493$
+$\mu=\Sexpr{format(mean,digits=4,nsmall=4)},\quad
+\sigma^2=\Sexpr{format(Cov,digits=4,nsmall=4)}$
 \item<1->Optimized vector of parameters
-$\hat{\mu}=13.1770, \quad
-\hat{\sigma}^2=0.4682$
+$\hat{\mu}=\Sexpr{format(KSoptim$par[1],digits=4,nsmall=4)}, \quad
+\hat{\sigma}^2=\Sexpr{format(KSoptim$par[2],digits=4,nsmall=4)}$
 \item<3->
 $D_n=\sqrt{n}
-\sup|F_n-F_{new}|=0.6585$
+\sup|F_n-F_{new}|=\Sexpr{format(sqrt(n)*KSoptim$value,digits=4,nsmall=4)}$
 \item<4->
-$c=1.6276$
+$c=\Sexpr{format(Inverse(H,1-0.01),digits=4,nsmall=4)}$
 \item<5->
 $D_n<c \implies  H_0$ \alert{accepted}
 
@@ -798,63 +673,85 @@ Fe & yes\\
 \vspace{15cm}
 }
 
-
-
-
-\subsection{Bivariate case}
+\section{Transformation to Normality}
+\frame{
+\frametitle{Outline}
+\begin{enumerate}
+\item Introduction
+  \begin{itemize}
+  \item Normality as a requirement for statistical methods
+  \item Data Set Overview
+  \end{itemize}
+\item Normality Testing
+  \begin{itemize}
+  \item Graphical Methods for Normality Testing
+    \begin{itemize}
+    \item Q-Q-Plots
+    \item Chi-Square Plot
+    \end{itemize}
+  \item Quantitative Methods for Normality Testing
+    \begin{itemize}
+    \item Shapiro-Wilk Test
+    \item Pearson's Chi-Squared Test
+    \item Kolmogorov-Smirnov Test
+    \end{itemize}
+  \end{itemize}
+\item \alert{Transformation to Normality}
+  \begin{itemize}
+  \item Box-Cox Transformation
+  \item Transformation Results Testing 
+  \end{itemize}
+\item Summary
+\end{enumerate}
+}
+\subsection{Box-Cox Transformation}
 
 \frame{
-\frametitle{Plot of multivariate normal distribution}
-\framesubtitle{Theoretical foundations}
-\bi
-\item Contour lines of the plot of a multivariate normal distribution are shaped \hl{elliptically}
-\item Ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\, \Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
-\ei
+\frametitle{Box-Cox Transformation}
 
-\begin{example}
-\small
-\begin{minipage}{0.50\textwidth}
-Multivariate normal distribution with sample size 500 and parameters
-
-\begin{displaymath}
-  \begin{array}{rcl}
-                 \mu & = & \left(\begin{array}{c} 1\\ 2\end{array} \right)\\
-                 \phantom{.} & \phantom{.} & \phantom{.}\\
-                 \Sigma & = & \left[\begin{array}{cc} 27 & 15\\ 15 & 18\end{array} \right]
-  \end{array} 
-\end{displaymath}
-
-
-%\[\mu = \left(\begin{array}{c} 1\\ 2\end{array} \right), \quad \Sigma = \left[\begin{array}{cc} 27 & 15\\ 15 & 18\end{array} \right]\]
-\end{minipage}
-\hfill
-\begin{minipage}{0.4\textwidth}
-\includegraphics[width=0.8\textwidth]{report-plotMVNSim}
-\end{minipage}
-\end{example}
 }
 
+\subsection{Transformation Results Testing}
+
 \frame{
-\frametitle{Plot of multivariate normal distribution}
-\framesubtitle{Application}
-\bi
-\item Concerning the complete sample, the p-values for the variables Na and Al are highest among all used test methods.
-\item Plot data points and determine contour lines.
-\ei
-\begin{center}
-\only<1>{\includegraphics[width=0.5\textwidth]{report-contourGlassNaAl}}
-\only<2>{\includegraphics[width=0.5\textwidth]{report-cluster7}}
-\only<3>{\includegraphics[width=0.5\textwidth]{report-contourGlassNaAl-7}}
-\end{center}
+\frametitle{Transformation Results Testing}
+
 }
 
 \section{Summary}
-
+\frame{
+\frametitle{Outline}
+\begin{enumerate}
+\item Introduction
+  \begin{itemize}
+  \item Normality as a requirement for statistical methods
+  \item Data Set Overview
+  \end{itemize}
+\item Normality Testing
+  \begin{itemize}
+  \item Graphical Methods for Normality Testing
+    \begin{itemize}
+    \item Q-Q-Plots
+    \item Chi-Square Plot
+    \end{itemize}
+  \item Quantitative Methods for Normality Testing
+    \begin{itemize}
+    \item Shapiro-Wilk Test
+    \item Pearson's Chi-Squared Test
+    \item Kolmogorov-Smirnov Test
+    \end{itemize}
+  \end{itemize}
+\item Transformation to Normality
+  \begin{itemize}
+  \item Box-Cox Transformation
+  \item Transformation Results Testing 
+  \end{itemize}
+\item \alert{Summary}
+\end{enumerate}
+}
+\subsection{Summary}
 \frame{
 \frametitle{Summary}
 }
-
-\appendix
-\againframe<2>[noframenumbering]{zoom}
 
 \end{document}
