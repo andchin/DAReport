@@ -165,7 +165,24 @@ Glass.type7 = Glass[which(Glass$Type == 7), -10]
 \frame{
 \frametitle{Graphical Methods for Normality Testing}
 \framesubtitle{Q-Q-Plots}
+\begin{columns}[t]
+\column{0.3\columnwidth}
+
+{\bf \centerline{Theretical :}}
+\[ p_{(j)} = \frac{j - \frac{1}{2}} {n}\]
+
+\[ q_{(j)} = \Phi^{-1}(p_{(j)}) \]
+
+\column{0.7\columnwidth}
+\only<2->{
+\vspace{-1.35cm}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{report-QQfull}
+	\end{figure}}
+\end{columns}
+\vspace{15cm}
 }
+
 
 \subsection{Chi-Square Plot}
 \frame{

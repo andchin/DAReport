@@ -151,7 +151,24 @@
 \frame{
 \frametitle{Graphical Methods for Normality Testing}
 \framesubtitle{Q-Q-Plots}
+\begin{columns}[t]
+\column{0.3\columnwidth}
+
+{\bf \centerline{Theretical :}}
+\[ p_{(j)} = \frac{j - \frac{1}{2}} {n}\]
+
+\[ q_{(j)} = \Phi^{-1}(p_{(j)}) \]
+
+\column{0.7\columnwidth}
+\only<2->{
+\vspace{-1.35cm}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{report-QQfull}
+	\end{figure}}
+\end{columns}
+\vspace{15cm}
 }
+
 
 \subsection{Chi-Square Plot}
 \frame{
@@ -275,10 +292,10 @@ H_1&:& D_n> H_{1-\alpha}
 \onslide<2->{\centerline{{\bf Example:}}}\\
 \begin{itemize}
 \item<3->
-$n=214$
+$n=70$
 \item<4->
 $D_n=\sqrt{n}
-\sup|F_n-F|=8.6815$
+\sup|F_n-F|=2.2493$
 \item<5->
 $\alpha = 0.01$\\
 \hfill$\implies
@@ -323,7 +340,7 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
  c(mean(dat),var(dat))
 \end{Sinput}
 \begin{Soutput}
-[1] 1.518365e+00 9.222541e-06
+[1] 13.2422857  0.2493019
 \end{Soutput}
 \begin{Sinput}
  #optim is a predifined R function in stats package
@@ -332,13 +349,13 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
  result$par
 \end{Sinput}
 \begin{Soutput}
-[1]  1.517963843 -0.002297519
+[1] 13.1769501  0.4682486
 \end{Soutput}
 \begin{Sinput}
  result$value
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09135569
+[1] 0.07870673
 \end{Soutput}
 \end{Schunk}
 \end{itemize}
@@ -364,7 +381,7 @@ $\hat{\mu}=13.1770, \quad
 \hat{\sigma}^2=0.4682$
 \item<3->
 $D_n=\sqrt{n}
-\sup|F_n-F_{new}|=1.1514$
+\sup|F_n-F_{new}|=0.6585$
 \item<4->
 $c=1.6276$
 \item<5->

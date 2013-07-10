@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  9 JUL 2013 17:17
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 13:01
 entering extended mode
 **presentation.tex
 (D:\DA\report\DAProject\presentation.tex
@@ -1872,128 +1872,132 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ] [5
 
 ]
+Overfull \vbox (322.68204pt too high) detected at line 170
+ []
+
 [6
 
-] [7
+] <report-QQfull.pdf, id=417, 433.62pt x 433.62pt>
+File: report-QQfull.pdf Graphic file (type pdf)
+ <use report-QQfull.pdf>
+Package pdftex.def Info: report-QQfull.pdf used on input line 170.
+(pdftex.def)             Requested size: 239.6057pt x 239.60992pt.
 
-] [8
+Overfull \vbox (442.30644pt too high) detected at line 170
+ []
+
+[7
+
+ <D:/DA/report/DAProject/report-QQfull.pdf>] [8
 
 ] [9
 
+] [10
+
 ]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 212.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
+LaTeX Font Info:    Try loading font information for U+bbm on input line 229.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<Report-empiricFunc.pdf, id=550, 433.62pt x 433.62pt>
+<Report-empiricFunc.pdf, id=617, 433.62pt x 433.62pt>
 File: Report-empiricFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricFunc.pdf>
-Package pdftex.def Info: Report-empiricFunc.pdf used on input line 212.
+Package pdftex.def Info: Report-empiricFunc.pdf used on input line 229.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
- [10
+ [11
 
  <D:/DA/report/DAProject/Report-empiricFunc.pdf>] <Report-empiricTeorFunc.pdf, 
-id=618, 433.62pt x 433.62pt>
+id=678, 433.62pt x 433.62pt>
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 212.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 229.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
- [11
+ [12
 
  <D:/DA/report/DAProject/Report-empiricTeorFunc.pdf>]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 212.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 229.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
- [12
+ [13
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 239
- []
-
-[13
-
-]
-Overfull \vbox (425.26721pt too high) detected at line 239
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [14
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 239
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [15
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 239
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [16
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 239
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [17
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 239
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [18
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (425.26721pt too high) detected at line 256
  []
 
 [19
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [20
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [21
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [22
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [23
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [24
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 259
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [25
 
 ]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
-(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
-
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (356.30858pt too high) detected at line 276
  []
 
 [26
@@ -2001,10 +2005,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [27
@@ -2012,10 +2016,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [28
@@ -2023,10 +2027,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [29
@@ -2034,10 +2038,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [30
@@ -2045,10 +2049,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [31
@@ -2056,10 +2060,10 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [32
@@ -2067,13 +2071,24 @@ Overfull \vbox (418.00171pt too high) detected at line 310
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 310.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (418.00171pt too high) detected at line 310
+Overfull \vbox (418.00171pt too high) detected at line 327
  []
 
 [33
+
+]
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 327.
+(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
+
+Overfull \vbox (418.00171pt too high) detected at line 327
+ []
+
+[34
 
 ] (D:\DA\report\DAProject\presentation.vrb
 LaTeX Font Info:    Try loading font information for T1+aett on input line 10.
@@ -2081,59 +2096,48 @@ LaTeX Font Info:    Try loading font information for T1+aett on input line 10.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ))
-Overfull \vbox (272.453pt too high) detected at line 346
- []
-
-[34
-
-] (D:\DA\report\DAProject\presentation.vrb)
-Overfull \vbox (272.453pt too high) detected at line 346
+Overfull \vbox (272.453pt too high) detected at line 363
  []
 
 [35
 
-]
-File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
- <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 398.
-(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
-
-Overfull \vbox (409.57948pt too high) detected at line 398
+] (D:\DA\report\DAProject\presentation.vrb)
+Overfull \vbox (272.453pt too high) detected at line 363
  []
 
 [36
 
-] <Report-improvedKS.pdf, id=1863, 433.62pt x 433.62pt>
-File: Report-improvedKS.pdf Graphic file (type pdf)
-
-<use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
+]
+File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
+ <use Report-empiricTeorFunc.pdf>
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 415.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 398
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [37
+
+] <Report-improvedKS.pdf, id=1924, 433.62pt x 433.62pt>
+File: Report-improvedKS.pdf Graphic file (type pdf)
+
+<use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
+(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 415
+ []
+
+[38
 
  <D:/DA/report/DAProject/Report-improvedKS.pdf>]
 File: Report-improvedKS.pdf Graphic file (type pdf)
 
 <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 398
- []
-
-[38
-
-]
-File: Report-improvedKS.pdf Graphic file (type pdf)
- <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
-(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
-
-Overfull \vbox (409.57948pt too high) detected at line 398
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [39
@@ -2141,10 +2145,10 @@ Overfull \vbox (409.57948pt too high) detected at line 398
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 398
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [40
@@ -2152,10 +2156,10 @@ Overfull \vbox (409.57948pt too high) detected at line 398
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 398
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [41
@@ -2163,117 +2167,156 @@ Overfull \vbox (409.57948pt too high) detected at line 398
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 398.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
 (pdftex.def)             Requested size: 171.14767pt x 171.149pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 398
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [42
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 426
+File: Report-improvedKS.pdf Graphic file (type pdf)
+ <use Report-improvedKS.pdf>
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 415.
+(pdftex.def)             Requested size: 171.14767pt x 171.149pt.
+
+Overfull \vbox (409.57948pt too high) detected at line 415
  []
 
 [43
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 426
+Overfull \vbox (390.3061pt too high) detected at line 443
  []
 
 [44
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 426
+Overfull \vbox (390.3061pt too high) detected at line 443
  []
 
 [45
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 426
+Overfull \vbox (390.3061pt too high) detected at line 443
  []
 
 [46
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 426
+Overfull \vbox (390.3061pt too high) detected at line 443
  []
 
 [47
 
 ]
-Overfull \vbox (397.75107pt too high) detected at line 459
+Overfull \vbox (390.3061pt too high) detected at line 443
  []
 
 [48
 
-] <auxiliary-drawQQPlots.pdf, id=2439, 433.62pt x 433.62pt>
-File: auxiliary-drawQQPlots.pdf Graphic file (type pdf)
-
-<use auxiliary-drawQQPlots.pdf>
-Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 459.
-(pdftex.def)             Requested size: 239.6057pt x 239.60992pt.
-
-Overfull \vbox (436.1497pt too high) detected at line 459
+]
+Overfull \vbox (397.75107pt too high) detected at line 476
  []
 
 [49
 
- <D:/DA/report/DAProject/auxiliary-drawQQPlots.pdf>] [50
+] <auxiliary-drawQQPlots.pdf, id=2499, 433.62pt x 433.62pt>
+File: auxiliary-drawQQPlots.pdf Graphic file (type pdf)
 
-] [51
+<use auxiliary-drawQQPlots.pdf>
+Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 476.
+(pdftex.def)             Requested size: 239.6057pt x 239.60992pt.
+
+Overfull \vbox (436.1497pt too high) detected at line 476
+ []
+
+[50
+
+ <D:/DA/report/DAProject/auxiliary-drawQQPlots.pdf>] [51
 
 ] [52
 
 ] [53
 
+] [54
+
 ]
-[54
+[55
 
 ]
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 542.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 542.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 559.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 559.
  (D:\DA\report\DAProject\presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 542.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 542.
-Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 6B46952C2B59F43AB4BF1B2D95C2C3E6;932.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 542.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 559.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 559.
+
+
+Package rerunfilecheck Warning: File `presentation.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `presentation.out':
+(rerunfilecheck)             Before: 6B46952C2B59F43AB4BF1B2D95C2C3E6;932
+(rerunfilecheck)             After:  E6137E971D747A2B9D2EF9752967E17A;933.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 559.
  ) 
 Here is how much of TeX's memory you used:
- 28836 strings out of 494045
- 557757 string characters out of 3148436
- 689316 words of memory out of 3000000
- 31241 multiletter control sequences out of 15000+200000
+ 28850 strings out of 494045
+ 557983 string characters out of 3148436
+ 689369 words of memory out of 3000000
+ 31245 multiletter control sequences out of 15000+200000
  49280 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  49i,20n,61p,957b,877s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Program Files\R\R-3.0.0\share\texmf\fonts\pk\ljfour\public\bbm\dpi657\bb
-m10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmsltt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/
-msam7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm
-10.pfb>
-Output written on presentation.pdf (54 pages, 869030 bytes).
+pdfTeX warning (dest): name{Outline0.4.1.54} has been referenced but does not
+ exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.2.52} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.3.1.51} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.5.10} has been referenced but does not e
+xist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.4.9} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.3.8} has been referenced but does not ex
+ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Outline0.2.2.7} has been referenced but does not ex
+ist, replaced by a fixed one
+
+ <C:\Program Files\R\R-3.0.0\share\texmf\fonts\pk\ljfour\public\bbm\dpi657\bbm1
+0.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmsltt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
+s12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/ms
+am7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb>
+Output written on presentation.pdf (55 pages, 900090 bytes).
 PDF statistics:
- 2821 PDF objects out of 2984 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 227 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2886 PDF objects out of 2984 (max. 8388607)
+ 132 named destinations out of 1000 (max. 500000)
+ 232 words of extra memory for PDF output out of 10000 (max. 10000000)
 

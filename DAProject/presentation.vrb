@@ -11,7 +11,7 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
  c(mean(dat),var(dat))
 \end{Sinput}
 \begin{Soutput}
-[1] 1.518365e+00 9.222541e-06
+[1] 13.2422857  0.2493019
 \end{Soutput}
 \begin{Sinput}
  #optim is a predifined R function in stats package
@@ -20,13 +20,13 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
  result$par
 \end{Sinput}
 \begin{Soutput}
-[1]  1.517963843 -0.002297519
+[1] 13.1769501  0.4682486
 \end{Soutput}
 \begin{Sinput}
  result$value
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09135569
+[1] 0.07870673
 \end{Soutput}
 \end{Schunk}
 \end{itemize}

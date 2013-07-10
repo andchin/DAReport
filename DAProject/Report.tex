@@ -713,7 +713,15 @@ Ba & 0.91 & 0.01 & NA & 0.0206467993594091 & no\\ \hline \end{tabular}\caption{T
 \end{table}
 
 \subsubsection{Q-Q-plot}\label{sec:qq-original}
-For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for each glass type separately. The graphical comparison shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed quantiles and the observed values.
+For the graphical analysis the quantiles for all elements in the glass-dataset where plotted for the whole dataset and for each glass type separately. As depicted in Figure \ref{fig:QQfull}, the QQ-Plots of the full dataset do not suggest linear relationships. Only for the variable Aluminium (Al) a normal distribution could be assumed. The graphical comparison of the subdatasets shows that for most of the cases there seems to be no linear relationship between the theoretical normally distributed quantiles and the observed values, either.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{report-QQfull}
+\caption{Exemplary QQ-Plots from the full data sample}
+\label{fig:QQfull}
+\end{figure}
+
 
 \begin{figure}[h!]
 \centering
@@ -722,7 +730,7 @@ For the graphical analysis the quantiles for all elements in the glass-dataset w
 \label{fig:QQsamples}
 \end{figure}
 
-For some cases based on a graphical inspection a linear relationship can be assumed given some outliers. As shown in Figure \ref{fig:QQsampleslin1} Magnesium (Mg), Aluminium(Al), and Silicon (Si) in glass type 1 and Ca in glass type 7 show approximately linear relationships with just a few outliers. For some observations (e.g. Na in glass type 5 and RI in glass type 6 in Figure \ref{fig:QQsampleslin2}) a linear relationship seems to be plausible, however, the total number of observations in these cases is considered too small to make conclusions about a hypothetical linear relationship (glass type 5: $n$ = 13; glass type 6: $n$ = 9).
+For some cases in the subdatasets, however, based on a graphical inspection a linear relationship can be assumed given some outliers. As shown in Figure \ref{fig:QQsampleslin1} Magnesium (Mg), Aluminium(Al), and Silicon (Si) in glass type 1 and Ca in glass type 7 show approximately linear relationships with just a few outliers. For some observations (e.g. Na in glass type 5 and RI in glass type 6 in Figure \ref{fig:QQsampleslin2}) a linear relationship seems to be plausible, however, the total number of observations in these cases is considered too small to make conclusions about a hypothetical linear relationship (glass type 5: $n$ = 13; glass type 6: $n$ = 9).
 
 \begin{figure}[h!]
 \centering
@@ -942,8 +950,12 @@ As mentioned in section \ref{sec:chisq-theoretical}, Pearson's chi-squared test 
 
 \subsubsection{Kolmogorov-Smirnov test}
 
-The first tests are conducted on the whole data set for each variable. 
-The results are shown in table \ref{tab:KS-full}.
+
+
+First and foremost, the Kolmogorov-Smirnov test is conducted on the whole dataset for each variable. As depicted in table \ref{tab:KS-full}, the results indicate that only for Magnesium (Mg), Potassium (K), Barium (Ba), and Iron (Fe) H0 can be rejected. For all other variables the hypothesis that the data the sample stems from is normally distributed cannot be rejected.
+
+Performing the test on the subclasses type 1 glass, type 2 glass, and type 7 glass for each variable, the results further support the notion that data in the different subclasses is normally distributed.
+While for type 1 glass H0 can only be rejected for Potassium (K) and Iron (Fe) (see table \ref{tab:KS-type1}) and for type 2 glass H0 can only be rejected for Iron (Fe) (see table \ref{tab:KS-type2}), the tests on type 7 glass show that for none of the contained Elements the null hypothesis can be rejected at the 1\, \% significance level.
 
 
 \begin{table}[h!]
@@ -960,8 +972,6 @@ Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}\caption{Test re
 \label{tab:KS-full}
 \end{table}
 
-Then tests are conducted on type 1 glass for each variable.
-The results are shown in table \ref{tab:KS-type1}.
 
 \begin{table}[h!]
 \centering
@@ -976,8 +986,7 @@ Fe & 2.65 & 0.01 & 1.63 & 1.63244296669252e-06 & yes\\ \hline \end{tabular}\capt
 \label{tab:KS-type1}
 \end{table}
 
-After that the tests are conducted on type 2 glass for each variable.
-The results are shown in table \ref{tab:KS-type2}.
+
 
 \begin{table}[h!]
 \centering
@@ -992,8 +1001,7 @@ Fe & 2.5 & 0.01 & 1.63 & 7.20083142169425e-06 & yes\\ \hline \end{tabular}\capti
 \label{tab:KS-type2}
 \end{table}
 
-After that the tests are conducted on type 7 glass for each variable.
-The results are shown in table \ref{tab:KS-type7}.
+
 
 \begin{table}[h!]
 \centering
@@ -1200,7 +1208,7 @@ Fe & NA & 0.01 & NA & NA & NA\\ \hline \end{tabular}\caption{Test results of the
 \label{tab:chi-type2-trans}
 \end{table}
 
-For the observations of type 7 glass, the test can now even be conducted on data of the variable Natrium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
+For the observations of type 7 glass, the test can now even be conducted on data of the variable Sodium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
 
 \begin{table}[h!]
 \centering
