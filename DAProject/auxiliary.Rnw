@@ -87,5 +87,31 @@ for(i in 1:9){
 }
 @
 
+<<drawQQPlotsSubset, echo=FALSE, eval = TRUE, fig = TRUE, include = False>>=
+layout(matrix(1:6, ncol=2,nrow=3))
+  qqnorm(Glass.type2[["Si"]], main = "Si in Glass Type 2",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type2[["Si"]],lwd=2,col="red")
+
+  qqnorm(Glass.type2[["Ca"]], main = "Ca in Glass Type 2",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type2[["Ca"]],lwd=2,col="red")
+
+  qqnorm(Glass.type5[["Na"]], main = "Na in Glass Type 5",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type5[["Na"]],lwd=2,col="red")
+
+  qqnorm(Glass.type7[["Ca"]], main = "Ca in Glass Type 7",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type7[["Ca"]],lwd=2,col="red")
+
+  qqnorm(Glass.type1[["K"]], main = "K in Glass Type 1",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type1[["K"]],lwd=2,col="red")
+
+  qqnorm(Glass.type6[["RI"]], main = "RI in Glass Type 6",pch=19,
+         cex.lab=1,cex.main=2,ylab=" ")
+  qqline(Glass.type6[["RI"]],lwd=2,col="red")
+@
 
 \end{document}

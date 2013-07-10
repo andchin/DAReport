@@ -2,8 +2,10 @@
 % 
 \documentclass[mathserif,graphics]{beamer}
 \usepackage{Sweave}
+\usepackage[labelformat=empty]{caption}
 \mode<presentation>
-\usetheme{Boadilla} % Beamer Theme
+\usetheme{Frankfurt} % Beamer Theme
+\setbeamersize{text margin left=5mm, text margin right=5mm}
 \usecolortheme{whale}
 \usepackage{amsmath} % for math AMS fonts
 \usepackage{centernot}
@@ -149,37 +151,240 @@
 
 \subsection{Q-Q-Plots}
 \frame{
-\frametitle{Graphical Methods for Normality Testing}
-\framesubtitle{Q-Q-Plots}
+\frametitle{Q-Q-Plots}
+\footnotesize
 \begin{columns}[t]
 \column{0.3\columnwidth}
+{\bf Sample:}
+\[x=(x_1,x_2,\dots,x_n)\]
+{\bf Empirical quantiles:}
+\[x_{(1)}\le x_{(2)} \le \dots \le x_{(n)}\]
+{\bf Theoretical quantiles:}
+\[q_{(j)} = \Phi^{-1}(p_{(j)}),\]
+where
+\[ p_{(j)} = \frac{j - \frac{1}{2}} {n},\]
+\[\Phi\mbox{ - }N(0,1)\mbox{ \cdf.}\]
 
-{\bf \centerline{Theretical :}}
-\[ p_{(j)} = \frac{j - \frac{1}{2}} {n}\]
-
-\[ q_{(j)} = \Phi^{-1}(p_{(j)}) \]
-
+\[\implies \mbox{ Plot } x_{(i)}\mbox{ against } q_{(i)}\]
+\vspace{15cm}
 \column{0.7\columnwidth}
-\only<2->{
 \vspace{-1.35cm}
 \begin{figure}
 	\includegraphics[width=\columnwidth]{report-QQfull}
-	\end{figure}}
+	\end{figure}
 \end{columns}
 \vspace{15cm}
 }
 
+\frame{
+\frametitle{Q-Q-Plots}
+\footnotesize
+\begin{columns}[t]
+\column{0.4\columnwidth}
+\centerline{{\bf QQ-Plots of the subdatasets:}}
+
+\begin{itemize}
+\item Variables could be normally distributed within the subclasses 
+\item For some cases there appear to be a linear relationships
+\item For other cases a linear relationship is questionable
+\item In some subdatasets a linear relationship seems plausible, however $n$ is very small
+\end{itemize}
+\vspace{15cm}
+\column{0.6\columnwidth}
+\vspace{-1cm}
+\begin{figure}
+	\includegraphics[width=0.8\columnwidth]{graph}
+	\end{figure}
+\end{columns}
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Q-Q-Plots}
+\footnotesize
+\begin{columns}[t]
+\column{0.4\columnwidth}
+\begin{center}
+{\bf Results of the Transformation of the Full Dataset
+:}
+\end{center}
+
+\begin{itemize}
+\item For some of the cases there seems to be a slight improvement
+
+\item For non-unimodal cases the transformation does not show significant improvements towards normality
+\end{itemize}
+\vspace{15cm}
+\column{0.6\columnwidth}
+\vspace{-1cm}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{Report-QQtrans}
+	\end{figure}
+\end{columns}
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Q-Q-Plots}
+\footnotesize
+\begin{columns}[t]
+\column{0.4\columnwidth}
+\begin{center}
+{\bf Results of the Transformation of the Subdatasets
+:}
+\end{center}
+
+\begin{itemize}
+\item For unimodal cases the transformation shapes the distribution closer to normality
+
+\item For non-unimodal cases the transformation does not show significant improvements towards normality
+\end{itemize}
+\vspace{15cm}
+\column{0.6\columnwidth}
+\vspace{-1cm}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{Report-QQtransno}
+	\end{figure}
+\end{columns}
+\vspace{15cm}
+}
+
+\subsection{Shapiro-Wilk Test}
+\frame{
+\frametitle{Shapiro-Wilk Test}
+The test statistic $W$ indicates the deviation of the observed quantile values from the assumed cumulative distribution function quantiles 
+\[W = \frac{\sum  \limits_{i=1}^n(a_i y_i)^2}{\sum  \limits_{i=1}^n (y_i-\bar{y})^2},\]
+where
+\begin{itemize}
+\item $a_i$ denotes the normalised "best linear unbiased" coefficients,
+\item $y_i$ denotes the observations.
+\end{itemize}
+
+The critical value for $W$ is obtained by the Monte Carlo Method\\
+$\implies$ $p$-value is calculated
+
+\alert{Important:} If a variable contains only zeros the Shapiro-Wilk test is not applicable, 
+since the term in the denominator sums up to zero.
+}
+
+\frame{
+\frametitle{Shapiro-Wilk Test}
+\begin{columns}[t]
+\column{0.23\columnwidth}
+\scriptsize
+\vspace{-0.5cm}
+\begin{center}
+{\bf Testing the Full Dataset
+:}
+\end{center}
+Null hypothesis is rejected for all variables at a 1 \% significance level
+\begin{center}
+{\bf After the Transformation
+:}
+\end{center}
+
+The null hypothesis can be rejected for the four transformed variables
+
+\alert{$\implies$ Possible Explanation:} Combination of different 	
+distributions in the different glass types
+\vspace{15cm}
+\column{0.77\columnwidth}
+\tiny
+\vspace{-0.8cm}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.87 & 0.01 & NA & 1.0766713449726e-12 & yes\\ 
+Na & 0.95 & 0.01 & NA & 3.4655430546966e-07 & yes\\ 
+Mg & 0.7 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Al & 0.94 & 0.01 & NA & 2.08315629600399e-07 & yes\\ 
+Si & 0.92 & 0.01 & NA & 2.17503176825416e-09 & yes\\ 
+K & 0.44 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Ca & 0.79 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Ba & 0.41 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Fe & 0.65 & 0.01 & NA & < 1.0e-15 & yes\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
+data sample}
+\end{table}
+\vspace{-1cm}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & NA & NA & NA & NA & NA\\ 
+Na & 0.95 & 0.01 & NA & 8.75605777309153e-07 & yes\\ 
+Mg & NA & NA & NA & NA & NA\\ 
+Al & 0.97 & 0.01 & NA & 0.000244326513056066 & yes\\ 
+Si & 0.93 & 0.01 & NA & 1.58998125691823e-08 & yes\\ 
+K & NA & NA & NA & NA & NA\\ 
+Ca & 0.89 & 0.01 & NA & 1.13880689831982e-11 & yes\\ 
+Ba & NA & NA & NA & NA & NA\\ 
+Fe & NA & NA & NA & NA & NA\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
+transformed data sample}
+\end{table}
+\vspace{15cm}
+\end{columns}
+}
+
+\frame{
+\frametitle{Shapiro-Wilk Test}
+\begin{columns}[t]
+\column{0.23\columnwidth}
+\scriptsize
+\vspace{-0.5cm}
+\begin{center}
+{\bf Testing the Full Dataset
+:}
+\end{center}
+Null hypothesis is rejected for all variables at a 1 \% significance level
+\begin{center}
+{\bf After the Transformation
+:}
+\end{center}
+
+The null hypothesis can be rejected for the four transformed variables
+
+\alert{$\implies$ Possible Explanation:} Combination of different 	
+distributions in the different glass types
+\vspace{15cm}
+\column{0.77\columnwidth}
+\tiny
+\vspace{-0.8cm}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.87 & 0.01 & NA & 1.0766713449726e-12 & yes\\ 
+Na & 0.95 & 0.01 & NA & 3.4655430546966e-07 & yes\\ 
+Mg & 0.7 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Al & 0.94 & 0.01 & NA & 2.08315629600399e-07 & yes\\ 
+Si & 0.92 & 0.01 & NA & 2.17503176825416e-09 & yes\\ 
+K & 0.44 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Ca & 0.79 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Ba & 0.41 & 0.01 & NA & < 1.0e-15 & yes\\ 
+Fe & 0.65 & 0.01 & NA & < 1.0e-15 & yes\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
+data sample}
+\end{table}
+\vspace{-1cm}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & NA & NA & NA & NA & NA\\ 
+Na & 0.95 & 0.01 & NA & 8.75605777309153e-07 & yes\\ 
+Mg & NA & NA & NA & NA & NA\\ 
+Al & 0.97 & 0.01 & NA & 0.000244326513056066 & yes\\ 
+Si & 0.93 & 0.01 & NA & 1.58998125691823e-08 & yes\\ 
+K & NA & NA & NA & NA & NA\\ 
+Ca & 0.89 & 0.01 & NA & 1.13880689831982e-11 & yes\\ 
+Ba & NA & NA & NA & NA & NA\\ 
+Fe & NA & NA & NA & NA & NA\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
+transformed data sample}
+\end{table}
+\vspace{15cm}
+\end{columns}
+}
 
 \subsection{Chi-Square Plot}
 \frame{
 \frametitle{Graphical Methods for Normality Testing}
 \framesubtitle{Chi-Square Plot}
-}
-
-\subsection{Shapiro-Wilk Test}
-\frame{
-\frametitle{Quantitative Methods for Normality Testing}
-\framesubtitle{Shapiro-Wilk Test}
 }
 
 \subsection{Pearson's Chi-Squared Test}

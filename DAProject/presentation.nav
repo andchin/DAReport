@@ -18,55 +18,65 @@
 \headcommand {\slideentry {2}{0}{2}{5/5}{}{0}}
 \headcommand {\beamer@framepages {5}{5}}
 \headcommand {\beamer@subsectionentry {0}{2}{1}{6}{Q-Q-Plots}}\headcommand {\beamer@subsectionpages {5}{5}}
-\headcommand {\slideentry {2}{1}{1}{6/7}{Q-Q-Plots}{0}}
-\headcommand {\beamer@framepages {6}{7}}
-\headcommand {\beamer@subsectionentry {0}{2}{2}{8}{Chi-Square Plot}}\headcommand {\beamer@subsectionpages {6}{7}}
-\headcommand {\slideentry {2}{2}{1}{8/8}{Chi-Square Plot}{0}}
+\headcommand {\slideentry {2}{1}{1}{6/6}{Q-Q-Plots}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {2}{1}{2}{7/7}{Q-Q-Plots}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {2}{1}{3}{8/8}{Q-Q-Plots}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{2}{3}{9}{Shapiro-Wilk Test}}\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\slideentry {2}{3}{1}{9/9}{Shapiro-Wilk Test}{0}}
+\headcommand {\slideentry {2}{1}{4}{9/9}{Q-Q-Plots}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{10}{Pearson's Chi-Squared Test}}\headcommand {\beamer@subsectionpages {9}{9}}
-\headcommand {\slideentry {2}{4}{1}{10/10}{Pearson's Chi-Squared Test}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{10}{Shapiro-Wilk Test}}\headcommand {\beamer@subsectionpages {6}{9}}
+\headcommand {\slideentry {2}{2}{1}{10/10}{Shapiro-Wilk Test}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{11}{Kolmogorov-Smirnov Test}}\headcommand {\beamer@subsectionpages {10}{10}}
-\headcommand {\slideentry {2}{5}{1}{11/13}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {11}{13}}
-\headcommand {\slideentry {2}{5}{2}{14/19}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {14}{19}}
-\headcommand {\slideentry {2}{5}{3}{20/26}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {20}{26}}
-\headcommand {\slideentry {2}{5}{4}{27/34}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {27}{34}}
-\headcommand {\slideentry {2}{5}{5}{35/36}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {35}{36}}
-\headcommand {\slideentry {2}{5}{6}{37/43}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {37}{43}}
-\headcommand {\slideentry {2}{5}{7}{44/48}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {44}{48}}
-\headcommand {\slideentry {2}{5}{8}{49/50}{Kolmogorov-Smirnov Test}{0}}
-\headcommand {\beamer@framepages {49}{50}}
-\headcommand {\sectionentry {3}{Transformation to Normality}{51}{Transformation to Normality}{0}}
-\headcommand {\beamer@sectionpages {5}{50}}
-\headcommand {\beamer@subsectionpages {11}{50}}
-\headcommand {\slideentry {3}{0}{9}{51/51}{}{0}}
-\headcommand {\beamer@framepages {51}{51}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{52}{Box-Cox Transformation}}\headcommand {\beamer@subsectionpages {51}{51}}
-\headcommand {\slideentry {3}{1}{1}{52/52}{Box-Cox Transformation}{0}}
-\headcommand {\beamer@framepages {52}{52}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{53}{Transformation Results Testing}}\headcommand {\beamer@subsectionpages {52}{52}}
-\headcommand {\slideentry {3}{2}{1}{53/53}{Transformation Results Testing}{0}}
-\headcommand {\beamer@framepages {53}{53}}
-\headcommand {\sectionentry {4}{Summary}{54}{Summary}{0}}
-\headcommand {\beamer@sectionpages {51}{53}}
-\headcommand {\beamer@subsectionpages {53}{53}}
-\headcommand {\slideentry {4}{0}{2}{54/54}{}{0}}
-\headcommand {\beamer@framepages {54}{54}}
-\headcommand {\beamer@subsectionentry {0}{4}{1}{55}{Summary}}\headcommand {\beamer@subsectionpages {54}{54}}
-\headcommand {\slideentry {4}{1}{1}{55/55}{Summary}{0}}
+\headcommand {\slideentry {2}{2}{2}{11/11}{Shapiro-Wilk Test}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {2}{2}{3}{12/12}{Shapiro-Wilk Test}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{13}{Chi-Square Plot}}\headcommand {\beamer@subsectionpages {10}{12}}
+\headcommand {\slideentry {2}{3}{1}{13/13}{Chi-Square Plot}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{14}{Pearson's Chi-Squared Test}}\headcommand {\beamer@subsectionpages {13}{13}}
+\headcommand {\slideentry {2}{4}{1}{14/14}{Pearson's Chi-Squared Test}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{15}{Kolmogorov-Smirnov Test}}\headcommand {\beamer@subsectionpages {14}{14}}
+\headcommand {\slideentry {2}{5}{1}{15/17}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {15}{17}}
+\headcommand {\slideentry {2}{5}{2}{18/23}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {18}{23}}
+\headcommand {\slideentry {2}{5}{3}{24/30}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {24}{30}}
+\headcommand {\slideentry {2}{5}{4}{31/38}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {31}{38}}
+\headcommand {\slideentry {2}{5}{5}{39/40}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {39}{40}}
+\headcommand {\slideentry {2}{5}{6}{41/47}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {41}{47}}
+\headcommand {\slideentry {2}{5}{7}{48/52}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {48}{52}}
+\headcommand {\slideentry {2}{5}{8}{53/54}{Kolmogorov-Smirnov Test}{0}}
+\headcommand {\beamer@framepages {53}{54}}
+\headcommand {\sectionentry {3}{Transformation to Normality}{55}{Transformation to Normality}{0}}
+\headcommand {\beamer@sectionpages {5}{54}}
+\headcommand {\beamer@subsectionpages {15}{54}}
+\headcommand {\slideentry {3}{0}{9}{55/55}{}{0}}
 \headcommand {\beamer@framepages {55}{55}}
-\headcommand {\beamer@partpages {1}{55}}
-\headcommand {\beamer@subsectionpages {55}{55}}
-\headcommand {\beamer@sectionpages {54}{55}}
-\headcommand {\beamer@documentpages {55}}
-\headcommand {\def \inserttotalframenumber {22}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{56}{Box-Cox Transformation}}\headcommand {\beamer@subsectionpages {55}{55}}
+\headcommand {\slideentry {3}{1}{1}{56/56}{Box-Cox Transformation}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{57}{Transformation Results Testing}}\headcommand {\beamer@subsectionpages {56}{56}}
+\headcommand {\slideentry {3}{2}{1}{57/57}{Transformation Results Testing}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\sectionentry {4}{Summary}{58}{Summary}{0}}
+\headcommand {\beamer@sectionpages {55}{57}}
+\headcommand {\beamer@subsectionpages {57}{57}}
+\headcommand {\slideentry {4}{0}{2}{58/58}{}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{59}{Summary}}\headcommand {\beamer@subsectionpages {58}{58}}
+\headcommand {\slideentry {4}{1}{1}{59/59}{Summary}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\beamer@partpages {1}{59}}
+\headcommand {\beamer@subsectionpages {59}{59}}
+\headcommand {\beamer@sectionpages {58}{59}}
+\headcommand {\beamer@documentpages {59}}
+\headcommand {\def \inserttotalframenumber {27}}
