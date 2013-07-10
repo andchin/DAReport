@@ -74,25 +74,27 @@
 \headcommand {\beamer@framepages {59}{59}}
 \headcommand {\slideentry {3}{1}{24}{60/60}{Univariate case}{0}}
 \headcommand {\beamer@framepages {60}{60}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{61}{Bivariate case}}\headcommand {\beamer@subsectionpages {8}{60}}
-\headcommand {\slideentry {3}{2}{1}{61/61}{Bivariate case}{0}}
+\headcommand {\slideentry {3}{1}{25}{61/61}{Univariate case}{0}}
 \headcommand {\beamer@framepages {61}{61}}
-\headcommand {\slideentry {3}{2}{2}{62/64}{Bivariate case}{0}}
-\headcommand {\beamer@framepages {62}{64}}
-\headcommand {\sectionentry {4}{Summary}{65}{Summary}{0}}
-\headcommand {\beamer@sectionpages {8}{64}}
-\headcommand {\beamer@subsectionpages {61}{64}}
-\headcommand {\slideentry {4}{0}{3}{65/65}{}{0}}
-\headcommand {\beamer@framepages {65}{65}}
-\headcommand {\partentry {Appendix}{1}}
-\headcommand {\beamer@partpages {1}{65}}
-\headcommand {\beamer@sectionpages {65}{65}}
-\headcommand {\beamer@subsectionpages {65}{65}}
-\headcommand {\beamer@appendixpages {66}}
-\headcommand {\slideentry {4}{0}{4}{66/66}{}{1}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{62}{Bivariate case}}\headcommand {\beamer@subsectionpages {8}{61}}
+\headcommand {\slideentry {3}{2}{1}{62/62}{Bivariate case}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\slideentry {3}{2}{2}{63/65}{Bivariate case}{0}}
+\headcommand {\beamer@framepages {63}{65}}
+\headcommand {\sectionentry {4}{Summary}{66}{Summary}{0}}
+\headcommand {\beamer@sectionpages {8}{65}}
+\headcommand {\beamer@subsectionpages {62}{65}}
+\headcommand {\slideentry {4}{0}{3}{66/66}{}{0}}
 \headcommand {\beamer@framepages {66}{66}}
-\headcommand {\beamer@partpages {66}{66}}
-\headcommand {\beamer@subsectionpages {66}{66}}
+\headcommand {\partentry {Appendix}{1}}
+\headcommand {\beamer@partpages {1}{66}}
 \headcommand {\beamer@sectionpages {66}{66}}
-\headcommand {\beamer@documentpages {66}}
-\headcommand {\def \inserttotalframenumber {34}}
+\headcommand {\beamer@subsectionpages {66}{66}}
+\headcommand {\beamer@appendixpages {67}}
+\headcommand {\slideentry {4}{0}{4}{67/67}{}{1}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\beamer@partpages {67}{67}}
+\headcommand {\beamer@subsectionpages {67}{67}}
+\headcommand {\beamer@sectionpages {67}{67}}
+\headcommand {\beamer@documentpages {67}}
+\headcommand {\def \inserttotalframenumber {35}}

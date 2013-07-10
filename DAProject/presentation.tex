@@ -814,6 +814,22 @@ Ba & 0.76 & 0.01 & 1.63 & 0.61288183743927 & no\\ \hline \end{tabular}
 
 \frame{
 \frametitle{Chi-Square Plot for Multivariate Normality}
+\begin{block}{Sample mean and covariance matrix}
+Multivariate sample $X=(X_1,X_2,\dots,X_n)$ with \alert{$p$} variables
+$X=(X_1,X_2,\dots,X_n)$ $\bar{X}=\frac{1}{n}\left(\sum \limits_j X_j\right) \quad S=\frac{1}{n-1}\left(\sum \limits_j (X_j-\bar{X})(X_j-\bar{X})'\right)$
+\end{block}
+\begin{block}{Generalized squared distances}
+$d^2_j= (X_j-\bar{X})'S(X_j-\bar{X})', \quad j=1,2,\dots n$\\
+\[\alert{d^2_j\approx \chi^2_p}\]
+$d^2_{(1)}\le d^2_{(2)} \le \dots \le d^2_{(n)}$ - empirical quantiles\\
+$q_{(j)} = (\chi^2_p)^{-1}\left(\frac{j - \frac{1}{2}} {n}\right)$ - theoretical quantiles\\
+\alert{$\implies$}  Plot $d^2_{(i)}$ against $q_{(i)}$
+\end{block}
+\vspace{15cm}
+}
+
+\frame{
+\frametitle{Chi-Square Plot for Multivariate Normality}
 \vspace{-1cm}
 \begin{columns}[t]
 \column{0.5\columnwidth}
