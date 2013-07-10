@@ -23,10 +23,6 @@
 \contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{33}
 \contentsline {subsection}{\numberline {3.3}Contour plots of selected variables}{34}
 \contentsline {section}{\numberline {4}Conclusion}{37}
-\contentsline {section}{\numberline {5}Section 1}{38}
-\contentsline {subsection}{\numberline {5.1}First Subsection}{38}
-\contentsline {subsection}{\numberline {5.2}Second Subsection}{38}
-\contentsline {section}{\numberline {6}Section 2}{39}
 \contentsline {section}{\numberline {A}Appendix}{i}
 \contentsline {section}{List of Figures}{ii}
-\contentsline {section}{List of Tables}{v}
+\contentsline {section}{List of Tables}{iii}

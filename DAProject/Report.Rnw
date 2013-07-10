@@ -285,7 +285,7 @@ test test test
 
 \subsection{The Glass data set}
 
-The data set investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases \cite{uci}. It contains 214 observations of 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
+The data set investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases \cite{uci}. It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
 
 \subsection{Aim and structure}
 
@@ -805,7 +805,7 @@ $\mathbb{D}_n$ distribution should be used.
 
 \subsection{Box-Cox-transformation}\label{sec:boxcox-theory}
 
-If data is not normally distributed, it can still be transformed to fit to a normal distribtion in some cases. One possibility is the Box-Cox-transformation. It is a family of parameterised power tranformations:
+If data are not normally distributed, it can still be transformed to fit to a normal distribtion in some cases. One possibility is the Box-Cox-transformation. It is a family of parameterised power tranformations:
 \[
   \phantom{\quad\mbox{for}\ x > 0}
    x^{(\lambda)} =
@@ -2344,8 +2344,8 @@ From the shape of the plot, no clear insight can be deducted about multivariate 
 
 \begin{figure}[h!]
 <<cluster7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-plot(Glass$Na, Glass$Al)
-points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]$Al, col="red")
+plot(Glass$Na, Glass$Al, xlim=c(9.9,18.22), ylim=c(-0.12,3.9))
+points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]$Al, col="red", pch=19)
 @
 \includegraphics[width=\textwidth]{report-cluster7}
 \caption{Data plot of the variables Na and Al of the whole sample. Data points of type 7 glass are highlighted in red.}
@@ -2365,56 +2365,13 @@ ci2d(Glass[which(Glass$Type != 7), ]$Na, Glass[which(Glass$Type != 7), ]$Al, sho
 
 
 \newpage
-\section{Conclusion}
+\section{Conclusion}\label{sec:conclusion}
 
 
 
 
 
 
-
-
-
-
-
-
-\newpage
-\section{Section 1}
-Example for referring to a chapter: As written in section \ref{Intr} ...
-
-  \subsection{First Subsection}
-	Example for a citation: \cite{sqltuerker},\cite{journals/jods/VolzSM05}, \cite{das}\\
-	%% you might need to compile the tex-file several times (pdfLaTeX, BibTeX, pdfLaTeX)
-	%% in order to see the correct citations instead of question marks: "?"
-
-	\begin{figure}[t!]
-	\centering
-	  \includegraphics[height=0.49\textwidth,angle=90]{images/ercis.png}
-	    \caption{Logo of ERCIS as an example for figures}
-	  \label{ERCIS_Logo}
-	\end{figure}
-
-  \subsection{Second Subsection}
-
-\newpage
-\section{Section 2}
-Here could be a table, e.g. table \ref{tab} (which is on page \pageref{tab}):
-
-\begin{table}[ht] 
-   \centering
-      \begin{tabular}{|c||c|c|c|c|} \hline
-			& \multicolumn{4}{c|}{Feature 2} 						\\
-	Feature 1 & \multicolumn{2}{c|}{case} & \multicolumn{2}{c|}{studies}	\\
-			& ca 			& te 		& go 	& ry 					\\ \hline \hline
-	data 		& 63,50\% 	& 9,56\% 	& 2,16\% 	& 1,17\% 				\\ \hline
-	analytics 	& 1,57\% 		& 0,41\% 	& 0,29\% 	& 0,41\% 				\\ \hline
-      \end{tabular}
-      \caption{This is the label of the table}
-   \label{tab}
-\end{table}
-
-
-If you want to relate to a figure or table from a different page, you could do it this way: Figure \ref{ERCIS_Logo}, see page \pageref{ERCIS_Logo}, shows the ERCIS-Logo.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% appendix
@@ -2535,63 +2492,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \caption{Test results of the chi-squared test on type 7 glass with 30 initial classes}
 \label{tab:chi-type7-30}
 \end{table}
-
-%%% to be deleted:
-\begin{figure}[h!]
-\centering
-<<chisqType2Na, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(Glass.type2$Na, 10, 5, 0.01)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.6\textwidth]{report-chisqType2Na}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
-\label{fig:1}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-<<chisqType2Na-30, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(Glass.type2$Na, 30, 5, 0.01)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.6\textwidth]{report-chisqType2Na-30}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
-\label{fig:2}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-<<chisqType2Al, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(Glass.type2$Al, 10, 5, 0.01)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.6\textwidth]{report-chisqType2Al}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
-\label{fig:1}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-<<chisqType2Al-30, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(Glass.type2$Al, 30, 5, 0.01)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Sodium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.6\textwidth]{report-chisqType2Al-30}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Sodium of type 1 glass}
-\label{fig:2}
-\end{figure}
 
 \end{appendix}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 16:58
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 17:02
 entering extended mode
 **Report.tex
 (D:\DA\report\DAProject\Report.tex
@@ -1069,98 +1069,19 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [36 <D:/DA/report/DAProject/report-cluster7.pdf>] [37 <D:/DA/report/DAProject/r
 eport-contourGlassNaAl-7.pdf>]
 
-LaTeX Warning: Reference `Intr' on page 38 undefined on input line 1308.
-
-
-Package natbib Warning: Citation `sqltuerker' on page 38 undefined on input lin
-e 1311.
-
-
-Package natbib Warning: Citation `journals/jods/VolzSM05' on page 38 undefined 
-on input line 1311.
-
-
-Package natbib Warning: Citation `das' on page 38 undefined on input line 1311.
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1311--1314
-
- []
-
-
-LaTeX Warning: File `images/ercis.png' not found on input line 1317.
-
-
-! Package pdftex.def Error: File `images/ercis.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1317 ...49\textwidth,angle=90]{images/ercis.png}
-                                                  
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[38] [39]
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType2Na.pdf, id=312, 433.62pt x 433.62pt>
-File: report-chisqType2Na.pdf Graphic file (type pdf)
-
-<use report-chisqType2Na.pdf>
-Package pdftex.def Info: report-chisqType2Na.pdf used on input line 1411.
-(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report-chisqType2Na-30.pdf, id=313, 433.62pt x 433.62pt>
-File: report-chisqType2Na-30.pdf Graphic file (type pdf)
-
-<use report-chisqType2Na-30.pdf>
-Package pdftex.def Info: report-chisqType2Na-30.pdf used on input line 1418.
-(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report-chisqType2Al.pdf, id=314, 433.62pt x 433.62pt>
-File: report-chisqType2Al.pdf Graphic file (type pdf)
-
-<use report-chisqType2Al.pdf>
-Package pdftex.def Info: report-chisqType2Al.pdf used on input line 1425.
-(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report-chisqType2Al-30.pdf, id=315, 433.62pt x 433.62pt>
-File: report-chisqType2Al-30.pdf Graphic file (type pdf)
-
-<use report-chisqType2Al-30.pdf>
-Package pdftex.def Info: report-chisqType2Al-30.pdf used on input line 1432.
-(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1] (D:\DA\report\DAProject\Report.lof [2 <D:/DA/report/DAProject/report-chisqT
-ype2Na.pdf>] [3 <D:/DA/report/DAProject/report-chisqType2Na-30.pdf> <D:/DA/repo
-rt/DAProject/report-chisqType2Al.pdf>] [4 <D:/DA/report/DAProject/report-chisqT
-ype2Al-30.pdf>])
+[1] (D:\DA\report\DAProject\Report.lof [2])
 \tf@lof=\write5
- (D:\DA\report\DAProject\Report.lot [5])
+ (D:\DA\report\DAProject\Report.lot
+[3])
 \tf@lot=\write6
 
 No file Report.bbl.
 
 Package natbib Warning: There were undefined citations.
 
-[6] (D:\DA\report\DAProject\Report.aux)
+[4] (D:\DA\report\DAProject\Report.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1169,10 +1090,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6772 strings out of 494045
- 103313 string characters out of 3148436
+ 6745 strings out of 494045
+ 102640 string characters out of 3148436
  203945 words of memory out of 3000000
- 9862 multiletter control sequences out of 15000+200000
+ 9842 multiletter control sequences out of 15000+200000
  45327 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,10n,47p,1807b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1195,9 +1116,9 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on Report.pdf (47 pages, 536143 bytes).
+Output written on Report.pdf (43 pages, 511666 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
+ 384 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 
