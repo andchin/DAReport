@@ -292,7 +292,7 @@ Test methods for univariate normal distribution are introduced in section \ref{s
 
 \subsection{The Glass data set}
 
-The data set that is investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases (Bache, K., Lichman, M. 2013). It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
+The data set that is investigated in this report is the \texttt{Glass} data set from the R package \texttt{mlbench}, originally taken from the UCI Repository of Machine Learning Databases (Bache, K., Lichman, M. 2013). It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
 
 \newpage
 \section{Preliminaries}\label{sec:preliminaries}
@@ -357,9 +357,9 @@ $x_i$ denotes the ordered observations.
 
 The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
 
-In general the statistical power of tests decreases with smaller sample sizes. Compared to other statistical tests, like the Kolmogorov-Smirnov test or the Chi-Squared-Test, the Shapiro-Wilk test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) have a size of $n$ < 50, the test result is quite interesting for the tests of the subdatasets.
+In general, the statistical power of tests decreases with smaller sample sizes. Compared to other statistical tests, like the Kolmogorov-Smirnov test or the Chi-Squared-Test, the Shapiro-Wilk test's statistical power decreases less with smaller samples. Since 4 of 6 glass type samples (glass type 3, 5, 6, and 7) have a size of $n$ < 50, the test result is quite interesting for the tests of the subdatasets.
 
-To conduct the Shapiro-Wilk test in R the function shapiro.test() from the package \textit{stats} was used.
+In order to conduct the Shapiro-Wilk test in R the function \texttt{shapiro.test()} from the package \texttt{stats} is used.
 
 In some cases all observations of certain variables are identical. In these cases the Shapiro-Wilk-Statistic is not applicable for these specific variables since the expression 
 \[ \sum \limits_{i=1}^n (y_i - \bar{y})^2 \]
