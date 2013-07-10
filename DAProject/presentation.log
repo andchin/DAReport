@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 16:16
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 16:53
 entering extended mode
 **presentation.tex
 (D:\DA\report\DAProject\presentation.tex
@@ -1958,17 +1958,17 @@ Overfull \vbox (434.28606pt too high) detected at line 325
 [11
 
 ]
-Overfull \hbox (4.93263pt too wide) in paragraph at lines 382--382
+Overfull \hbox (6.34865pt too wide) in paragraph at lines 376--376
  [] 
  []
 
 
-Overfull \hbox (6.34865pt too wide) in paragraph at lines 382--382
+Overfull \hbox (4.93263pt too wide) in paragraph at lines 376--376
  [] 
  []
 
 
-Overfull \vbox (434.28606pt too high) detected at line 382
+Overfull \vbox (425.2388pt too high) detected at line 376
  []
 
 [12
@@ -1978,7 +1978,7 @@ Overfull \vbox (434.28606pt too high) detected at line 382
 ] [14
 
 ]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 434.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 428.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
@@ -1986,10 +1986,10 @@ File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 File: Report-empiricFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricFunc.pdf>
-Package pdftex.def Info: Report-empiricFunc.pdf used on input line 434.
+Package pdftex.def Info: Report-empiricFunc.pdf used on input line 428.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 434
+Overfull \vbox (3.88528pt too high) detected at line 428
  []
 
 [15
@@ -1999,10 +1999,10 @@ Overfull \vbox (3.88528pt too high) detected at line 434
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 434.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 428.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 434
+Overfull \vbox (3.88528pt too high) detected at line 428
  []
 
 [16
@@ -2011,88 +2011,88 @@ Overfull \vbox (3.88528pt too high) detected at line 434
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 434.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 428.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (3.88528pt too high) detected at line 434
+Overfull \vbox (3.88528pt too high) detected at line 428
  []
 
 [17
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [18
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [19
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [20
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [21
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [22
 
 ]
-Overfull \vbox (425.26721pt too high) detected at line 461
+Overfull \vbox (425.26721pt too high) detected at line 455
  []
 
 [23
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [24
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [25
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [26
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [27
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [28
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [29
 
 ]
-Overfull \vbox (356.30858pt too high) detected at line 481
+Overfull \vbox (356.30858pt too high) detected at line 475
  []
 
 [30
@@ -2100,10 +2100,10 @@ Overfull \vbox (356.30858pt too high) detected at line 481
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [31
@@ -2111,10 +2111,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [32
@@ -2122,10 +2122,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [33
@@ -2133,10 +2133,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [34
@@ -2144,10 +2144,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [35
@@ -2155,10 +2155,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [36
@@ -2166,10 +2166,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [37
@@ -2177,10 +2177,10 @@ Overfull \vbox (431.60172pt too high) detected at line 532
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 532.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 526.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (431.60172pt too high) detected at line 532
+Overfull \vbox (431.60172pt too high) detected at line 526
  []
 
 [38
@@ -2191,13 +2191,13 @@ LaTeX Font Info:    Try loading font information for T1+aett on input line 10.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ))
-Overfull \vbox (272.453pt too high) detected at line 568
+Overfull \vbox (272.453pt too high) detected at line 562
  []
 
 [39
 
 ] (D:\DA\report\DAProject\presentation.vrb)
-Overfull \vbox (272.453pt too high) detected at line 568
+Overfull \vbox (272.453pt too high) detected at line 562
  []
 
 [40
@@ -2205,10 +2205,10 @@ Overfull \vbox (272.453pt too high) detected at line 568
 ]
 File: Report-empiricTeorFunc.pdf Graphic file (type pdf)
  <use Report-empiricTeorFunc.pdf>
-Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 620.
+Package pdftex.def Info: Report-empiricTeorFunc.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [41
@@ -2217,10 +2217,10 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 File: Report-improvedKS.pdf Graphic file (type pdf)
 
 <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [42
@@ -2229,10 +2229,10 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 File: Report-improvedKS.pdf Graphic file (type pdf)
 
 <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [43
@@ -2240,10 +2240,10 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [44
@@ -2251,10 +2251,10 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [45
@@ -2262,10 +2262,10 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [46
@@ -2273,46 +2273,46 @@ Overfull \vbox (409.57948pt too high) detected at line 620
 ]
 File: Report-improvedKS.pdf Graphic file (type pdf)
  <use Report-improvedKS.pdf>
-Package pdftex.def Info: Report-improvedKS.pdf used on input line 620.
+Package pdftex.def Info: Report-improvedKS.pdf used on input line 614.
 (pdftex.def)             Requested size: 167.8713pt x 167.87383pt.
 
-Overfull \vbox (409.57948pt too high) detected at line 620
+Overfull \vbox (409.57948pt too high) detected at line 614
  []
 
 [47
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 648
+Overfull \vbox (390.3061pt too high) detected at line 642
  []
 
 [48
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 648
+Overfull \vbox (390.3061pt too high) detected at line 642
  []
 
 [49
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 648
+Overfull \vbox (390.3061pt too high) detected at line 642
  []
 
 [50
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 648
+Overfull \vbox (390.3061pt too high) detected at line 642
  []
 
 [51
 
 ]
-Overfull \vbox (390.3061pt too high) detected at line 648
+Overfull \vbox (390.3061pt too high) detected at line 642
  []
 
 [52
 
 ]
-Overfull \vbox (397.75107pt too high) detected at line 681
+Overfull \vbox (397.75107pt too high) detected at line 675
  []
 
 [53
@@ -2321,10 +2321,10 @@ Overfull \vbox (397.75107pt too high) detected at line 681
 File: auxiliary-drawQQPlots.pdf Graphic file (type pdf)
 
 <use auxiliary-drawQQPlots.pdf>
-Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 681.
+Package pdftex.def Info: auxiliary-drawQQPlots.pdf used on input line 675.
 (pdftex.def)             Requested size: 235.01881pt x 235.01807pt.
 
-Overfull \vbox (431.55785pt too high) detected at line 681
+Overfull \vbox (431.55785pt too high) detected at line 675
  []
 
 [54
@@ -2344,19 +2344,19 @@ Overfull \vbox (431.55785pt too high) detected at line 681
 \tf@nav=\write7
 \tf@toc=\write8
 \tf@snm=\write9
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 764.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 764.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 758.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 758.
  (D:\DA\report\DAProject\presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 764.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 764.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 758.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 758.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: 112EA326CA0725CF38B97104B437E40A;935.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 764.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 758.
  ) 
 Here is how much of TeX's memory you used:
  29855 strings out of 494045
  575846 string characters out of 3148436
- 714590 words of memory out of 3000000
+ 713590 words of memory out of 3000000
  32236 multiletter control sequences out of 15000+200000
  57084 words of font info for 114 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -2384,7 +2384,7 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (59 pages, 1060911 bytes).
+Output written on presentation.pdf (59 pages, 1061356 bytes).
 PDF statistics:
  3413 PDF objects out of 3580 (max. 8388607)
  133 named destinations out of 1000 (max. 500000)

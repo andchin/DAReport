@@ -344,52 +344,46 @@ transformed data sample}
 \column{0.23\columnwidth}
 \scriptsize
 \vspace{-0.5cm}
-\begin{center}
-{\bf Testing the Full Dataset
-:}
-\end{center}
-Null hypothesis is rejected for all variables at a 1 \% significance level
-\begin{center}
+
+{\bf Testing the Subdatasets Example – Glass Type 1
+:}\\
+\vspace{0.25cm}
+Null hypothesis is rejected for all variables at a 1 \% significance level\\
+\vspace{0.5cm}
+
 {\bf After the Transformation
-:}
-\end{center}
-
-The null hypothesis can be rejected for the four transformed variables
-
-\alert{$\implies$ Possible Explanation:} Combination of different 	
-distributions in the different glass types
+:}\\
+\vspace{0.25cm}
+The null hypothesis cannot be rejected for 3 of the transformed variables\\
+\vspace{0.3cm}
+\alert{$\implies$} 
+Appearently the 	transformation was 	successful
 \vspace{15cm}
 \column{0.77\columnwidth}
 \tiny
 \vspace{-0.8cm}
 \begin{table}[h!]
 \centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.87 & 0.01 & NA & 1.0766713449726e-12 & yes\\ 
-Na & 0.95 & 0.01 & NA & 3.4655430546966e-07 & yes\\ 
-Mg & 0.7 & 0.01 & NA & < 1.0e-15 & yes\\ 
-Al & 0.94 & 0.01 & NA & 2.08315629600399e-07 & yes\\ 
-Si & 0.92 & 0.01 & NA & 2.17503176825416e-09 & yes\\ 
-K & 0.44 & 0.01 & NA & < 1.0e-15 & yes\\ 
-Ca & 0.79 & 0.01 & NA & < 1.0e-15 & yes\\ 
-Ba & 0.41 & 0.01 & NA & < 1.0e-15 & yes\\ 
-Fe & 0.65 & 0.01 & NA & < 1.0e-15 & yes\\ \hline \end{tabular}
-\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
-data sample}
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.88 & 0.01 & NA & 6.36192013015468e-06 & yes\\ 
+Na & 0.95 & 0.01 & NA & 0.00459078607995831 & yes\\ 
+Mg & 0.82 & 0.01 & NA & 8.02702432879544e-08 & yes\\ 
+Al & 0.9 & 0.01 & NA & 5.42971629496434e-05 & yes\\ 
+Si & 0.91 & 0.01 & NA & 0.000117060780025464 & yes\\ 
+K & 0.77 & 0.01 & NA & 3.14049093233846e-09 & yes\\ 
+Ca & 0.93 & 0.01 & NA & 0.00103561283726753 & yes\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on type 1 glass}
 \end{table}
-\vspace{-1cm}
 \begin{table}[h!]
 \centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & NA & NA & NA & NA & NA\\ 
-Na & 0.95 & 0.01 & NA & 8.75605777309153e-07 & yes\\ 
-Mg & NA & NA & NA & NA & NA\\ 
-Al & 0.97 & 0.01 & NA & 0.000244326513056066 & yes\\ 
-Si & 0.93 & 0.01 & NA & 1.58998125691823e-08 & yes\\ 
+\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.89 & 0.01 & NA & 1.62433657125306e-05 & yes\\ 
+Na & 0.98 & 0.01 & NA & 0.353792914291578 & no\\ 
+Mg & 0.83 & 0.01 & NA & 1.40023833110547e-07 & yes\\ 
+Al & 0.96 & 0.01 & NA & 0.0459207068393172 & no\\ 
+Si & 0.94 & 0.01 & NA & 0.00269629206710463 & yes\\ 
 K & NA & NA & NA & NA & NA\\ 
-Ca & 0.89 & 0.01 & NA & 1.13880689831982e-11 & yes\\ 
-Ba & NA & NA & NA & NA & NA\\ 
-Fe & NA & NA & NA & NA & NA\\ \hline \end{tabular}
-\caption{\scriptsize Test results of the Shapiro-Wilk test on the whole
-transformed data sample}
+Ca & 0.97 & 0.01 & NA & 0.148237775100495 & no\\ \hline \end{tabular}
+\caption{\scriptsize Test results of the Shapiro-Wilk test on the transformed
+type 1 glass}
 \end{table}
 \vspace{15cm}
 \end{columns}
