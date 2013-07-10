@@ -1,28 +1,28 @@
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Normality as a requirement for statistical methods}{1}
 \contentsline {subsection}{\numberline {1.2}The Glass data set}{1}
-\contentsline {subsection}{\numberline {1.3}Aim and structure}{1}
 \contentsline {section}{\numberline {2}Preliminaries}{2}
-\contentsline {subsection}{\numberline {2.1}Test methods for normality}{2}
-\contentsline {subsubsection}{\numberline {2.1.1}Q-Q-plot}{2}
-\contentsline {subsubsection}{\numberline {2.1.2}Shapiro-Wilk test}{2}
-\contentsline {subsubsection}{\numberline {2.1.3}Pearson's chi-squared test}{3}
-\contentsline {subsubsection}{\numberline {2.1.4}Kolmogorov-Smirnov test}{7}
-\contentsline {subsection}{\numberline {2.2}Box-Cox-transformation}{13}
-\contentsline {subsection}{\numberline {2.3}Plot of a multivariate normal distribution}{16}
-\contentsline {section}{\numberline {3}Testing the data sample for normality}{17}
-\contentsline {subsection}{\numberline {3.1}Testing original data}{17}
-\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{18}
-\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{21}
-\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{22}
-\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{26}
-\contentsline {subsection}{\numberline {3.2}Testing transformed data}{27}
-\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{28}
-\contentsline {subsubsection}{\numberline {3.2.2}Shapiro-Wilk test}{28}
-\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{30}
-\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{33}
-\contentsline {subsection}{\numberline {3.3}Contour plots of selected variables}{34}
-\contentsline {section}{\numberline {4}Conclusion}{37}
+\contentsline {subsection}{\numberline {2.1}The Normal Distribution}{2}
+\contentsline {subsection}{\numberline {2.2}Test methods for normality}{2}
+\contentsline {subsubsection}{\numberline {2.2.1}Q-Q-plot}{2}
+\contentsline {subsubsection}{\numberline {2.2.2}Shapiro-Wilk test}{3}
+\contentsline {subsubsection}{\numberline {2.2.3}Pearson's chi-squared test}{4}
+\contentsline {subsubsection}{\numberline {2.2.4}Kolmogorov-Smirnov test}{6}
+\contentsline {subsection}{\numberline {2.3}Box-Cox-transformation}{9}
+\contentsline {section}{\numberline {3}Testing the data sample for normality}{13}
+\contentsline {subsection}{\numberline {3.1}Testing original data}{13}
+\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{14}
+\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{16}
+\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{17}
+\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{22}
+\contentsline {subsection}{\numberline {3.2}Testing transformed data}{24}
+\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{24}
+\contentsline {subsubsection}{\numberline {3.2.2}Shapiro-Wilk test}{24}
+\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{26}
+\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{27}
+\contentsline {subsection}{\numberline {3.3}Contour plots of selected variables}{28}
+\contentsline {section}{\numberline {4}Conclusion}{29}
 \contentsline {section}{\numberline {A}Appendix}{i}
-\contentsline {section}{List of Figures}{ii}
-\contentsline {section}{List of Tables}{iii}
+\contentsline {section}{List of Figures}{iii}
+\contentsline {section}{List of Tables}{vi}
+\contentsline {section}{References}{vii}

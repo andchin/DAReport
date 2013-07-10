@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 17:02
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.7.3)  10 JUL 2013 20:47
 entering extended mode
 **Report.tex
 (D:\DA\report\DAProject\Report.tex
@@ -430,6 +430,9 @@ Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count95
 \c@subtable=\count96
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+Package: chngcntr 2009/09/02 v1.0a change counter resetting
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\bbm.sty"
 Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
 LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
@@ -446,10 +449,10 @@ See the caption package documentation for explanation.
 Package: newfloat 2011/11/16 v1.0a Defining new floating environments (AR)
 )
 Package newfloat Info: New float `listing' with options `fileext=los,placement=
-{!ht}' on input line 26.
+{!ht}' on input line 27.
 \c@listing=\count97
-Package newfloat Info: float type `listing'=4 on input line 26.
-Package tocbasic Info: setting babel extension for `los' on input line 26.
+Package newfloat Info: float type `listing'=4 on input line 27.
+Package tocbasic Info: setting babel extension for `los' on input line 27.
 \c@sublisting=\count98
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\boxedminipage\boxedminipage.sty")
@@ -676,30 +679,39 @@ LaTeX Warning: Label `tab:testrestype6SW' multiply defined.
 LaTeX Warning: Label `tab:testrestype7SW' multiply defined.
 
 
-LaTeX Warning: Label `fig:1' multiply defined.
+! Package natbib Error: Bibliography not compatible with author-year citations.
+
+(natbib)                Press <return> to continue in numerical citation style.
 
 
-LaTeX Warning: Label `fig:2' multiply defined.
+See the natbib package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.167 ...and\NAT@force@numbers{}\NAT@force@numbers
+                                                  
+Check the bibliography entries for non-compliant syntax,
+or select author-year BibTeX style, e.g. plainnat
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
-LaTeX Font Info:    ... okay on input line 65.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 65.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 68.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    ... okay on input line 68.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -752,17 +764,17 @@ LaTeX Font Info:    ... okay on input line 65.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (D:\DA\report\DAProject\Report-concordance.tex)
-LaTeX Font Info:    Try loading font information for T1+aess on input line 69.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 72.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aess.fd"
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 69.
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 69.
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -772,96 +784,82 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 eport.toc)
 \tf@toc=\write4
 
-[2]
+[2] [1] <report-plotMVNSim.pdf, id=16, 433.62pt x 433.62pt>
+File: report-plotMVNSim.pdf Graphic file (type pdf)
 
-Package natbib Warning: Citation `uci' on page 1 undefined on input line 89.
-
-
-LaTeX Warning: Reference `sec:testing' on page 1 undefined on input line 95.
-
-
-LaTeX Warning: Reference `sec:conclusion' on page 1 undefined on input line 95.
+<use report-plotMVNSim.pdf>
+Package pdftex.def Info: report-plotMVNSim.pdf used on input line 123.
+(pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
-[1] [2] <report-chisqSampleHist.pdf, id=26, 433.62pt x 433.62pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2] [3 <D:/DA/report/DAProject/report-plotMVNSim.pdf>]
+<report-chisqSampleHist.pdf, id=38, 433.62pt x 433.62pt>
 File: report-chisqSampleHist.pdf Graphic file (type pdf)
 
 <use report-chisqSampleHist.pdf>
-Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 138.
+Package pdftex.def Info: report-chisqSampleHist.pdf used on input line 166.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[3] [4 <D:/DA/report/DAProject/report-chisqSampleHist.pdf>]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 162.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-) [5] [6]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 281.
+[4] [5 <D:/DA/report/DAProject/report-chisqSampleHist.pdf>]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 208.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\bbm\ubbm.fd"
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-<report-empiricFunc.pdf, id=53, 433.62pt x 433.62pt>
+<report-empiricFunc.pdf, id=56, 433.62pt x 433.62pt>
 File: report-empiricFunc.pdf Graphic file (type pdf)
 
 <use report-empiricFunc.pdf>
-Package pdftex.def Info: report-empiricFunc.pdf used on input line 317.
+Package pdftex.def Info: report-empiricFunc.pdf used on input line 244.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
 
-<report-empiricTeorFunc.pdf, id=54, 433.62pt x 433.62pt>
+<report-empiricTeorFunc.pdf, id=57, 433.62pt x 433.62pt>
 File: report-empiricTeorFunc.pdf Graphic file (type pdf)
 
 <use report-empiricTeorFunc.pdf>
-Package pdftex.def Info: report-empiricTeorFunc.pdf used on input line 324.
+Package pdftex.def Info: report-empiricTeorFunc.pdf used on input line 251.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
- [7]
+ [6] [7 <D:/DA/report/DAProject/report-empiricFunc.pdf> <D:/DA/report/DAProject
+/report-empiricTeorFunc.pdf>]
+LaTeX Font Info:    Try loading font information for T1+aett on input line 322.
 
-Package natbib Warning: Citation `De02' on page 8 undefined on input line 345.
 
-[8 <D:/DA/report/DAProject/report-empiricFunc.pdf> <D:/DA/report/DAProject/repo
-rt-empiricTeorFunc.pdf>] [9]
+("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
 <report-improvedKS.pdf, id=81, 433.62pt x 433.62pt>
 File: report-improvedKS.pdf Graphic file (type pdf)
 
 <use report-improvedKS.pdf>
-Package pdftex.def Info: report-improvedKS.pdf used on input line 455.
+Package pdftex.def Info: report-improvedKS.pdf used on input line 356.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
- [10] [11 <D:/DA/report/DAProject/report-improvedKS.pdf>] [12]
-Overfull \hbox (11.67815pt too wide) in paragraph at lines 562--564
+ [8] [9 <D:/DA/report/DAProject/report-improvedKS.pdf>]
+Overfull \hbox (11.67815pt too wide) in paragraph at lines 391--393
 []\T1/aer/m/n/12 The op-ti-mal pa-ram-e-ter for spe-cific ob-ser-va-tions $\OML
 /cmm/m/it/12 x[]; [] ; x[]$ \T1/aer/m/n/12 can be de-ter-mined by a maximum-
  []
 
-[13] <report-transformationUnimodal.pdf, id=103, 433.62pt x 433.62pt>
+[10] <report-transformationUnimodal.pdf, id=100, 433.62pt x 433.62pt>
 File: report-transformationUnimodal.pdf Graphic file (type pdf)
 
 <use report-transformationUnimodal.pdf>
-Package pdftex.def Info: report-transformationUnimodal.pdf used on input line 5
-77.
+Package pdftex.def Info: report-transformationUnimodal.pdf used on input line 4
+06.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
- [14 <D:/DA/report/DAProject/report-transformationUnimodal.pdf>]
-<report-transformationBimodal.pdf, id=114, 433.62pt x 433.62pt>
+ [11 <D:/DA/report/DAProject/report-transformationUnimodal.pdf>]
+<report-transformationBimodal.pdf, id=112, 433.62pt x 433.62pt>
 File: report-transformationBimodal.pdf Graphic file (type pdf)
 
 <use report-transformationBimodal.pdf>
-Package pdftex.def Info: report-transformationBimodal.pdf used on input line 58
-9.
+Package pdftex.def Info: report-transformationBimodal.pdf used on input line 41
+8.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
- [15 <D:/DA/report/DAProject/report-transformationBimodal.pdf>] <report-plotMVN
-Sim.pdf, id=125, 433.62pt x 433.62pt>
-File: report-plotMVNSim.pdf Graphic file (type pdf)
-
-<use report-plotMVNSim.pdf>
-Package pdftex.def Info: report-plotMVNSim.pdf used on input line 612.
-(pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
- [16 <D:/DA/report/DAProject/report-plotMVNSim.pdf>]
-
-LaTeX Warning: Reference `sec:testing' on page 17 undefined on input line 621.
-
+ [12 <D:/DA/report/DAProject/report-transformationBimodal.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -874,52 +872,51 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17] <report-QQfull.pdf, id=139, 433.62pt x 433.62pt>
+[13] <report-QQfull.pdf, id=126, 433.62pt x 433.62pt>
 File: report-QQfull.pdf Graphic file (type pdf)
  <use report-QQfull.pdf>
-Package pdftex.def Info: report-QQfull.pdf used on input line 721.
+Package pdftex.def Info: report-QQfull.pdf used on input line 527.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
-[18] <report-QQsamples.pdf, id=143, 433.62pt x 433.62pt>
+[14] <report-QQsamples.pdf, id=130, 433.62pt x 433.62pt>
 File: report-QQsamples.pdf Graphic file (type pdf)
 
 <use report-QQsamples.pdf>
-Package pdftex.def Info: report-QQsamples.pdf used on input line 729.
+Package pdftex.def Info: report-QQsamples.pdf used on input line 535.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-QQsampleslin1.pdf, id=144, 433.62pt x 433.62pt>
+<report-QQsampleslin1.pdf, id=131, 433.62pt x 433.62pt>
 File: report-QQsampleslin1.pdf Graphic file (type pdf)
 
 <use report-QQsampleslin1.pdf>
-Package pdftex.def Info: report-QQsampleslin1.pdf used on input line 738.
+Package pdftex.def Info: report-QQsampleslin1.pdf used on input line 544.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-QQsampleslin2a.pdf, id=145, 433.62pt x 433.62pt>
+<report-QQsampleslin2a.pdf, id=132, 433.62pt x 433.62pt>
 File: report-QQsampleslin2a.pdf Graphic file (type pdf)
 
 <use report-QQsampleslin2a.pdf>
-Package pdftex.def Info: report-QQsampleslin2a.pdf used on input line 761.
+Package pdftex.def Info: report-QQsampleslin2a.pdf used on input line 567.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
 
-<report-QQsampleslin2b.pdf, id=146, 433.62pt x 433.62pt>
+<report-QQsampleslin2b.pdf, id=133, 433.62pt x 433.62pt>
 File: report-QQsampleslin2b.pdf Graphic file (type pdf)
 
 <use report-QQsampleslin2b.pdf>
-Package pdftex.def Info: report-QQsampleslin2b.pdf used on input line 768.
+Package pdftex.def Info: report-QQsampleslin2b.pdf used on input line 574.
 (pdftex.def)             Requested size: 227.62206pt x 227.62082pt.
- [19 <D:/DA/report/DAProject/report-QQfull.pdf>]
-Overfull \vbox (77.66995pt too high) has occurred while \output is active []
 
 
-[20 <D:/DA/report/DAProject/report-QQsamples.pdf> <D:/DA/report/DAProject/repor
-t-QQsampleslin2a.pdf> <D:/DA/report/DAProject/report-QQsampleslin2b.pdf>]
-[21 <D:/DA/report/DAProject/report-QQsampleslin1.pdf>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15 <D:/DA/report/DAProject/report-QQfull.pdf>] [16 <D:/DA/report/DAProject/rep
+ort-QQsamples.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -932,15 +929,30 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[22] [23]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-chisqType1Na.pdf, id=198, 433.62pt x 433.62pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17 <D:/DA/report/DAProject/report-QQsampleslin1.pdf>] [18 <D:/DA/report/DAProj
+ect/report-QQsampleslin2a.pdf> <D:/DA/report/DAProject/report-QQsampleslin2b.pd
+f>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[19]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-chisqType1Na.pdf, id=185, 433.62pt x 433.62pt>
 File: report-chisqType1Na.pdf Graphic file (type pdf)
 
 <use report-chisqType1Na.pdf>
-Package pdftex.def Info: report-chisqType1Na.pdf used on input line 916.
+Package pdftex.def Info: report-chisqType1Na.pdf used on input line 722.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
@@ -949,139 +961,147 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+[20]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24] [25 <D:/DA/report/DAProject/report-chisqType1Na.pdf>] [26]
+[21 <D:/DA/report/DAProject/report-chisqType1Na.pdf>] [22]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[23]
 
-LaTeX Warning: Reference `sec:Box-Cox-transformation' on page 27 undefined on i
-nput line 1024.
+LaTeX Warning: Reference `sec:Box-Cox-transformation' on page 24 undefined on i
+nput line 830.
 
-[27] <report-QQtrans.pdf, id=219, 433.62pt x 433.62pt>
+<report-QQtrans.pdf, id=207, 433.62pt x 433.62pt>
 File: report-QQtrans.pdf Graphic file (type pdf)
-
-<use report-QQtrans.pdf>
-Package pdftex.def Info: report-QQtrans.pdf used on input line 1028.
+ <use report-QQtrans.pdf>
+Package pdftex.def Info: report-QQtrans.pdf used on input line 834.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<report-QQtransno.pdf, id=220, 433.62pt x 433.62pt>
+<report-QQtransno.pdf, id=208, 433.62pt x 433.62pt>
 File: report-QQtransno.pdf Graphic file (type pdf)
  <use report-QQtransno.pdf>
-Package pdftex.def Info: report-QQtransno.pdf used on input line 1035.
+Package pdftex.def Info: report-QQtransno.pdf used on input line 841.
 (pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[29 <D:/DA/report/DAProject/report-QQtrans.pdf>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[30 <D:/DA/report/DAProject/report-QQtransno.pdf>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report-chisqType1Ca.pdf, id=245, 433.62pt x 433.62pt>
+[24] [25 <D:/DA/report/DAProject/report-QQtrans.pdf>] [26 <D:/DA/report/DAProje
+ct/report-QQtransno.pdf>]
+<report-chisqType1Ca.pdf, id=232, 433.62pt x 433.62pt>
 File: report-chisqType1Ca.pdf Graphic file (type pdf)
 
 <use report-chisqType1Ca.pdf>
-Package pdftex.def Info: report-chisqType1Ca.pdf used on input line 1183.
+Package pdftex.def Info: report-chisqType1Ca.pdf used on input line 878.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<report-chisqType1CaTrans.pdf, id=246, 433.62pt x 433.62pt>
+<report-chisqType1CaTrans.pdf, id=233, 433.62pt x 433.62pt>
 File: report-chisqType1CaTrans.pdf Graphic file (type pdf)
 
 <use report-chisqType1CaTrans.pdf>
-Package pdftex.def Info: report-chisqType1CaTrans.pdf used on input line 1190.
+Package pdftex.def Info: report-chisqType1CaTrans.pdf used on input line 885.
 (pdftex.def)             Requested size: 364.19667pt x 364.21185pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[31]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[32] [33 <D:/DA/report/DAProject/report-chisqType1Ca.pdf>]
-<report-contourGlassNaAl.pdf, id=264, 433.62pt x 433.62pt>
+[27 <D:/DA/report/DAProject/report-chisqType1Ca.pdf>]
+<report-contourGlassNaAl.pdf, id=245, 433.62pt x 433.62pt>
 File: report-contourGlassNaAl.pdf Graphic file (type pdf)
 
 <use report-contourGlassNaAl.pdf>
-Package pdftex.def Info: report-contourGlassNaAl.pdf used on input line 1269.
-(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+Package pdftex.def Info: report-contourGlassNaAl.pdf used on input line 941.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34 <D:/DA/report/DAProject/report-chisqType1CaTrans.pdf>] [35 <D:/DA/report/DA
-Project/report-contourGlassNaAl.pdf>]
-<report-cluster7.pdf, id=286, 433.62pt x 433.62pt>
+<report-cluster7.pdf, id=246, 433.62pt x 433.62pt>
 File: report-cluster7.pdf Graphic file (type pdf)
  <use report-cluster7.pdf>
-Package pdftex.def Info: report-cluster7.pdf used on input line 1278.
-(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+Package pdftex.def Info: report-cluster7.pdf used on input line 951.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
-<report-contourGlassNaAl-7.pdf, id=287, 433.62pt x 433.62pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<report-contourGlassNaAl-7.pdf, id=247, 433.62pt x 433.62pt>
 File: report-contourGlassNaAl-7.pdf Graphic file (type pdf)
 
 <use report-contourGlassNaAl-7.pdf>
-Package pdftex.def Info: report-contourGlassNaAl-7.pdf used on input line 1286.
+Package pdftex.def Info: report-contourGlassNaAl-7.pdf used on input line 960.
+(pdftex.def)             Requested size: 273.14923pt x 273.1622pt.
 
-(pdftex.def)             Requested size: 455.24411pt x 455.26813pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28 <D:/DA/report/DAProject/report-chisqType1CaTrans.pdf>] [29 <D:/DA/report/DA
+Project/report-contourGlassNaAl.pdf> <D:/DA/report/DAProject/report-cluster7.pd
+f>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <D:/DA/report/DAProject/report-cluster7.pdf>] [37 <D:/DA/report/DAProject/r
-eport-contourGlassNaAl-7.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[1] (D:\DA\report\DAProject\Report.lof [2])
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1 <D:/DA/report/DAProject/report-contourGlassNaAl-7.pdf>]
+
+LaTeX Warning: Text page ii contains only floats.
+
+[2] (D:\DA\report\DAProject\Report.lof [3] [4] [5])
 \tf@lof=\write5
- (D:\DA\report\DAProject\Report.lot
-[3])
+
+(D:\DA\report\DAProject\Report.lot [6])
 \tf@lot=\write6
 
-No file Report.bbl.
+Underfull \hbox (badness 2772) in paragraph at lines 1189--1190
+[][]\T1/aer/m/n/12 Bache, K., Lich-man, M. (2013), UCI Ma-chine Learn-ing Repos
+-i-tory, URL:
+ []
 
-Package natbib Warning: There were undefined citations.
-
-[4] (D:\DA\report\DAProject\Report.aux)
+[7] (D:\DA\report\DAProject\Report.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1090,10 +1110,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6745 strings out of 494045
- 102640 string characters out of 3148436
- 203945 words of memory out of 3000000
- 9842 multiletter control sequences out of 15000+200000
+ 6765 strings out of 494045
+ 103011 string characters out of 3148436
+ 218425 words of memory out of 3000000
+ 9859 multiletter control sequences out of 15000+200000
  45327 words of font info for 100 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,10n,47p,1807b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1116,9 +1136,9 @@ nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
 /msbm10.pfb>
-Output written on Report.pdf (43 pages, 511666 bytes).
+Output written on Report.pdf (38 pages, 503006 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
+ 368 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

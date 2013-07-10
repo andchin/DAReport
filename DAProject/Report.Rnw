@@ -218,6 +218,7 @@ transformVector = function(data) {
 \usepackage{amssymb}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{chngcntr}
 
 \frenchspacing
 
@@ -229,7 +230,9 @@ transformVector = function(data) {
 %\usepackage{chngcntr}
 %\def \lstWidth {0.9}
 
+\counterwithin{figure}{section}
 
+\counterwithin{table}{section}
 
 \newcommand{\eg}{e.\,g. }
 \newcommand{\ie}{i.\,e. }
@@ -246,7 +249,7 @@ transformVector = function(data) {
 
 \clearscrheadings                   	% clears all predefined formats voreingestellte Formatierungen
 \pagestyle{scrheadings}			% use this style only on the actual text
-\ohead{FirstName LastName}		% writes your name on each side in the upper right corner
+\ohead{}		% writes your name on each side in the upper right corner
 \automark{section}                  
 \ihead{\headmark}				% automatically writtes the section name in the upper left corner
 \cfoot{\pagemark}				% page number on the bottom (center)
@@ -258,7 +261,7 @@ transformVector = function(data) {
 \title{\hrulefill \\ \vspace*{1cm} Case Studies\\\vspace*{0.5cm}
  "Data Analytics" \\ \vspace*{1cm}\hrulefill\vspace*{1.5cm}}
 \subtitle{Topic\\\vspace*{1.5cm} Summer Term 2013\vspace*{1.5cm}}
-\author{FirstName LastName}
+\author{Andrey Chinnov, Sebastian Honermann, Carlos Zydorek}
 %\institute{e-mail}
 
 \begin{document}
@@ -281,20 +284,52 @@ transformVector = function(data) {
 
 \subsection{Normality as a requirement for statistical methods}
 
-test test test
-
-\subsection{The Glass data set}
-
-The data set investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases \cite{uci}. It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
-
-\subsection{Aim and structure}
+Since the normal distribution has some convenient analytical properties, many statistical tests (\eg Two-sample z-test, One-sample t-test, or Chi-squared test for variance) are based on the assumption that data were drawn from a normal distribution. Furthermore, the central limit theorem for example is applied in many cases in practice. It states that, when under certain conditions a large number of observations stem from the same distribution, their mean will be approximately normally distributed. This statement holds independent of the original distribution the observations are drawn from. Hence, methods for testing sample data on normality are of major importance. 
 
 This report aims at describing test methods for normality and conducting them on the Glass data set. Since the hypothesis of normality is rejected for most of the variables, this report is focused on methods for testing on univariate normal distribution. A transformation is applied to convert the data so that it complies with a normal distribution if possible. Nevertheless, a small part of this report deals with multivariate normal distribution.
 
 Test methods for univariate normal distribution are introduced in section \ref{sec:preliminaries}. Furthermore, a transformation method and a technique for identifying multivariate (more precisely: bivariate) normally distributed data are described. In section \ref{sec:testing}, the introduced test methods are conducted on the original data as well as on the transformed data. Subsequently, the technique for checking on bivariate normal distribution is demonstrated on an example from the Glass data set. The findings are shortly concluded in section \ref{sec:conclusion}.
 
+\subsection{The Glass data set}
+
+The data set that is investigated in this report is the Glass data set from the R package mlbench, originally taken from the UCI Repository of Machine Learning Databases (Bache, K., Lichman, M. 2013). It contains 214 observations on 10 variables of glass specimen. The first variable is the refractive index (RI) followed by weight percent in the corresponding oxide of Sodium (Na), Magnesium (Mg), Aluminium (Al), Silicon (Si), Potassium (K), Calcium (Ca), Barium (Ba) and Iron (Fe). One variable specifies the type of glass as a class attribute. There are seven different types of glass but only six of them are contained in the present data set.
+
 \newpage
 \section{Preliminaries}\label{sec:preliminaries}
+
+\subsection{The Normal Distribution}
+
+The (univariate) normal distribution $N(\mu,\sigma^2)$ is defined to have the density
+
+\[ Pr(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp (-\frac{1}{2\sigma^2}(x - \mu)^2) \]
+
+where $\mu \in \mathbb{R}$ and $\sigma > 0$
+
+The univariate normal distribution is generalised by the multivariate normal distribution for higher
+dimensions. $X$ has a multivariate normal distribution with mean vector $\mu$ and covariance $\Sigma$ > 0, i.e. $X ~ N_p(\mu,\Sigma)$, if
+
+\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
+
+.
+Contour lines of the plot of a multivariate normal distribution are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\, \Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
+
+A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines. An exemplary contour plot is depicted in figure \ref{fig:plotMVNSim}. The data is simulated from the mulitvariate normal distribution with the parameters
+\[\mu = \left(\begin{array}{c} 1\\ 2\end{array} \right), \quad \Sigma = \left[\begin{array}{cc} 27 & 15\\ 15 & 18\end{array} \right]\]
+and a sample size of 500. The contour lines for this simulated sample are apparently elliptically shaped. Obviously, this graphical method only works for two variables respectively, \ie for bivariate distributions.
+
+\begin{figure}[h!]
+\centering
+<<plotMVNSim, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+set.seed=1337
+mvns = mvrnorm(n=500, c(1,2), matrix(c(27,15,15,18), nrow=2))
+X <- mvns[,1]
+Y <- mvns[,2]
+ci2d(X, Y, show="contour", col="black", show.points=TRUE, factor=3)
+@
+\includegraphics[width=0.8\textwidth]{report-plotMVNSim}
+\caption{Data plot with contour lines of a simulated sample from a bivariate normal distribution}
+\label{fig:plotMVNSim}
+\end{figure}
 
 \subsection{Test methods for normality}\label{sec:methods}
 
@@ -367,8 +402,12 @@ Larger differences of observed and expected values indicate a lower compliance t
 \]
 for a given significance level $\alpha$ where $Y$ is a multinomial distributed random variable denoting the counts of observations in each class with $Y_k = |\{i : X_i \in C_k\}|$.
 
-A common requirement for a sufficient approximation demands the minimum number of observations in each class not to fall below five. Hence, marginal or even inner classes have to be unified in some cases in order to achieve a sufficient class size. The following R-function is used here for this purpose.
-<<makebinsLst, eval=FALSE, echo=TRUE>>=
+A common requirement for a sufficient approximation demands the minimum number 
+of observations in each class not to fall below five (Steel, R.G.D., Torrie, J.H. 1960, p. 350). 
+Hence, marginal or even inner classes have to be unified in some cases in order to achieve a 
+sufficient class size. 
+%The following R-function is used here for this purpose.
+<<makebinsLst, eval=FALSE, echo=FALSE>>=
 # Calculates bounds of bins (classes) of a data sample.
 # The initial bounds are given by initial_breaks,
 # k denotes the minimum class size.
@@ -415,8 +454,9 @@ makebins = function(data, initial_breaks, k) {
   return(br)
 }
 @
-Further functions are needed for calculating the expected frequencies, the test statistic, and the result of the test (since the mean and the standard deviation are estimated from the sample, two degrees of freedom are additionally lost):
-<<chisqTestLst, eval=FALSE, echo=TRUE>>=
+%Further functions are needed for calculating the expected frequencies, the test
+% statistic, and the result of the test (since the mean and the standard deviation are estimated from the sample, two degrees of freedom are additionally lost):
+<<chisqTestLst, eval=FALSE, echo=FALSE>>=
 # Calculates the expected probabilities of a normal distribution
 # with the given parameters mean and sd
 # for the given bin (class) bounds
@@ -615,7 +655,7 @@ enough, the distribution function of $\mathbb{D}_n$ can be approximated by
 Kolmogorov-Smirnov distribution function
 $H(t)=1-2\sum_{i=1}^{\infty}(-1)^{i-1} \exp^{-2i^2t^2}$, \ie for each positive
 value $t$ the probability $P(D_n\le t)\to H(t)$ when $n \to \infty$. More
-details can be found in the textbook \cite{De02}.
+details can be found in the textbook (DeGroot, Morris, H., Mark, J. 2003).
 
 The KS test uses the decision rule
 \[ \delta = 
@@ -648,10 +688,10 @@ theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistic is calculated: $D_n=\sqrt{n}\cdot
 \sup_x|F_n(x)-F(x)|=$\Sexpr{format(sqrt(length(dat))*max(abs(dif)),digits=4, nsmall=4)}.
 The critical value for the significance level $\alpha=0.01$ is equal to
-$c=H^{-1}(1-\alpha)$=\Sexpr{c=format(Inverse(H,1-0.01),digits=4,nsmall=4)}. To
-calculate this value the following $R$ functions are used:
+$c=H^{-1}(1-\alpha)$=\Sexpr{c=format(Inverse(H,1-0.01),digits=4,nsmall=4)}. 
+%To calculate this value the following $R$ functions are used:
 
-<<HFunction, eval=TRUE, echo=TRUE, fig=FALSE, include=FALSE, results=tex, prompt = " ", continue = " ">>=
+<<HFunction, eval=TRUE, echo=FALSE, fig=FALSE, include=FALSE, results=tex, prompt = " ", continue = " ">>=
 #Calculates KS distribution function
 H= function(t) {
 	i=1
@@ -747,9 +787,10 @@ The new value of the KS statistics is $D_n=\sqrt{n}\sup_{x \in
 \mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$\Sexpr{format(sqrt(length(dat))*KSoptim$value,digits=4,nsmall=4)}
 which is smaller than the critical value $c=$\Sexpr{c}. Therefore the null
 hypothesis $H_0$ is cannot further be rejected by KS-test. For all further samples the improved KS
-test is used. It was implemented in $R$ and has the following code.
+test is used. 
+%It was implemented in $R$ and has the following code.
 
-<<fullImprovedKStest, eval=TRUE, echo=TRUE, prompt = " ", continue = " ">>=
+<<fullImprovedKStest, eval=FALSE, echo=FALSE, prompt = " ", continue = " ">>=
 # Performs a Kolmogorov-Smirnov goodness of fit test on the given data
 # for the assumption of a normal distribution.
 # Returns true if the null hypothesis (sample drawn from a
@@ -882,38 +923,8 @@ par(mfrow=c(1,1))
 \vfill
 
 
-
-
 \newpage
-\subsection{Plot of a multivariate normal distribution}
-
-Contour lines of the plot of a multivariate normal distribution
-\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
-with mean vector $\mu$ and covariance matrix $\Sigma > 0$ are shaped elliptically. Those ellipsoids are centered at $\mu : \left\{x:(x-\mu)'\, \Sigma^{-1}(x-\mu) = c^2\right\}$ with some constant $c$.
-
-A first approach to check a sample of several variables on multivariate normal distribution is to examine the plot on the appearance of elliptical contour lines. An exemplary contour plot is depicted in figure \ref{fig:plotMVNSim}. The data is simulated from the mulitvariate normal distribution with the parameters
-\[\mu = \left(\begin{array}{c} 1\\ 2\end{array} \right), \quad \Sigma = \left[\begin{array}{cc} 27 & 15\\ 15 & 18\end{array} \right]\]
-and a sample size of 500. The contour lines for this simulated sample are apparently elliptically shaped. Obviously, this graphical method only works for two variables respectively, \ie for bivariate distributions.
-
-\begin{figure}[h!]
-\centering
-<<plotMVNSim, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-set.seed=1337
-mvns = mvrnorm(n=500, c(1,2), matrix(c(27,15,15,18), nrow=2))
-X <- mvns[,1]
-Y <- mvns[,2]
-ci2d(X, Y, show="contour", col="black", show.points=TRUE, factor=3)
-@
-\includegraphics[width=0.8\textwidth]{report-plotMVNSim}
-\caption{Data plot with contour lines of a simulated sample from a bivariate normal distribution}
-\label{fig:plotMVNSim}
-\end{figure}
-
-
-
-
-\newpage
-\section{Testing the data sample for normality}\ref{sec:testing}
+\section{Testing the data sample for normality}\label{sec:testing}
 
 \subsection{Testing original data}
 
@@ -1203,7 +1214,7 @@ qqline(Glass.type6s[["RI"]],lwd=2,col="red")
 %\label{fig:QQsampleslin2}
 %\end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
@@ -1887,6 +1898,263 @@ shapresult.type7.t <- sapply(colnames(Glass.type7s.t), function(x) {
 @
 
 
+
+
+
+\subsubsection{Pearson's chi-squared test}
+<<calculatChisqTrans, echo=FALSE>>=
+testresult.full.trans = apply(transformDataFrame(Glass[, -10]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type1.trans = apply(transformDataFrame(Glass.type1[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type2.trans = apply(transformDataFrame(Glass.type2[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+testresult.type7.trans = apply(transformDataFrame(Glass.type7[, c(-3,-9)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
+@
+Although for all variables for which a transformation is possible the p-value is higher than for the non-transformed data, the hypothesis of normality is still rejected for the whole sample (table \ref{tab:chi-full-trans}). The data of all types of glass is presumably too heterogenuous so that it comprises samples from several distributions within the overall sample of particular variables.
+
+Concerning the transformation of type 1 glass, two more variables (Al and Ca) are now tested positively on the hypothesis of normality (table \ref{tab:chi-type1-trans}). In both cases, the p-value is be increased substantially by the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
+
+\begin{figure}[h!]
+\centering
+<<chisqType1Ca, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(Glass.type1$Ca, 10, 5, 0.05)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Calcium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.8\textwidth]{report-chisqType1Ca}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass}
+\label{fig:chisqType1Ca}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+<<chisqType1CaTrans, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+testres = chisq.test.norm(transformVector(Glass.type1$Ca), 10, 5, 0.05)
+hist=testres$hist
+hist.exp=histFromExpectedFreqs(testres)
+plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="transformed amount of Calcium in [unit]")
+plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
+@
+\includegraphics[width=0.8\textwidth]{report-chisqType1CaTrans}
+\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass}
+\label{fig:chisqType1CaTrans}
+\end{figure}
+
+
+
+Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Sodium.
+
+
+For the observations of type 7 glass, the test can now even be conducted on data of the variable Sodium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
+
+\subsubsection{Kolmogorov-Smirnov test}
+
+%<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
+%testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
+%@
+The first tests are conducted on the whole transformed data set for each
+variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
+for univariate transformation.
+
+%The results are shown in table \ref{tab:KS-full}.
+
+%\begin{table}[h!]
+%\centering
+%<<testresKSFullTrans, echo=FALSE, term=TRUE, results=tex>>=
+%cat("\\begin{tabular}{|cccccc|} ")
+%cat("\\hline ")
+%cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+%cat("\\hline ")
+%tr=testresultKS.full.trans
+%
+%for(i in 1:(length(tr))) {
+%  cat(paste(
+%    names(tr[i]),
+%    round(tr[i][[1]]$teststat, 2),
+%    0.01,
+%    round(tr[i][[1]]$critical_value, 2),
+%    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+%    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+%           sep=" & "), "\\\\ ", "\n", sep="")
+%}
+%
+%cat("\\hline ")
+%cat(paste("\\end{tabular}", "\n", sep=""))
+%@
+%\caption{Test results of the improved KS test on the whole transformed data
+%sample with ten initial classes}
+%\label{tab:KS-fullTrans}
+%\end{table}
+\subsection{Contour plots of selected variables}
+
+The search for bivariate normally distributed variables shall be now demonstrated by an example from the Glass sample. Concerning the complete sample, the p-values for the variables Na and Al are highest among all used test methods. Therefore, these two variables are selected for the contour plot (\ref{fig:contourGlassNaAl}).
+
+\begin{figure}[h!]
+<<contourGlassNaAl, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+ci2d(Glass$Na, Glass$Al, show="contour", col="black", show.points=TRUE, factor=3)
+@
+\centering
+\includegraphics[width=0.6\textwidth]{report-contourGlassNaAl}
+\caption{Data plot with contour lines of the variables Na and Al of the whole sample}
+\label{fig:contourGlassNaAl}
+\end{figure}
+
+
+From the shape of the plot, no clear insight can be deducted about multivariate normality. In the center, the contour lines have an elliptical shape whereas an accumulation of data points can be observed at the upper right corner. This accumulation is presumably due to different distributions of variables among particular glass types. Indeed, it can be acribed to the data of type 7 glass, which can be seen in figure \ref{fig:cluster7}.
+
+\begin{figure}[h!]
+<<cluster7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+plot(Glass$Na, Glass$Al, xlim=c(9.9,18.22), ylim=c(-0.12,3.9))
+points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]$Al, col="red", pch=19)
+@
+\centering
+\includegraphics[width=0.6\textwidth]{report-cluster7}
+\caption{Data plot of the variables Na and Al of the whole sample. Data points of type 7 glass are highlighted in red.}
+\label{fig:cluster7}
+\end{figure}
+
+If the same plot is drawn for the whole sample without data of type 7 glass (figure \ref{fig:contourGlassNaAl-7}), an elliptical shape is recognisable, except for some outliers. Quantitative tests should be conducted next in order to make an exacter point about the compliance of the data with a multivariate normal distribution.
+
+\begin{figure}[h!]
+<<contourGlassNaAl-7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
+ci2d(Glass[which(Glass$Type != 7), ]$Na, Glass[which(Glass$Type != 7), ]$Al, show="contour", col="black", show.points=TRUE, factor=3)
+@
+\centering
+\includegraphics[width=0.6\textwidth]{report-contourGlassNaAl-7}
+\caption{Data plot with contour lines of the variables Na and Al of the whole sample except data of type 7 glass}
+\label{fig:contourGlassNaAl-7}
+\end{figure}
+
+
+\newpage
+\section{Conclusion}\label{sec:conclusion}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% appendix
+
+\newpage
+
+\begin{appendix}
+\pagenumbering{roman}		%% roman page numbers for the appendix
+
+
+
+\section{Appendix}
+
+\begin{table}[h!]
+\centering
+<<testresFull, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.full.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on the whole data sample with 30 initial classes}
+\label{tab:chi-full-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type1.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 1 glass with 30 initial classes}
+\label{tab:chi-type1-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type2.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 2 glass with 30 initial classes}
+\label{tab:chi-type2-30}
+\end{table}
+
+\begin{table}[h!]
+\centering
+<<testresType7-30, echo=FALSE, term=TRUE, results=tex>>=
+cat("\\begin{tabular}{|cccccc|} ")
+cat("\\hline ")
+cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
+cat("\\hline ")
+tr=testresult.type7.30
+
+for(i in 1:(length(tr))) {
+  cat(paste(
+    names(tr[i]),
+    round(tr[i][[1]]$teststat, 2),
+    0.01,
+    round(tr[i][[1]]$critical_value, 2),
+    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
+    ifelse(tr[i][[1]]$rejected, "yes", "no"),
+           sep=" & "), "\\\\ ", "\n", sep="")
+}
+
+cat("\\hline ")
+cat(paste("\\end{tabular}", "\n", sep=""))
+@
+\caption{Test results of the chi-squared test on type 7 glass with 30 initial classes}
+\label{tab:chi-type7-30}
+\end{table}
+
 \begin{table}[h!]
 \centering
 <<testresFullSWtrans, echo=FALSE, term=TRUE, results=tex>>=
@@ -2132,16 +2400,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \label{tab:testrestype7SWtrans}
 \end{table}
 
-
-\subsubsection{Pearson's chi-squared test}
-<<calculatChisqTrans, echo=FALSE>>=
-testresult.full.trans = apply(transformDataFrame(Glass[, -10]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
-testresult.type1.trans = apply(transformDataFrame(Glass.type1[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
-testresult.type2.trans = apply(transformDataFrame(Glass.type2[, c(-8,-10)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
-testresult.type7.trans = apply(transformDataFrame(Glass.type7[, c(-3,-9)]), 2, chisq.test.norm.eh, initial_breaks=10, min=5, sig=0.01)
-@
-Although for all variables for which a transformation is possible the p-value is higher than for the non-transformed data, the hypothesis of normality is still rejected for the whole sample (table \ref{tab:chi-full-trans}). The data of all types of glass is presumably too heterogenuous so that it comprises samples from several distributions within the overall sample of particular variables.
-
 \begin{table}[h!]
 \centering
 <<testresFullTrans, echo=FALSE, term=TRUE, results=tex>>=
@@ -2168,8 +2426,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \caption{Test results of the chi-squared test on the whole transformed data sample with ten initial classes}
 \label{tab:chi-full-trans}
 \end{table}
-
-Concerning the transformation of type 1 glass, two more variables (Al and Ca) are now tested positively on the hypothesis of normality (table \ref{tab:chi-type1-trans}). In both cases, the p-value is be increased substantially by the Box-Cox-transformation. For the variable Calcium, the frequencies of the original data are slightly shifted to lower values (figure \ref{fig:chisqType1Ca}) whereas the transformation fits the data approximately to an according normal distribution (figure \ref{fig:chisqType1CaTrans}).
 
 \begin{table}[h!]
 \centering
@@ -2198,40 +2454,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \label{tab:chi-type1-trans}
 \end{table}
 
-
-
-\begin{figure}[h!]
-\centering
-<<chisqType1Ca, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(Glass.type1$Ca, 10, 5, 0.05)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="amount of Calcium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.8\textwidth]{report-chisqType1Ca}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for the variable Calcium of type 1 glass}
-\label{fig:chisqType1Ca}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-<<chisqType1CaTrans, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-testres = chisq.test.norm(transformVector(Glass.type1$Ca), 10, 5, 0.05)
-hist=testres$hist
-hist.exp=histFromExpectedFreqs(testres)
-plot(hist, col=rgb(1, 0, 0,0.5), main="Histogram of observed and expected densities", xlab="transformed amount of Calcium in [unit]")
-plot(hist.exp, col=rgb(0, 0, 1,0.5), add=TRUE)
-@
-\includegraphics[width=0.8\textwidth]{report-chisqType1CaTrans}
-\caption{Histogram of observed densities (red) and expected densities (blue) within the classes for transformed values of the variable Calcium of type 1 glass}
-\label{fig:chisqType1CaTrans}
-\end{figure}
-
-
-
-Similar effects can be observed for the results of type 2 glass (table \ref{tab:chi-type2-trans}). Here, the hypothesis of normality is additionally not rejected for the variable Sodium.
-
 \begin{table}[h!]
 \centering
 <<testresType2Trans, echo=FALSE, term=TRUE, results=tex>>=
@@ -2258,8 +2480,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \caption{Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes}
 \label{tab:chi-type2-trans}
 \end{table}
-
-For the observations of type 7 glass, the test can now even be conducted on data of the variable Sodium, which were not properly distributed to perform the test before, \ie the data were not divided into a sufficient number of classes (table \ref{tab:chi-type7-trans}).
 
 \begin{table}[h!]
 \centering
@@ -2288,211 +2508,6 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 \label{tab:chi-type7-trans}
 \end{table}
 
-\subsubsection{Kolmogorov-Smirnov test}
-
-%<<calculatKSTrans, eval=TRUE, term=TRUE ,echo=FALSE>>=
-%testresultKS.full.trans = apply(transformDataFrame(Glass[, -10]), 2, KSimpr.test.norm, sig=0.01)
-%@
-The first tests are conducted on the whole transformed data set for each
-variable. No transformation data are given for RI, Mg, K, Ba, Fe - so no sense
-for univariate transformation.
-
-%The results are shown in table \ref{tab:KS-full}.
-
-%\begin{table}[h!]
-%\centering
-%<<testresKSFullTrans, echo=FALSE, term=TRUE, results=tex>>=
-%cat("\\begin{tabular}{|cccccc|} ")
-%cat("\\hline ")
-%cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-%cat("\\hline ")
-%tr=testresultKS.full.trans
-%
-%for(i in 1:(length(tr))) {
-%  cat(paste(
-%    names(tr[i]),
-%    round(tr[i][[1]]$teststat, 2),
-%    0.01,
-%    round(tr[i][[1]]$critical_value, 2),
-%    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
-%    ifelse(tr[i][[1]]$rejected, "yes", "no"),
-%           sep=" & "), "\\\\ ", "\n", sep="")
-%}
-%
-%cat("\\hline ")
-%cat(paste("\\end{tabular}", "\n", sep=""))
-%@
-%\caption{Test results of the improved KS test on the whole transformed data
-%sample with ten initial classes}
-%\label{tab:KS-fullTrans}
-%\end{table}
-\subsection{Contour plots of selected variables}
-
-The search for bivariate normally distributed variables shall be now demonstrated by an example from the Glass sample. Concerning the complete sample, the p-values for the variables Na and Al are highest among all used test methods. Therefore, these two variables are selected for the contour plot (\ref{fig:contourGlassNaAl}).
-
-\begin{figure}[h!]
-<<contourGlassNaAl, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-ci2d(Glass$Na, Glass$Al, show="contour", col="black", show.points=TRUE, factor=3)
-@
-\includegraphics[width=\textwidth]{report-contourGlassNaAl}
-\caption{Data plot with contour lines of the variables Na and Al of the whole sample}
-\label{fig:contourGlassNaAl}
-\end{figure}
-
-
-From the shape of the plot, no clear insight can be deducted about multivariate normality. In the center, the contour lines have an elliptical shape whereas an accumulation of data points can be observed at the upper right corner. This accumulation is presumably due to different distributions of variables among particular glass types. Indeed, it can be acribed to the data of type 7 glass, which can be seen in figure \ref{fig:cluster7}.
-
-\begin{figure}[h!]
-<<cluster7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-plot(Glass$Na, Glass$Al, xlim=c(9.9,18.22), ylim=c(-0.12,3.9))
-points(Glass[which(Glass$Type == 7), -10]$Na, Glass[which(Glass$Type == 7), -10]$Al, col="red", pch=19)
-@
-\includegraphics[width=\textwidth]{report-cluster7}
-\caption{Data plot of the variables Na and Al of the whole sample. Data points of type 7 glass are highlighted in red.}
-\label{fig:cluster7}
-\end{figure}
-
-If the same plot is drawn for the whole sample without data of type 7 glass (figure \ref{fig:contourGlassNaAl-7}), an elliptical shape is recognisable, except for some outliers. Quantitative tests should be conducted next in order to make an exacter point about the compliance of the data with a multivariate normal distribution.
-
-\begin{figure}[h!]
-<<contourGlassNaAl-7, eval=TRUE, echo=FALSE, term=FALSE, fig=TRUE, include=FALSE>>=
-ci2d(Glass[which(Glass$Type != 7), ]$Na, Glass[which(Glass$Type != 7), ]$Al, show="contour", col="black", show.points=TRUE, factor=3)
-@
-\includegraphics[width=\textwidth]{report-contourGlassNaAl-7}
-\caption{Data plot with contour lines of the variables Na and Al of the whole sample except data of type 7 glass}
-\label{fig:contourGlassNaAl-7}
-\end{figure}
-
-
-\newpage
-\section{Conclusion}\label{sec:conclusion}
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% appendix
-
-\newpage
-
-\begin{appendix}
-\pagenumbering{roman}		%% roman page numbers for the appendix
-
-
-
-\section{Appendix}
-
-\begin{table}[h!]
-\centering
-<<testresFull, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=testresult.full.30
-
-for(i in 1:(length(tr))) {
-  cat(paste(
-    names(tr[i]),
-    round(tr[i][[1]]$teststat, 2),
-    0.01,
-    round(tr[i][[1]]$critical_value, 2),
-    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
-    ifelse(tr[i][[1]]$rejected, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the chi-squared test on the whole data sample with 30 initial classes}
-\label{tab:chi-full-30}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=testresult.type1.30
-
-for(i in 1:(length(tr))) {
-  cat(paste(
-    names(tr[i]),
-    round(tr[i][[1]]$teststat, 2),
-    0.01,
-    round(tr[i][[1]]$critical_value, 2),
-    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
-    ifelse(tr[i][[1]]$rejected, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the chi-squared test on type 1 glass with 30 initial classes}
-\label{tab:chi-type1-30}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testresType2-30, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=testresult.type2.30
-
-for(i in 1:(length(tr))) {
-  cat(paste(
-    names(tr[i]),
-    round(tr[i][[1]]$teststat, 2),
-    0.01,
-    round(tr[i][[1]]$critical_value, 2),
-    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
-    ifelse(tr[i][[1]]$rejected, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the chi-squared test on type 2 glass with 30 initial classes}
-\label{tab:chi-type2-30}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testresType7-30, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=testresult.type7.30
-
-for(i in 1:(length(tr))) {
-  cat(paste(
-    names(tr[i]),
-    round(tr[i][[1]]$teststat, 2),
-    0.01,
-    round(tr[i][[1]]$critical_value, 2),
-    ifelse(tr[i][[1]]$p_value < 1e-15, "< 1.0e-15", tr[i][[1]]$p_value),
-    ifelse(tr[i][[1]]$rejected, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the chi-squared test on type 7 glass with 30 initial classes}
-\label{tab:chi-type7-30}
-\end{table}
-
 \end{appendix}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2506,10 +2521,11 @@ cat(paste("\\end{tabular}", "\n", sep=""))
 %% bibliography (if needed)
 
 %\nocite{*}
-\bibliographystyle{plain}
-\bibliography{lit}
-
-%\bibitem[De02]{De02}DeGroot, Morris H., and Mark J. Schervish. Probability and
-%Statistics.
-% 3rd ed. Boston, MA: Addison-Wesley, 2002.
+   \begin{thebibliography}{99}
+    \bibitem{ucl} Bache, K., Lichman, M. (2013), UCI Machine Learning Repository, URL: \texttt{http://archive.ics.uci.edu/ml/datasets/Glass+Identification},  Irvine, CA, University of California, School of Information and Computer Science. 
+    \bibitem{De02} DeGroot, Morris, H., Mark, J. (2003) Probability and
+    Statistics. 3rd ed. Boston, MA: Addison-Wesley.
+    \bibitem{steel} Steel, R.G.D., Torrie, J.H. (1960), Principles and Procedures of Statistics with Special Reference to the Biological Sciences, McGraw Hill, p. 350.
+    
+  \end{thebibliography}
 \end{document}
