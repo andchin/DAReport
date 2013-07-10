@@ -383,12 +383,6 @@ type 1 glass}
 \end{columns}
 }
 
-
-\frame{
-\frametitle{Graphical Methods for Normality Testing}
-\framesubtitle{Shapiro-Wilk Test}
-}
-
 \frame{
 \frametitle{Pearson's Chi-Squared Test}
 \framesubtitle{Theoretical foundations}
@@ -651,8 +645,8 @@ Glass Type 1, Sodium (Na)
 \frametitle{Kolmogorov-Smirnov Test}
 \framesubtitle{Improvement}
 KS test is improved by solving the following
-optimization problem \[KS(\mu,\sigma)=\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+optimization problem \[KS(\mu,\sigma^2)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma^2)|\to \min.\]
 \begin{itemize}
 \item<1->[]$R$ code used:
 \item<2->[]
@@ -688,8 +682,8 @@ optimization problem \[KS(\mu,\sigma)=\sup_{x \in
 \frametitle{Kolmogorov-Smirnov Test}
 \framesubtitle{Improvement}
 KS test is improved by solving the following
-optimization problem \[KS(\mu,\sigma)=\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+optimization problem \[KS(\mu,\sigma^2)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma^2)|\to \min.\]
 \begin{columns}[t]
 \column{0.5\columnwidth}
 \vspace{-1cm}
@@ -739,7 +733,6 @@ Glass Type 1, Sodium (Na)
 \frame{
 \frametitle{Kolmogorov-Smirnov Test}
 \framesubtitle{Results of the improved test on the whole data set}
-Results of Improved KS test on the whole data set:
 \scriptsize
 \begin{table}[h!]
 \centering
@@ -753,14 +746,6 @@ Ca & 1.33 & 0.01 & 1.63 & 0.057710602872685 & no\\
 Ba & 2.60 & 0.01 & 1.63 & 2.75476085742632e-06 & yes\\ 
 Fe & 4.68 & 0.01 & 1.63 & < 1.0e-15 & yes\\ \hline \end{tabular}
 \end{table}
-\normalsize
-\begin{itemize}
-\item<2-> for 5 variables $H_0$ is not rejected (RI,Na,Al,Si,Ca)
-\item<3-> for 4 variables $H_0$ is rejected (Mg,K,Ba,Fe)
-\item<4-> The best statistics test value for Al
-\item<5-> The worst statistic test value for Fe
-\end{itemize}
-\vspace{15cm}
 }
 
 \frame{
@@ -829,6 +814,7 @@ Ba & 0.76 & 0.01 & 1.63 & 0.61288183743927 & no\\ \hline \end{tabular}
 
 \frame{
 \frametitle{Chi-Square Plot for Multivariate Normality}
+\vspace{-1cm}
 \begin{columns}[t]
 \column{0.5\columnwidth}
 \begin{figure}

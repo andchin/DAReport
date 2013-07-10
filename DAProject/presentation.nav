@@ -48,53 +48,51 @@
 \headcommand {\beamer@framepages {17}{17}}
 \headcommand {\slideentry {3}{1}{11}{18/18}{Univariate case}{0}}
 \headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {3}{1}{12}{19/19}{Univariate case}{0}}
-\headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {3}{1}{13}{20/21}{Univariate case}{0}}
-\headcommand {\beamer@framepages {20}{21}}
+\headcommand {\slideentry {3}{1}{12}{19/20}{Univariate case}{0}}
+\headcommand {\beamer@framepages {19}{20}}
+\headcommand {\slideentry {3}{1}{13}{21/21}{Univariate case}{0}}
+\headcommand {\beamer@framepages {21}{21}}
 \headcommand {\slideentry {3}{1}{14}{22/22}{Univariate case}{0}}
 \headcommand {\beamer@framepages {22}{22}}
-\headcommand {\slideentry {3}{1}{15}{23/23}{Univariate case}{0}}
-\headcommand {\beamer@framepages {23}{23}}
-\headcommand {\slideentry {3}{1}{16}{24/26}{Univariate case}{0}}
-\headcommand {\beamer@framepages {24}{26}}
-\headcommand {\slideentry {3}{1}{17}{27/32}{Univariate case}{0}}
-\headcommand {\beamer@framepages {27}{32}}
-\headcommand {\slideentry {3}{1}{18}{33/39}{Univariate case}{0}}
-\headcommand {\beamer@framepages {33}{39}}
-\headcommand {\slideentry {3}{1}{19}{40/47}{Univariate case}{0}}
-\headcommand {\beamer@framepages {40}{47}}
-\headcommand {\slideentry {3}{1}{20}{48/49}{Univariate case}{0}}
-\headcommand {\beamer@framepages {48}{49}}
-\headcommand {\slideentry {3}{1}{21}{50/56}{Univariate case}{0}}
-\headcommand {\beamer@framepages {50}{56}}
-\headcommand {\slideentry {3}{1}{22}{57/61}{Univariate case}{0}}
-\headcommand {\beamer@framepages {57}{61}}
-\headcommand {\slideentry {3}{1}{23}{62/63}{Univariate case}{0}}
-\headcommand {\beamer@framepages {62}{63}}
-\headcommand {\slideentry {3}{1}{24}{64/64}{Univariate case}{0}}
-\headcommand {\beamer@framepages {64}{64}}
-\headcommand {\slideentry {3}{1}{25}{65/65}{Univariate case}{0}}
+\headcommand {\slideentry {3}{1}{15}{23/25}{Univariate case}{0}}
+\headcommand {\beamer@framepages {23}{25}}
+\headcommand {\slideentry {3}{1}{16}{26/31}{Univariate case}{0}}
+\headcommand {\beamer@framepages {26}{31}}
+\headcommand {\slideentry {3}{1}{17}{32/38}{Univariate case}{0}}
+\headcommand {\beamer@framepages {32}{38}}
+\headcommand {\slideentry {3}{1}{18}{39/46}{Univariate case}{0}}
+\headcommand {\beamer@framepages {39}{46}}
+\headcommand {\slideentry {3}{1}{19}{47/48}{Univariate case}{0}}
+\headcommand {\beamer@framepages {47}{48}}
+\headcommand {\slideentry {3}{1}{20}{49/55}{Univariate case}{0}}
+\headcommand {\beamer@framepages {49}{55}}
+\headcommand {\slideentry {3}{1}{21}{56/56}{Univariate case}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {3}{1}{22}{57/58}{Univariate case}{0}}
+\headcommand {\beamer@framepages {57}{58}}
+\headcommand {\slideentry {3}{1}{23}{59/59}{Univariate case}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {3}{1}{24}{60/60}{Univariate case}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{61}{Bivariate case}}\headcommand {\beamer@subsectionpages {8}{60}}
+\headcommand {\slideentry {3}{2}{1}{61/61}{Bivariate case}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\slideentry {3}{2}{2}{62/64}{Bivariate case}{0}}
+\headcommand {\beamer@framepages {62}{64}}
+\headcommand {\sectionentry {4}{Summary}{65}{Summary}{0}}
+\headcommand {\beamer@sectionpages {8}{64}}
+\headcommand {\beamer@subsectionpages {61}{64}}
+\headcommand {\slideentry {4}{0}{3}{65/65}{}{0}}
 \headcommand {\beamer@framepages {65}{65}}
-\headcommand {\beamer@subsectionentry {0}{3}{2}{66}{Bivariate case}}\headcommand {\beamer@subsectionpages {8}{65}}
-\headcommand {\slideentry {3}{2}{1}{66/66}{Bivariate case}{0}}
-\headcommand {\beamer@framepages {66}{66}}
-\headcommand {\slideentry {3}{2}{2}{67/69}{Bivariate case}{0}}
-\headcommand {\beamer@framepages {67}{69}}
-\headcommand {\sectionentry {4}{Summary}{70}{Summary}{0}}
-\headcommand {\beamer@sectionpages {8}{69}}
-\headcommand {\beamer@subsectionpages {66}{69}}
-\headcommand {\slideentry {4}{0}{3}{70/70}{}{0}}
-\headcommand {\beamer@framepages {70}{70}}
 \headcommand {\partentry {Appendix}{1}}
-\headcommand {\beamer@partpages {1}{70}}
-\headcommand {\beamer@sectionpages {70}{70}}
-\headcommand {\beamer@subsectionpages {70}{70}}
-\headcommand {\beamer@appendixpages {71}}
-\headcommand {\slideentry {4}{0}{4}{71/71}{}{1}}
-\headcommand {\beamer@framepages {71}{71}}
-\headcommand {\beamer@partpages {71}{71}}
-\headcommand {\beamer@subsectionpages {71}{71}}
-\headcommand {\beamer@sectionpages {71}{71}}
-\headcommand {\beamer@documentpages {71}}
-\headcommand {\def \inserttotalframenumber {35}}
+\headcommand {\beamer@partpages {1}{65}}
+\headcommand {\beamer@sectionpages {65}{65}}
+\headcommand {\beamer@subsectionpages {65}{65}}
+\headcommand {\beamer@appendixpages {66}}
+\headcommand {\slideentry {4}{0}{4}{66/66}{}{1}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\beamer@partpages {66}{66}}
+\headcommand {\beamer@subsectionpages {66}{66}}
+\headcommand {\beamer@sectionpages {66}{66}}
+\headcommand {\beamer@documentpages {66}}
+\headcommand {\def \inserttotalframenumber {34}}

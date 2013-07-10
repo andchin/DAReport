@@ -1,8 +1,8 @@
 \frametitle{Kolmogorov-Smirnov Test}
 \framesubtitle{Improvement}
 KS test is improved by solving the following
-optimization problem \[KS(\mu,\sigma)=\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
+optimization problem \[KS(\mu,\sigma^2)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma^2)|\to \min.\]
 \begin{itemize}
 \item<1->[]$R$ code used:
 \item<2->[]

@@ -11,18 +11,18 @@
 \contentsline {subsection}{\numberline {2.3}Box-Cox-transformation}{9}
 \contentsline {section}{\numberline {3}Testing the data sample for normality}{13}
 \contentsline {subsection}{\numberline {3.1}Testing original data}{13}
-\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{14}
-\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{16}
-\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{17}
-\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{22}
-\contentsline {subsection}{\numberline {3.2}Testing transformed data}{24}
-\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{24}
+\contentsline {subsubsection}{\numberline {3.1.1}Q-Q-plot}{13}
+\contentsline {subsubsection}{\numberline {3.1.2}Shapiro-Wilk test}{13}
+\contentsline {subsubsection}{\numberline {3.1.3}Pearson's chi-squared test}{15}
+\contentsline {subsubsection}{\numberline {3.1.4}Kolmogorov-Smirnov test}{21}
+\contentsline {subsection}{\numberline {3.2}Testing transformed data}{21}
+\contentsline {subsubsection}{\numberline {3.2.1}Q-Q-plot}{23}
 \contentsline {subsubsection}{\numberline {3.2.2}Shapiro-Wilk test}{24}
-\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{26}
-\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{27}
-\contentsline {subsection}{\numberline {3.3}Contour plots of selected variables}{28}
-\contentsline {section}{\numberline {4}Conclusion}{30}
+\contentsline {subsubsection}{\numberline {3.2.3}Pearson's chi-squared test}{25}
+\contentsline {subsubsection}{\numberline {3.2.4}Kolmogorov-Smirnov test}{26}
+\contentsline {subsection}{\numberline {3.3}Contour plots of selected variables}{26}
+\contentsline {section}{\numberline {4}Conclusion}{28}
 \contentsline {section}{\numberline {A}Appendix}{i}
-\contentsline {section}{List of Figures}{ii}
-\contentsline {section}{List of Tables}{v}
-\contentsline {section}{References}{vi}
+\contentsline {section}{List of Figures}{iii}
+\contentsline {section}{List of Tables}{vi}
+\contentsline {section}{References}{vii}

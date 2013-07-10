@@ -141,13 +141,16 @@ In the QQ-Plot these theoretical quantiles $q_{(j)}$ are then plotted against th
 
 \subsubsection{Shapiro-Wilk test}\label{sec:shapiro-theoretical}
 
-The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. Basically, the test statistic, denoted as $W$, indicates the squared correlation of the observed quantile values and the assumed cumulative distribution function quantiles. In detail the formula compares the expected variance of the assumed normally distributed quantile values in the numerator with the actual variance of the ordered observed sample values in the denominator:
+The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. Basically, the test statistic, denoted as $W$, indicates correlation of the observed quantile values with the assumed cumulative distribution function quantiles and is therefore close to the idea of QQ-plots or probability-plots. 
+
 \[ W = \frac{\sum \limits_{i=1}^n (a_i x_i)^2} {\sum \limits_{i=1}^n (x_i-\bar{x})^2}\]
 where
 
 $a_i$ denotes the normalized "best linear unbiased" coefficients and
 
 $x_i$ denotes the ordered observations.
+
+In detail, $W$ is obtained by dividing the best linear estimate of the slope of a linear regression of the ordered observations $x_i$ by the actual variance of the ordered observed sample values.
 
 The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
 
@@ -288,14 +291,14 @@ should be used. Hence, $c\approx H^{-1}(1-\alpha)$.
 
 Although the KS test is commonly used, it has a huge drawback. Namely it
 considers only completely defined theoretical \cdf. When testing for normality 
-both parameters $\mu$ and $\sigma$ have to be predefined. But usually they are
+both parameters $\mu$ and $\sigma^2$ have to be predefined. But usually they are
 a priori unknown when a sample is going to be tested. Of course it can be
 managed by assigning sample mean and sample variance as unknown parameters (and
 initial KS test suggests to do that) but they are not always the best choice.
-The followong example of the Sodium (Na) distribution illustrates this proposition. 
+The following example of the Sodium (Na) distribution illustrates this proposition. 
 
 For the univariate Sodium (Na) sample of 70 observations the sample mean
-$\bar{\mu}=$13.2423 and the sample variance $\bar{\sigma}=$
+$\bar{\mu}=$13.2423 and the sample variance $\bar{\sigma^2}=$
 0.2493 are calculated. For these values the
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistic is calculated: $D_n=\sqrt{n}\cdot
@@ -304,17 +307,14 @@ The critical value for the significance level $\alpha=0.01$ is equal to
 $c=H^{-1}(1-\alpha)$=1.6276. 
 %To calculate this value the following $R$ functions are used:
 
-Since $D_n>c$ the null hypothesis is rejected by the KS test. But that does not mean
-that the sample is not normal distributed. It only means that it is not normal
-distributed with sample mean and sample variance as parameters of that
-distribution. 
+Since $D_n>c$, the null hypothesis is rejected by the KS test. But that does not mean that the sample is not normally distributed. It only means that the hypothesis is rejected for the normal distribution with these specific parameters sample mean and sample variance. 
 
 In order to manage this issue, the KS test is improved by solving the following
-optimization problem \[KS(\mu,\sigma)=\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
-When the new values $\hat{\mu}$ and $\hat{\sigma}$ that minimize the value
-$KS(\mu,\sigma)$ are found, the general KS test is performed with respect to
-these values of parameters. For solving this optimization problem the following
+optimisation problem \[KS(\mu,\sigma^2)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma^2)|\to \min.\]
+When the new values $\hat{\mu}$ and $\hat{\sigma^2}$ that minimise the value
+$KS(\mu,\sigma^2)$ are found, the general KS test is performed with respect to
+these values of parameters. For solving this optimisation problem the following
 $R$ code is used:
 
 \begin{Schunk}
@@ -332,7 +332,7 @@ $R$ code is used:
  	max(absdiff)
  }
  #optim is a predifined R function in stats package
- #defalut method of optimization is Nelder and Mead (1965)
+ #defalut method of optimisation is Nelder and Mead (1965)
  KSoptim = optim(c(mean,Cov),KS)
  KSoptim$par
 \end{Sinput}
@@ -348,27 +348,27 @@ $R$ code is used:
 \end{Schunk}
 These new parameters
 $\hat{\mu}=$13.1770 and
-$\hat{\sigma}=$0.4682 are taken as
+$\hat{\sigma}^2=$0.4682 are taken as
 parameters of a new theoretical normal \cdf and a new distance is calculated
 (Figure \ref{fig:improvedKS}). 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{report-improvedKS}
-\caption{Normal \cdf with optimized parameters in comparison to the old \cdf
+\caption{Normal \cdf with optimised parameters in comparison to the old \cdf
 with sample mean and sample variance.}
 \label{fig:improvedKS}
 \end{figure}
 
 The new value of the KS statistics is $D_n=\sqrt{n}\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$0.6585
-which is smaller than the critical value $c=$1.6276. Therefore the null
-hypothesis $H_0$ is cannot further be rejected by KS-test. For all further samples the improved KS
+\mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma}^2)|=$0.6585
+which is smaller than the critical value $c=$1.6276. Therefore, the null
+hypothesis $H_0$ cannot further be rejected by KS-test. For all further samples, the improved KS
 test is used. 
 %It was implemented in $R$ and has the following code.
 
 
 The approximation problem with the $H$ function remains in the improved KS test
 as well. Therefore this approximation is only applicable when 
-the sample size is relatively high. Otherwise the tabular values for
+the sample size is relatively high. Otherwise, the tabular values for
 $\mathbb{D}_n$ distribution should be used. 
 
 
@@ -446,76 +446,6 @@ type & skipped variables\\
 \end{tabular}
 \caption{Skipped variables for the particular glass types due to too many zero values}
 \label{tab:zeros}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.88 & 0.01 & NA & 6.36192013015468e-06 & yes\\ 
-Na & 0.95 & 0.01 & NA & 0.00459078607995831 & yes\\ 
-Mg & 0.82 & 0.01 & NA & 8.02702432879544e-08 & yes\\ 
-Al & 0.9 & 0.01 & NA & 5.42971629496434e-05 & yes\\ 
-Si & 0.91 & 0.01 & NA & 0.000117060780025464 & yes\\ 
-K & 0.77 & 0.01 & NA & 3.14049093233846e-09 & yes\\ 
-Ca & 0.93 & 0.01 & NA & 0.00103561283726753 & yes\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 1 glass}
-\label{tab:testrestype1SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.72 & 0.01 & NA & 1.08673299441225e-10 & yes\\ 
-Na & 0.9 & 0.01 & NA & 1.82678898797777e-05 & yes\\ 
-Mg & 0.64 & 0.01 & NA & 2.38749395349814e-12 & yes\\ 
-Al & 0.97 & 0.01 & NA & 0.0591136375348645 & no\\ 
-Si & 0.88 & 0.01 & NA & 3.75379726827069e-06 & yes\\ 
-K & 0.84 & 0.01 & NA & 1.54088105687157e-07 & yes\\ 
-Ca & 0.67 & 0.01 & NA & 7.17521765879123e-12 & yes\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 2 glass}
-\label{tab:testrestype2SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.83 & 0.01 & NA & 0.00554477459285981 & yes\\ 
-Na & 0.95 & 0.01 & NA & 0.42694777005566 & no\\ 
-Mg & 0.93 & 0.01 & NA & 0.2109500928052 & no\\ 
-Al & 0.95 & 0.01 & NA & 0.427341606866833 & no\\ 
-Si & 0.89 & 0.01 & NA & 0.0442493392726916 & no\\ 
-K & 0.76 & 0.01 & NA & 0.000539393334400821 & yes\\ 
-Ca & 0.92 & 0.01 & NA & 0.147928579200966 & no\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 3 glass}
-\label{tab:testrestype3SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.9 & 0.01 & NA & 0.121477380963252 & no\\ 
-Na & 0.88 & 0.01 & NA & 0.0623633158882554 & no\\ 
-Mg & 0.75 & 0.01 & NA & 0.00177054101772265 & yes\\ 
-Al & 0.79 & 0.01 & NA & 0.00461960768904678 & yes\\ 
-Si & 0.9 & 0.01 & NA & 0.134368361027878 & no\\ 
-K & 0.59 & 0.01 & NA & 5.18709751538094e-05 & yes\\ 
-Ca & 0.85 & 0.01 & NA & 0.0259126903932093 & no\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 5 glass}
-\label{tab:testrestype5SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.69 & 0.01 & NA & 0.00107643062031905 & yes\\ 
-Na & 0.7 & 0.01 & NA & 0.00125686447739013 & yes\\ 
-Mg & 0.8 & 0.01 & NA & 0.0192642436690133 & no\\ 
-Al & 0.88 & 0.01 & NA & 0.141250903376574 & no\\ 
-Si & 0.78 & 0.01 & NA & 0.0119496897911561 & no\\ 
-Ca & 0.92 & 0.01 & NA & 0.404068518356898 & no\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 6 glass}
-\label{tab:testrestype6SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|cccccc|} \hline variable & test statistic & sig. level & critical value & p-value & rejected\\ \hline RI & 0.82 & 0.01 & NA & 0.000228738547251759 & yes\\ 
-Na & 0.87 & 0.01 & NA & 0.00202603090330278 & yes\\ 
-Al & 0.96 & 0.01 & NA & 0.289110586782862 & no\\ 
-Si & 0.78 & 0.01 & NA & 3.1655457932838e-05 & yes\\ 
-Ca & 0.72 & 0.01 & NA & 3.98543372675882e-06 & yes\\ 
-Ba & 0.91 & 0.01 & NA & 0.0206467993594091 & no\\ \hline \end{tabular}\caption{Test results of the Shapiro-Wilk test on type 7 glass}
-\label{tab:testrestype7SW}
 \end{table}
 
 \subsubsection{Q-Q-plot}\label{sec:qq-original}

@@ -347,13 +347,16 @@ In the QQ-Plot these theoretical quantiles $q_{(j)}$ are then plotted against th
 
 \subsubsection{Shapiro-Wilk test}\label{sec:shapiro-theoretical}
 
-The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. Basically, the test statistic, denoted as $W$, indicates the squared correlation of the observed quantile values and the assumed cumulative distribution function quantiles. In detail the formula compares the expected variance of the assumed normally distributed quantile values in the numerator with the actual variance of the ordered observed sample values in the denominator:
+The Shapiro-Wilk test is a statistical procedure for testing a complete sample for normality. Basically, the test statistic, denoted as $W$, indicates correlation of the observed quantile values with the assumed cumulative distribution function quantiles and is therefore close to the idea of QQ-plots or probability-plots. 
+
 \[ W = \frac{\sum \limits_{i=1}^n (a_i x_i)^2} {\sum \limits_{i=1}^n (x_i-\bar{x})^2}\]
 where
 
 $a_i$ denotes the normalized "best linear unbiased" coefficients and
 
 $x_i$ denotes the ordered observations.
+
+In detail, $W$ is obtained by dividing the best linear estimate of the slope of a linear regression of the ordered observations $x_i$ by the actual variance of the ordered observed sample values.
 
 The resulting test statistic $W$ is then compared with a critial $W$-value for a given sample size $n$. The resulting significance level can be looked up in existing tables, however, most statistic software (including R) automatically determines the according p-value via the Monte Carlo method when displaying the test statistic $W$.
 
@@ -674,14 +677,14 @@ should be used. Hence, $c\approx H^{-1}(1-\alpha)$.
 
 Although the KS test is commonly used, it has a huge drawback. Namely it
 considers only completely defined theoretical \cdf. When testing for normality 
-both parameters $\mu$ and $\sigma$ have to be predefined. But usually they are
+both parameters $\mu$ and $\sigma^2$ have to be predefined. But usually they are
 a priori unknown when a sample is going to be tested. Of course it can be
 managed by assigning sample mean and sample variance as unknown parameters (and
 initial KS test suggests to do that) but they are not always the best choice.
-The followong example of the Sodium (Na) distribution illustrates this proposition. 
+The following example of the Sodium (Na) distribution illustrates this proposition. 
 
 For the univariate Sodium (Na) sample of 70 observations the sample mean
-$\bar{\mu}=$\Sexpr{format(mean,digits=4, nsmall=4)} and the sample variance $\bar{\sigma}=$
+$\bar{\mu}=$\Sexpr{format(mean,digits=4, nsmall=4)} and the sample variance $\bar{\sigma^2}=$
 \Sexpr{format(Cov,digits=4, nsmall=4)} are calculated. For these values the
 theoretical c.d.f. is determined (Figure \ref{fig:empiricTeorFunc}). Then
 the value of KS statistic is calculated: $D_n=\sqrt{n}\cdot
@@ -714,20 +717,17 @@ Inverse = function(H,a) {
 	uniroot(newFunction,c(0.2,4),tol=0.001)$root
 }
 @
-Since $D_n>c$ the null hypothesis is rejected by the KS test. But that does not mean
-that the sample is not normal distributed. It only means that it is not normal
-distributed with sample mean and sample variance as parameters of that
-distribution. 
+Since $D_n>c$, the null hypothesis is rejected by the KS test. But that does not mean that the sample is not normally distributed. It only means that the hypothesis is rejected for the normal distribution with these specific parameters sample mean and sample variance. 
 
 In order to manage this issue, the KS test is improved by solving the following
-optimization problem \[KS(\mu,\sigma)=\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\mu,\sigma)|\to \min.\]
-When the new values $\hat{\mu}$ and $\hat{\sigma}$ that minimize the value
-$KS(\mu,\sigma)$ are found, the general KS test is performed with respect to
-these values of parameters. For solving this optimization problem the following
+optimisation problem \[KS(\mu,\sigma^2)=\sup_{x \in
+\mathbb{R}}|F_n(x)-F(x,\mu,\sigma^2)|\to \min.\]
+When the new values $\hat{\mu}$ and $\hat{\sigma^2}$ that minimise the value
+$KS(\mu,\sigma^2)$ are found, the general KS test is performed with respect to
+these values of parameters. For solving this optimisation problem the following
 $R$ code is used:
 
-<<KSfunctionOptimization, eval=TRUE, echo=TRUE>>=
+<<KSfunctionoptimisation, eval=TRUE, echo=TRUE>>=
 KS= function(param) {
 	#discretization of a line segment
 	seq = seq(from = min(dat)-0.2, to = max(dat)+0.2, length.out=1000)
@@ -741,14 +741,14 @@ KS= function(param) {
 	max(absdiff)
 }
 #optim is a predifined R function in stats package
-#defalut method of optimization is Nelder and Mead (1965)
+#defalut method of optimisation is Nelder and Mead (1965)
 KSoptim = optim(c(mean,Cov),KS)
 KSoptim$par
 KSoptim$value
 @
 These new parameters
 $\hat{\mu}=$\Sexpr{format(KSoptim$par[1],digits=4,nsmall=4)} and
-$\hat{\sigma}=$\Sexpr{format(KSoptim$par[2],digits=4,nsmall=4)} are taken as
+$\hat{\sigma}^2=$\Sexpr{format(KSoptim$par[2],digits=4,nsmall=4)} are taken as
 parameters of a new theoretical normal \cdf and a new distance is calculated
 (Figure \ref{fig:improvedKS}). 
 \begin{figure}[H]
@@ -756,7 +756,7 @@ parameters of a new theoretical normal \cdf and a new distance is calculated
 #draw empirical c.d.f.
 drawEmpiric(dat)
 
-#new optimized mu and sigma
+#new optimised mu and sigma
 mean1 = KSoptim$par[1]
 Cov1 = KSoptim$par[2]
 
@@ -777,15 +777,15 @@ legend("bottomright", legend = c("F",expression(F[n]),expression(sup(abs(F[n]-F)
 		lty = c("solid","solid","dashed","solid","dashed"), lwd = 1, cex=1, col = c(2,4,3,1,5)) 
 @
 \includegraphics[width=\textwidth]{report-improvedKS}
-\caption{Normal \cdf with optimized parameters in comparison to the old \cdf
+\caption{Normal \cdf with optimised parameters in comparison to the old \cdf
 with sample mean and sample variance.}
 \label{fig:improvedKS}
 \end{figure}
 
 The new value of the KS statistics is $D_n=\sqrt{n}\sup_{x \in
-\mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma})|=$\Sexpr{format(sqrt(length(dat))*KSoptim$value,digits=4,nsmall=4)}
-which is smaller than the critical value $c=$\Sexpr{c}. Therefore the null
-hypothesis $H_0$ is cannot further be rejected by KS-test. For all further samples the improved KS
+\mathbb{R}}|F_n(x)-F(x,\hat{\mu},\hat{\sigma}^2)|=$\Sexpr{format(sqrt(length(dat))*KSoptim$value,digits=4,nsmall=4)}
+which is smaller than the critical value $c=$\Sexpr{c}. Therefore, the null
+hypothesis $H_0$ cannot further be rejected by KS-test. For all further samples, the improved KS
 test is used. 
 %It was implemented in $R$ and has the following code.
 
@@ -794,7 +794,7 @@ test is used.
 # for the assumption of a normal distribution.
 # Returns true if the null hypothesis (sample drawn from a
 # normal distributed population) is rejected, false otherwise.
-# The parameters are optimized.
+# The parameters are optimised.
 # The significance level is determined by sig.
 KSimpr.test.norm = function(data, sig) {
 	critical_value = Inverse(H,1-sig)
@@ -816,7 +816,7 @@ KSimpr.test.norm = function(data, sig) {
 		max(absdiff)
 		}	
 	#optim is a predifined R function in stats package
-	#defalut method of optimization is Nelder and Mead (1965)
+	#defalut method of optimisation is Nelder and Mead (1965)
 	KSoptim = optim(c(mu,sigma),KS)
 	teststat = sqrt(length(data))*KSoptim$value
 	p_value = 1-H(teststat)
@@ -838,7 +838,7 @@ KSimpr.test.norm(dat,0.01)
 
 The approximation problem with the $H$ function remains in the improved KS test
 as well. Therefore this approximation is only applicable when 
-the sample size is relatively high. Otherwise the tabular values for
+the sample size is relatively high. Otherwise, the tabular values for
 $\mathbb{D}_n$ distribution should be used. 
 
 
@@ -946,180 +946,6 @@ type & skipped variables\\
 \end{tabular}
 \caption{Skipped variables for the particular glass types due to too many zero values}
 \label{tab:zeros}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype1SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type1
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 1 glass}
-\label{tab:testrestype1SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype2SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type2
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 2 glass}
-\label{tab:testrestype2SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype3SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type3
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 3 glass}
-\label{tab:testrestype3SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype5SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type5
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 5 glass}
-\label{tab:testrestype5SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype6SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type6
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 6 glass}
-\label{tab:testrestype6SW}
-\end{table}
-
-\begin{table}[h!]
-\centering
-<<testrestype7SW, echo=FALSE, term=TRUE, results=tex>>=
-cat("\\begin{tabular}{|cccccc|} ")
-cat("\\hline ")
-cat(paste("variable & test statistic & sig. level & critical value & p-value & rejected\\\\ ", "\n", sep=""))
-cat("\\hline ")
-tr=shapresult.type7
-
-for(i in 1:(length(tr))) {
-  varname = names(tr[i])
-  pvalue = tr[[varname]][["p.value"]]
-  cat(paste(
-    varname,
-    round(tr[[varname]][["statistic"]], 2),
-    sig,
-    "NA",
-    ifelse(pvalue < 1e-15, "< 1.0e-15", pvalue),
-    ifelse(pvalue<=sig, "yes", "no"),
-           sep=" & "), "\\\\ ", "\n", sep="")
-}
-
-cat("\\hline ")
-cat(paste("\\end{tabular}", "\n", sep=""))
-@
-\caption{Test results of the Shapiro-Wilk test on type 7 glass}
-\label{tab:testrestype7SW}
 \end{table}
 
 \subsubsection{Q-Q-plot}\label{sec:qq-original}

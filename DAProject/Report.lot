@@ -1,38 +1,32 @@
 \contentsline {table}{\numberline {3.1}{\ignorespaces Skipped variables for the particular glass types due to too many zero values\relax }}{13}
-\contentsline {table}{\numberline {3.2}{\ignorespaces Test results of the Shapiro-Wilk test on type 1 glass\relax }}{13}
-\contentsline {table}{\numberline {3.3}{\ignorespaces Test results of the Shapiro-Wilk test on type 2 glass\relax }}{13}
-\contentsline {table}{\numberline {3.4}{\ignorespaces Test results of the Shapiro-Wilk test on type 3 glass\relax }}{14}
-\contentsline {table}{\numberline {3.5}{\ignorespaces Test results of the Shapiro-Wilk test on type 5 glass\relax }}{14}
-\contentsline {table}{\numberline {3.6}{\ignorespaces Test results of the Shapiro-Wilk test on type 6 glass\relax }}{14}
-\contentsline {table}{\numberline {3.7}{\ignorespaces Test results of the Shapiro-Wilk test on type 7 glass\relax }}{14}
-\contentsline {table}{\numberline {3.8}{\ignorespaces Test results of the Shapiro-Wilk test on the whole data sample\relax }}{18}
-\contentsline {table}{\numberline {3.9}{\ignorespaces Test results of the Shapiro-Wilk test on type 1 glass\relax }}{18}
-\contentsline {table}{\numberline {3.10}{\ignorespaces Test results of the Shapiro-Wilk test on type 2 glass\relax }}{19}
-\contentsline {table}{\numberline {3.11}{\ignorespaces Test results of the Shapiro-Wilk test on type 3 glass\relax }}{19}
-\contentsline {table}{\numberline {3.12}{\ignorespaces Test results of the Shapiro-Wilk test on type 5 glass\relax }}{19}
-\contentsline {table}{\numberline {3.13}{\ignorespaces Test results of the Shapiro-Wilk test on type 6 glass\relax }}{19}
-\contentsline {table}{\numberline {3.14}{\ignorespaces Test results of the Shapiro-Wilk test on type 7 glass\relax }}{20}
-\contentsline {table}{\numberline {3.15}{\ignorespaces Test results of the chi-squared test on the whole data sample with ten initial classes\relax }}{20}
-\contentsline {table}{\numberline {3.16}{\ignorespaces Test results of the chi-squared test on type 1 glass with ten initial classes\relax }}{20}
-\contentsline {table}{\numberline {3.17}{\ignorespaces Observed end expected frequencies of items in the classes for the variable Sodium of type 1 glass\relax }}{21}
-\contentsline {table}{\numberline {3.18}{\ignorespaces Test results of the chi-squared test on type 2 glass with ten initial classes\relax }}{22}
-\contentsline {table}{\numberline {3.19}{\ignorespaces Test results of the chi-squared test on type 7 glass with ten initial classes\relax }}{22}
-\contentsline {table}{\numberline {3.20}{\ignorespaces Test results of the improved KS test on the whole data sample\relax }}{23}
-\contentsline {table}{\numberline {3.21}{\ignorespaces Test results of the improved KS test on type 1 glass\relax }}{23}
-\contentsline {table}{\numberline {3.22}{\ignorespaces Test results of the improved KS test on type 2 glass\relax }}{23}
-\contentsline {table}{\numberline {3.23}{\ignorespaces Test results of the improved KS test on type 7 glass\relax }}{24}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Test results of the Shapiro-Wilk test on the whole data sample\relax }}{16}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Test results of the Shapiro-Wilk test on type 1 glass\relax }}{17}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Test results of the Shapiro-Wilk test on type 2 glass\relax }}{17}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Test results of the Shapiro-Wilk test on type 3 glass\relax }}{18}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Test results of the Shapiro-Wilk test on type 5 glass\relax }}{18}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Test results of the Shapiro-Wilk test on type 6 glass\relax }}{18}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Test results of the Shapiro-Wilk test on type 7 glass\relax }}{18}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Test results of the chi-squared test on the whole data sample with ten initial classes\relax }}{19}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Test results of the chi-squared test on type 1 glass with ten initial classes\relax }}{19}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Observed end expected frequencies of items in the classes for the variable Sodium of type 1 glass\relax }}{19}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Test results of the chi-squared test on type 2 glass with ten initial classes\relax }}{21}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Test results of the chi-squared test on type 7 glass with ten initial classes\relax }}{21}
+\contentsline {table}{\numberline {3.14}{\ignorespaces Test results of the improved KS test on the whole data sample\relax }}{22}
+\contentsline {table}{\numberline {3.15}{\ignorespaces Test results of the improved KS test on type 1 glass\relax }}{22}
+\contentsline {table}{\numberline {3.16}{\ignorespaces Test results of the improved KS test on type 2 glass\relax }}{22}
+\contentsline {table}{\numberline {3.17}{\ignorespaces Test results of the improved KS test on type 7 glass\relax }}{22}
 \contentsline {table}{\numberline {A.1}{\ignorespaces Test results of the chi-squared test on the whole data sample with 30 initial classes\relax }}{i}
-\contentsline {table}{\numberline {A.2}{\ignorespaces Test results of the chi-squared test on type 1 glass with 30 initial classes\relax }}{i}
-\contentsline {table}{\numberline {A.3}{\ignorespaces Test results of the chi-squared test on type 2 glass with 30 initial classes\relax }}{i}
+\contentsline {table}{\numberline {A.2}{\ignorespaces Test results of the chi-squared test on type 1 glass with 30 initial classes\relax }}{ii}
+\contentsline {table}{\numberline {A.3}{\ignorespaces Test results of the chi-squared test on type 2 glass with 30 initial classes\relax }}{ii}
 \contentsline {table}{\numberline {A.4}{\ignorespaces Test results of the chi-squared test on type 7 glass with 30 initial classes\relax }}{ii}
 \contentsline {table}{\numberline {A.5}{\ignorespaces Test results of the Shapiro-Wilk test on the whole transformed data sample\relax }}{ii}
-\contentsline {table}{\numberline {A.6}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 1 glass\relax }}{ii}
-\contentsline {table}{\numberline {A.7}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 2 glass\relax }}{ii}
+\contentsline {table}{\numberline {A.6}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 1 glass\relax }}{iii}
+\contentsline {table}{\numberline {A.7}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 2 glass\relax }}{iii}
 \contentsline {table}{\numberline {A.8}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 3 glass\relax }}{iii}
 \contentsline {table}{\numberline {A.9}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 5 glass\relax }}{iii}
-\contentsline {table}{\numberline {A.10}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 6 glass\relax }}{iii}
-\contentsline {table}{\numberline {A.11}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 7 glass\relax }}{iii}
+\contentsline {table}{\numberline {A.10}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 6 glass\relax }}{iv}
+\contentsline {table}{\numberline {A.11}{\ignorespaces Test results of the Shapiro-Wilk test on the transformed type 7 glass\relax }}{iv}
 \contentsline {table}{\numberline {A.12}{\ignorespaces Test results of the chi-squared test on the whole transformed data sample with ten initial classes\relax }}{iv}
 \contentsline {table}{\numberline {A.13}{\ignorespaces Test results of the chi-squared test on the transformed data of type 1 glass with ten initial classes\relax }}{iv}
-\contentsline {table}{\numberline {A.14}{\ignorespaces Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes\relax }}{iv}
+\contentsline {table}{\numberline {A.14}{\ignorespaces Test results of the chi-squared test on the transformed data of type 2 glass with ten initial classes\relax }}{v}
 \contentsline {table}{\numberline {A.15}{\ignorespaces Test results of the chi-squared test on the transformed data of type 7 glass with ten initial classes\relax }}{v}
