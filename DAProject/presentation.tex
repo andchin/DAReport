@@ -91,9 +91,26 @@
 
 \subsection{Normality as a requirement for statistical methods}
 
+\subsection{Normality as a requirement for statistical methods}
+
 \frame{
 \frametitle{Normality as a requirement for statistical methods}
+Many statistical tests assume data to be drawn from a normal distribution
+\bi
+\item Two-sample z-test
+\item One-sample t-test
+\item Chi-squared test for variance \dots
+\ei
 
+\begin{block}{Density function of the univariate normal distribution}
+\[ Pr(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\,\mbox{exp}\left\{-\frac{1}{2\sigma^2}(x - \mu)^2\right\} \]
+with the parameters mean $\mu \in \mathbb{R}$ and variance $\sigma > 0$
+\end{block}
+
+\begin{block}{Density function of the multivariate normal distribution}
+\[Pr(x) = |2\pi\Sigma|^{-1/2} \,\mbox{exp}\left\{-\frac{1}{2}(x-\mu)' \Sigma^{-1}(x-\mu)\right\}\]
+with mean vector $\mu$ and covariance $\Sigma$ > 0
+\end{block}
 }
 
 \subsection{Data Set Overview}
@@ -812,6 +829,8 @@ Ba & 0.76 & 0.01 & 1.63 & 0.61288183743927 & no\\ \hline \end{tabular}
 \end{table}
 }
 
+\subsection{Multivariate case}
+
 \frame{
 \frametitle{Chi-Square Plot for Multivariate Normality}
 \begin{block}{Sample mean and covariance matrix}
@@ -845,7 +864,6 @@ $q_{(j)} = (\chi^2_p)^{-1}\left(\frac{j - \frac{1}{2}} {n}\right)$ - theoretical
 \end{columns}
 }
 
-\subsection{Bivariate case}
 
 \frame{
 \frametitle{Plot of multivariate normal distribution}
@@ -896,6 +914,21 @@ Multivariate normal distribution with sample size 500 and parameters
 
 \frame{
 \frametitle{Summary}
+\bi
+\item Normal distribution is assumed for many statistical methods.
+\item Test methods for normality
+  \bi
+  \item Q-Q-plot
+  \item Shapiro-Wilk test
+  \item Chi-squared test
+  \item Kolmogorov-Smirnov test
+  \item Plotting contour lines for the multivariate case
+  \item Chi-squared plot
+  \ei
+\item The tests return different results but often have similar tendencies.
+\item Box-Cox transformation is only suited for unimodal and not too noisy data.
+\item Data from the \texttt{Glass}-package appear to be heterogenuous in the complete sample but rather not for specific types.
+\ei
 }
 
 \appendix
