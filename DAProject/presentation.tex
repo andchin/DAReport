@@ -91,8 +91,6 @@
 
 \subsection{Normality as a requirement for statistical methods}
 
-\subsection{Normality as a requirement for statistical methods}
-
 \frame{
 \frametitle{Normality as a requirement for statistical methods}
 Many statistical tests assume data to be drawn from a normal distribution
@@ -103,7 +101,7 @@ Many statistical tests assume data to be drawn from a normal distribution
 \ei
 
 \begin{block}{Density function of the univariate normal distribution}
-\[ Pr(x) = \frac{1}{\sqrt{2\pi\sigma^2}}\,\mbox{exp}\left\{-\frac{1}{2\sigma^2}(x - \mu)^2\right\} \]
+\[ Pr(x) = (2\pi\sigma^2)^{-1/2}\,\mbox{exp}\left\{-\frac{1}{2\sigma^2}(x - \mu)^2\right\} \]
 with the parameters mean $\mu \in \mathbb{R}$ and variance $\sigma > 0$
 \end{block}
 
@@ -407,7 +405,7 @@ type 1 glass}
 \bi
 \item Divide observations $X_1, \dots, X_N$ into \hl{pairwise disjoint classes} $C_1, \dots, C_K$
 \item Common requirement: minimum class size of 5
-\item Compare \hl{observed} class frequencies to \hl{expected} theoretical class frequencies for a certain distribution
+\item Compare \hl{observed} class frequencies $O_k$ to \hl{expected} theoretical class frequencies $E_k$ for a certain distribution
 \ei
 \[\mbox{test statistic:}\quad\chi^2 = \sum_{k=1}^{K}\frac{(O_k - E_k)^2}{E_k}\]
 \bi
@@ -839,7 +837,7 @@ $d^2_j= (X_j-\bar{X})'S(X_j-\bar{X})', \quad j=1,2,\dots n$\\
 \[\alert{d^2_j\approx \chi^2_p}\]
 $d^2_{(1)}\le d^2_{(2)} \le \dots \le d^2_{(n)}$ - empirical quantiles\\
 $q_{(j)} = (\chi^2_p)^{-1}\left(\frac{j - \frac{1}{2}} {n}\right)$ - theoretical quantiles\\
-\alert{$\implies$}  Plot $d^2_{(i)}$ against $q_{(i)}$
+\alert{$\implies$}  Plot $d^2_{(j)}$ against $q_{(j)}$
 \end{block}
 \vspace{15cm}
 }
@@ -898,7 +896,7 @@ Multivariate normal distribution with sample size 500 and parameters
 \framesubtitle{Application}
 \bi
 \item Concerning the complete sample, the p-values for the variables Na and Al are highest among all used test methods.
-\item Plot data points and determine contour lines.
+\item Plot data points and determine contour lines. \phantom{.........} \only<2>{\hl{type 7 glass}}
 \ei
 \begin{center}
 \only<1>{\includegraphics[width=0.5\textwidth]{report-contourGlassNaAl}}
